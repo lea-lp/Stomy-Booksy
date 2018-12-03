@@ -23,11 +23,18 @@ var NavbarSticky = (function() {
 			$this.addClass('sticky');
 			$("#logo-nav").hide(100);
 			$("#logo-nav-row").show(100);
-			$("#button-sign-up").hide();
+			$("#button-sign-up").hide(100);
+			$("#button-log-in").hide(100);
+			$("#button-sign-up-slim").show(100);
+			$("#button-log-in-slim").show(100);
 		} else {
 			$this.removeClass('sticky');
 			$("#logo-nav").show(100);
 			$("#logo-nav-row").hide(100);
+			$("#button-sign-up").show(100);
+			$("#button-log-in").show(100);
+			$("#button-sign-up-slim").hide(100);
+			$("#button-log-in-slim").hide(100);
 		}
 	}
 

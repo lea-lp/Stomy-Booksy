@@ -63,23 +63,30 @@
     
 
                             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-
-                                <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+                                <!-- BUTTON LOG IN REGULAR -->
+                                <li class="nav-item" id="button-log-in"><%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
                                 </li>
+                                <!-- BUTTON LOG IN SLIM -->
+                                <li class="nav-item mr-0" id="button-log-in-slim"><%= link_to "", new_user_session_path, class: "nav-link d-lg-none" %>
+                                    <a href="<%= new_user_session_path %>">
+                                        <i class="fas fa-sign-in-alt align-items-center" style="color: white; margin-right: 40px; font-size: 1.3em;"></i>
+                                   </a>
+                               </li>
 
-                                <li class="nav-item mr-0"><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link d-lg-none", id: "button-sign-up" %>
+
+                                <!-- BUTTON SIGN UP REGULAR -->
+                                <li class="nav-item mr-0" id="button-sign-up"><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link d-lg-none" %>
                                      <a href="<%= new_user_registration_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
                                         <span class="btn-inner--text">S'inscrire</span>
                                     </a>
                                 </li>
+                                <!-- BUTTON SIGN UP SLIM -->
+                                <li class="nav-item mr-0" id="button-sign-up-slim"><%= link_to "", new_user_registration_path, class: "nav-link d-lg-none" %>
+                                    <a href="<%= new_user_registration_path %>">
+                                        <i class="fas fa-user-plus align-items-center" style="color: white; font-size: 1.3em;"></i>
+                                   </a>
+                               </li>
 
-
-                                <!-- <li class="nav-item mr-0">
-                                    <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="nav-link d-lg-none">Purchase now</a>
-                                    <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
-                                        <span class="btn-inner--text">Purchase now</span>
-                                    </a>
-                                </li> -->
                             </ul>
                         </div>
                     <% end %>
