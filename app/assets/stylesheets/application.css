@@ -1,88 +1,101 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_self
+*= require_tree .
 
- *= require all.min
- *= require swiper.min
- *= require animate.min
- *= require theme.min
- *= require theme
+*= require all.min
+*= require swiper.min
+*= require animate.min
+*= require theme.min
+*= require theme
 
 
- */
+*/
 
 nav {
-    height: 100px;
+  height: 100px;
 }
-  
-  .dropdown-menu {
-    width: 20px;
-  }
-  
-  .position-absolute {
-    margin-bottom: -7px !important;
-  }
-  
-  footer {
-    margin-top: -40px;
-  }
-  
-  footer a {
-    color: grey
-  }
-  
-  #section-index-background {
-    background-image: url('img/backgrounds/clouds-bottom.png');
-    z-index: 100;
-  }
-  
-  .registers a {
-    color: rgba(92, 85, 85, 0.514);
-    margin-bottom: -200px
-  }
-  
-  .registers{
-    height: 650px;
-    background-image: url('img/backgrounds/clouds-bottom.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  .img-index{
-    display: flex;
-    justify-items: center;
-  }
-  
-  #pass-new {
-    height: 375px;
-    background-image: url('img/backgrounds/clouds-bottom.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
 
-  #middle {
-    margin-right: auto;
-    margin-left: auto;
-    width: 70%;
-    height: 400px;
-    margin-top: 65px;
-    border:3px solid #999;
-    background-color:#333;
-    }
+.dropdown-menu {
+  width: 20px;
+}
+
+.position-absolute {
+  margin-bottom: -7px !important;
+}
+
+footer {
+  box-shadow: inset 0px 0px 50px 0px rgba(187, 187, 187, 0.315);
+}
+
+footer a {
+  color: grey
+}
+
+#section-index-background {
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  z-index: 100;
+}
+
+.registers a {
+  color: rgba(92, 85, 85, 0.514);
+  margin-bottom: -200px
+}
+
+.registers{
+  height: 650px;
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-index{
+  display: flex;
+  justify-items: center;
+}
+
+#pass-new {
+  height: 375px;
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+#middle {
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+  height: 400px;
+  margin-top: 65px;
+  border:3px solid #999;
+  background-color:#333;
+  }
 
 #middlecontent {
-    font: normal 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
-    padding: 10px;
+  font: normal 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
+  padding: 10px;
+}
+
+.foot-links {
+width: 200px;
+height: auto;
+padding-top: 50px;
+}
+
+.foot-links-a {
+width: 150px;
+height: auto;
+padding-top: 50px;
+margin-left: 70px;
 }

@@ -7722,7 +7722,8 @@ button.bg-light:focus
 
 .bg-dark
 {
-    background-color: #05172a !important;
+    background-color: rgba(13, 10, 24, 0.89) !important;
+    box-shadow: inset 0px -27px 51px 0px rgba(255, 255, 255, 0.089);
 }
 
 a.bg-dark:hover,
@@ -18155,7 +18156,7 @@ Styled shaped wrappers for displaying code and images in a more stylish manner
     left: 0;
 
     width: 100%;
-    height: 50px;
+    height: 44px;
 
     transition: all .2s ease-in-out; 
     transform: translateY(100px);
