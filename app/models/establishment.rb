@@ -5,6 +5,6 @@ class Establishment < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
   validates :siret, presence: true
-  validates :adress, presence: true
+  validates :address, presence: true
   validates :phone, presence: true
 end

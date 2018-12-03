@@ -3,6 +3,6 @@ class AddColumnToStudents < ActiveRecord::Migration[5.2]
     add_column :students, :first_name, :string
     add_column :students, :last_name, :string
     add_column :students, :phone, :string
-    add_column :students, :adress, :text
+    add_column :students, :address, :text
   end
 end

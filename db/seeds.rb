@@ -11,14 +11,14 @@ Teacher.destroy_all
 Establishment.destroy_all
 
 10.times do
-  Student.create(phone:Faker::IDNumber.valid,email:Faker::Internet.free_email, first_name:Faker::DragonBall.character, last_name:Faker::Cat.name,password:"azerty",adress:Faker::Address.full_address)
+  Student.create(phone:Faker::IDNumber.valid,email:Faker::Internet.free_email, first_name:Faker::DragonBall.character, last_name:Faker::Cat.name,password:"azerty",address:Faker::Address.full_address)
 end
 
 10.times do
-  Teacher.create(phone:Faker::IDNumber.valid,email:Faker::Internet.email, first_name:Faker::FunnyName.name, last_name:Faker::Cat.name,password:"azerty",adress:Faker::Address.full_address, siret:Faker::Device.serial, description:Faker::ChuckNorris.fact)
+  Teacher.create(phone:Faker::IDNumber.valid,email:Faker::Internet.email, first_name:Faker::FunnyName.name, last_name:Faker::Cat.name,password:"azerty",address:Faker::Address.full_address, siret:Faker::Device.serial, description:Faker::ChuckNorris.fact)
 end
 
 10.times do
   Establishment.create(phone:Faker::IDNumber.valid,email:Faker::Internet.safe_email, name:Faker::Device.platform, siret:
-Faker::Device.serial,password:"azerty",adress:Faker::Address.full_address, description:Faker::ChuckNorris.fact)
+Faker::Device.serial,password:"azerty",address:Faker::Address.full_address, description:Faker::ChuckNorris.fact)
 end

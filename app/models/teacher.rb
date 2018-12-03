@@ -7,5 +7,4 @@ class Teacher < ApplicationRecord
   validates :last_name, presence: true
   validates :siret, presence: true
   validates :phone, presence: true
-  validates :adress, presence: true
 end

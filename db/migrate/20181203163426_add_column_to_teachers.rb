@@ -5,6 +5,6 @@ class AddColumnToTeachers < ActiveRecord::Migration[5.2]
     add_column :teachers, :siret, :string
     add_column :teachers, :description, :text
     add_column :teachers, :phone, :string
-    add_column :teachers, :adress, :text
+    add_column :teachers, :address, :text
   end
 end
