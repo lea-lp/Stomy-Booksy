@@ -21,24 +21,24 @@ var NavbarSticky = (function() {
 		// otherwise change it back to relative
 		if (scrollTop > (navOffsetTop + 200)) {
 			$this.addClass('sticky');
-			$("#logo-nav").hide("fast");
-			$("#logo-nav-row").show("fast");
-			$("#button-sign-up").hide("fast");
-			$("#button-log-in").hide("fast");
-			$("#button-profile").hide("fast");
-			$("#button-sign-up-slim").show("fast");
-			$("#button-profile-slim").show("fast");
-			$("#button-log-in-slim").show("fast");
+			$("#logo-nav").hide();
+			$("#logo-nav-row").show();
+			$("#button-sign-up").hide();
+			$("#button-log-in").hide();
+			$("#button-profile").hide();
+			$("#button-sign-up-slim").show();
+			$("#button-profile-slim").show();
+			$("#button-log-in-slim").show();
 		} else {
 			$this.removeClass('sticky');
-			$("#logo-nav").show("fast");
-			$("#logo-nav-row").hide("fast");
-			$("#button-sign-up").show("fast");
-			$("#button-log-in").show("fast");
-			$("#button-profile").show("fast");
-			$("#button-sign-up-slim").hide("fast");
-			$("#button-log-in-slim").hide("fast");
-			$("#button-profile-slim").hide("fast");
+			$("#logo-nav").show();
+			$("#logo-nav-row").hide();
+			$("#button-sign-up").show();
+			$("#button-log-in").show();
+			$("#button-profile").show();
+			$("#button-sign-up-slim").hide();
+			$("#button-log-in-slim").hide();
+			$("#button-profile-slim").hide();
 		}
 	}
 
