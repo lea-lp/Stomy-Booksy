@@ -19,10 +19,15 @@ var NavbarSticky = (function() {
 
 		// if we've scrolled more than the navigation, change its position to fixed to stick to top,
 		// otherwise change it back to relative
-		if (scrollTop > (navOffsetTop + 200)) {
+		if (scrollTop > (navOffsetTop + 100)) {
 			$this.addClass('sticky');
+			$("#logo-nav").hide(100);
+			$("#logo-nav-row").show(100);
+			$("#button-sign-up").hide();
 		} else {
 			$this.removeClass('sticky');
+			$("#logo-nav").show(100);
+			$("#logo-nav-row").hide(100);
 		}
 	}
 

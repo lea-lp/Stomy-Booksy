@@ -1,0 +1,89 @@
+
+    <header class="header-transparent" id="header-main">
+       
+        <!-- Main navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
+            <div class="container">
+                <a class="navbar-brand mr-lg-5" href="<%= root_path %>">
+                    <%= image_tag "logo.png", alt: "logo", id: "logo-nav", style: "height: 100px" %>
+                    <%= image_tag "logo-row.png", alt: "logo-row", id: "logo-nav-row", style: "width: 130px" %>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    
+                    <!-- ............................USER IN.......................... -->
+                    <% if user_signed_in? %>
+
+                        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+
+                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+<!-- BOUTON PANIER EN HAUT A DROITE -->
+                                <li class="nav-item mr-0 px-2">
+                                  <a href="<%= cart_show_path %>" class="btn btn-sm btn-dark btn-circle">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <% if current_user.cart.items.count == 0 %>
+                                    <span class="btn-inner--text">Panier</span>
+                                    <% else %>
+                                    <span class="btn-inner--text">Panier <strong>(<%= current_user.cart.items.count %>)</strong></span>
+                                    <% end %>
+                                  </a>
+                                </li>
+                                
+                                <li class="nav-item dropdown dropdown-animate " data-toggle="hover">
+                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center" style="color: white"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
+                                        <div class="list-group">
+                                            <a href="<%= profile_path %>" class="list-group-item list-group-item-action">
+                                                <div class="media d-flex align-items-center">
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-1">Profil</h6>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="<%= destroy_user_session_path %>" class="list-group-item list-group-item-action" data-method="DELETE">
+                                                <div class="media d-flex align-items-center">
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-1"><strong>Déconnexion</strong></h6>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    <!-- ............................USER OUT.......................... -->
+
+                    <% else %>
+
+                        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+    
+
+                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+
+                                <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+                                </li>
+
+                                <li class="nav-item mr-0"><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link d-lg-none", id: "button-sign-up" %>
+                                     <a href="<%= new_user_registration_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                                        <span class="btn-inner--text">S'inscrire</span>
+                                    </a>
+                                </li>
+
+
+                                <!-- <li class="nav-item mr-0">
+                                    <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="nav-link d-lg-none">Purchase now</a>
+                                    <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                                        <span class="btn-inner--text">Purchase now</span>
+                                    </a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </nav>
+    </header>

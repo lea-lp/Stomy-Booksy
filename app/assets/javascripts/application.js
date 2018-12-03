@@ -22,7 +22,7 @@
 //= require tweenmax.min
 //= require wavify.min
 //= require swiper.min
-//= require theme.min
+
 
 //= require_tree .
 

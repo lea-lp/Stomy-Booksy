@@ -18,118 +18,76 @@
  *= require animate.min
  *= require theme.min
  *= require theme
- *= require font-awesome
 
 
  */
 
+nav {
+    height: 100px;
+}
+
 .fa-user-circle {
-  width: 35px !important; 
-  height: 35px !important;;
-}
+    width: 35px !important; 
+    height: 35px !important;;
+  }
+  
+  .dropdown-menu {
+    width: 20px;
+  }
+  
+  .position-absolute {
+    margin-bottom: -7px !important;
+  }
+  
+  footer {
+    margin-top: -40px;
+  }
+  
+  footer a {
+    color: grey
+  }
+  
+  #section-index-background {
+    background-image: url('img/backgrounds/clouds-bottom.png');
+    z-index: 100;
+  }
+  
+  .registers a {
+    color: rgba(92, 85, 85, 0.514);
+    margin-bottom: -200px
+  }
+  
+  .registers{
+    height: 650px;
+    background-image: url('img/backgrounds/clouds-bottom.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .img-index{
+    display: flex;
+    justify-items: center;
+  }
+  
+  #pass-new {
+    height: 375px;
+    background-image: url('img/backgrounds/clouds-bottom.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
 
-.navbar, .bg-gradient-cart {
-  background: linear-gradient(80deg,#ff9500 0,#ff6200 100%)!important;
-}
+  #middle {
+    margin-right: auto;
+    margin-left: auto;
+    width: 70%;
+    height: 400px;
+    margin-top: 65px;
+    border:3px solid #999;
+    background-color:#333;
+    }
 
-nav a, a, .btn-group a {
-  color: white;
-}
-
-.card-body a {
-  color: rgb(31, 29, 29);
-}
-
-.card-body a:hover {
-  color: rgb(95, 91, 91);
-}
-
-.dropdown-menu {
-  width: 20px;
-}
-
-nav a:hover, .nav-link:hover {
-    color: rgba(0, 0, 0, 0.664);
-}
-
-a:hover {
-  color: rgba(226, 222, 222, 0.644);
-}
-#button-index {
-  color: white;
-  padding: 1px;
-  width: 150px;
-  background-color: #2E294E;
-  opacity: 0.6;
-}
-
-#button-index:hover {
-  color: rgb(155, 147, 147);
-  padding: 1px;
-  width: 150px;
-  background-color: #2E294E;
-  opacity: 0.6;
-}
-
-#button-link {
-  color: white;
-}
-
-#payment-done {
-   background-image: url('img/backgrounds/intro-left-orange.png');
-   margin-top: -75px;
-
-}
-
-.position-absolute {
-  margin-bottom: -7px !important;
-}
-
-footer {
-  margin-top: -40px;
-}
-
-footer a {
-  color: grey
-}
-
-#section-index-background {
-  background-image: url('img/backgrounds/clouds-bottom.png');
-  z-index: 100;
-}
-
-#cart-empty {
-  background-image: url(cat_8.jpg); 
-  background-position: center center; 
-  height: 520px; 
-  box-shadow: inset 0px 0px 40px 7px #000000;
-}
-
-.registers a {
-  color: rgba(92, 85, 85, 0.514);
-  margin-bottom: -200px
-}
-
-.registers{
-  height: 650px;
-  background-image: url('img/backgrounds/clouds-bottom.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.img-index{
-  display: flex;
-  justify-items: center;
-}
-
-#pass-new {
-  height: 375px;
-  background-image: url('img/backgrounds/clouds-bottom.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#cat-logo {
-  background-image: url(cat-logo-dark.png);
-  height: 60px;
+#middlecontent {
+    font: normal 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    padding: 10px;
 }
