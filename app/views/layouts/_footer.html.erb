@@ -1,22 +1,22 @@
 <footer>
-        <div class="container" >
-            <div class="row pt-md">
-                <a href="<%= root_path %>" style="height: 100px; margin-top: 20px">
-                    <%= image_tag "logo.png", :alt => "logo", style: "height: 110px;" -%>
+        <div class="container" id="container-footer">
+            <div class="row d-flex justify-content-between">
+                <a href="<%= root_path %>">
+                    <%= image_tag "logo.png", :alt => "logo", style: "width: 150px" -%>
                 </a>
-                <div class="col-lg-2" style="padding-top: 40px; margin-left: 150px; margin-right: 50px">
+                <div class="foot-links-a">
                     <h6 class="heading mb-3">Profil</h6>
                     <ul class="list-unstyled">
                         <li><a href="<%= root_path %>">Ma page</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2" style="padding-top: 40px; margin-right: 90px">
+                <div class="foot-links">
                     <h6 class="heading mb-3">Paramètres</h6>
                     <ul class="list-unstyled">
                         <li><a href="<%= edit_user_registration_path %>">Éditer mon profil</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2" style="padding-top: 40px">
+                <div class="foot-links">
                     <h6 class="heading mb-3">Mon panier</h6>
                     <ul class="list-unstyled">
                         <li><a href="<%= root_path %>">Mes commandes</a></li>
@@ -26,28 +26,23 @@
             <div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
                 <div class="col-md-6">
                     <div class="copyright text-sm font-weight-bold text-center text-md-left">
-                        <strong>THP Team MONTPELLIER</strong>  &copy; 2018 <a href="https://webpixels.io/" class="font-weight-bold" target="_blank">Webpixels</a>. All rights reserved.
+                        <strong>THP Team MONTPELLIER</strong> <a class="font-weight-light">&copy; 2018</a> <a href="https://webpixels.io/" class="font-weight-regular" target="_blank">Webpixels</a>. <a class="font-weight-light">All rights reserved.</a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="https://dribbble.com/webpixels" target="_blank">
-                                <i class="fab fa-dribbble"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="https://instagram.com/webpixelsofficial" target="_blank">
+                            <a class="nav-link active" href="https://www.instagram.com/the_hacking_project/" target="_blank">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/webpixels" target="_blank">
+                            <a class="nav-link" href="https://github.com/lea-lp/Stomy-Booksy" target="_blank">
                                 <i class="fab fa-github"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://facebook.com/webpixels" target="_blank">
+                            <a class="nav-link" href="https://fr-fr.facebook.com/thehackingproject/" target="_blank">
                                 <i class="fab fa-facebook"></i>
                             </a>
                         </li>

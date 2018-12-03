@@ -19,22 +19,26 @@ var NavbarSticky = (function() {
 
 		// if we've scrolled more than the navigation, change its position to fixed to stick to top,
 		// otherwise change it back to relative
-		if (scrollTop > (navOffsetTop + 100)) {
+		if (scrollTop > (navOffsetTop + 200)) {
 			$this.addClass('sticky');
-			$("#logo-nav").hide(100);
-			$("#logo-nav-row").show(100);
-			$("#button-sign-up").hide(100);
-			$("#button-log-in").hide(100);
-			$("#button-sign-up-slim").show(100);
-			$("#button-log-in-slim").show(100);
+			$("#logo-nav").hide("fast");
+			$("#logo-nav-row").show("fast");
+			$("#button-sign-up").hide("fast");
+			$("#button-log-in").hide("fast");
+			$("#button-profile").hide("fast");
+			$("#button-sign-up-slim").show("fast");
+			$("#button-profile-slim").show("fast");
+			$("#button-log-in-slim").show("fast");
 		} else {
 			$this.removeClass('sticky');
-			$("#logo-nav").show(100);
-			$("#logo-nav-row").hide(100);
-			$("#button-sign-up").show(100);
-			$("#button-log-in").show(100);
-			$("#button-sign-up-slim").hide(100);
-			$("#button-log-in-slim").hide(100);
+			$("#logo-nav").show("fast");
+			$("#logo-nav-row").hide("fast");
+			$("#button-sign-up").show("fast");
+			$("#button-log-in").show("fast");
+			$("#button-profile").show("fast");
+			$("#button-sign-up-slim").hide("fast");
+			$("#button-log-in-slim").hide("fast");
+			$("#button-profile-slim").hide("fast");
 		}
 	}
 
