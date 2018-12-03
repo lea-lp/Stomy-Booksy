@@ -1,4 +1,5 @@
 /*
+
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -19,17 +20,83 @@
  *= require theme.min
  *= require theme
 
+*/
 
- */
+nav {
+  height: 100px;
+}
 
-/*#text_index {
-  position: relative;
-  z-index: 10;
-}*/
+.dropdown-menu {
+  width: 20px;
+}
 
-/*#cart-empty {
-  background-image: url(img/backgrounds/img-2.jpg); 
-  background-position: center center; 
-  height: 520px; 
-  box-shadow: inset 0px 0px 40px 7px #000000;
-}*/
+.position-absolute {
+  margin-bottom: -7px !important;
+}
+
+footer {
+  box-shadow: inset 0px 0px 50px 0px rgba(187, 187, 187, 0.315);
+}
+
+footer a {
+  color: grey
+}
+
+#section-index-background {
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  z-index: 100;
+}
+
+.registers a {
+  color: rgba(92, 85, 85, 0.514);
+  margin-bottom: -200px
+}
+
+.registers{
+  height: 650px;
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-index{
+  display: flex;
+  justify-items: center;
+}
+
+#pass-new {
+  height: 375px;
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+#middle {
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+  height: 400px;
+  margin-top: 65px;
+  border:3px solid #999;
+  background-color:#333;
+  }
+
+#middlecontent {
+  font: normal 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
+  padding: 10px;
+}
+
+.foot-links {
+width: 200px;
+height: auto;
+padding-top: 50px;
+}
+
+.foot-links-a {
+width: 150px;
+height: auto;
+padding-top: 50px;
+margin-left: 70px;
+}
+

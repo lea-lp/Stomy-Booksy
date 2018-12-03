@@ -21,8 +21,24 @@ var NavbarSticky = (function() {
 		// otherwise change it back to relative
 		if (scrollTop > (navOffsetTop + 200)) {
 			$this.addClass('sticky');
+			$("#logo-nav").hide("fast");
+			$("#logo-nav-row").show("fast");
+			$("#button-sign-up").hide("fast");
+			$("#button-log-in").hide("fast");
+			$("#button-profile").hide("fast");
+			$("#button-sign-up-slim").show("fast");
+			$("#button-profile-slim").show("fast");
+			$("#button-log-in-slim").show("fast");
 		} else {
 			$this.removeClass('sticky');
+			$("#logo-nav").show("fast");
+			$("#logo-nav-row").hide("fast");
+			$("#button-sign-up").show("fast");
+			$("#button-log-in").show("fast");
+			$("#button-profile").show("fast");
+			$("#button-sign-up-slim").hide("fast");
+			$("#button-log-in-slim").hide("fast");
+			$("#button-profile-slim").hide("fast");
 		}
 	}
 

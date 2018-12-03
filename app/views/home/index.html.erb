@@ -1,28 +1,285 @@
-<main>
-		<section class="spotlight bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('../assets/img/gmaps.jpg');">
-        <div class="spotlight-holder">
-            <span class="mask bg-gradient-primary opacity-6"></span>
-            <div class="container py-md d-flex align-items-center pt-lg">
-                <div class="col pt-md pt-lg-0">
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-7 col-lg-7 text-center">
-                            <h1 class="text-white lh-150 mb-4">Des centaines d'activités à portée de main</h1>
-                            <ul class="list-inline">
-                                <li class="list-inline-item text-white">Stomy Booksy, </li>
-                                <li class="list-inline-item text-white">Une nouvelle façon d'apprendre.</li>
-                            </ul>
-                            <span class="clearfix"></span>
-                            <a href="#" class="btn btn-white btn-circle btn-icon mt-4">
-                                <span class="btn-inner--text">Continue reading</span>
-                                <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                            </a>
+<%= render 'layouts/navbar' %> 
+
+
+<section class="spotlight bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('../assets/img/backgrounds/img-1-1920x800.jpg');">
+    <div class="spotlight-holder">
+        <span class="mask bg-gradient-primary opacity-6"></span>
+        <div class="container py-md d-flex align-items-center pt-lg">
+            <div class="col pt-md pt-lg-0">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-7 col-lg-7 text-center">
+                        <h1 class="text-white lh-150 mb-4">Keep your face always toward the sunshine - and shadows will fall behind you.</h1>
+                        <ul class="list-inline">
+                            <li class="list-inline-item text-white">August 21, 2018</li>
+                            <li class="list-inline-item text-white">Written by Destiny Erykah</li>
+                        </ul>
+                        <span class="clearfix"></span>
+                        <a href="#" class="btn btn-white btn-circle btn-icon mt-4">
+                            <span class="btn-inner--text">Continue reading</span>
+                            <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="slice slice-lg bg-secondary">
+    <div class="container">
+        <div class="row row-grid">
+            <div class="col-lg-4">
+                <div class="card shadow-sm shadow--hover">
+                    <img alt="Image placeholder" src="../assets/img/prv/img-1-800x600.jpg" class="card-img-top">
+                    <div class="card-body py-5 text-center">
+                        <a href="#" class="h5 lh-150">Choose the best solution for your business</a>
+                        <h6 class="text-muted mt-4 mb-0">25 April, 2018</h6>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col text-center">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
+                                    </li>
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card shadow-sm shadow--hover">
+                    <img alt="Image placeholder" src="../assets/img/prv/img-2-800x600.jpg" class="card-img-top">
+                    <div class="card-body py-5 text-center">
+                        <a href="#" class="h5 lh-150">How to find the right design for your specific product</a>
+                        <h6 class="text-muted mt-4 mb-0">25 April, 2018</h6>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col text-center">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
+                                    </li>
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card shadow-sm shadow--hover">
+                    <img alt="Image placeholder" src="../assets/img/prv/img-3-800x600.jpg" class="card-img-top">
+                    <div class="card-body py-5 text-center">
+                        <a href="#" class="h5 lh-150">How to win buyers and influence sales with marketing</a>
+                        <h6 class="text-muted mt-4 mb-0">25 April, 2018</h6>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col text-center">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
+                                    </li>
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+       	</div>
+        <div class="row row-grid">
+            <div class="col-lg-4">
+                <div class="card shadow-sm shadow--hover">
+                    <img alt="Image placeholder" src="../assets/img/prv/img-4-800x600.jpg" class="card-img-top">
+                    <div class="card-body py-5 text-center">
+                        <a href="#" class="h5 lh-150">Choose the best solution for your business</a>
+                        <h6 class="text-muted mt-4 mb-0">25 April, 2018</h6>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col text-center">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
+                                    </li>
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card shadow-sm shadow--hover">
+                    <img alt="Image placeholder" src="../assets/img/prv/img-5-800x600.jpg" class="card-img-top">
+                    <div class="card-body py-5 text-center">
+                        <a href="#" class="h5 lh-150">How to find the right design for your specific product</a>
+                        <h6 class="text-muted mt-4 mb-0">25 April, 2018</h6>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col text-center">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
+                                    </li>
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card shadow-sm shadow--hover">
+                    <img alt="Image placeholder" src="../assets/img/prv/img-6-800x600.jpg" class="card-img-top">
+                    <div class="card-body py-5 text-center">
+                        <a href="#" class="h5 lh-150">How to win buyers and influence sales with marketing</a>
+                        <h6 class="text-muted mt-4 mb-0">25 April, 2018</h6>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col text-center">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
+                                    </li>
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="row row-grid">
+            <div class="col-lg-4">
+                <div class="card shadow-sm shadow--hover">
+                    <img alt="Image placeholder" src="../assets/img/prv/img-1-800x600.jpg" class="card-img-top">
+                    <div class="card-body py-5 text-center">
+                        <a href="#" class="h5 lh-150">Choose the best solution for your business</a>
+                        <h6 class="text-muted mt-4 mb-0">25 April, 2018</h6>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col text-center">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
+                                    </li>
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card shadow-sm shadow--hover">
+                    <img alt="Image placeholder" src="../assets/img/prv/img-2-800x600.jpg" class="card-img-top">
+                    <div class="card-body py-5 text-center">
+                        <a href="#" class="h5 lh-150">How to find the right design for your specific product</a>
+                        <h6 class="text-muted mt-4 mb-0">25 April, 2018</h6>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col text-center">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
+                                    </li>
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card shadow-sm shadow--hover">
+                    <img alt="Image placeholder" src="../assets/img/prv/img-3-800x600.jpg" class="card-img-top">
+                    <div class="card-body py-5 text-center">
+                        <a href="#" class="h5 lh-150">How to win buyers and influence sales with marketing</a>
+                        <h6 class="text-muted mt-4 mb-0">25 April, 2018</h6>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col text-center">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-share mr-1 text-muted"></i> 131</a>
+                                    </li>
+                                    <li class="list-inline-item pr-4">
+                                        <a href="#" class="text-muted"><i class="fas fa-eye mr-1 text-muted"></i> 255</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="text-muted"><i class="fas fa-comments mr-1 text-muted"></i> 14</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Load more -->
+        <div class="mt-lg text-center">
+            <a href="#" class="btn btn-dark btn-circle shadow">Load more</a>
+        </div>
+    </div>
+</section>
+
 </main>
 
 
-
+<%= render 'layouts/footer' %> 

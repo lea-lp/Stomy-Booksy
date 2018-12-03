@@ -1,0 +1,111 @@
+
+    <header class="header-transparent" id="header-main">
+       
+        <!-- Main navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
+            <div class="container">
+                <a class="navbar-brand mr-lg-5" href="<%= root_path %>">
+                    <%= image_tag "logo.png", alt: "logo", id: "logo-nav", style: "height: 100px" %>
+                    <%= image_tag "logo-row.png", alt: "logo-row", id: "logo-nav-row", style: "width: 130px" %>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    
+                    <!-- ............................USER IN.......................... -->
+                    <% if user_signed_in? %>
+
+                        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+
+                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                                
+                                <!-- BUTTON PROFILE REGULAR -->
+                                <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-profile">
+                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center" style="color: white; font-size: 2.6em"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
+                                        <div class="list-group">
+                                            <a href="<%= root_path %>" class="list-group-item list-group-item-action">
+                                                <div class="media d-flex align-items-center">
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-1">Profil</h6>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="<%= destroy_user_session_path %>" class="list-group-item list-group-item-action" data-method="DELETE">
+                                                <div class="media d-flex align-items-center">
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-1"><strong>Déconnexion</strong></h6>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <!-- BUTTON PROFILE SLIM -->
+                                <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-profile-slim">
+                                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center" style="color: white; font-size: 1.5em"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
+                                            <div class="list-group">
+                                                <a href="<%= root_path %>" class="list-group-item list-group-item-action">
+                                                    <div class="media d-flex align-items-center">
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-1">Profil</h6>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="<%= destroy_user_session_path %>" class="list-group-item list-group-item-action" data-method="DELETE">
+                                                    <div class="media d-flex align-items-center">
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-1"><strong>Déconnexion</strong></h6>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                            </ul>
+                        </div>
+
+                    <!-- ............................USER OUT.......................... -->
+
+                    <% else %>
+
+                        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+    
+
+                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                                <!-- BUTTON LOG IN REGULAR -->
+                                <li class="nav-item" id="button-log-in"><%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+                                </li>
+                                <!-- BUTTON LOG IN SLIM -->
+                                <li class="nav-item mr-0" id="button-log-in-slim"><%= link_to "", new_user_session_path, class: "nav-link d-lg-none" %>
+                                    <a href="<%= new_user_session_path %>">
+                                        <i class="fas fa-sign-in-alt align-items-center" style="color: white; margin-right: 40px; font-size: 1.3em;"></i>
+                                   </a>
+                               </li>
+
+
+                                <!-- BUTTON SIGN UP REGULAR -->
+                                <li class="nav-item mr-0" id="button-sign-up"><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link d-lg-none" %>
+                                     <a href="<%= new_user_registration_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                                        <span class="btn-inner--text">S'inscrire</span>
+                                    </a>
+                                </li>
+                                <!-- BUTTON SIGN UP SLIM -->
+                                <li class="nav-item mr-0" id="button-sign-up-slim"><%= link_to "", new_user_registration_path, class: "nav-link d-lg-none" %>
+                                    <a href="<%= new_user_registration_path %>">
+                                        <i class="fas fa-user-plus align-items-center" style="color: white; font-size: 1.3em;"></i>
+                                   </a>
+                               </li>
+
+                            </ul>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </nav>
+    </header>
