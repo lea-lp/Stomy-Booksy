@@ -11,7 +11,8 @@
                     <div class="text-center mb-5">
                         <h6 class="h3">Créer un compte</h6>
                         <p class="text-muted mb-0">Rapide, simple et efficace</p>
-                        <p><%=resource.class.name%></p>
+                        <!-- a voir si on affiche le nom de la page (eleve student ...) -->
+                        <!-- <p><%=resource.class.name%></p> -->
                     </div>
                     <span class="clearfix"></span>
 
@@ -51,18 +52,74 @@
                             </div>
                         </div>
 
-                        <div class="row align-items-center">
-                            <div class="col-sm-7">
-                                <div><%= f.submit "Créer un compte", class: "btn btn-primary mb-3 mb-sm-0" %></div>
-                            </div>
-                            <div class="col-sm-5 text-sm-right">
-                                <span class="small d-sm-block d-md-inline">Déjà inscrit ?</span>
-                                <%= render "devise/shared/links" %>
+                        <% if resource.class.name == "Teacher" || resource.class.name == "Student" %>
+                            <div class="form-group">
+                                <label class="form-control-label">Nom</label>
+                                <div class="input-group input-group-transparent">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <%= f.text_field :last_name, class: "form-control form-control-label", autofocus: true, placeholder: "Dupont" %>
+                                </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="form-control-label">Prénom</label>
+                                <div class="input-group input-group-transparent">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <%= f.text_field :first_name, class: "form-control form-control-label", autofocus: true, placeholder: "Michou" %>
+                                </div>
+                            </div>
+                        <% elsif resource.class.name == "Establishment" %>
+                            <div class="form-group">
+                                <label class="form-control-label">Nom de votre établissement</label>
+                                <div class="input-group input-group-transparent">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <%= f.text_field :name, class: "form-control form-control-label", autofocus: true, placeholder: "Raison sociale" %>
+                                </div>
+                            </div>                     
+                        <% end %>
+                        
+                        <div class="form-group">
+                            <label class="form-control-label">Téléphone</label>
+                            <div class="input-group input-group-transparent">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <%= f.text_field :phone, class: "form-control form-control-label", autofocus: true, placeholder: "01 23 45 67 89" %>
+                            </div>
                         </div>
-                      <% end %>
+
+                        <% if resource.class.name == "Teacher" || resource.class.name == "Establishment" %>
+                            <div class="form-group">
+                                <label class="form-control-label">N° de SIRET</label>
+                                <div class="input-group input-group-transparent">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <%= f.text_field :siret, class: "form-control form-control-label", autofocus: true, placeholder: "843 586 147" %>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label">Description</label>
+                                <div class="input-group input-group-transparent">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <%= f.text_field :description, class: "form-control form-control-label", autofocus: true, placeholder: "Description de vos activités" %>
+                                </div>
+                            </div>
+
+                        <% end %>
+                    <% end %>
+                    
                       <br><br>
+
                       <%= link_to "<< Page d'accueil", root_path %>
                 </div>
             </div>
