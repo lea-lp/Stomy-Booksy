@@ -15,10 +15,20 @@
                     
                     <!-- ............................USER IN.......................... -->
                     <% if user_signed_in? %>
+                        <%if student_signed_in?%>
+                            <h1>student</h1>
+                        <%end%>
+                        <%if teacher_signed_in?%>
+                            <h1>teacher</h1>
+                        <%end%>
+                        <%if establishment_signed_in?%>
+                            <h1>establishment</h1>
+                        <%end%>
 
                         <div class="collapse navbar-collapse" id="navbar-main-collapse">
 
                             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+
                                 
                                 <!-- BUTTON PROFILE REGULAR -->
                                 <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-profile">
@@ -32,7 +42,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <a href="<%= destroy_user_session_path %>" class="list-group-item list-group-item-action" data-method="DELETE">
+                                            <a href="<%= get_logout %>" class="list-group-item list-group-item-action" data-method="DELETE">
                                                 <div class="media d-flex align-items-center">
                                                     <div class="media-body ml-3">
                                                         <h6 class="mb-1"><strong>Déconnexion</strong></h6>
@@ -78,8 +88,9 @@
     
 
                             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-                                <!-- BUTTON LOG IN REGULAR -->
-                                <li class="nav-item" id="button-log-in"><%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+
+                                <li class="nav-item"><%= link_to "Se connecter", new_student_session_path, class: "nav-link" %>
+
                                 </li>
                                 <!-- BUTTON LOG IN SLIM -->
                                 <li class="nav-item mr-0" id="button-log-in-slim"><%= link_to "", new_user_session_path, class: "nav-link d-lg-none" %>
@@ -89,9 +100,8 @@
                                </li>
 
 
-                                <!-- BUTTON SIGN UP REGULAR -->
-                                <li class="nav-item mr-0" id="button-sign-up"><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link d-lg-none" %>
-                                     <a href="<%= new_user_registration_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                                <li class="nav-item mr-0"><%= link_to "S'inscrire", new_student_registration_path, class: "nav-link d-lg-none", id: "button-sign-up" %>
+                                     <a href="<%= new_student_registration_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
                                         <span class="btn-inner--text">S'inscrire</span>
                                     </a>
                                 </li>
