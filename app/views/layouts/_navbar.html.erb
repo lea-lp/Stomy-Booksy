@@ -2,51 +2,39 @@
     <header class="header-transparent" id="header-main">
        
         <!-- Main navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
+        <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-light bg-light" id="navbar-main">
             <div class="container">
                 
-                <div class="row" style="display: flex; justify-content: center; width: 100%">
-                        <ul class="nav justify-content-center justify-content-lg-end mt-3 mt-md-0">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="https://www.instagram.com/the_hacking_project/" target="_blank">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="https://github.com/lea-lp/Stomy-Booksy" target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="https://fr-fr.facebook.com/thehackingproject/" target="_blank">
-                                        <i class="fab fa-facebook"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                    <div class="col-4 center" style="width: 100px; margin-left: -20px">
+                <div class="row" style="display: flex; justify-content: space-between; width: 100%;">
+                    <ul class="nav justify-content-center justify-content-lg-end mt-3 mt-md-0">
+                        <li class="nav-item" style="padding-top: 7px">
+                            <a class="nav-link active" href="https://www.instagram.com/the_hacking_project/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item" style="padding-top: 7px">
+                            <a class="nav-link" href="https://github.com/lea-lp/Stomy-Booksy" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item" style="padding-top: 7px">
+                            <a class="nav-link" href="https://fr-fr.facebook.com/thehackingproject/" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="col-1" style="margin-left: -20px; padding-top: 5px; margin-left: 100px">
                         <a class="navbar-brand mr-lg-5" href="<%= root_path %>">
                             <%= image_tag "logo.png", alt: "logo", id: "logo-nav", style: "height: 145px;" %>
                             <%= image_tag "logo-row.png", alt: "logo-row", id: "logo-nav-row", style: "width: 130px" %>
                         </a>
                     </div>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                     
                     <!-- ............................USER IN.......................... -->
                     <% if user_signed_in? %>
-                        <%if student_signed_in?%>
-                            <h1>student</h1>
-                        <%end%>
-                        <%if teacher_signed_in?%>
-                            <h1>teacher</h1>
-                        <%end%>
-                        <%if establishment_signed_in?%>
-                            <h1>establishment</h1>
-                        <%end%>
 
-                        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+                        <!-- <div class="collapse navbar-collapse" id="navbar-main-collapse"> -->
 
                             <ul class="navbar-nav align-items-lg-center ml-lg-auto" style="margin-right: 40px">
 
@@ -76,7 +64,7 @@
 
                                 <!-- BUTTON PROFILE SLIM -->
                                 <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-profile-slim">
-                                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center" style="color: white; font-size: 1.5em"></i></a>
+                                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center" style="color: black; font-size: 1.5em"></i></a>
                                         <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
                                             <div class="list-group">
                                                 <a href="<%= root_path %>" class="list-group-item list-group-item-action">
@@ -86,7 +74,7 @@
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <a href="#" class="list-group-item list-group-item-action" data-method="DELETE">
+                                                <a href="<%= get_logout %>" class="list-group-item list-group-item-action" data-method="DELETE">
                                                     <div class="media d-flex align-items-center">
                                                         <div class="media-body ml-3">
                                                             <h6 class="mb-1"><strong>Déconnexion</strong></h6>
@@ -99,7 +87,7 @@
 
 
                             </ul>
-                        </div>
+                        <!-- </div> -->
 
                     <!-- ............................USER OUT.......................... -->
 
@@ -140,14 +128,11 @@
                         </li>
 
                         <!-- BUTTON SLIM -->
-                        <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-log-in-slim"><%= link_to "", "#", class: "nav-link d-lg-none" %>
-                            <a href="#">
-                                <i class="fas fa-sign-in-alt align-items-center" style="color: white; margin-right: 40px; font-size: 1.3em;"></i>
-
-                           </a>
+                        <li class="nav-item dropdown dropdown-animate" data-toggle="hover" id="button-log-in-slim"><%= link_to "", "#", class: "nav-link d-lg-none" %>
+                                <i class="fas fa-sign-in-alt align-items-center" style="color: #16171aa8; margin-right: 40px; font-size: 1.3em; padding-top: 5px; cursor: pointer"></i>
                             <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">
+                                    <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
                                                 <h6 class="mb-1">Étudiant</h6>
@@ -208,12 +193,10 @@
 
                         <!-- BUTTON SLIM -->
                         <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-sign-up-slim"><%= link_to "", "#", class: "nav-link d-lg-none" %>
-                            <a href="#">
-                                <i class="fas fa-user-plus align-items-center" style="color: white; font-size: 1.3em;"></i>
-                           </a>
+                                <i class="fas fa-user-plus align-items-center" style="color: #16171aa8; font-size: 1.3em; padding-top: 5px; cursor: pointer"></i>
                             <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">
+                                    <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
                                                 <h6 class="mb-1">Étudiant</h6>
