@@ -1,16 +1,24 @@
 <br><br><br>
 <br><br>
 
-<main class="registers">
 
+
+<main class="registers">
     <div class="container d-flex align-items-center">
         <div class="col">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
-
                     <div class="text-center mb-5">
-                        <h6 class="h3">Créer un compte</h6>
-                        <p class="text-muted mb-0">Rapide, simple et efficace</p>
+                        <% if resource.class.name == "Student" %>
+                            <h6 class="h3">Créer un compte</h6>
+                            <p class="text-muted mb-0">Des centaines d'activités à portée de main</p>
+                        <% elsif resource.class.name == "Teacher" %>
+                            <h6 class="h3">Créer un compte</h6>
+                            <p class="text-muted mb-0">Un gestion de votre emploi du temps simplifiée</p>
+                        <% else resource.class.name == "Establishment" %>
+                            <h6 class="h3">Créer un compte</h6>
+                            <p class="text-muted mb-0">Une gestion de votre établissement simplifiée</p>
+                        <% end %>
                         <!-- a voir si on affiche le nom de la page (eleve student ...) -->
                         <!-- <p><%=resource.class.name%></p> -->
                     </div>
@@ -116,17 +124,28 @@
                             </div>
 
                         <% end %>
-                    <% end %>
-                    
-                      <br><br>
 
-                      <%= link_to "<< Page d'accueil", root_path %>
+                        
+
+                        <div id="form_buttons">
+                            <div class="d-flex justify-content-center" id="button_create_account">
+                               <%= f.submit "Créer un compte", class: "btn btn-primary btn-circle" %>
+                            </div>
+                            <br>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button type="button" class="btn btn-secondary btn-icon">
+                                    <span class="btn-inner--icon"><i class="fas fa-arrow-left"></i></span>
+                                    <span class="btn-inner--text"><%= link_to "Page d'accueil", root_path %></span>
+                                </button>
+                                <div class="col-sm-5 text-sm-right">
+                                    <span class="small d-sm-block d-md-inline">Déjà inscrit ?</span>
+                                    <%= render "devise/shared/links" %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
                 </div>
             </div>
-
         </div>
     </div>
-    <!-- <%= image_tag("img/backgrounds/" + "clouds-bottom.png", alt: "clouds") %> -->
-
-
 </main>

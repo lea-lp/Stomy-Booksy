@@ -30,6 +30,4 @@ $( document ).ready(function() {
 
     console.log( "js is ready!" );
 
-    document.getElementById('iframe').contentWindow.document.write("<html><body>Hello world</body></html>");
-
 });

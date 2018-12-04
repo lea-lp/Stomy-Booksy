@@ -54,7 +54,6 @@ footer a {
 }
 
 .registers{
-  height: 650px;
   background-image: url('img/backgrounds/clouds-bottom.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -100,6 +99,7 @@ height: auto;
 padding-top: 50px;
 margin-left: 70px;
 }
+
 
 /* Google Maps */
 .map.embed-container {
@@ -158,7 +158,6 @@ width: 100%;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
-
 }
 
 #search {
@@ -172,7 +171,6 @@ width: 100%;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
-
 }
 
 search:focus, input:focus {
@@ -184,5 +182,10 @@ search:focus, input:focus {
   flex-direction: row;
   justify-content: center;
   margin-top: 30px;
+}
+
+#form_buttons {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
