@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   devise_for :teachers
   devise_for :students
   root 'home#index'
-  resources :teachers, only: [:show, :edit]
-  resources :teachers, only: [:show, :edit]
-  resources :establishments, only: [:show, :edit]
+  resources :student, only: [:show, :edit]
+  resources :teacher, only: [:show, :edit]
+  resources :establishment, only: [:show, :edit]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
