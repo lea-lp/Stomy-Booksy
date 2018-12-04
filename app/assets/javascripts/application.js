@@ -24,7 +24,6 @@
 //= require wavify.min
 //= require swiper.min
 
-
 //= require_tree .
 
 $( document ).ready(function() {

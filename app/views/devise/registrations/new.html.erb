@@ -15,6 +15,7 @@
                         <!-- <p><%=resource.class.name%></p> -->
                     </div>
                     <span class="clearfix"></span>
+                    <h1><%=resource.class.name%></h1>
 
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                     <%= devise_error_messages! %>

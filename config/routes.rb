@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'user_pages/show_profile'
+  get 'user_pages/edit_profile'
+  get 'user_pages/dashboard'
   devise_for :establishments
   devise_for :teachers
   devise_for :students

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :user_signed_in?, :current_user, :get_logout
+  helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout
 
   def user_signed_in? 
     return student_signed_in? || teacher_signed_in? || establishment_signed_in?
@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
       return current_teacher
     elsif current_establishment
       return current_establishment
+    else
+      return false
+    end
+  end
+
+  def get_user_type
+    if current_user
+      return current_user.class.name
     else
       return false
     end
