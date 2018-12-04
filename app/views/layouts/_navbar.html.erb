@@ -86,7 +86,7 @@
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <a href="<%= destroy_user_session_path %>" class="list-group-item list-group-item-action" data-method="DELETE">
+                                                <a href="#" class="list-group-item list-group-item-action" data-method="DELETE">
                                                     <div class="media d-flex align-items-center">
                                                         <div class="media-body ml-3">
                                                             <h6 class="mb-1"><strong>Déconnexion</strong></h6>
@@ -111,7 +111,7 @@
                         <!-- .........LOG IN.......... -->
                         <!-- BUTTON REGULAR -->
                         <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-log-in">
-                            <%= link_to "Se connecter", "#", class: "nav-link" %>
+                            <%= link_to "Se connecter", "#", class: "nav-link text-shadow" %>
                             <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
                                 <div class="list-group">
                                     <a href="<%= new_student_session_path %>" class="list-group-item list-group-item-action">
@@ -143,6 +143,7 @@
                         <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-log-in-slim"><%= link_to "", "#", class: "nav-link d-lg-none" %>
                             <a href="#">
                                 <i class="fas fa-sign-in-alt align-items-center" style="color: white; margin-right: 40px; font-size: 1.3em;"></i>
+
                            </a>
                             <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
                                 <div class="list-group">
