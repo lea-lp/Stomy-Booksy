@@ -3050,15 +3050,15 @@ fieldset:disabled a.btn
 .btn-info
 {
     color: #fff;
-    border-color: #24b7fa;
-    background-color: #24b7fa;
+    border-color: rgb(99, 153, 240);
+    background-color: rgb(99, 153, 240);
     box-shadow: none;
 }
 .btn-info:hover
 {
     color: #fff;
-    border-color: #059fe6; 
-    background-color: #06a8f2;
+    border-color: rgba(59, 113, 201, 0.89); 
+    background-color: rgba(60, 117, 209, 0.89);
 }
 .btn-info:focus,
 .btn-info.focus

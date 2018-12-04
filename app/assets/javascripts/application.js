@@ -14,6 +14,7 @@
 //= require activestorage
 
 //= require jquery3
+//= require jquery_ujs
 
 //= require jquery.min
 //= require all.min
