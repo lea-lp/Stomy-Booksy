@@ -4,10 +4,31 @@
         <!-- Main navbar -->
         <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
             <div class="container">
-                <a class="navbar-brand mr-lg-5" href="<%= root_path %>">
-                    <%= image_tag "logo.png", alt: "logo", id: "logo-nav", style: "height: 100px" %>
-                    <%= image_tag "logo-row.png", alt: "logo-row", id: "logo-nav-row", style: "width: 130px" %>
-                </a>
+                
+                <div class="row" style="display: flex; justify-content: center; width: 100%">
+                        <ul class="nav justify-content-center justify-content-lg-end mt-3 mt-md-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="https://www.instagram.com/the_hacking_project/" target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://github.com/lea-lp/Stomy-Booksy" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://fr-fr.facebook.com/thehackingproject/" target="_blank">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                    <div class="col-4 center" style="width: 100px; margin-left: -20px">
+                        <a class="navbar-brand mr-lg-5" href="<%= root_path %>">
+                            <%= image_tag "logo.png", alt: "logo", id: "logo-nav", style: "height: 145px;" %>
+                            <%= image_tag "logo-row.png", alt: "logo-row", id: "logo-nav-row", style: "width: 130px" %>
+                        </a>
+                    </div>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -87,7 +108,7 @@
 
                     <ul class="navbar-nav align-items-lg-center ml-lg-auto" style="margin-right: 40px">
 
-                        <!-- ............................LOG IN.......................... -->
+                        <!-- .........LOG IN.......... -->
                         <!-- BUTTON REGULAR -->
                         <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-log-in">
                             <%= link_to "Se connecter", "#", class: "nav-link" %>
@@ -150,7 +171,7 @@
                             </div>
                         </li>
 
-                        <!-- ............................SIGN UP.......................... -->
+                        <!-- ............SIGN UP.......... -->
                         <!-- BUTTON REGULAR -->
                         <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-sign-up">
                             <%= link_to "S'inscrire", "#", class: "nav-link d-lg-none", id: "button-sign-up" %>
@@ -219,6 +240,8 @@
                      </ul>
                     <% end %>
                 </div>
+            </div>
+
             </div>
         </nav>
     </header>

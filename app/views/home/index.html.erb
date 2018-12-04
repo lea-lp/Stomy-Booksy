@@ -1,5 +1,23 @@
-<%= render 'layouts/navbar' %> 
-
+<div class="map embed-container">
+    <div id="map-notice"></div>
+        <div class="map-overlay"> 
+            <h3 class="font-weight-light" style="color: aliceblue"><strong>Toutes vos activités en un clic</strong></h3>
+            <div id="research_module">
+                    <div id="barbox">
+                            <div id="topnav">
+                                <input id="search" type="text" value="Recherchez une ville, une activité, une association...">
+                            </div>
+                    </div>
+                    <div id="research_buttons">
+                        <%= link_to "", "#", class: "nav-link d-lg-none", id: "button-sign-up" %>
+                        <a href="#" class="btn btn-sm btn-info btn-lg btn-circle btn-icon d-none d-lg-inline-flex">
+                            <span class="btn-inner--text">Lancer la recherche</span>
+                        </a>
+                    </div>
+            </div>
+        </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.822509900339!2d3.8731859545435867!3d43.61023705895304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6af078b20464b%3A0xff0f2da78acb2843!2sl&#39;Anacrouse+-+%C3%89cole+de+Musique!5e0!3m2!1sfr!2sfr!4v1543884024656" width="100%" height="650px"></iframe>
+</div>
 
 <section class="spotlight bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('../assets/img/backgrounds/img-1-1920x800.jpg');">
     <div class="spotlight-holder">
@@ -24,8 +42,6 @@
         </div>
     </div>
 </section>
-
-
 
 
 <section class="slice slice-lg bg-secondary">
@@ -278,6 +294,3 @@
 </section>
 
 </main>
-
-
-<%= render 'layouts/footer' %> 
