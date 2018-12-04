@@ -4952,6 +4952,12 @@ input[type='button'].btn-block
 {
     text-decoration: none;
 }
+
+nav .nav-link:hover
+{
+    color: rgba(90, 80, 90, 0.856);
+}
+
 .nav-link.disabled
 {
     color: #6c7686;
@@ -4963,7 +4969,7 @@ input[type='button'].btn-block
 }
 .nav-tabs .nav-item
 {
-    margin-bottom: -.0625rem;
+    /* margin-bottom: -.0625rem; */
 }
 .nav-tabs .nav-link
 {
@@ -7705,11 +7711,6 @@ button.bg-danger:hover,
 button.bg-danger:focus
 {
     background-color: #fc0d00 !important;
-}
-
-.bg-light
-{
-    background-color: #ced4da !important;
 }
 
 a.bg-light:hover,
@@ -12725,7 +12726,7 @@ button.bg-gray-dark:focus
 
 .bg-light
 {
-    background-color: #ced4da !important;
+    background-color: #ecf0f5ea !important;
 }
 
 a.bg-light:hover,
