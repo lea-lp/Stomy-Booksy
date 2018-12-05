@@ -18,8 +18,6 @@ class ApplicationController < ActionController::Base
       return current_teacher
     elsif current_establishment
       return current_establishment
-    else
-      return false
     end
   end
 

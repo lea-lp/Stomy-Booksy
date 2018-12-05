@@ -1,1 +1,27 @@
 <%= render 'layouts/show_profile' %>
+
+
+<br><br><br><br><br><br><br>
+<%= @user_type %>
+  <p><%= @establishment.description %></p>
+  <p><%= @establishment.siret %></p>
+  <p><%= @establishment.address %></p>
+  <p><%= @establishment.email %></p>
+  <p><%= @establishment.phone %></p>
+  <p><%= @establishment.address %></p>
+
+  <h2><%= @establishment.name %><br>
+  <h3>Mes profs</h3>
+  <% @establishment.teachers.each do |teacher| %>
+    <% teach_sub_cat = [] %>
+    <% teacher.sub_categories.each do |sub_cat| %>
+      <% teach_sub_cat << sub_cat.title %>
+    <% end %>
+    <% string_result = teach_sub_cat.sort.uniq.join(', ') %>
+    <% string_result = "(" +string_result+")"%>
+
+      <p><strong><a href="<%=teacher_path(teacher)%>"> <%= teacher.first_name %></a></strong>  <%= teacher.last_name %> <%= teacher.email %> <%= string_result %></p>
+  <% end %>
+      
+
+
