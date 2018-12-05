@@ -13,8 +13,6 @@ class EstablishmentsController < ApplicationController
     puts "*" *60
     puts @sub_cat_hash
     puts "*" *60
-    
-    
   end
 
 
