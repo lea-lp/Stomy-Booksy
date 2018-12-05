@@ -2,13 +2,13 @@
 
 
 
-<main class="registers">
+<main class="registers-<%= resource.class.name %>">
     <div class="container d-flex align-items-center">
         <div class="col">
             <div class="row justify-content-center">
 
                 <% if user_signed_in? %>
-                    <h1> ARTHUR AU BOULOT ! </h1>
+                    <h1> Vous êtes déjà connecté en tant que <%= resource.class.name %>, veuillez vous déconnecter pour accéder à un autre profil. </h1>
                 <% else %>
                     <div class="col-md-8 col-lg-6">
                         <div class="text-center mb-5">
