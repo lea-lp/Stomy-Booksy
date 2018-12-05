@@ -9,10 +9,10 @@
             </a>
             <div class="card-body">
                 <div class="mb-3">
-                    <h5 class="mb-0">Heather Wright</h5>
-                    <span class="text-muted">Angular JS Developer</span>
+                    <h5 class="mb-0"><%= @establishment.name %></h5>
+                    <span class="text-muted"><%= @establishment.description %></span>
                 </div>
-                <span class="text-muted"><i class="fas fa-map-marker mr-2"></i>San Francisco, SF</span>
+                <span class="text-muted"><i class="fas fa-map-marker mr-2"></i><%= @establishment.address %></span>
                 <div class="pt-4 mt-4 delimiter-top">
                     <div class="btn-group shadow rounded-circle">
                         <button class="btn btn-sm btn-primary btn-circle btn-icon">
