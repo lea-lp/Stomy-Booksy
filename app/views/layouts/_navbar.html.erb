@@ -1,6 +1,7 @@
 <header class="header-transparent" id="header-main">
        
         <!-- Main navbar -->
+        
         <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-light bg-light" id="navbar-main">
             <div class="container">
                 
@@ -22,7 +23,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="col-1" style="margin-left: -20px; padding-top: 5px; margin-left: 100px">
+                    <div style="margin-left: -20px; padding-top: 5px; margin-left: 100px">
                         <a class="navbar-brand mr-lg-5" href="<%= root_path %>">
                             <%= image_tag "logo.png", alt: "logo", id: "logo-nav", style: "height: 145px;" %>
                             <%= image_tag "logo-row.png", alt: "logo-row", id: "logo-nav-row", style: "width: 130px" %>
@@ -37,7 +38,7 @@
                                 <!-- BUTTON PROFILE REGULAR -->
                                 <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-profile">
                                     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center" style="color: white; font-size: 2.6em"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
+                                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
                                         <div class="list-group">
                                             <a href="<%= root_path %>" class="list-group-item list-group-item-action">
                                                 <div class="media d-flex align-items-center">
@@ -59,7 +60,7 @@
                                 <!-- BUTTON PROFILE SLIM -->
                                 <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-profile-slim">
                                         <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center" style="color: black; font-size: 1.5em"></i></a>
-                                        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
+                                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
                                             <div class="list-group">
                                                 <a href="<%= root_path %>" class="list-group-item list-group-item-action">
                                                     <div class="media d-flex align-items-center">
@@ -87,26 +88,26 @@
                         <!-- BUTTON REGULAR -->
                         <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-log-in">
                             <%= link_to "Se connecter", "#", class: "nav-link text-shadow", id: "button-connect" %>
-                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
                                 <div class="list-group">
                                     <a href="<%= new_student_session_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Étudiant</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #E89005"></i>&nbsp; Étudiant</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_teacher_session_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Professeur</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #DD4335"></i>&nbsp; Professeur</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_establishment_session_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Association</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #55B676"></i>&nbsp; Association</h6>
                                             </div>
                                         </div>
                                     </a>
@@ -116,26 +117,26 @@
                         <!-- BUTTON SLIM -->
                         <li class="nav-item dropdown dropdown-animate" data-toggle="hover" id="button-log-in-slim"><%= link_to "", "#", class: "nav-link d-lg-none" %>
                                 <i class="fas fa-sign-in-alt align-items-center" style="color: #16171aa8; margin-right: 40px; font-size: 1.3em; padding-top: 5px; cursor: pointer"></i>
-                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
                                 <div class="list-group">
                                     <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Étudiant</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #E89005"></i>&nbsp; Étudiant</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_teacher_session_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Professeur</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #DD4335"></i>&nbsp; Professeur</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_establishment_session_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Association</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #55B676"></i>&nbsp; Association</h6>
                                             </div>
                                         </div>
                                     </a>
@@ -149,26 +150,26 @@
                             <a href="#" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
                                     <span class="btn-inner--text">S'inscrire</span>
                                 </a>
-                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
                                 <div class="list-group">
                                     <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Étudiant</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #E89005"></i>&nbsp; Étudiant</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_teacher_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Professeur</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #DD4335"></i>&nbsp; Professeur</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_establishment_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Association</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #55B676"></i>&nbsp; Association</h6>
                                             </div>
                                         </div>
                                     </a>
@@ -178,26 +179,26 @@
                         <!-- BUTTON SLIM -->
                         <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-sign-up-slim"><%= link_to "", "#", class: "nav-link d-lg-none" %>
                                 <i class="fas fa-user-plus align-items-center" style="color: #16171aa8; font-size: 1.3em; padding-top: 5px; cursor: pointer"></i>
-                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
                                 <div class="list-group">
                                     <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Étudiant</h6>
+                                                    <h6 class="mb-1"><i class="fas fa-circle" style="color: #E89005"></i>&nbsp; Étudiant</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_teacher_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Professeur</h6>
+                                                    <h6 class="mb-1"><i class="fas fa-circle" style="color: #DD4335"></i>&nbsp; Professeur</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_establishment_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1">Association</h6>
+                                                    <h6 class="mb-1"><i class="fas fa-circle" style="color: #55B676"></i>&nbsp; Association</h6>
                                             </div>
                                         </div>
                                     </a>
@@ -211,3 +212,6 @@
             </div>
         </nav>
     </header>
+
+
+
