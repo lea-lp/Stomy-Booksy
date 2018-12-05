@@ -14,38 +14,25 @@
 
                         <!-- Timeline -->
                         <div class="card">
-                            <div class="card-header pt-4 pb-2 border-0">
-                                <div class="d-flex align-items-center">
-                                    <a href="#" class="avatar rounded-circle shadow">
-                                        <img alt="Image placeholder" src="../assets/img/prv/team-2-800x800.jpg">
-                                    </a>
-                                    <div class="avatar-content">
-                                        <h6 class="mb-0">Bettie Mavis</h6>
-                                        <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>3 hrs ago</small> 
-                                    </div>
-                                </div>
-                            </div>
                             <div class="card-body">
-                                <p>Personal profiles are the perfect way for you to grab their attention and persuade recruiters to continue reading your CV because you’re telling them from the off exactly why they should hire you. Of course, you’ll need
-                                    to know how to write an effective statement first, but we’ll get on to that in a bit.</p>
                                 <!-- Badges -->
                                 <div class="d-lg-flex">
                                     <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
                                         <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
                                         <div class="media-body pl-2">
-                                            <span class="h6">10 Skills</span>
+                                            <span class="h6">??? services proposés</span>
                                         </div>
                                     </a>
                                     <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
                                         <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/natural-user-interface-1.svg" style="width: 36px;">
                                         <div class="media-body pl-2">
-                                            <span class="h6">57 Endorsements</span>
+                                            <span class="h6">??? élèves</span>
                                         </div>
                                     </a>
                                     <a class="media d-flex align-items-center mb-3 mb-lg-0">
                                         <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/collect.svg" style="width: 36px;">
                                         <div class="media-body pl-2">
-                                            <span class="h6">7 Accomplishments</span>
+                                            <span class="h6">Inscrit à ??? écoles</span>
                                         </div>
                                     </a>
                                 </div>
@@ -418,5 +405,12 @@
 <% @teacher_hash.each do |key, val| %>
   <p><%= key %></p><br>  
 <% end %>
+
+<% @teacher_hash.each do |key, val| %>
+    <% val.each do |val| %>
+        <p><%= val.description %></p>
+    <% end %>
+<% end %>
+
 
 <br><br><br><br><br><br>
