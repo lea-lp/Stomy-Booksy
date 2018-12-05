@@ -10,11 +10,18 @@ class EstablishmentsController < ApplicationController
         @sub_cat_hash[sub_cat.category.title+" - "+sub_cat.title] << teacher
       end
     end
-    puts "*" *60
-    puts @sub_cat_hash
-    puts "*" *60
   end
 
+  def destroy_relation_teach_esta
+    @teacher = Teacher.find(params[:teacher_id])
+    @establishment = Establishment.find(params[:establishment_id])
+    unless @establishment == current_establishment
+      flash[:danger] = "Vous n'êtes pas autorisé à faire cette action!"
+    redirect_to(root_path)
+    end
+    @establishment.teachers.delete(@teacher)
+    redirect_back(fallback_location: root_path)
+  end
 
   def edit
   end

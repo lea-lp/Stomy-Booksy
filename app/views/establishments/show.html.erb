@@ -20,7 +20,13 @@
     <% string_result = teach_sub_cat.sort.uniq.join(', ') %>
     <% string_result = "(" +string_result+")"%>
 
-      <p><strong><a href="<%=teacher_path(teacher)%>"> <%= teacher.first_name %></a></strong>  <%= teacher.last_name %> <%= teacher.email %> <%= string_result %></p>
+      <p><strong><a href="<%=teacher_path(teacher)%>"> <%= teacher.first_name %></a></strong>  <%= teacher.last_name %> <%= teacher.email %> <%= string_result %>
+      <% if current_user == @establishment %>
+      <a href="<%= destroy_relation_teach_esta_path(current_establishment, teacher)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
+                                  <i class="fas fa-trash-alt"></i>
+                              </a>
+      <% end %>
+      </p>
   <% end %>
   <% @sub_cat_hash.each do |key, val| %>
     <h5><%= key %></h5>

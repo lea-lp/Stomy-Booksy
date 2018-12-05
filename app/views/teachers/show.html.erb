@@ -1,8 +1,15 @@
 <%= render 'layouts/show_profile' %>
-<%= @user_type %>
-  <p><%= @teacher.description %></p>
-  <p><%= @teacher.siret %></p>
-  <p><%= @teacher.address %></p>
-  <p><%= @teacher.email %></p>
-  <p><%= @teacher.phone %></p>
-  <p><%= @teacher.address %></p>
+<p><%= @teacher.description %></p>
+<p><%= @teacher.first_name %> <%= @teacher.last_name %></p>
+
+<p><%= @teacher.siret %></p>
+<p><%= @teacher.email %></p>
+<p><%= @teacher.phone %></p>
+<p><%= @teacher.address %></p>
+<% @teacher.sub_categories.each do |sub| %>
+  <h4> <%= sub.title %></h4>
+<%end%>
+
+<% @teacher_hash.each do |key, val| %>
+  <em><%= key %></em><br>  
+<% end %>
