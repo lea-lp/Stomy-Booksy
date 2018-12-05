@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :students, only: [:show, :edit]
   resources :teachers, only: [:show, :edit]
   resources :establishments, only: [:show, :edit]
+  resources :resources, only: [:create, :destroy, :edit]
+
   get '/dashboard', to: 'home#dashboard', as: 'dashboard'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

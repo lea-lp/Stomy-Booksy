@@ -4,19 +4,12 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    @user_type = current_user.class.name
+    @user_type = get_user_type
     @current_user = current_user
 
-    # If establishment retrieve sub_categories list
-    if current_user.class.name == "Establishment"
-
-      @sub_cat_array = []
-      current_user.teachers.each do |teacher|
-        teacher.sub_categories.each do |sub_cat|
-          @sub_cat_array << sub_cat.title
-        end
-      end
-      @sub_cat_array = @sub_cat_array.uniq.sort
+    # If establishment
+    if @user_type == "Establishment"
+      @resources = @current_user.resources
     end
   end
 end

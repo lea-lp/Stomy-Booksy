@@ -7,7 +7,10 @@ class Establishment < ApplicationRecord
   validates :siret, presence: true
   validates :address, presence: true
   validates :phone, presence: true
+
   has_and_belongs_to_many :teachers
+  has_many :resources
+
   geocoded_by :address
   after_validation :geocode
 end
