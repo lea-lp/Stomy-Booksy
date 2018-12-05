@@ -23,8 +23,9 @@
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
+       #map {
         height: 100%;
+        margin-top: 100px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -33,39 +34,101 @@
         padding: 0;
       }
     </style>
-    <div id="map"></div>
-    
+    <div id="map"></div> 
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
+    <!-- places librry -->
     <script> //Script to show the map
-        var map;
         function initMap() {
-           map = new google.maps.Map(document.getElementById('map'), {
-           center: {lat: 43.610875, lng: 3.876341}, //Centered on Montpellier
-           zoom: 15,
-           disableDefaultUI: true,
-           styles: [ { "featureType": "administrative", "elementType": "geometry", "stylers": [ { "visibility": "off" } ] }, { "featureType": "poi", "stylers": [ { "visibility": "off" } ] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] }, { "featureType": "transit", "stylers": [ { "visibility": "off" } ] } ]
+            //initiate de map
+            var map = new google.maps.Map(document.getElementById('map'), {
+               center: {lat: 43.610875, lng: 3.876341}, //Centered on Montpellier
+               zoom: 15,
+               disableDefaultUI: true,
+               styles: [ { "featureType": "administrative", "elementType": "geometry", "stylers": [ { "visibility": "off" } ] }, { "featureType": "poi", "stylers": [ { "visibility": "off" } ] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] }, { "featureType": "transit", "stylers": [ { "visibility": "off" } ] } ]
 
-        });
-        var infowindow = new google.maps.InfoWindow({
-            maxWidth: 200
-        });
-        <%@establishments.each_with_index do |establishment, i|%>
-            <%if establishment.latitude && establishment.longitude #in case geocoder did not work%>
-                var marker<%=i%> = new google.maps.Marker({
-                  position: {lat: <%=establishment.latitude%>, lng: <%=establishment.longitude%>},
-                  map: map,
-                  title: '<%=establishment.name%>'
-                });
+            });
 
-                marker<%=i%>.addListener('click', function() {
-                    infowindow.setContent('<h6><%=establishment.name%></h6><p><%=establishment.description%></p> <br> <a href="#">http://lien à mettre </a>');
-                    infowindow.open(map, this);
-                });
+            //create 1 market per establishment (the entire DB is shown for now)
+            <%@establishments.each_with_index do |establishment, i|%>
+                <%if establishment.latitude && establishment.longitude #in case geocoder did not work%>
+                    var marker<%=i%> = new google.maps.Marker({
+                      position: {lat: <%=establishment.latitude%>, lng: <%=establishment.longitude%>},
+                      map: map,
+                      title: '<%=establishment.name%>'
+                    });
+
+                    marker<%=i%>.addListener('click', function() {
+                        infowindow.setContent('<h6><%=establishment.name%></h6><p><%=establishment.description%></p> <br> <a href="#">http://lien à mettre </a>');
+                        infowindow.open(map, this);
+                    });
+                <%end%>
             <%end%>
-        <%end%>
+            var infowindow = new google.maps.InfoWindow({
+                maxWidth: 200
+            });
 
-      }
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function() {
+              searchBox.setBounds(map.getBounds());
+            });
+
+            var placesMarkers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function() {
+              var places = searchBox.getPlaces();
+
+              if (places.length == 0) {
+                return;
+              }
+
+              // Clear out the old markers.
+              placesMarkers.forEach(function(marker) {
+                marker.setMap(null);
+              });
+              placesMarkers = [];
+
+              // For each place, get the icon, name and location.
+              var bounds = new google.maps.LatLngBounds();
+              places.forEach(function(place) {
+                if (!place.geometry) {
+                  console.log("Returned place contains no geometry");
+                  return;
+                }
+                var icon = {
+                  url: "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+                  size: new google.maps.Size(71, 71),
+                  origin: new google.maps.Point(0, 0),
+                  anchor: new google.maps.Point(17, 34),
+                  scaledSize: new google.maps.Size(25, 25)
+                };
+ 
+                // Create a marker for each place.
+                placesMarkers.push(new google.maps.Marker({
+                  map: map,
+                  icon: icon,
+                  title: place.name,
+                  position: place.geometry.location
+                }));
+
+                if (place.geometry.viewport) {
+                  // Only geocodes have viewport.
+                  bounds.union(place.geometry.viewport);
+                } else {
+                  bounds.extend(place.geometry.location);
+                }
+              });
+              map.fitBounds(bounds);
+              map.setZoom(17);
+            });
+        }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GOOGLE_MAPS_api_key_clem %>&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GOOGLE_MAPS_api_key_clem %>&libraries=places&callback=initMap" async defer></script>
 
 <section class="spotlight bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('../assets/img/backgrounds/img-1-1920x800.jpg');">
     <div class="spotlight-holder">
