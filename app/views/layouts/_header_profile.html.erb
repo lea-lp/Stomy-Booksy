@@ -3,6 +3,8 @@
         <div class="row justify-content-end">
             <div class=" col-lg-8">
                 <!-- Salute + Small stats -->
+
+                <% if page_type == 'establishment' %>
                 <div class="row align-items-center mb-4">
                     <div class="col-md-5 mb-4 mb-md-0">
                         <span class="h3 mb-0 text-white d-block"><%= @establishment.name %></span>
@@ -31,9 +33,65 @@
                         </ul>
                     </div>
                 </div>
-
-
-
+                <% elsif page_type == 'teacher' %>
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-5 mb-4 mb-md-0">
+                        <span class="h3 mb-0 text-white d-block"><%= @teacher.first_name %> <strong><%= @teacher.last_name %></strong></span>
+                        <span class="text-light"><%= @teacher.address %></span>
+                    </div>
+                    <div class="col-auto flex-fill">
+                        <ul class="list-inline row justify-content-lg-end mb-0">
+                            <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                <span class="badge badge-dot text-white">
+                            <i class="bg-green"></i>Email
+                        </span>
+                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
+                            <%= @teacher.email %>
+                            <small class="far fa-angle-up text-success"></small>
+                        </a>
+                            </li>
+                            <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                <span class="badge badge-dot text-white">
+                            <i class="bg-orange"></i>Téléphone
+                        </span>
+                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
+                            <%= @teacher.phone %>
+                            <small class="far fa-angle-up text-warning"></small>
+                        </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <% elsif page_type == 'student' %>
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-5 mb-4 mb-md-0">
+                        <span class="h3 mb-0 text-white d-block"><%= @student.first_name %> <strong><%= @student.last_name %></strong></span>
+                        <span class="text-light"><%= @student.address %></span>
+                    </div>
+                    <div class="col-auto flex-fill">
+                        <ul class="list-inline row justify-content-lg-end mb-0">
+                            <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                <span class="badge badge-dot text-white">
+                            <i class="bg-green"></i>Email
+                        </span>
+                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
+                            <%= @student.email %>
+                            <small class="far fa-angle-up text-success"></small>
+                        </a>
+                            </li>
+                            <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                <span class="badge badge-dot text-white">
+                            <i class="bg-orange"></i>Téléphone
+                        </span>
+                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
+                            <%= @student.phone %>
+                            <small class="far fa-angle-up text-warning"></small>
+                        </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <% end %>
                 <% if current_user == @establishment || current_user == @teacher || current_user == @student %>
                 <!-- Account navigation --> 
                 <div class="d-flex">
@@ -53,7 +111,6 @@
                     </div>
                 </div>
                 <% end %>
-
             </div>
         </div>
     </div>
