@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @establishments = Establishment.all
   end
 
   def dashboard
