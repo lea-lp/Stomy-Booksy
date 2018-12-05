@@ -1,72 +1,79 @@
-<br><br>
-
 <main class="registers">
+
+
+
 
     <div class="container h-100vh d-flex align-items-center">
         <div class="col">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
 
-                    <div class="text-center mb-5">
-                        <h6 class="h3">Se connecter</h6>
-                    </div>
-                    <span class="clearfix"></span>
-                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                    <%= devise_error_messages! %>
+                    <% if user_signed_in? %>
 
-                        <div class="form-group">
-                            <label class="form-control-label">Adresse email</label>
-                            <div class="input-group input-group-transparent">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <h1> ARTHUR AU BOULOT !!!</h1>
+
+                    <% else %>
+                        <div class="text-center mb-5">
+                            <h6 class="h3">Se connecter <%= resource.class.name %></h6>
+                        </div>
+                        <span class="clearfix"></span>
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                        <%= devise_error_messages! %>
+
+                            <div class="form-group">
+                                <label class="form-control-label">Adresse email</label>
+                                <div class="input-group input-group-transparent">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email", placeholder: "exemple@gmail.com" %>
                                 </div>
-                                <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email", placeholder: "exemple@gmail.com" %>
                             </div>
-                        </div>
 
-                        <div class="form-group mb-4">
-                            <label class="form-control-label">Mot de passe</label>
-                            <% if @minimum_password_length %>
-                            <em>(<%= @minimum_password_length %> characters minimum)</em>
-                            <% end %><br />
-                            <div class="input-group input-group-transparent">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            <div class="form-group mb-4">
+                                <label class="form-control-label">Mot de passe</label>
+                                <% if @minimum_password_length %>
+                                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                                <% end %><br />
+                                <div class="input-group input-group-transparent">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <%= f.password_field :password, class: "form-control", id: "input-password", autocomplete: "current-password", placeholder: "********"  %>
                                 </div>
-                                <%= f.password_field :password, class: "form-control", id: "input-password", autocomplete: "current-password", placeholder: "********"  %>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                                  <% if devise_mapping.rememberable? -%>
-                                  <div class="field">
-                                    <%= f.check_box :remember_me %>
-                                    <%= f.label :remember_me %>
-                                  </div>
-                                <% end -%>
-                        </div>
-
-
-                        <div class="row align-items-center">
-                            <div class="col-sm-7">
-                                <div><%= f.submit "Log in", class: "btn btn-primary mb-3 mb-sm-0" %></div>
-                            </div>
-                            <div class="col-sm-5 text-sm-right">
-                                <span class="small d-sm-block d-md-inline">Nouvel utilisateur ?</span>
-                                <%= render "devise/shared/links" %>
                             </div>
 
+                            <div class="form-group">
+                                      <% if devise_mapping.rememberable? -%>
+                                      <div class="field">
+                                        <%= f.check_box :remember_me %>
+                                        <%= f.label :remember_me %>
+                                      </div>
+                                    <% end -%>
+                            </div>
+
+
+                            <div class="row align-items-center">
+                                <div class="col-sm-7">
+                                    <div><%= f.submit "Log in", class: "btn btn-primary mb-3 mb-sm-0" %></div>
+                                </div>
+                                <div class="col-sm-5 text-sm-right">
+                                    <span class="small d-sm-block d-md-inline">Nouvel utilisateur ?</span>
+                                    <%= render "devise/shared/links" %>
+                                </div>
+
+                            </div>
+                          <% end %>
+                          <br><br>
+                          <%= link_to "<< Page d'accueil", root_path %>
                         </div>
-                      <% end %>
-                      <br><br>
-                      <%= link_to "<< Page d'accueil", root_path %>
+                    <% end %>
                 </div>
-
-            </div>
-            <!-- <%= image_tag("img/backgrounds/" + "clouds-bottom.png", alt: "clouds", style: "width: 100%") %> -->
 
         </div>
 
     </div>
 
 </main>
+
+<br><br>
