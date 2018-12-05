@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  name: MyString
+  description: MyText
+  is_active: false
+  Establishment: 
+
+two:
+  type: 
+  name: MyString
+  description: MyText
+  is_active: false
+  Establishment: 

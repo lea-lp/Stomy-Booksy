@@ -1,88 +1,96 @@
-
-/* Google Maps */
-.map.embed-container {
-    position: relative;
-    height: 650px;
-    width: 100%;
-}
-
-.map.embed-container #map-notice {
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: rgba(34, 32, 32, 0.849);
-    /*for old IE browsers with no support for rgba()*/
-    background-color: rgba(43, 40, 40, 0.349);
-    color: #ccc;
-    padding: 8px;
-}
-
-.map.embed-container .map-overlay {
-    height: 650px !important;
-    width: 100%;
-    position: absolute;
-    z-index: 99;
-    background-color: rgba(31, 29, 29, 0.404);
-}
   
-.map-overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 650px !important;
-    width: 100%;
+// MAPS
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+    height: 100%;
+    z-index: 1;
 }
-  
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 /* Maps searchbar */
-#barbox {
-    margin-top: 25px;
-    display: flex;
-    flex-direction: row;
-    width: 554px;
-    height: 42px;
-    border: 1px ridge #e5e5e5;
-    box-shadow: 0px 1.5px 3px #c4c4c4;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-}
-  
-#barbox:hover {
-    box-shadow: 0px 1.5px 3.5px #898989;
-}
-  
-#topnav {
-    width: 554px;
-    height: 42px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-  
-}
-  
-#search {
+
+#search-box {
+    margin: 30px 12px 0 0;
+    text-overflow: ellipsis;
     position: relative;
     width: 554px;
     height: 42px;
     padding: 10px 25px 9px 16px;
     border: none;
     font-size: 15px;
-    color: rgba(117, 109, 109, 0.733);
+    color: rgba(0, 0, 0, 0.733);
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;  
+    box-shadow: 4px 10px 58px 0px rgb(105, 102, 102);
+    width: 554px;
+    height: 42px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    box-shadow: 4px 10px 58px 0px rgb(88, 85, 85);
 }
-  
-search:focus, input:focus {
+
+#search-box:hover, #topnav:hover {
+    box-shadow: 4px 10px 58px 0px rgb(143, 139, 139);
+}
+
+#search-box:focus, input:focus {
     outline: none;
+    border: solid 1px rgba(98, 134, 233, 0.534);
 }
+
+// #overlay {
+//     position: absolute; /* Sit on top of the page content */
+//     // display: none; /* Hidden by default */
+//     width: 100%; /* Full width (cover the whole page) */
+//     height: 100%; /* Full height (cover the whole page) */
+//     top: 0; 
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+//     z-index: 10000; /* Specify a stack order in case you're using a different order for other elements */
+//     cursor: pointer; /* Add a pointer on hover */
+// }
+
+// /* Overlay */
+// .map.embed-container {
+//     position: relative;
+//     height: 650px;
+//     width: 100%;
+// }
+
+// .map.embed-container #map-notice {
+//     position: absolute;
+//     right: 0;
+//     top: 0;
+//     background-color: rgba(34, 32, 32, 0.849);
+//     /*for old IE browsers with no support for rgba()*/
+//     background-color: rgba(43, 40, 40, 0.349);
+//     color: #ccc;
+//     padding: 8px;
+// }
+
+// .map.embed-container .map-overlay {
+//     height: 100%;
+//     width: 100%;
+//     position: absolute;
+//     z-index: 99;
+//     background-color: rgba(31, 29, 29, 0.404);
+// }
   
-#research_buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 30px;
-}
-  
-  
+// .map-overlay {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     flex-direction: column;
+//     height: 650px !important;
+//     width: 100%;
+// }

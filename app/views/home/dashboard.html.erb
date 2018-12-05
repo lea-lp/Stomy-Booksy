@@ -1,4 +1,42 @@
 
+<h1 style="margin-top: 80px;">Ceci est le dashboard d'un <%=@user_type%> </h1>
 
-<p>argent rdv</p>
- 
+<h2>Liste des RDV</h2>
+
+<h2>Argent</h2>
+<h2>Ressources</h2>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <th> Id </th>
+    <th> type </th>
+    <th> Name </th>
+    <th> Description </th>
+    <th> Active ? </th>
+    <th> Delete </th>
+  </thead>
+  <tr>
+    <%= form_for @resource do |form| %>
+      <td> <input type="hidden" id="hidden_tag" name="resource[establishment_id]" value="<%=current_user.id%>"></td>
+      <td><%=form.select :resource_type, [["salle","salle"],["objet","objet"]], class:"form-control"%></td>
+      <td><%=form.text_field :name, class:"form-control"%></td>
+      <td><%=form.text_field :description, class:"form-control"%></td>
+      <td><%=form.select :is_active, [["active",true],["inactive",false]]%></td>
+      <td><%=form.submit "Créer ressource", class:"btn btn-primary"%></td>
+    <% end %>
+  </tr>
+    
+  <%@resources.each do |resource|%>
+    <tr>
+      <td><%=resource.id%></td>
+      <td><%=resource.resource_type%></td>
+      <td><%=resource.name%></td>
+      <td><%=resource.description%></td>
+      <td><%=resource.is_active%></td>
+      <td> 
+        <a href="<%= resource_path(resource) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
+          <i class="fas fa-trash-alt"></i>
+        </a>
+      </td>
+    </tr>
+  <%end%>
+</table>
