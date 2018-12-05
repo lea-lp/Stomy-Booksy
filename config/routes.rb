@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :teachers, only: [:show, :edit]
   resources :establishments, only: [:show, :edit]
   delete '/establishments/:establishment_id/teachers/:teacher_id', to: 'establishments#destroy_relation_teach_esta', as: :destroy_relation_teach_esta
+  resources :resources, only: [:create, :destroy, :edit]
   get '/dashboard', to: 'home#dashboard', as: 'dashboard'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
