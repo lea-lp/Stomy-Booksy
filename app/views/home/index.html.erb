@@ -25,7 +25,6 @@
        * element that contains the map. */
        #map {
         height: 100%;
-        margin-top: 100px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -33,9 +32,17 @@
         margin: 0;
         padding: 0;
       }
+
+       #search-box {
+        margin: 0 0 30px 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+        border-radius: 12px;
+      }
     </style>
     <div id="map"></div> 
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <input id="search-box" class="controls form-control" type="text" placeholder="Cherchez une école près de chez vous">
 
     <!-- places librry -->
     <script> //Script to show the map
@@ -69,8 +76,10 @@
             });
 
             // Create the search box and link it to the UI element.
-            var input = document.getElementById('pac-input');
+            var input = document.getElementById('search-box');
             var searchBox = new google.maps.places.SearchBox(input);
+            // map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(input); //puts the searchbox at the bottom center of the map
+
 
             // Bias the SearchBox results towards current map's viewport.
             map.addListener('bounds_changed', function() {
