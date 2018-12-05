@@ -23,6 +23,8 @@
 //= require tweenmax.min
 //= require wavify.min
 //= require swiper.min
+//= require sticky-kit.min
+//= require jquery.fancybox.min
 
 //= require_tree .
 
