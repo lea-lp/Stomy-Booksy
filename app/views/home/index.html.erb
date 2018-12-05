@@ -1,24 +1,129 @@
 <!-- Maps -->
 <div class="map embed-container">
     <div id="map-notice"></div>
-        <div class="map-overlay"> 
-            <h3 class="font-weight-bold" style="color: aliceblue; margin-top: 50px"><strong>Toutes vos activités en un clic (à modifier)</strong></h3>
-            <div id="research_module">
-                <div id="barbox">
-                    <div id="topnav">
-                        <input id="search" type="text" value="Recherchez une ville, une activité, une association...">
-                    </div>
-                </div>
-                <div id="research_buttons">
-                    <%= link_to "", "#", class: "nav-link d-lg-none", id: "button-sign-up" %>
-                    <a href="#" class="btn btn-sm btn-info btn-lg btn-circle btn-icon d-none d-lg-inline-flex">
-                        <span class="btn-inner--text">Lancer la recherche</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.822509900339!2d3.8731859545435867!3d43.61023705895304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6af078b20464b%3A0xff0f2da78acb2843!2sl&#39;Anacrouse+-+%C3%89cole+de+Musique!5e0!3m2!1sfr!2sfr!4v1543884024656" width="100%" height="650px"></iframe>
-</div>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.822509900339!2d3.8731859545435867!3d43.61023705895304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6af078b20464b%3A0xff0f2da78acb2843!2sl&#39;Anacrouse+-+%C3%89cole+de+Musique!5e0!3m2!1sfr!2sfr!4v1543884024656" width="100%" height="650px"></iframe>
+    </div> -->
+
+   
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+       #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+       #search-box {
+        margin: 0 0 30px 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+        border-radius: 12px;
+      }
+    </style>
+    <div id="map"></div> 
+    <input id="search-box" class="controls form-control" type="text" placeholder="Cherchez une école près de chez vous">
+
+    <!-- places librry -->
+    <script> //Script to show the map
+        function initMap() {
+            //initiate de map
+            var map = new google.maps.Map(document.getElementById('map'), {
+               center: {lat: 43.610875, lng: 3.876341}, //Centered on Montpellier
+               zoom: 15,
+               disableDefaultUI: true,
+               styles: [ { "featureType": "administrative", "elementType": "geometry", "stylers": [ { "visibility": "off" } ] }, { "featureType": "poi", "stylers": [ { "visibility": "off" } ] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] }, { "featureType": "transit", "stylers": [ { "visibility": "off" } ] } ]
+
+            });
+
+            //create 1 market per establishment (the entire DB is shown for now)
+            <%@establishments.each_with_index do |establishment, i|%>
+                <%if establishment.latitude && establishment.longitude #in case geocoder did not work%>
+                    var marker<%=i%> = new google.maps.Marker({
+                      position: {lat: <%=establishment.latitude%>, lng: <%=establishment.longitude%>},
+                      map: map,
+                      title: '<%=establishment.name%>'
+                    });
+
+                    marker<%=i%>.addListener('click', function() {
+                        infowindow.setContent('<h6><%=establishment.name%></h6><p><%=establishment.description%></p> <br> <a href="#">http://lien à mettre </a>');
+                        infowindow.open(map, this);
+                    });
+                <%end%>
+            <%end%>
+            var infowindow = new google.maps.InfoWindow({
+                maxWidth: 200
+            });
+
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('search-box');
+            var searchBox = new google.maps.places.SearchBox(input);
+            // map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(input); //puts the searchbox at the bottom center of the map
+
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function() {
+              searchBox.setBounds(map.getBounds());
+            });
+
+            var placesMarkers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function() {
+              var places = searchBox.getPlaces();
+
+              if (places.length == 0) {
+                return;
+              }
+
+              // Clear out the old markers.
+              placesMarkers.forEach(function(marker) {
+                marker.setMap(null);
+              });
+              placesMarkers = [];
+
+              // For each place, get the icon, name and location.
+              var bounds = new google.maps.LatLngBounds();
+              places.forEach(function(place) {
+                if (!place.geometry) {
+                  console.log("Returned place contains no geometry");
+                  return;
+                }
+                var icon = {
+                  url: "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+                  size: new google.maps.Size(71, 71),
+                  origin: new google.maps.Point(0, 0),
+                  anchor: new google.maps.Point(17, 34),
+                  scaledSize: new google.maps.Size(25, 25)
+                };
+ 
+                // Create a marker for each place.
+                placesMarkers.push(new google.maps.Marker({
+                  map: map,
+                  icon: icon,
+                  title: place.name,
+                  position: place.geometry.location
+                }));
+
+                if (place.geometry.viewport) {
+                  // Only geocodes have viewport.
+                  bounds.union(place.geometry.viewport);
+                } else {
+                  bounds.extend(place.geometry.location);
+                }
+              });
+              map.fitBounds(bounds);
+              map.setZoom(17);
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GOOGLE_MAPS_api_key_clem %>&libraries=places&callback=initMap" async defer></script>
 
 
 <section class="" >
