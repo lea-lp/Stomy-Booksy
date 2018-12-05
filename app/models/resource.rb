@@ -1,5 +1,5 @@
 class Resource < ApplicationRecord
-  validates :resource_type, presence: true, :inclusion=> { :in => ['salle'] }
+  validates :resource_type, presence: true, :inclusion=> { :in => ['salle','objet'] }
   validates :name, presence: true
 
   after_initialize :init
