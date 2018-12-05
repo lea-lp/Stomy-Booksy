@@ -1,4 +1,4 @@
-<main class="registers">
+<main class="registers-<%= resource.class.name %>">
 
 
 
@@ -10,7 +10,7 @@
 
                     <% if user_signed_in? %>
 
-                        <h1> ARTHUR AU BOULOT !!!</h1>
+                        <h1>Vous êtes déjà connecté en tant que <%= resource.class.name %>, veuillez vous déconnecter pour accéder à un autre profil. </h1>
 
                     <% else %>
                         <div class="text-center mb-5">
@@ -52,20 +52,32 @@
                                     <% end -%>
                             </div>
 
-
-                            <div class="row align-items-center">
+                            <div id="form-buttons">
+                                <div class="row">
                                 <div class="col-sm-7">
-                                    <div><%= f.submit "Log in", class: "btn btn-primary mb-3 mb-sm-0" %></div>
+                                    <% if resource.class.name == "Student" %>
+                                        <div><%= f.submit "Log in", class: "btn btn-warning mb-3 mb-sm-0" %></div>
+                                    <% elsif resource.class.name == "Teacher" %>
+                                        <div><%= f.submit "Log in", class: "btn btn-danger mb-3 mb-sm-0" %></div>
+                                    <% elsif resource.class.name == "Establishment" %>
+                                        <div><%= f.submit "Log in", class: "btn btn-success mb-3 mb-sm-0" %></div>
+                                    <% end %>
                                 </div>
-                                <div class="col-sm-5 text-sm-right">
-                                    <span class="small d-sm-block d-md-inline">Nouvel utilisateur ?</span>
-                                    <%= render "devise/shared/links" %>
-                                </div>
-
+                                <button type="button" class="btn btn-secondary btn-icon">
+                                        <span class="btn-inner--icon"><i class="fas fa-arrow-left"></i></span>
+                                        <span class="btn-inner--text"><%= link_to "Page d'accueil", root_path %></span>
+                                    </button>
                             </div>
+                            <div class="pt-4">
+                                    <div class="">
+                                        <span class="">Déjà inscrit ?</span>
+                                        <%= render "devise/shared/links" %>
+                                    </div>
+                                </div>
+                            </div>
+
                           <% end %>
                           <br><br>
-                          <%= link_to "<< Page d'accueil", root_path %>
                         </div>
                     <% end %>
                 </div>
@@ -77,3 +89,6 @@
 </main>
 
 <br><br>
+
+
+

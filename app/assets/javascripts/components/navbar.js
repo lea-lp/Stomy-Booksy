@@ -32,7 +32,7 @@ var NavbarSticky = (function() {
         } else {
             $this.removeClass('sticky');
 
-            $("#logo-nav").show().addClass(".logo-slim");
+            $("#logo-nav").show();
             $("#logo-nav-row").hide();
 
             $("#button-sign-up").show();
@@ -45,6 +45,8 @@ var NavbarSticky = (function() {
             $("#button-profile-slim").hide();
 
             $("ul.nav > li.nav-item").hide();
+
+            
         }
     }
 

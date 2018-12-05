@@ -6,29 +6,37 @@
             <div class="container">
                 
                 <div class="row" style="display: flex; justify-content: space-between; width: 100%">
-                    <ul class="nav justify-content-center justify-content-lg-end mt-3 mt-md-0">
-                        <li class="nav-item" style="padding-top: 7px">
+
+                    <div style="padding-top: 5px;">
+                        <a  href="<%= root_path %>">
+                            <%= image_tag "logo.png", alt: "logo", class: "btn-translate--hover", id: "logo-nav", style: "height: 145px;" %>
+                        </a>
+                    </div>
+                    
+                    <ul class="nav justify-content-center justify-content-lg-end mt-3 mt-md-0" style="margin-left: -150px !important">
+                        <li class="nav-item" style="padding-top: 7px; padding-right: 22px">
                             <a class="nav-link active" href="https://www.instagram.com/the_hacking_project/" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                                <i class="fab fa-instagram btn-translate--hover"></i>
                             </a>
                         </li>
-                        <li class="nav-item" style="padding-top: 7px">
+                        <li class="nav-item" style="padding-top: 7px; padding-right: 22px">
                             <a class="nav-link" href="https://github.com/lea-lp/Stomy-Booksy" target="_blank">
-                                <i class="fab fa-github"></i>
+                                <i class="fab fa-github btn-translate--hover"></i>
                             </a>
                         </li>
-                        <li class="nav-item" style="padding-top: 7px">
+                        <li class="nav-item" style="padding-top: 7px; padding-right: 22px">
                             <a class="nav-link" href="https://fr-fr.facebook.com/thehackingproject/" target="_blank">
-                                <i class="fab fa-facebook"></i>
+                                <i class="fab fa-facebook btn-translate--hover"></i>
                             </a>
                         </li>
                     </ul>
                     <div style="padding-top: 5px;">
                         <a  href="<%= root_path %>">
-                            <%= image_tag "logo.png", alt: "logo", id: "logo-nav", style: "height: 145px;" %>
-                            <%= image_tag "logo-row.png", alt: "logo-row", id: "logo-nav-row", style: "width: 130px" %>
+                            <%= image_tag "logo-row.png", alt: "logo-row", class: "btn-translate--hover", id: "logo-nav-row", style: "width: 130px" %>
                         </a>
                     </div>
+
+                    
                     
                     <!-- ............................USER IN.......................... -->
                     <% if user_signed_in? %>
@@ -37,7 +45,7 @@
                                 
                                 <!-- BUTTON PROFILE REGULAR -->
                                 <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-profile">
-                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center" style="color: white; font-size: 2.6em"></i></a>
+                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center btn-translate--hover" style="color: white; font-size: 2.6em"></i></a>
                                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
                                         <div class="list-group">
                                             <a href="<%= root_path %>" class="list-group-item list-group-item-action">
@@ -59,7 +67,7 @@
                                 </li>
                                 <!-- BUTTON PROFILE SLIM -->
                                 <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-profile-slim">
-                                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center" style="color: black; font-size: 1.5em"></i></a>
+                                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center btn-translate--hover" style="color: black; font-size: 1.5em"></i></a>
                                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
                                             <div class="list-group">
                                                 <a href="<%= root_path %>" class="list-group-item list-group-item-action">
@@ -87,27 +95,27 @@
                         <!-- .........LOG IN.......... -->
                         <!-- BUTTON REGULAR -->
                         <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-log-in">
-                            <%= link_to "Se connecter", "#", class: "nav-link text-shadow", id: "button-connect" %>
+                            <%= link_to "Se connecter", "#", class: "nav-link text-shadow btn-translate--hover", id: "button-connect" %>
                             <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
                                 <div class="list-group">
                                     <a href="<%= new_student_session_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #E89005"></i>&nbsp; Étudiant</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #E89005"></i>&nbsp; Étudiant</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_teacher_session_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #DD4335"></i>&nbsp; Professeur</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #DD4335"></i>&nbsp; Professeur</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_establishment_session_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #55B676"></i>&nbsp; Association</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #55B676"></i>&nbsp; Association</h6>
                                             </div>
                                         </div>
                                     </a>
@@ -122,21 +130,21 @@
                                     <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #E89005"></i>&nbsp; Étudiant</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #E89005"></i>&nbsp; Étudiant</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_teacher_session_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #DD4335"></i>&nbsp; Professeur</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #DD4335"></i>&nbsp; Professeur</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_establishment_session_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #55B676"></i>&nbsp; Association</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #55B676"></i>&nbsp; Association</h6>
                                             </div>
                                         </div>
                                     </a>
@@ -147,7 +155,7 @@
                         <!-- BUTTON REGULAR -->
                         <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-sign-up">
                             <%= link_to "S'inscrire", "#", class: "nav-link d-lg-none", id: "button-sign-up" %>
-                            <a href="#" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                            <a href="#" class="btn btn-sm btn-white btn-circle btn-translate--hover btn-icon d-none d-lg-inline-flex scroll-me" style="box-shadow: 5px 5px 15px rgba(8, 16, 20, 0.89)">
                                     <span class="btn-inner--text">S'inscrire</span>
                                 </a>
                             <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
@@ -155,21 +163,21 @@
                                     <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #E89005"></i>&nbsp; Étudiant</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #E89005"></i>&nbsp; Étudiant</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_teacher_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #DD4335"></i>&nbsp; Professeur</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #DD4335"></i>&nbsp; Professeur</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_establishment_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-1"><i class="fas fa-circle" style="color: #55B676"></i>&nbsp; Association</h6>
+                                                <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #55B676"></i>&nbsp; Association</h6>
                                             </div>
                                         </div>
                                     </a>
@@ -184,21 +192,21 @@
                                     <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                    <h6 class="mb-1"><i class="fas fa-circle" style="color: #E89005"></i>&nbsp; Étudiant</h6>
+                                                    <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #E89005"></i>&nbsp; Étudiant</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_teacher_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                    <h6 class="mb-1"><i class="fas fa-circle" style="color: #DD4335"></i>&nbsp; Professeur</h6>
+                                                    <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #DD4335"></i>&nbsp; Professeur</h6>
                                             </div>
                                         </div>
                                     </a>
                                     <a href="<%= new_establishment_registration_path %>" class="list-group-item list-group-item-action">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body ml-3">
-                                                    <h6 class="mb-1"><i class="fas fa-circle" style="color: #55B676"></i>&nbsp; Association</h6>
+                                                    <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover" style="color: #55B676"></i>&nbsp; Association</h6>
                                             </div>
                                         </div>
                                     </a>
