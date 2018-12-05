@@ -9,53 +9,6 @@
                     <%= render partial: 'layouts/card_profile', locals: {page_type: 'teacher'} %> 
 
                     <div class="col-md-8 mt-lg-5 mb-5">
-                        <!-- Page title -->
-
-                        <div class="page-header mb-4">
-
-                            <div class="row align-items-center">
-                                <div class="col-md-6 mb-3 mb-md-0">
-                                    <a href="#" class="h6 mb-0"><i class="fas fa-angle-left mr-3"></i>Settings</a>
-                                </div>
-                                <div class="col-md-6 text-md-right">
-
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- Change avatar -->
-
-                        <div class="card bg-gradient-warning border-0 shadow mb-4">
-                            <div class="card-body py-3">
-                                <div class="row row-grid align-items-center">
-                                    <div class="col-lg-8">
-                                        <div class="media align-items-center">
-                                            <a href="#" class="avatar avatar-lg rounded-circle mr-3">
-                                                <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg">
-                                            </a>
-                                            <div class="media-body">
-                                                <h5 class="text-white mb-0">Heather Wright</h5>
-                                                <div>
-                                                    <form>
-                                                        <input type="file" name="file-1[]" id="file-1" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple />
-                                                        <label for="file-1">
-                                                            <span class="text-white">Change avatar</span>
-                                                        </label>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto flex-fill mt-4 mt-sm-0 text-sm-right d-none d-lg-block">
-                                        <a href="#" class="btn btn-sm btn-white btn-circle btn-icon shadow">
-                                            <span class="btn-inner--icon"><i class="fas fa-fire"></i></span>
-                                            <span class="btn-inner--text">Upgrade to Pro</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- General -->
 
@@ -463,5 +416,7 @@
 <%end%>
 
 <% @teacher_hash.each do |key, val| %>
-  <em><%= key %></em><br>  
+  <p><%= key %></p><br>  
 <% end %>
+
+<br><br><br><br><br><br>
