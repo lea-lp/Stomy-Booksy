@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   devise_for :students
   root 'home#index'
   resources :students, only: [:show, :edit]
-  resources :teachers, only: [:show, :edit]
+  resources :teachers, only: [:show, :edit] do
+    resources :teacher_establishments, only: [:destroy]
+    resources :teacher_cats, only: [:destroy]
+  end
   resources :establishments, only: [:show, :edit]
   delete '/establishments/:establishment_id/teachers/:teacher_id', to: 'establishments#destroy_relation_teach_esta', as: :destroy_relation_teach_esta
   delete '/teachers/:teacher_id/sub_categories/:sub_category_id', to: 'teachers#destroy_relation_teacher_subcat', as: :destroy_relation_teacher_subcat
