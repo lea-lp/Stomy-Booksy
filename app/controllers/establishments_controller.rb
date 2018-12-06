@@ -24,5 +24,6 @@ class EstablishmentsController < ApplicationController
   end
 
   def edit
+    @establishment = Establishment.find(params[:id])
   end
 end

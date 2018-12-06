@@ -1,2 +1,233 @@
-<h1>Establishments#edit</h1>
-<p>Find me in app/views/establishments/edit.html.erb</p>
+<main>
+    <header class="header-account-page bg-gradient-primary d-flex align-items-end">
+        <div class="container">
+            <div class="row">
+                <div class=" col-lg-12">
+                    <!-- Salute + Small stats -->
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <span class="h2 mb-0 text-white d-block">Bonjour <%= @establishment.name %></span>
+                            <span class="text-light">Have a nice day!</span>
+                        </div>
+                    </div>
+                    <!-- Account navigation -->
+                    <div class="d-flex">
+                        <a href="account-profile-public.html" class="btn btn-icon btn-group-nav shadow btn-secondary">
+                            <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
+                            <span class="btn-inner--text d-none d-md-inline-block">Mon Profil</span>
+                        </a>
+                        <div class="btn-group btn-group-nav shadow ml-auto" role="group" aria-label="Basic example">
+                            <div class="btn-group" role="group">
+                                <button id="btn-group-boards" type="button" class="btn btn-secondary btn-icon">
+                                    <span class="btn-inner--icon"><i class="fas fa-chart-line"></i></span>
+                                    <span class="btn-inner--text d-none d-sm-inline-block">Dashboard</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="slice">
+        <div class="container">
+            <div class="row row-grid">
+                <div class="col-lg-3">
+
+                    <div data-toggle="sticky" data-sticky-offset="100" data-negative-margin=".card-profile-cover">
+
+                        <div class="card">
+                            <div class="card-header py-3">
+                                <span class="h6">Settings</span>
+                            </div>
+                            <div class="list-group list-group-sm list-group-flush">
+                                <a href="account-profile.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                    <div>
+                                        <i class="fas fa-user-circle mr-2"></i>
+                                        <span>Profile</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-angle-right"></i>
+                                    </div>
+                                </a>
+                                <a href="account-settings.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                    <div>
+                                        <i class="fas fa-cog mr-2"></i>
+                                        <span>Settings</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-angle-right"></i>
+                                    </div>
+                                </a>
+                                <a href="account-billing.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                    <div>
+                                        <i class="fas fa-credit-card mr-2"></i>
+                                        <span>Billing</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-angle-right"></i>
+                                    </div>
+                                </a>
+                                <a href="account-notifications.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                    <div>
+                                        <i class="fas fa-bell mr-2"></i>
+                                        <span>Notifications</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-angle-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-9">
+
+                    <form>
+                        <!-- General -->
+
+                        <div class="page-inner-header mb-4">
+                            <h5 class="mb-1">General information</h5>
+
+                            <p class="text-muted mb-0">You can help us, by filling your data, create you a much better experience using our website.</p>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Name</label>
+                                    <input class="form-control" type="text" value="<%= @establishment.name %>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Phone</label>
+                                    <input class="form-control" type="text" value="<%= @establishment.phone %>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        		<div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Email</label>
+                                    <input class="form-control" type="email" value="<%= @establishment.email %>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">SIRET</label>
+                                    <input type="text" class="form-control" data-toggle="date" value="<%= @establishment.siret %>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Confirmation du nouvel Email</label>
+                                    <input class="form-control" type="email" value="<%= @establishment.email %>">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Address -->
+                        <div class="pt-5 mt-5 delimiter-top">
+
+                            <div class="page-inner-header mb-4">
+                                <h5 class="mb-1">Address details</h5>
+
+                                <p class="text-muted mb-0">Fill in your address info for upcoming orders or payments.</p>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Address</label>
+                                        <input class="form-control" type="text" value="<%= @establishment.address %>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Description -->
+                        <div class="pt-5 mt-5 delimiter-top">
+
+                            <div class="page-inner-header mb-4">
+                                <h5 class="mb-1">About me</h5>
+
+                                <p class="text-muted mb-0">Use this field to let others know you better.</p>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Description</label>
+                                            <textarea class="form-control" placeholder="<%= @establishment.description %>" rows="3"></textarea>
+                                            <small class="form-text text-muted mt-2">You can @mention other users and organizations to link to them.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Skills -->
+                        <div class="pt-5 mt-5 delimiter-top">
+
+                            <div class="page-inner-header mb-4">
+                                <h5 class="mb-1">Skills</h5>
+
+                                <p class="text-muted mb-0">Show off you skills using our tags input control.</p>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label class="sr-only">Cours</label>
+		                                		<% @sub_cat_hash.each do |sub_cat, sub_cat_teachers| %>
+				                                <% sub_cat_teachers.each do |teacher| %>
+		                                        <input type="text" class="form-control" value="<%= teacher %>" data-toggle="tags" />
+																				<% end %>
+																				<% end %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-5 mt-5 delimiter-top">
+                            <button type="button" class="btn btn-sm btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-link">Cancel</button>
+                        </div>
+                    </form>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+
+    <section class="slice slice-lg bg-primary">
+
+        <span class="tongue tongue-top"><i class="fas fa-angle-up"></i></span>
+
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-8 text-center">
+                    <h3 class="font-weight-400 text-white">I am ready to start a new project with <span class="font-weight-700">Purpose</span> UI Kit.</h3>
+                    <div class="mt-5">
+                        <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-white btn-circle btn-translate--hover px-4">Purchase now<span class="badge badge-pill badge-danger text-sm">$49 USD</span></a>
+                        <a href="mailto:support@webpixels.io" class="btn btn-link text-white">Have an issue?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
