@@ -5,19 +5,23 @@
   
   .registers-Student{
     background-image: url('images/clouds-bottom.png'), linear-gradient(to bottom, rgba(232, 145, 5,0) 30%,rgba(232, 145, 5,0.45) 100%);
+    background-size: 100% auto;
   }
 
   .registers-Teacher{
     background-image: url('images/clouds-bottom.png'), linear-gradient(to bottom, rgba(221, 67, 53, 0) 30%,rgba(221, 67, 53, 0.45) 100%);
+    background-size: 100% auto;
   }
 
   .registers-Establishment{
     background-image: url('images/clouds-bottom.png'), linear-gradient(to bottom, rgba(85, 182, 117,0) 30%,rgba(85, 182, 117,0.45) 100%);
+    background-size: 100% auto;
   }
 
   .registers-Student, .registers-Teacher, .registers-Establishment, #pass-new {
     background-repeat: no-repeat;
     background-position: center bottom;
+    background-size: 100% auto;
   }
   
   .img-index{
@@ -27,6 +31,7 @@
 
   #section-index-background, #pass-new {
     background-image: url('images/clouds-bottom.png');
+    background-size: 100% auto;
   }
 
   #section-index-background {
