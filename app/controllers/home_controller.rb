@@ -15,6 +15,17 @@ class HomeController < ApplicationController
     if @user_type == "Establishment"
       @resources = @current_user.resources
     end
+
+    #rooms availables
+    @active = []
+    @resources.each do |resource|
+      if resource.is_active == true
+      @active << resource
+     end
+    end
+
+    @teachers = Establishment.find(@current_user.id).teachers
+
   end
 
 end
