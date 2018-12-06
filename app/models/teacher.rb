@@ -13,5 +13,6 @@ class Teacher < ApplicationRecord
 
   has_many :availablity_slots
   has_many :events
+  has_many :resources, through: :establishments
 
 end
