@@ -1,12 +1,31 @@
-<section>
-    <div style="height: 400px; display: flex; justify-content: center; align-items: center; flex-direction: column">
-        <div style="border: solid 2px green"><h5>réseaux sociaux / logs</h5></div> 
-        <hr>
-        <div style="border: solid 2px red"><h2>Présentation du site</h2></div> 
-        <hr>
-        <div style="border: solid 2px blue"><h3>navbar index (type material)</h3></div> 
+
+<section id="top-index">
+
+    <div class="section-inner bg-gradient-primary">
+        <span class="section-inner-bg"></span>
     </div>
+    <!--Illustation -->
+    <div class="position-absolute middle right-0 col-lg-7 col-xl-7 d-none d-lg-block mt-5 mt-xl-lg">
+        <img alt="Image placeholder" src="../assets/img/prv/macbook-pro-clay.png" class="img-fluid d-none d-lg-block" style="margin-bottom: 10em">
+    </div>
+    <div class="container pt-xl">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mt-xl-5">
+                <h1 class="text-white mb-3">Simplifiez-vous la vie</h1>
+                <p class="lead text-white lh-180">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="mt-5">
+                    <a href="#map" class="btn btn-dark btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
+                        <span class="btn-inner--text">Explore Pages</span>
+                        <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </section>
+
+
 
 
 <!-- Maps CLEM -->
@@ -69,7 +88,7 @@
 		// Create the search box and link it to the UI element.
 		var input = document.getElementById('search-box');
 		var searchBox = new google.maps.places.SearchBox(input);
-		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input); //puts the searchbox at the bottom center of the map
+		map.controls[google.maps.ControlPosition.TOP_CENTER].push(input); //puts the searchbox at the bottom center of the map
 
 
 		// Bias the SearchBox results towards current map's viewport.
