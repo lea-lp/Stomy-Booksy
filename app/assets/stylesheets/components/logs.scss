@@ -1,30 +1,40 @@
-#section-index-background {
-    background-image: url('images/clouds-bottom.png');
-    z-index: 100;
-  }
-  
   .registers a {
     color: rgba(92, 85, 85, 0.514);
     margin-bottom: -200px
   }
   
-  .registers{
-    // height: 650px;
-    background-image: url('images/clouds-bottom.png');
+  .registers-Student{
+    background-image: url('images/clouds-bottom.png'), linear-gradient(to bottom, rgba(232, 145, 5,0) 30%,rgba(232, 145, 5,0.45) 100%);
+  }
+
+  .registers-Teacher{
+    background-image: url('images/clouds-bottom.png'), linear-gradient(to bottom, rgba(221, 67, 53, 0) 30%,rgba(221, 67, 53, 0.45) 100%);
+  }
+
+  .registers-Establishment{
+    background-image: url('images/clouds-bottom.png'), linear-gradient(to bottom, rgba(85, 182, 117,0) 30%,rgba(85, 182, 117,0.45) 100%);
+  }
+
+  .registers-Student, .registers-Teacher, .registers-Establishment, #pass-new {
     background-repeat: no-repeat;
-    background-size: cover;
+    background-position: center bottom;
   }
   
   .img-index{
     display: flex;
     justify-items: center;
   }
+
+  #section-index-background, #pass-new {
+    background-image: url('images/clouds-bottom.png');
+  }
+
+  #section-index-background {
+    z-index: 100;
+  }
   
   #pass-new {
     height: 375px;
-    background-image: url('images/clouds-bottom.png');
-    background-repeat: no-repeat;
-    background-size: cover;
   }
   
   

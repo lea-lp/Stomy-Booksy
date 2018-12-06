@@ -1,15 +1,94 @@
-<%= render 'layouts/show_profile' %>
-<p><%= @teacher.description %></p>
-<p><%= @teacher.first_name %> <%= @teacher.last_name %></p>
+<main>
 
-<p><%= @teacher.siret %></p>
-<p><%= @teacher.email %></p>
-<p><%= @teacher.phone %></p>
-<p><%= @teacher.address %></p>
-<% @teacher.sub_categories.each do |sub| %>
-  <h4> <%= sub.title %></h4>
-<%end%>
+<%= render partial: 'layouts/header_profile', locals: {page_type: 'teacher'} %> 
 
-<% @teacher_hash.each do |key, val| %>
-  <em><%= key %></em><br>  
-<% end %>
+    <section class="pt-5 pt-lg-0 bg-secondary">
+        <div class="container">
+            <div class="row">
+
+                <%= render partial: 'layouts/card_profile', locals: {page_type: 'teacher'} %> 
+
+                <div class="col-md-8 mt-lg-5 mb-5">
+
+                    <!-- General -->
+
+                    <!-- Timeline -->
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Badges -->
+                            <div class="d-lg-flex">
+                                <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
+                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
+                                    <div class="media-body pl-2">
+                                        <span class="h6"><%=@teacher.sub_categories.length %> service(s) proposé(s)</span>
+                                    </div>
+                                </a>
+                                <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
+                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/natural-user-interface-1.svg" style="width: 36px;">
+                                    <div class="media-body pl-2">
+                                        <span class="h6">??? élève(s)</span>
+                                    </div>
+                                </a>
+                                <a class="media d-flex align-items-center mb-3 mb-lg-0">
+                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/collect.svg" style="width: 36px;">
+                                    <div class="media-body pl-2">
+                                        <span class="h6">Inscrit à <%= @teacher.establishments.count %> école(s)</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="pt-5 mt-5 delimiter-top">
+                                <!-- Interests -->
+                                <h6><i class="fas fa-user mr-2"></i>Services proposé(s)</h6>
+                                <div>
+                                    <% @teacher.sub_categories.each do |sub| %>
+                                        <span class="badge badge-lg badge-info mr-2 mb-2"><%= sub.title %></span>
+                                    <%end%>
+                                </div>
+                            </div>
+                            <div class="pt-5 mt-5 delimiter-top">
+                                <!-- Endorsements -->
+                                <h6><i class="fas fa-user mr-2"></i>Ecole(s)</h6>
+                                <div class="row">
+                                    <% @teacher_hash.each do |key, val| %>
+                                    <% val.each do |valeur| %>
+                                    <div class="col-lg-6 mt-4">
+                                        <div class="card bg-secondary shadow-sm border-0">
+                                            <div class="media align-items-center p-3">
+                                                <a href="#" class="avatar rounded-circle mr-2">
+                                                    <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg">
+                                                </a>
+                                                <div class="media-body">
+                                                    <h6 class="text-sm mb-0"> <a href="<%=establishment_path(valeur.id)%>"><%= valeur.name %></a></h6>
+                                                </div>
+                                            </div>
+                                        </div>                                
+                                    </div>
+                                    <% end %>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+
+    <section class="slice slice-lg bg-primary">
+
+        <span class="tongue tongue-top tongue-secondary"><i class="fas fa-angle-up"></i></span>
+
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-8 text-center">
+                    <h3 class="font-weight-400 text-white">Un conseil sur votre <span class="font-weight-700">apprentissage</span></h3>
+                    <div class="mt-5">
+                        <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-white btn-circle btn-translate--hover px-4">Contacter ce professeur</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
