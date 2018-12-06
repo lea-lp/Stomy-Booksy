@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_133712) do
+ActiveRecord::Schema.define(version: 2018_12_06_133252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "availability_slots", force: :cascade do |t|
+    t.datetime "start_time"
+    t.integer "duration"
+    t.bigint "resource_id"
+    t.bigint "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_id"], name: "index_availability_slots_on_resource_id"
+    t.index ["teacher_id"], name: "index_availability_slots_on_teacher_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -45,6 +56,20 @@ ActiveRecord::Schema.define(version: 2018_12_05_133712) do
     t.bigint "establishment_id", null: false
     t.index ["establishment_id", "teacher_id"], name: "establishment_teacher"
     t.index ["teacher_id", "establishment_id"], name: "teacher_establishment"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.integer "duration"
+    t.bigint "student_id"
+    t.bigint "teacher_id"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_id"], name: "index_events_on_resource_id"
+    t.index ["student_id"], name: "index_events_on_student_id"
+    t.index ["teacher_id"], name: "index_events_on_teacher_id"
   end
 
   create_table "resources", force: :cascade do |t|
@@ -107,4 +132,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_133712) do
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "resources"
+  add_foreign_key "events", "students"
+  add_foreign_key "events", "teachers"
 end

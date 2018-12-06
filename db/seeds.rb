@@ -3,6 +3,7 @@ Teacher.destroy_all
 Establishment.destroy_all
 Category.destroy_all
 SubCategory.destroy_all
+Resource.destroy_all
 
 Category.create(title:"Musique")
 Category.create(title:"Sport")

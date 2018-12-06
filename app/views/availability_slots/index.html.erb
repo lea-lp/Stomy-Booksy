@@ -1,0 +1,17 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<%= week_calendar events: @availability_slots do |date, avai_slots| %>
+  <%= date %>
+
+  <% avai_slots.each do |avai_slot| %>
+    <div>
+      <%= avai_slot.id %>
+      <%= link_to "lien", availability_slot_path(avai_slot)%>
+    </div>
+  <% end %>
+<% end %>

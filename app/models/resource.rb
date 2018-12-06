@@ -5,6 +5,9 @@ class Resource < ApplicationRecord
   after_initialize :init
 
   belongs_to :establishment
+  has_many :availablity_slots
+  has_many :events
+  
 
   def init
     self.is_active = true if self.is_active.nil?
