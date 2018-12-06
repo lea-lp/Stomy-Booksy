@@ -135,76 +135,77 @@
 <section>
     <div class="container pt-md mb-150"></div>
 </section>
+<% if establishment_signed_in? %>
+    <div><h4>Log with esta account</h4></div>
+<% elsif teacher_signed_in? %>
+    <div><h4>Log with teacher account</h4></div>
+<% elsif student_signed_in? %>
+    <div><h4>Log with student account</h4></div>
+<% else %>
 
-<!-- Spotlight -->
-<section class="bg-info bg-cover" id="index-spotlight">
-    
-        <div class="container pt-md mb-150">
-    
-            <div class="row row-grid justify-content-center mb-lg">
-                <div class="col-lg-6 text-center">
-                    <h6 class="text-uppercase ls-2 text-white font-weight-700">utilisateur</h6>
-                    <h2 class="heading h1 text-white font-weight-light">Choisissez votre profil</h2>
+    <!-- Spotlight -->
+    <section class="bg-info bg-cover" id="index-spotlight">
+            <div class="container pt-md mb-150">
+                <div class="row row-grid justify-content-center mb-lg">
+                    <div class="col-lg-6 text-center">
+                        <h6 class="text-uppercase ls-2 text-white font-weight-700">utilisateur</h6>
+                        <h2 class="heading h1 text-white font-weight-light">Choisissez votre profil</h2>
+                    </div>
                 </div>
+                    <div class="pricing card-group flex-column flex-md-row mb-3">
+            
+                        <!-- LEFT CARD -->
+                        <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
+                            <div class="animate-this">
+                                <div class="card card-pricing">
+                                    <%= image_tag 'etabl.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-4">
+                                            <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Établissement</h5></li>
+                                            <li>Toutes vos activités sur une plateforme</li>
+                                            <li>Agenda personnalisé</li>
+                                        </ul>
+                                        <button type="button" class="btn-sm btn-success btn-circle mb-3 font-weight-bold">Découvrir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- MIDDLE CARD -->
+                        <div class="card card-pricing zoom-in shadow-lg rounded text-center border-0" data-animate-hover="2">
+                            <div class="animate-this">
+                                <div class="card card-pricing">
+                                    <%= image_tag 'student1.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-4">
+                                            <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Particulier</h5></li>
+                                            <li>Toutes vos activités sur une plateforme</li>
+                                            <li>Agenda personnalisé</li>
+                                        </ul>
+                                        <button type="button" class="btn-sm btn-warning btn-circle mb-3 font-weight-bold">Découvrir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- RIGHT CARD -->
+                        <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
+                            <div class="animate-this">
+                                <div class="card card-pricing">
+                                    <%= image_tag 'prof2.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-4">
+                                            <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Professeur</h5></li>
+                                            <li>Toutes vos activités sur une plateforme</li>
+                                            <li>Agenda personnalisé</li>
+                                        </ul>
+                                        <button type="button" class="btn-sm btn-danger btn-circle mb-3 font-weight-bold">Découvrir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
-    
-            <div class="pricing card-group flex-column flex-md-row mb-3">
-    
-                <!-- LEFT CARD -->
-                <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
-                    <div class="animate-this">
-                        <div class="card card-pricing">
-                            <%= image_tag 'etabl.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
-                            <div class="card-body">
-                                <ul class="list-unstyled mb-4">
-                                    <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Établissement</h5></li>
-                                    <li>Toutes vos activités sur une plateforme</li>
-                                    <li>Agenda personnalisé</li>
-                                </ul>
-                                <button type="button" class="btn-sm btn-success btn-circle mb-3 font-weight-bold">Découvrir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- MIDDLE CARD -->
-                <div class="card card-pricing zoom-in shadow-lg rounded text-center border-0" data-animate-hover="2">
-                    <div class="animate-this">
-                        <div class="card card-pricing">
-                            <%= image_tag 'student1.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
-                            <div class="card-body">
-                                <ul class="list-unstyled mb-4">
-                                    <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Particulier</h5></li>
-                                    <li>Toutes vos activités sur une plateforme</li>
-                                    <li>Agenda personnalisé</li>
-                                </ul>
-                                <button type="button" class="btn-sm btn-warning btn-circle mb-3 font-weight-bold">Découvrir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- RIGHT CARD -->
-                <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
-                    <div class="animate-this">
-                        <div class="card card-pricing">
-                            <%= image_tag 'prof2.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
-                            <div class="card-body">
-                                <ul class="list-unstyled mb-4">
-                                    <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Professeur</h5></li>
-                                    <li>Toutes vos activités sur une plateforme</li>
-                                    <li>Agenda personnalisé</li>
-                                </ul>
-                                <button type="button" class="btn-sm btn-danger btn-circle mb-3 font-weight-bold">Découvrir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-    
-        </div>
-    
-    </section>
-    
+        </section>
+<% end %>
 
