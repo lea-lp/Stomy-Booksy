@@ -75,8 +75,9 @@
                                                         <p class="text-sm mb-0"><%= teacher.email %></p>
                                                         <p class="text-sm mb-0"><%= string_result %></p>
                                                         <% if current_establishment == @establishment %>
-                                                            <a href="<%= destroy_relation_teach_esta_path(current_establishment, teacher)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" ></a>
+                                                            <a href="<%= teacher_teacher_establishment_path(teacher, current_establishment)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
                                                             <i class="fas fa-trash-alt"></i>
+                                                            </a>
                                                         <% end %>
                                                         </a>
                                                     </div>
@@ -85,6 +86,11 @@
                                         </div>
 									<% end %>
                                 </div>
+                                    <%= form_tag(establishment_teacher_establishments_path(@establishment)) do %>
+                                      <%= label_tag("Nouveau professeur") %>
+                                      <%= select_tag "teacher_id", options_from_collection_for_select(@teachers, "id", "email") %>
+                                      <%= submit_tag("Ajouter", class: "btn btn-large btn-primary") %>
+                                    <% end %>
                             </div>
                         </div>
                     </div>

@@ -2,6 +2,8 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = Teacher.find(params[:id])
+    @sub_categories = SubCategory.all
+    @sub_categories =  @sub_categories.select {|s| !@teacher.sub_categories.include?(s)}
   end
 
   def destroy_relation_teacher_subcat
@@ -14,12 +16,6 @@ class TeachersController < ApplicationController
     @teacher.sub_categories.delete(@sub_categorie)
     redirect_back(fallback_location: root_path)
   end
-
-  def new_sub_cat
-    @sub_category = SubCategory.new
-  end
-      # teacher.sub_categories << SubCategory.find(rand_array_sub_cat[i])
-
 
   def destroy
   end

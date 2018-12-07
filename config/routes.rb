@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   resources :students, only: [:show]
   resources :teachers, only: [:show] do
     resources :teacher_establishments, only: [:destroy]
-    resources :teacher_cats, only: [:destroy]
+    resources :teacher_cats, only: [:create, :destroy]
   end
-  resources :establishments, only: [:show, :edit]
+  resources :establishments, only: [:show, :edit] do
+    resources :teacher_establishments, only: [:create]
+  end
   resources :resources, only: [:create, :destroy, :edit]
   get '/dashboard', to: 'home#dashboard', as: 'dashboard'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
