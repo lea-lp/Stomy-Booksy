@@ -14,4 +14,8 @@ class Establishment < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode
+
+  def upcoming_events
+    events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now) }
+  end
 end

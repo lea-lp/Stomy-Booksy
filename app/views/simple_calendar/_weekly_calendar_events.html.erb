@@ -1,0 +1,9 @@
+<%= week_calendar events: events do |date, events| %>
+  <%=date%>
+  
+  <% events.each do |event| %>
+    <div style="<%= event_position(event) %> <%= event_height(event) %>">
+      <%= link_to event.name, event_path(event) %>
+    </div>
+  <% end %>
+<% end %>

@@ -12,10 +12,12 @@ Rails.application.routes.draw do
     resources :availability_slots, only: [:new, :create, :index]
   end
 
+  resources :events, only: [:show, :edit]
+
   resources :resources, only: [:show, :create, :destroy, :edit] do
     resources :availability_slots, only: [:new, :create, :index]
     resources :teachers do
-      resources :events, only: [:show, :index, :create]
+      resources :events, only: [:index, :create]
     end
   end
 

@@ -12,4 +12,8 @@ class Resource < ApplicationRecord
   def init
     self.is_active = true if self.is_active.nil?
   end
+
+  def upcoming_events
+    events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now- 1.week) }
+  end
 end
