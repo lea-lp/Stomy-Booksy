@@ -1,0 +1,41 @@
+<br><br><br><br>
+
+<h1>Listing des events réservable par vous (<%=@student.first_name%>)</h1>
+
+<h4>Etabl. concerné: <%=@establishment.name%> (ressource: <%=@resource.name%>)</h4>
+<h4>Prof concerné: <%=@teacher.first_name%> <%=@teacher.last_name%></h4>
+
+<div class="row container">
+  <p>Basculer vers une autre salle : </p> <br>
+  <% @resources.each do |resource|%>
+    <a href="<%=resource_teacher_events_path(resource, @teacher)%>" class="col-md-1"> <%=resource.name%></a> 
+  <%end%>    
+</div>
+
+<div class="row container">
+  <div class="col-md-4">
+      <%= form_tag resource_teacher_events_path do %>
+        <input type="hidden" id="hidden_tag" name="event[student_id]" value="<%=current_student.id%>">
+        <input type="hidden" id="hidden_tag" name="event[teacher_id]" value="<%=@teacher.id%>">
+        <input type="hidden" id="hidden_tag" name="event[resource_id]" value="<%=@resource.id%>">
+        <div class="form-group">
+          <%=label_tag "Heure et date de début" %><br>
+          <%=datetime_field_tag "event[start_time]", Time.current.strftime("%d-%m-%YT%H:%M"), class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%=label_tag "Durée"%>
+          <%=select_tag "[event][duration]", options_for_select(@duration_picker), class:"form-control"%>
+        </div>
+        <%=submit_tag "Créer un event", class:"btn btn-primary"%>
+      <% end %>      
+
+  </div>
+  <div class="col-md-8">
+    <%= add_weekly_calendar(@events) %>
+  </div>
+  
+</div>
+
+
+
+

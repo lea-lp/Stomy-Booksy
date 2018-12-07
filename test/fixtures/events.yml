@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start_time: 2018-12-06 14:32:52
+  duration: 1
+  student: one
+  teacher: one
+  resource: one
+
+two:
+  name: MyString
+  start_time: 2018-12-06 14:32:52
+  duration: 1
+  student: two
+  teacher: two
+  resource: two

@@ -1,11 +1,6 @@
 class ApplicationController < ActionController::Base
-  helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout, :filter_on_signed_in
+  helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout, :filter_on_signed_in, :get_css_color
 
-  before_action :configure_devise_parameters, if: :devise_controller?
-
-  def configure_devise_parameters
-    devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:last_name, :first_name, :email, :phone, :siret, :description, :password, :password_confirmation)}
-  end
 
   def filter_on_signed_in
     unless user_signed_in?
@@ -46,4 +41,21 @@ class ApplicationController < ActionController::Base
       return false
     end
   end
+
+  def get_css_color(class_name)
+   if class_name == "Student"
+     return "warning"
+    elsif class_name == "Teacher"
+      return "danger"
+    elsif class_name == "Establishment"
+      return "success"
+    end
+  end
+
+  before_action :configure_devise_parameters, if: :devise_controller?
+
+  def configure_devise_parameters
+    devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:last_name, :first_name, :email, :phone, :siret, :description, :password, :password_confirmation)}
+  end
+
 end
