@@ -1,0 +1,25 @@
+<br><br><br><br>
+<h1>Liste des établissements</h1>
+
+<div class="row">
+  <% @establishments.each do |establishment| %>
+    <div class="col-lg-3 d-flex align-items-stretch">
+      <div class="card my-3">
+        <div class="card-body">
+          <div class="d-flex">
+            <h5 class="card-title"> 
+              Nom : <%= establishment.name %>  
+            </h5>
+          </div>
+          <h6 class="card-subtitle mb-2 text-muted"> <strong>Adresse</strong> : <%=establishment.address%></h6>
+          <p class="card-text" > <strong>Description</strong>: <%= establishment.description %> </p>
+        </div>
+        <div class="row">
+          <div class="col-lg-2">
+            <%= link_to 'Voir les profs', establishment_teachers_index_path(establishment), class:"btn btn-link" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

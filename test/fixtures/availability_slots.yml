@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2018-12-06 11:42:01
+  duration: 1
+  ressource_id: 
+  teacher_id: 
+
+two:
+  start_time: 2018-12-06 11:42:01
+  duration: 1
+  ressource_id: 
+  teacher_id: 
