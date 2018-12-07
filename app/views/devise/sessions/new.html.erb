@@ -10,7 +10,7 @@
 
                     <% if user_signed_in? %>
 
-                        <h1>Vous êtes déjà connecté en tant que <%= resource.class.name %>, veuillez vous déconnecter pour accéder à un autre profil. </h1>
+                        <h1>Vous êtes déjà connecté en tant que <%= current_user.class.name %>, veuillez vous déconnecter pour accéder à un autre profil. </h1>
 
                     <% else %>
                         <div class="text-center mb-5">

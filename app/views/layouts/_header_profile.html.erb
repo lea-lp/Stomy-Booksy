@@ -6,29 +6,38 @@
 
                 <% if page_type == 'establishment' %>
                 <div class="row align-items-center mb-4">
-                    <div class="col-md-5 mb-4 mb-md-0">
+                    <div class="col-md-12" style="text-align: right;">
                         <span class="h3 mb-0 text-white d-block"><%= @establishment.name %></span>
                         <span class="text-light"><%= @establishment.address %></span>
                     </div>
-                    <div class="col-auto flex-fill">
+                    <div class="col-auto flex-fill pt-3">
                         <ul class="list-inline row justify-content-lg-end mb-0">
                             <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                                 <span class="badge badge-dot text-white">
-                            <i class="bg-green"></i>Email
-                        </span>
+                                    <i class="bg-orange"></i>Téléphone
+                                </span>
                                 <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
-                            <%= @establishment.email %>
-                            <small class="far fa-angle-up text-success"></small>
-                        </a>
+                                    <%= @establishment.phone %>
+                                    <small class="far fa-angle-up text-warning"></small>
+                                </a>
                             </li>
                             <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                                 <span class="badge badge-dot text-white">
-                            <i class="bg-orange"></i>Téléphone
-                        </span>
+                                    <i class="bg-green"></i>Email
+                                </span>
                                 <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
-                            <%= @establishment.phone %>
-                            <small class="far fa-angle-up text-warning"></small>
-                        </a>
+                                    <%= @establishment.email %>
+                                    <small class="far fa-angle-up text-success"></small>
+                                </a>
+                            </li>
+                            <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                <span class="badge badge-dot text-white">
+                                    <i class="bg-red"></i>Site internet
+                                </span>
+                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
+                                    <%= @establishment.email %>
+                                    <small class="far fa-angle-up text-success"></small>
+                                </a>
                             </li>
                         </ul>
                     </div>
