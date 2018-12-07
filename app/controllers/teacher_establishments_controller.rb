@@ -15,8 +15,6 @@ class TeacherEstablishmentsController < ApplicationController
 
   def create
     @establishment = current_establishment
-    p @establishment.id
-    # @establishment = Establishment.find(params[:establishment_id])
     @teacher = Teacher.find(params[:teacher_id])
     unless @establishment == current_establishment
       flash[:danger] = "Vous n'êtes pas autorisé à faire cette action!"

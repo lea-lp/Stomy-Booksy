@@ -1,5 +1,10 @@
 $( document ).ready(function() {
 
+$('#jquery').hide()
+$('#hidden').click(function(){
+        $('#jquery').toggle(500);
+    });
+
 /// Wavify
 'use strict';
 var Wavify = (function() {

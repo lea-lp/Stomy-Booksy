@@ -49,15 +49,18 @@
                                         <% end %>
                                         </span>
                                     <%end%>
-              
+                                </div>
+                                <br>
+                                <% if current_teacher == @teacher %>
+                                    <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Nouvelle catégorie</span>
+                                        <div id="jquery"> 
                                     <%= form_tag(teacher_teacher_cats_path(@teacher)) do %>
-                                      <%= label_tag "Nouvelle catégorie" %>
+                                      <%= label_tag "" %>
                                       <%= select_tag "sub_category_id", options_from_collection_for_select(@sub_categories, "id", "title") %>
                                       <%= submit_tag("Ajouter", class: "btn btn-large btn-primary") %>
                                     <% end %>
-
-
-                                </div>
+                                <% end %>
+                                    </div>
                             </div>
                             <div class="pt-5 mt-5 delimiter-top">
                                 <!-- Endorsements -->
