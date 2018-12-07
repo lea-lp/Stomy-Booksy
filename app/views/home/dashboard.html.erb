@@ -169,7 +169,7 @@
                     <th> Nom </th>
                     <th> Description </th>
                     <th> Disponible ? </th>
-                  </thead>
+                </thead>
                 <%= form_for @resource do |form| %>
                   <input type="hidden" id="hidden_tag" name="resource[establishment_id]" value="<%=current_user.id%>">
                   <td><%=form.select :resource_type, [["salle","salle"],["objet","objet"]], {}, {class: "form-control", style: "width: 100px"}%></td>
@@ -184,7 +184,7 @@
 
             <!-- resources list (table) -->
             <div class="table-responsive">
-                <table class="table table-sm table-flush align-items-center align-items-center">
+                <table class="table table-sm table-flush align-items-center">
                     <thead>
                         <tr>
                             <th> Id </th>
@@ -195,7 +195,6 @@
                             <th><i class="fas fa-trash-alt"></i></th>
                         </tr>
                     </thead>
-                    <tbody>
                     <%@resources.each do |resource|%>
                       <tr>
                           <td><span class="font-weight-bold text-sm"><%=resource.id%></span></td>
@@ -209,7 +208,6 @@
                     <%end%>
                 </table>
             </div>
-
           </div>
       </div>
   </div>
