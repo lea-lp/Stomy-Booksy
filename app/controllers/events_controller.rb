@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
 
   def index
+    unless current_student
+      flash[:danger] = "Merci de vous connecter pour pouvoir réserver"
+      redirect_to new_student_session_path
+    end
     @duration_picker = [["1h", 3600], ["30min", 1800]]
     @teacher = Teacher.find(params[:teacher_id])
     @resource = Resource.find(params[:resource_id])
@@ -21,7 +25,7 @@ class EventsController < ApplicationController
     @event.set_event_name
 
     if @event.save
-      flash[:success]="event was successfully created"
+      flash[:success]="Le créneau a bien été réservé!"
       redirect_back(fallback_location: root_path)
       return
     else

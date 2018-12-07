@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout, :filter_on_signed_in
+  helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout, :filter_on_signed_in, :get_css_color
 
 
   def filter_on_signed_in
@@ -39,6 +39,16 @@ class ApplicationController < ActionController::Base
       return destroy_establishment_session_path
     else
       return false
+    end
+  end
+
+  def get_css_color(class_name)
+   if class_name == "Student"
+     return "warning"
+    elsif class_name == "Teacher"
+      return "danger"
+    elsif class_name == "Establishment"
+      return "success"
     end
   end
 

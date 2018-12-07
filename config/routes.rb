@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   resources :availability_slots, only: [:show, :edit, :update, :destroy]
 
 
-  resources :establishments, only: [:show, :edit]
+  resources :establishments, only: [:index, :show, :edit] do
+    get '/teachers/', to: 'establishments#index_of_teachers', as: :teachers_index
+  end
   
   delete '/establishments/:establishment_id/teachers/:teacher_id', to: 'establishments#destroy_relation_teach_esta', as: :destroy_relation_teach_esta
 

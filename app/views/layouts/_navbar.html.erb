@@ -218,12 +218,9 @@
                 </div>
             </div>
             </div>
-        </nav>        
-        <% flash.each do |key, value| %>
-            <div class="alert alert-<%=key%>">
-                <%= value %>
-            </div>
-        <% end %>
+        </nav>
+    <%= render 'layouts/flash' %> 
+        
     </header>
 
 
