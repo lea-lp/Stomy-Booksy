@@ -1,9 +1,12 @@
 <%= week_calendar events: events do |date, events| %>
-  <%=date%>
   
   <% events.each do |event| %>
-    <div style="<%= event_position(event) %> <%= event_height(event) %>">
-      <%= link_to event.name, event_path(event) %>
+    <div class="event" style="<%= event_position(event) %> <%= event_height(event) %> width: 60px; display: flex; flex-wrap: wrap;">
+      <%if event.student == current_user || event.teacher == current_user %>
+        <%= link_to event.name, event_path(event) %>
+      <%else%>
+        <p>Créneau occupé</p>
+      <%end%>
     </div>
   <% end %>
 <% end %>
