@@ -2,11 +2,7 @@ class HomeController < ApplicationController
 
 
   def index
-    filter_on_signed_in
-    @user_type = get_user_type
-    @current_user = current_user
     @establishments = Establishment.all
-    @type = @user_type.downcase
   end
 
   def dashboard
