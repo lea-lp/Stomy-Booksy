@@ -44,7 +44,7 @@
                 </div>
                 <% elsif page_type == 'teacher' %>
                 <div class="row align-items-center mb-4">
-                    <div class="col-md-5 mb-4 mb-md-0">
+                    <div class="col-md-12" style="text-align: right;">
                         <span class="h3 mb-0 text-white d-block"><%= @teacher.first_name %> <strong><%= @teacher.last_name %></strong></span>
                         <span class="text-light"><%= @teacher.address %></span>
                     </div>
@@ -73,7 +73,7 @@
                 </div>
                 <% elsif page_type == 'student' %>
                 <div class="row align-items-center mb-4">
-                    <div class="col-md-5 mb-4 mb-md-0">
+                    <div class="col-md-12" style="text-align: right;">
                         <span class="h3 mb-0 text-white d-block"><%= @student.first_name %> <strong><%= @student.last_name %></strong></span>
                         <span class="text-light"><%= @student.address %></span>
                     </div>
@@ -106,16 +106,10 @@
                 <div class="d-flex">
                     <div class="btn-group btn-group-nav shadow ml-auto" role="group" aria-label="Basic example">
                         <div class="btn-group" role="group">
-                            <button id="btn-group-boards" type="button" class="btn btn-secondary btn-icon" >
-                                <span class="btn-inner--icon"><i class="fas fa-chart-line"></i></span>
-                                <span class="btn-inner--text d-none d-sm-inline-block">Mon dashboard</span>
-                            </button>
+                            <%= link_to '<i class="fas fa-chart-line"></i> &nbsp; Mon dashboard'.html_safe, dashboard_path, class: "btn btn-secondary btn-icon", id: "btn-group-boards"  %>
                         </div>
                         <div class="btn-group" role="group">
-                            <button id="btn-group-settings" type="button" class="btn btn-secondary btn-icon">
-                                <span class="btn-inner--icon"><i class="fas fa-sliders-h"></i></span>
-                                <span class="btn-inner--text d-none d-sm-inline-block">Modifier mon profil</span>
-                            </button>
+                            <%= link_to '<i class="fas fa-sliders-h"></i> &nbsp; Modifier mon profil'.html_safe, edit_student_registration_path, class: "btn btn-secondary btn-icon", id: "btn-group-settings"  %>
                         </div>
                     </div>
                 </div>
