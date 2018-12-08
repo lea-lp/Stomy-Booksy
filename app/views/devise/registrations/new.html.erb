@@ -125,8 +125,37 @@
                                     </div>
                                 </div>
 
-                            <% end %>
+                                <div class="form-group">
+                                    <label class="form-control-label">Adresse complète</label>
+                                    <div class="input-group input-group-transparent">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <%= f.text_field :address, class: "form-control form-control-label", autofocus: true, placeholder: "5 place du petit Scel, 34000 Montpellier" %>
+                                    </div>
+                                </div>
 
+                                <!-- A rajouter en Base de donnée -->
+                                <% if false %>
+                                <% elsif resource.class.name == "Student" %>
+
+
+                                <div class="form-group">
+                                    <label class="form-control-label">Ville de résidence</label>
+                                    <div class="input-group input-group-transparent">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <%= f.text_field :address, class: "form-control form-control-label", autofocus: true, placeholder: "Montpellier" %>
+                                    </div>
+                                </div>
+                                <% end %>
+                                <!-- Si jamais besoin demander à Titi il sait tout sur tout -->
+
+
+                                <% end %>
+
+                                
                             
 
                             <div id="form-buttons">
