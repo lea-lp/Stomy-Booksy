@@ -17,7 +17,12 @@
                         <div class="card-body ">
                             <div class="d-lg-flex mt-3">
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
-                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
+
+
+                                    <img src="<%= item.image_url %>" style="width: 36px">
+
+
+                                    
                                     <div class="media-body pl-2">
                                         <span class="h6"><%= @sub_cat_hash.count %> services proposés</span>
                                     </div>
@@ -74,7 +79,9 @@
                                                     <h6 class="text-sm mb-0"><a href="<%=teacher_path(teacher)%>"> <%= teacher.first_name %> <strong><%= teacher.last_name %></strong></a></h6>
                                                     <p class="text-sm mb-0"><%= teacher.email %></p>
                                                     <p class="text-sm mb-0"><%= string_result %></p>
+                                                    <%if false%>
                                                     <a href="<%=resource_teacher_events_path(@establishment.resources.first,teacher)%>">Réserver un cours</a>
+                                                    <%end%>
                                                 </div>
                                             </div>
                                         </div>

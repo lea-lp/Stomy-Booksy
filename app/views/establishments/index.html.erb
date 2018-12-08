@@ -1,25 +1,67 @@
 <br><br><br><br>
 <h1>Liste des établissements</h1>
-
-<div class="row">
-  <% @establishments.each do |establishment| %>
-    <div class="col-lg-3 d-flex align-items-stretch">
-      <div class="card my-3">
-        <div class="card-body">
-          <div class="d-flex">
-            <h5 class="card-title"> 
-              Nom : <%= establishment.name %>  
-            </h5>
+s
+<div class="container">
+  <div class="row">
+    <% @establishments.each do |establishment| %>
+      <div class="col-lg-4 pt-3 mt-3 nf-item spacing-grid">
+          <div class="card">
+              <div class="card-header py-4">
+                  <div class="d-flex align-items-center">
+                      <span class="avatar avatar-sm bg-purple">JD</span>
+                      <div class="avatar-content">
+                          <h5 class="h6 mb-0"><%= establishment.name %></h5>
+                          <small class="d-block text-muted"><%=establishment.address%></small>    
+                      </div>
+                  </div>
+              </div>
+              <div class="card-image">
+                <%= image_tag ("assos.jpg"), :style => "width:348px;" %>
+              </div>
+              <div class="card-body">
+                  <div class="row mb-1">
+                      <div class="col">
+                          <div class="card-icon-actions card-icon-actions-lg">
+                              <a href="#" class="love active"><i class="fas fa-heart"></i></a>
+                              <a href="#"><i class="fas fa-comment"></i></a>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="card-icon-actions card-icon-actions-lg text-right">
+                              <a href="#"><i class="fas fa-bookmark"></i></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div>
+                    <h6 class="heading h6 mb-3"><%= establishment.teachers.count %> professeurs</h6>
+                  </div>
+                  <p class="card-text"><%= establishment.description %></p>
+              </div>
+              <div class="card-footer">
+                  <div class="row ">
+                      <div class="col-10">
+                          <form class="card-comment-box">
+                              <p class="card-text text-muted"></p>
+                          </form>
+                      </div>
+                      <div class="col-2 text-right">
+                          <div class="card-icon-actions card-icon-actions-lg">
+                              <a href="#" data-toggle="dropdown" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-h"></i>
+                              </a>
+                              <div class="dropdown-menu py-3 text-align-left">
+                                  <%= link_to 'Se reseigner sur l\'école', establishment_path(establishment), class:"dropdown-item" %>
+                                  <%= link_to 'Voir les profs', establishment_teachers_index_path(establishment), class:"dropdown-item" %>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
-          <h6 class="card-subtitle mb-2 text-muted"> <strong>Adresse</strong> : <%=establishment.address%></h6>
-          <p class="card-text" > <strong>Description</strong>: <%= establishment.description %> </p>
-        </div>
-        <div class="row">
-          <div class="col-lg-2">
-            <%= link_to 'Voir les profs', establishment_teachers_index_path(establishment), class:"btn btn-link" %>
-          </div>
-        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+
+
+
