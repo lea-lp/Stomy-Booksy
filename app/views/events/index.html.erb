@@ -1,6 +1,53 @@
-<br><br><br><br>
+        <!-- Spotlight -->
+        <section class="slice slice-lg pb-250 bg-gradient-primary">
+          <div class="container pt-lg">
+              <div class="row">
+                  <div class="col-lg-6">
+                      <h1 class="display-4 text-white lh-110">Disponibilités</h1>
+                      <p class="lead mb-4 text-white mt-4"><%=@student.first_name.capitalize%>, un monde de possibilités s'offre à vous.</p>
+                      <p class="lead mb-4 text-white mt-4">Voici les paramètres choisis pour votre rendez-vous &nbsp; <i class="fas fa-arrow-circle-right"></i></p>
+                      <div class="mt-5">
+                          <a href="#" class="btn btn-outline-white btn-icon btn-circle btn-translate--hover">
+                              <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                              <span class="btn-inner--text">Réserver un créneau</span>
+                          </a>
+                      </div>
+                  </div>
+                  <div class="col-lg-3">
+                      <div data-animate-hover="1">
+                          <div class="card shadow-sm animate-this">
+                              <div class="card-body py-8 px-lg-8">
+                                  <%= image_tag 'etabl.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
+                                  <h5 class="h5 mt-4"><%=@establishment.name%></h5>
+                                  <a href="<%= root_path %>" class="link font-weight-light" data-link="1">Changer d'établissement</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3">
+                      <div data-animate-hover="1">
+                          <div class="card shadow-sm animate-this">
+                              <div class="card-body py-8 px-lg-8">
+                                  <%= image_tag 'prof.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
+                                  <h5 class="h5 mt-4"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
+                                  <a href="<%= root_path %>" class="link font-weight-light" data-link="1">Changer de professeur</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="shape-container" data-shape-style="curve" data-shape-position="bottom">
+              <svg class="shape-fill-white" fill="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                  <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path>
+              </svg>
+          </div>
+      </section>
 
-<h1>Listing des events réservable par vous (<%=@student.first_name%>)</h1>
+
+      <br><br><br><br>
+
+      (ressource: <%=@resource.name%>)
 
 <h4>Etabl. concerné: <%=@establishment.name%> (ressource: <%=@resource.name%>)</h4>
 <h4>Prof concerné: <%=@teacher.first_name%> <%=@teacher.last_name%></h4>
@@ -35,7 +82,3 @@
   </div>
   
 </div>
-
-
-
-
