@@ -12,13 +12,18 @@ class ResourcesController < ApplicationController
 
     if @resource.save
       flash[:success]="resource was successfully created"
-      redirect_to dashboard_path, turbolinks: false
+      redirect_back(fallback_location: root_path)
       return
     else
       flash[:danger]= @resource.errors
       redirect_back(fallback_location: root_path)
       return
     end
+  end
+
+  def show
+    
+
   end
 
   private

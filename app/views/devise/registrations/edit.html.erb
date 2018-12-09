@@ -1,37 +1,35 @@
-<br><br>
-
 <main>
-
-    <header class="header-account-page bg-gradient-cart d-flex align-items-end" style="height: 250px">
+    <header class="header-account-page bg-gradient-primary d-flex align-items-end" style="height:250px">
         <div class="container">
             <div class="row">
                 <div class=" col-lg-12">
                     <!-- Salute + Small stats -->
                     <div class="row align-items-center mb-4">
                         <div class="col-md-5 mb-4 mb-md-0">
-                            <span class="h2 mb-0 text-white d-block">Éditer mon compte</span>
-                        </div>
-                        <div class="col-auto flex-fill">
-                            <ul class="list-inline row justify-content-lg-end mb-0">
-                                <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
-                                    <span class="badge badge-dot text-white">
-                                <i class="bg-green"></i>Achat effectués
-                                <a class="d-sm-block h5 text-white font-weight-bold pl-2" href="<%= profile_path %>">
-                                        <%= current_user.orders.count %>
-                                        <small class="far fa-angle-up text-primary"></small>
-                                    </a>
-                            </span>
 
-                                </li>
-                            </ul>
+                            <% if current_establishment %>
+                            <span class="h2 mb-0 text-white d-block">Bonjour <%= @establishment.name %></span>
+                            <% elsif current_teacher %>
+                            <span class="h2 mb-0 text-white d-block">Bonjour <%= @teacher.first_name %></span>
+                            <% elsif current_student %>
+                            <span class="h2 mb-0 text-white d-block">Bonjour <%= @student.first_name %></span>
+                            <% end %>
+                            <span class="text-light">Have a nice day!</span>
                         </div>
                     </div>
                     <!-- Account navigation -->
                     <div class="d-flex">
-                        <a href="<%= profile_path %>" class="btn btn-icon btn-group-nav shadow btn-secondary active">
+                        <a href="<%= current_user %>" class="btn btn-icon btn-group-nav shadow btn-secondary">
                             <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
-                            <span class="btn-inner--text d-none d-md-inline-block">Profil</span>
+                            <span class="btn-inner--text d-none d-md-inline-block">Retour à mon profil</span>
                         </a>
+                        <div class="btn-group btn-group-nav shadow ml-auto" role="group" aria-label="Basic example">
+                            <div class="btn-group" role="group">
+                                <button id="btn-group-boards" type="button" class="btn btn-secondary btn-icon">
+                                    <span class="btn-inner--icon"><i class="fas fa-chart-line"></i></span>
+                                    <span class="btn-inner--text d-none d-sm-inline-block">Accès à mon dashboard</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -39,119 +37,269 @@
         </div>
     </header>
 
-
-
     <section class="slice">
-        <div class="container" style="margin-left: 250px">
+        <div class="container">
             <div class="row row-grid">
-                <div class="col-lg-9" style=" box-shadow: 0px 0px 61px 0px rgba(0,0,0,0.65); ">
-                    <!-- Change avatar -->
+                <div class="col-lg-3">
 
-                    <div class="card bg-gradient-warning border-0 shadow mb-4">
-                        <div class="card-body py-3 bg-gradient-primary" style="padding: 60px; margin-left: -20px;  margin-right: -20px; box-shadow: -1px 10px 61px -4px rgba(0,0,0,0.75);" >
-                            <div class="row row-grid align-items-center">
-                                <div class="col-lg-8">
-                                    <div class="media align-items-center">
-                                        <a href="#" class="avatar avatar-lg rounded-circle mr-3">
-                                            <%= image_tag "cat_2.jpg"%>
-                                        </a>
-                                        <div class="media-body">
-                                            <h5 class="text-white mb-0"><%= current_user.email %></h5>
-                                            <div>
-                                                <form>
-                                                    <input type="file" name="file-1[]" id="file-1" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple />
-                                                    <label for="file-1">
-                                                        <span class="text-white">Changer l'avatar</span>
-                                                    </label>
-                                                </form>
-                                            </div>
+                    <div data-toggle="sticky" data-sticky-offset="100" data-negative-margin=".card-profile-cover">
+
+                        <div class="card">
+                            <div class="card-header py-3">
+                                <span class="h6">Settings</span>
+                            </div>
+                            <div class="list-group list-group-sm list-group-flush">
+                                <a href="account-profile.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                    <div>
+                                        <i class="fas fa-user-circle mr-2"></i>
+                                        <span>Profile</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-angle-right"></i>
+                                    </div>
+                                </a>
+                                <a href="account-settings.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                    <div>
+                                        <i class="fas fa-cog mr-2"></i>
+                                        <span>Settings</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-angle-right"></i>
+                                    </div>
+                                </a>
+                                <a href="account-billing.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                    <div>
+                                        <i class="fas fa-credit-card mr-2"></i>
+                                        <span>Billing</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-angle-right"></i>
+                                    </div>
+                                </a>
+                                <a href="account-notifications.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                    <div>
+                                        <i class="fas fa-bell mr-2"></i>
+                                        <span>Notifications</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-angle-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-9">
+
+                    <div>
+                        <!-- General -->
+
+                        <div class="page-inner-header mb-4">
+                            <h5 class="mb-1">Information générales</h5>
+
+                            <p class="text-muted mb-0">Plus vous serez précis, plus les utilisateurs auront envie d'échanger avec vous.</p>
+
+                        </div>
+                        
+                        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                        <%= devise_error_messages! %>
+
+                        <!-- Première ligne -->
+
+                        <div class="row">
+                        
+                            <% if resource.class.name == "Establishment" %>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-control-label">Raison Sociale</label>
+                                    <%= f.text_field :name, class: "form-control form-control-label", autofocus: true, value: "#{@establishment.name}" %>
+                                </div>
+                            </div>
+                        
+                            <% elsif resource.class.name == "Student" || resource.class.name == "Teacher" %>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Prénom</label>
+                                    <%= f.text_field :first_name, class: "form-control form-control-label", autofocus: true, placeholder: "#{current_user.first_name}" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Nom</label>
+                                    <%= f.text_field :last_name, class: "form-control form-control-label", autofocus: true, placeholder: "#{current_user.last_name}" %>
+                                </div>
+                            </div>
+
+                            <% end %>
+                        </div>
+                                                    
+                        <!-- Deuxième ligne -->
+
+
+                        <div class="row">
+
+                            <% if resource.class.name == "Establishment" || resource.class.name == "Teacher" %>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">SIRET</label>
+                                        <%= f.text_field :siret, class: "form-control form-control-label", value: "#{current_user.siret}" %>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">    
+
+                                    <label class="form-control-label">Email</label>
+                                    <%= f.email_field :email, class: "form-control form-control-label", autocomplete: "email", value: "#{current_user.email}" %>
+                                    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                                    <% end %>
+                                </div>
+                            </div>
+
+                            <% elsif resource.class.name == "Student" %>
+
+                            <div class="col-md-12">
+                                <div class="form-group">    
+
+                                    <label class="form-control-label">Email</label>
+                                    <%= f.email_field :email, class: "form-control form-control-label", autocomplete: "email", value: "#{current_user.email}" %>
+                                    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                                    <% end %>
+                                </div>
+                            </div>
+
+                            <% end %>
+
+                        </div>
+
+                        <!-- Troisième ligne -->
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Téléphone</label>
+                                    <%= f.text_field :phone, class: "form-control form-control-label", value: "#{current_user.phone}" %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% if get_user_type == "Teacher" || get_user_type == "Establishment" %>
+                        <!-- Address -->
+                        <div class="pt-5 mt-5 delimiter-top">
+
+                            <div class="page-inner-header mb-4">
+                                <h5 class="mb-1">Changer votre adresse</h5>
+
+                                <p class="text-muted mb-0">Une fois cette adresse changée, votre position sur la Map sera changée.</p>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nouvelle adresse</label>
+                                        <input class="form-control" type="text" value="<%= current_user.address %>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+
+                        <div class="pt-5 mt-5 delimiter-top">
+
+                            <div class="page-inner-header mb-4">
+                                <h5 class="mb-1">Changez votre description</h5>
+
+                                <p class="text-muted mb-0">Dites en quoi vous vous démarquez.</p>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Description</label>
+                                            <%= f.text_field :description, class: "form-control form-control-label" %>
+                                            <small class="form-text text-muted mt-2">You can @mention other users and organizations to link to them.</small>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-auto flex-fill mt-4 mt-sm-0 text-sm-right d-none d-lg-block">
-                                    <a href="<%= root_path %>" class="btn btn-sm btn-white btn-circle btn-icon shadow">
-                                        <span class="btn-inner--icon"><i class="fas fa-fire"></i></span>
-                                        <span class="btn-inner--text">Tous nos chats</span>
-                                    </a>
+                            </div>
+                        </div>
+
+                        <% end %>
+
+
+                        <!-- Change Password -->
+
+                        <div class="pt-5 mt-5 delimiter-top">
+
+                            <div class="page-inner-header mb-4">
+                                <h5 class="mb-1">Changez votre mot-de-passe </h5>
+
+                                <p class="text-muted mb-0">Nouveau mot de passe</p>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <%= f.password_field :password_confirmation, class: "form-control", id: "input-password-confirm", autocomplete: "new-password", placeholder: "********" %>
+                                            <small class="form-text text-muted mt-2">Laissez la case vide si vous ne voulez pas le changer.</small>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+
+
+                        
+                        <!-- Skills -->
+                        <div class="pt-5 mt-5 delimiter-top">
+
+                            <div class="page-inner-header mb-4">
+                                <h5 class="mb-1">Étape de confirmation</h5>
+
+                                <p class="text-muted mb-0">Confirmez les changements opérés en renseignant votre mot de passe actuel </p>
+
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label class="sr-only"></label>
+                                        <%= f.password_field :current_password, class: "form-control", id: "input-password-confirm", autocomplete: "current-password", placeholder: "********" %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+
+                            <!-- A rajouter car ça marche pas sa mère -->
+                            <% if false %>
+                            <div class="d-flex justify-content-center pt-5">
+                                <%= button_to "Supprimer mon compte", registration_path(resource_name), class: "btn btn-danger btn-icon-label", data: { confirm: "Are you sure?" }, method: :delete %>
+                            </div>
+                            <!-- A rajouter car ça marche pas sa mère -->
+
+                            <% end %>
+                            <div class="pt-5 mt-5 delimiter-top d-flex justify-content-between">
+                                <%= f.submit "Sauvegarder les changements", class: "btn btn-primary btn-icon actions" %>
+                                <%= link_to "Retour", current_user, class: "btn btn-link" %>
                             </div>
                         </div>
                     </div>
-
-                    <form>
-                        <!-- General -->
-                        <br>
-                        <div class="page-inner-header mb-4">
-                            <h5 class="mb-1">Modifier vos informations</h5>
-                        </div>
-
-
-                        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-                        <%= devise_error_messages! %>
-    
-                            <div class="form-group">
-                                <label class="form-control-label">Adresse email</label>
-                                <div class="input-group input-group-transparent">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                    </div>
-                                    <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email" %>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                              <label class="form-control-label">Mot de passe actuel</label>
-                              <div class="input-group input-group-transparent">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                </div>
-                                <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", id: "input-password-confirm", placeholder: "********"%>
-                              </div>
-    
-                            <br>
-                            <div class="form-group mb-4">
-                                <% if @minimum_password_length %>
-                                <label class="form-control-label">Nouveau mot de passe</label>
-                                <em class="form-control-label font-weight-light">(<%= @minimum_password_length %> caractères minimum)</em>
-                                <% end %>
-                                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-                                <% end %><br />
-                                <div class="input-group input-group-transparent">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                    </div>
-                                    <%= f.password_field :password, class: "form-control", id: "input-password", autocomplete: "new-password", placeholder: "********" %>
-                                    <br />
-                                </div>
-                            </div>
-    
-                            <div class="form-group">
-                                <label class="form-control-label">Confirmer le mot de passe</label>
-                                <div class="input-group input-group-transparent">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                    </div>
-                                    <%= f.password_field :password_confirmation, class: "form-control", id: "input-password-confirm", autocomplete: "new-password", placeholder: "********" %>
-                                </div>
-                            </div>
-                            <br>
-    
-                            <div class="row align-items-center">
-                                <div class="col-sm-7">
-                                    <div><%= f.submit "Mettre à jour", class: "btn btn-primary mb-3 mb-sm-0" %></div>
-                                </div>
-    
-                            </div>
-                          <% end %>
-                            <br><br>
-                          
-                      <h3>Supprimer mon compte</h3>
-                      
-                      <p>Vous n'êtes pas satisfait ?  <%= button_to "Supprimer mon compte", registration_path(resource_name), class: "btn btn-danger mb-3 mb-sm-0", data: { confirm: "Are you sure?" }, method: :delete %></p>
-                      
-                      <%= link_to "Back", :back %>
-
+                    <% end %>
                 </div>
             </div>
         </div>
@@ -161,20 +309,58 @@
 
     <section class="slice slice-lg bg-primary">
 
-        <span class="tongue tongue-top tongue-secondary"><i class="fas fa-angle-up"></i></span>
+        <span class="tongue tongue-top"><i class="fas fa-angle-up"></i></span>
 
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-8 text-center">
-                    <h3 class="font-weight-400 text-white">Merci de nous faire confiance !</h3>
+                    <h3 class="font-weight-400 text-white">I am ready to start a new project with <span class="font-weight-700">Purpose</span> UI Kit.</h3>
                     <div class="mt-5">
-                        <a href="<%= root_path %>" class="btn btn-white btn-circle btn-translate--hover px-4">Tous nos chats</a>
-                        <a href="<%= profile_path %>" class="btn btn-link text-white">Mon profil</a>
+                        <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-white btn-circle btn-translate--hover px-4">Purchase now<span class="badge badge-pill badge-danger text-sm">$49 USD</span></a>
+                        <a href="mailto:support@webpixels.io" class="btn btn-link text-white">Have an issue?</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+<%= get_user_type %>
 
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+   <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+
+    <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+   <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+    <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+<h3>Cancel my account</h3>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+ <%= link_to "Back", establishment_path(current_user) %>
+
+
+    <h2>Site internet </h2>
+    <h2>Horaires d'ouverture</h2>
+    <h2>Email confirmation ???????</h2>
 </main>

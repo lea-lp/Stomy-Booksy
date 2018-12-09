@@ -10,7 +10,7 @@
 
                     <% if user_signed_in? %>
 
-                        <h1>Vous êtes déjà connecté en tant que <%= resource.class.name %>, veuillez vous déconnecter pour accéder à un autre profil. </h1>
+                        <h1>Vous êtes déjà connecté en tant que <%= current_user.class.name %>, veuillez vous déconnecter pour accéder à un autre profil. </h1>
 
                     <% else %>
                         <div class="text-center mb-5">
@@ -55,13 +55,7 @@
                             <div id="form-buttons">
                                 <div class="row">
                                 <div class="col-sm-7">
-                                    <% if resource.class.name == "Student" %>
-                                        <div><%= f.submit "Log in", class: "btn btn-warning mb-3 mb-sm-0" %></div>
-                                    <% elsif resource.class.name == "Teacher" %>
-                                        <div><%= f.submit "Log in", class: "btn btn-danger mb-3 mb-sm-0" %></div>
-                                    <% elsif resource.class.name == "Establishment" %>
-                                        <div><%= f.submit "Log in", class: "btn btn-success mb-3 mb-sm-0" %></div>
-                                    <% end %>
+                                    <div><%= f.submit "Log in", class: "btn btn-#{get_css_color(resource.class.name)} mb-3 mb-sm-0" %></div>
                                 </div>
                                 <button type="button" class="btn btn-secondary btn-icon">
                                         <span class="btn-inner--icon"><i class="fas fa-arrow-left"></i></span>

@@ -74,6 +74,7 @@
                                                         <h6 class="text-sm mb-0"><a href="<%=teacher_path(teacher)%>"> <%= teacher.first_name %> <strong><%= teacher.last_name %></strong></a></h6>
                                                         <p class="text-sm mb-0"><%= teacher.email %></p>
                                                         <p class="text-sm mb-0"><%= string_result %></p>
+                                                        <a href="<%=resource_teacher_events_path(@establishment.resources.first,teacher)%>">Réserver un cours</a>
                                                         <% if current_establishment == @establishment %>
                                                             <a href="<%= teacher_teacher_establishment_path(teacher, current_establishment)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
                                                             <i class="fas fa-trash-alt"></i>
@@ -84,7 +85,7 @@
                                                 </div>
                                             </div>
                                         </div>
-									<% end %>
+                                    <% end %>
                                 </div>
                                 <br>
                                 <% if @establishment == current_establishment %>

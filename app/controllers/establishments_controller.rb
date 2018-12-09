@@ -16,5 +16,15 @@ class EstablishmentsController < ApplicationController
   end
 
   def edit
+    @establishment = Establishment.find(params[:id])
+  end
+
+  def index
+    @establishments = Establishment.all
+  end
+
+  def index_of_teachers
+    @establishment = Establishment.find(params[:establishment_id])
+    @teachers = @establishment.teachers
   end
 end
