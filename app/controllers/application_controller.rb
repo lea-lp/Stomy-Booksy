@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout, :filter_on_signed_in, :get_css_color, :get_dashboard, :get_profil
 
   before_action :configure_devise_parameters, if: :devise_controller?
+  before_action :set_locale
 
   def configure_devise_parameters
     devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:name, :address, :last_name, :first_name, :email, :phone, :siret, :description, :password, :password_confirmation)}
@@ -87,5 +88,12 @@ class ApplicationController < ActionController::Base
       return "success"
     end
   end
+
+
+  private
+
+  def set_locale
+    I18n.locale = "fr"
+  end 
 
 end
