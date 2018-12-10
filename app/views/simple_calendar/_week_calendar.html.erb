@@ -1,10 +1,10 @@
 <div class="simple-calendar weekly">
   <div class="header">
-    <h2><%= start_date.strftime("%d %b %Y") %></h2>
+    <!-- <h2><%= start_date.strftime("%d %B %Y") %></h2> -->
     <h3>
-      <%= link_to "Previous", calendar.url_for_previous_view, class: "btn" %>
-      Week of <%= start_date.strftime("%d %b") %> to <%= (start_date + 6.days).strftime("%d %b")  %> 
-      <%= link_to "Next", calendar.url_for_next_view, class: "btn" %>
+      <%= link_to '<i class="fas fa-arrow-circle-left"></i> &nbsp; Précédent'.html_safe, calendar.url_for_previous_view, class: "btn" %>
+      Semaine du <%= start_date.strftime("%d") %> au <%= (start_date + 6.days).strftime("%d %B")  %> 
+      <%= link_to 'Suivant &nbsp; <i class="fas fa-arrow-circle-right"></i>'.html_safe, calendar.url_for_next_view, class: "btn" %>
     </h3>
   </div>
   
@@ -13,7 +13,7 @@
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= I18n.t("date.abbr_day_names")[day.wday] %></th>
+          <th><%= I18n.t("date.day_names")[day.wday] %></th>
         <% end %>
       </tr>
     </thead>

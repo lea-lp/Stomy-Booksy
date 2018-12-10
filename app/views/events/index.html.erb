@@ -1,65 +1,18 @@
-        <!-- Spotlight -->
-        <section class="slice slice-lg pb-250 bg-gradient-primary" style="padding-bottom: 9em !important;box-shadow: 0px -6px 24px 0px rgba(209,209,209,0.75) !important;
-        ">
-          <div class="container pt-lg">
-              <div class="row" >
-                  <div class="col-lg-6" >
-                      <h1 class="display-4 text-white lh-110">Disponibilités</h1>
-                      <p class="lead mb-4 text-white mt-4"><%=@student.first_name.capitalize%>, un monde de possibilités s'offre à vous.</p>
-                      <p class="lead mb-4 text-white mt-4">Voici les paramètres choisis pour votre rendez-vous &nbsp; <i class="fas fa-arrow-circle-right"></i></p>
-                      <div class="mt-5">
-                          <a href="<%= establishment_teachers_index_path(@establishment) %>" class="btn btn-outline-white btn-icon btn-circle btn-translate--hover">
-                              <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                              <span class="btn-inner--text">Changer les paramètres</span>
-                          </a>
-                      </div>
-                  </div>
-                  <div class="col-lg-3 mr-4">
-                    <div class="card" style="width: 16rem;">
-                        <%= image_tag 'etabl.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
-                        <div class="card-body">
-                            <h5 class="h5 card-title"><%=@establishment.name%></h5>
-                            <p class="card-text">Établissement</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 16rem;" >
-                        <%= image_tag 'prof.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
-                    <div class="card-body">
-                        <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
-                        <p class="card-text">Professeur</p>
-                    </div>
-                </div>
-            </div>
-
-          <div class="shape-container" data-shape-style="curve" data-shape-position="bottom">
-              <svg class="shape-fill-white" fill="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMax meet" >
-                  <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path>
-              </svg>
-          </div>
-            
-        </div>
-    </div>
+<section class="slice bg-gradient-danger" style="padding-top: 2.5em;" id="calendar-card">
 </section>
 
-<div class="col-md-12">
-    <div class="p-5">
-        <a href="#calendar-card" class="tongue tongue-top scroll-me"><i class="fas fa-angle-up"></i></a>
-    </div>
-</div>
-
-<section class="slice" style="padding-top: 2.5em;" id="calendar-card">
+<section class="slice pb-0 pt-0" style="padding-top: 2.5em;" id="calendar-card">
     <div class="card">
         <div class="card-header border-0">
              <div class="row">
-                <div class="card col-3" data-toggle="sticky" data-sticky-offset="100" style="height: 600px; z-index: 10;">
+                <div class="card col-3" data-toggle="sticky" data-sticky-offset="100" style="height: 500px; z-index: 10;">
                 <div class="card-header border-0">
 
                     <h6 class="mb-2">Salles proposées</h6>
                     <div class="row justify-content-start" style="width: 230px">
-                        <% name = @resource.name %>
+                        <% room_id = @resource.id %>
                         <% @resources.each do |resource|%>
-                            <% if resource.name == name %>
+                            <% if resource.id == room_id %>
                                 <a href="<%=resource_teacher_events_path(resource, @teacher)%>" class="btn btn-success btn-circle btn-sm m-2 disabled" style="padding: 0.4em 1.3em"> <%=resource.name%></a>
                             <% else %>
                                 <a href="<%=resource_teacher_events_path(resource, @teacher)%>" class="btn btn-success btn-circle btn-sm m-2 active" style="padding: 0.4em 1.3em"> <%=resource.name%></a>
@@ -94,3 +47,49 @@
     </div>
 </section>
 
+
+
+
+<section class="slice slice-lg pb-250 bg-gradient-primary pt-0" style="padding-bottom: 9em !important;box-shadow: 0px -6px 24px 0px rgba(209,209,209,0.75) !important;
+">
+
+  <div class="container pt-lg">
+      <div class="row" >
+          <div class="col-lg-6" >
+              <h1 class="display-4 text-white lh-110">Disponibilités</h1>
+              <p class="lead mb-4 text-white mt-4"><%=@student.first_name.capitalize%>, un monde de possibilités s'offre à vous.</p>
+              <p class="lead mb-4 text-white mt-4">Voici les paramètres choisis pour votre rendez-vous &nbsp; <i class="fas fa-arrow-circle-right"></i></p>
+              <div class="mt-5">
+                  <a href="<%= establishment_teachers_index_path(@establishment) %>" class="btn btn-outline-white btn-icon btn-circle btn-translate--hover">
+                      <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                      <span class="btn-inner--text">Changer les paramètres</span>
+                  </a>
+              </div>
+          </div>
+          <div class="col-lg-3 mr-4">
+            <div class="card" style="width: 16rem;">
+                <%= image_tag 'etabl.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
+                <div class="card-body">
+                    <h5 class="h5 card-title"><%=@establishment.name%></h5>
+                    <p class="card-text">Établissement</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 16rem;" >
+                <%= image_tag 'prof.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
+            <div class="card-body">
+                <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
+                <p class="card-text">Professeur</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="shape-container" data-shape-style="curve" data-shape-position="bottom">
+        <svg class="shape-fill-white" fill="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMax meet" >
+            <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path>
+        </svg>
+    </div>
+    
+</div>
+</div>
+</section>
