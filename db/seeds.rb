@@ -5,9 +5,6 @@ Category.destroy_all
 SubCategory.destroy_all
 Resource.destroy_all
 
-# Ajout de photos dans le seed
-# array_csv = CSV.read("db/seeds.csv")
-
 Category.create(title:"Musique")
 Category.create(title:"Sport")
 
@@ -52,9 +49,5 @@ Establishment.all.each do |establishment|
   end
 end
 
-
-  # Ajout de photos dans le seed
-  # establishment.image_url = array_csv[i][0]
-  # establishment.save
 
 
