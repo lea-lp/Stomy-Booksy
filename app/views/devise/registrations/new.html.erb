@@ -8,7 +8,18 @@
             <div class="row justify-content-center">
 
                 <% if user_signed_in? %>
-                    <h1> Vous êtes déjà connecté en tant que <%= resource.class.name %>, veuillez vous déconnecter pour accéder à un autre profil. </h1>
+                    <div class="card">
+                        <%= image_tag ("ananas.jpg"), class: "card-img-top" %>
+                        <div class="card-body text-center">
+                            <h5 class="heading h5 mb-1">
+                                <span class="card-title">Vous êtes déjà connecté avec un compte, veuillez vous déconnecter pour accéder à un autre profil.</span>
+                            </h5> 
+                            <div class="d-flex justify-content-between">
+                                <%= link_to "Retour à l'accueil", root_path, class: "btn btn-warning mt-3" %>
+                                <%= link_to "Déconnection", get_logout, class: "btn btn-danger mt-3", method: :delete %>
+                            </div>
+                        </div>
+                    </div>
                 <% else %>
                     <div class="col-md-8 col-lg-6">
                         <div class="text-center mb-5">
