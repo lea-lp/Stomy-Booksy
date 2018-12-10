@@ -96,22 +96,9 @@
             </div>
         </div>
     </section>
-
-    <!-- Call to action -->
-
-    <section class="slice slice-lg bg-primary">
-
-        <span class="tongue tongue-top tongue-secondary"><i class="fas fa-angle-up"></i></span>
-
-        <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-lg-8 text-center">
-                    <h3 class="font-weight-400 text-white">Un conseil sur votre <span class="font-weight-700">apprentissage</span></h3>
-                    <div class="mt-5">
-                        <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-white btn-circle btn-translate--hover px-4">Contacter ce professeur</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <% if current_user %>
+        <%= render 'layouts/logged' %>
+    <% else %>
+        <%= render 'layouts/guest' %>
+    <% end %>
 </main>

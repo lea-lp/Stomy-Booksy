@@ -22,7 +22,12 @@ class EstablishmentsController < ApplicationController
   end
 
   def index
-    @establishments = Establishment.all
+    if params[:teacher_id]
+      @teacher = Teacher.find(params[:teacher_id])
+      @establishments = @teacher.establishments
+    else
+      @establishments = Establishment.all
+    end
   end
 
   def dashboard
