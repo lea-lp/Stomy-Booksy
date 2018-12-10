@@ -13,8 +13,8 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' unless current_page?(dashboard_path) %> 
+    <%= render 'layouts/navbar' unless current_page?(get_dashboard) %> 
     <%= yield %>
-    <%= render 'layouts/footer' unless current_page?(dashboard_path) %> 
+    <%= render 'layouts/footer' unless current_page?(get_dashboard) %> 
   </body>
 </html>

@@ -11,4 +11,11 @@ class TeachersController < ApplicationController
 
   def edit
   end
+
+  def index
+    if params[:establishment_id]
+      @establishment = Establishment.find(params[:establishment_id])
+      @teachers = @establishment.teachers
+    end
+  end
 end
