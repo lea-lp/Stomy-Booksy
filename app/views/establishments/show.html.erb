@@ -17,7 +17,8 @@
                         <div class="card-body ">
                             <div class="d-lg-flex mt-3">
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
-                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
+
+                                    
                                     <div class="media-body pl-2">
                                         <span class="h6"><%= @sub_cat_hash.count %> services proposés</span>
                                     </div>
@@ -57,6 +58,7 @@
                                 <!-- Endorsements -->
                                 <h6><i class="fas fa-user mr-2"></i>Professeur(s) inscrit(s) à <%= @establishment.name %></h6>
                                 <div class="row">
+
     								<% @establishment.teachers.each do |teacher| %>
     								    <% teach_sub_cat = [] %>
     								    <% teacher.sub_categories.each do |sub_cat| %>
@@ -66,7 +68,7 @@
     								    <% string_result = "(" +string_result+")"%>
                                         <div class="col-lg-6 mt-4">
                                             <div class="card bg-secondary shadow-sm border-0">
-                                                <div class="media align-items-center p-3">
+                                                <div class="media align-items-center p-3" >
                                                     <a href="#" class="avatar rounded-circle mr-2">
                                                         <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg">
                                                     </a>
@@ -86,18 +88,22 @@
                                             </div>
                                         </div>
                                     <% end %>
+                                    <% if @establishment == current_establishment %>
+                                        <div class="d-flex  justify-content-space-between text-center mx-3 pt-3">
+                                            <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Ajouter un professeur</span>
+                                            <%= form_tag(establishment_teacher_establishments_path(@establishment)) do %>
+                                              <%= select_tag "teacher_id", options_from_collection_for_select(@teachers, "id", "email"), class: "btn-sm btn-outline-primary dropdown-toggle", type: "button" %>
+                                              <%= submit_tag("Ajouter", class: "btn btn-sm btn-primary") %>
+                                            <% end %>
+                                        </div>
+                                        <div class="container">
+                                        <div>
+                                            <%= link_to '<i class="fas fa-sliders-h"></i> &nbsp; Modifier mon profil'.html_safe, edit_establishment_registration_path, class: "badge badge-lg badge-info mr-2 mb-2", id: "btn-group-settings"  %>
+                                        </div>
                                 </div>
-                                <br>
-                                <% if @establishment == current_establishment %>
-                                <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Ajouter un professeur</span>
-                                <div id="jquery">
-                                    <%= form_tag(establishment_teacher_establishments_path(@establishment)) do %>
-                                      <%= label_tag("Nouveau professeur") %>
-                                      <%= select_tag "teacher_id", options_from_collection_for_select(@teachers, "id", "email") %>
-                                      <%= submit_tag("Ajouter", class: "btn btn-large btn-primary") %>
-                                    <% end %>
                                 </div>
                                 <% end %>
+                                <br>
                             </div>
                         </div>
                     </div>
@@ -105,21 +111,11 @@
             </div>
         </div>
     </section>
-
-    <!-- Call to action -->
-
-    <section class="slice slice-lg bg-primary">
-        <span class="tongue tongue-top tongue-secondary"><i class="fas fa-angle-up"></i></span>
-        <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-lg-8 text-center">
-                    <h3 class="font-weight-400 text-white">Vous souhaitez vous inscrire à <span class="font-weight-700"><%= @establishment.name %></span>.</h3>
-                    <div class="mt-5">
-                        <a href="#" class="btn btn-white btn-circle btn-translate--hover px-4">Je m'inscris</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
+    <% if current_user %>
+        <%= render 'layouts/logged' %>
+    <% else %>
+        <%= render 'layouts/guest' %>
+    <% end %>
 </main>
 
