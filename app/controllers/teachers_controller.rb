@@ -22,6 +22,8 @@ class TeachersController < ApplicationController
     if params[:establishment_id]
       @establishment = Establishment.find(params[:establishment_id])
       @teachers = @establishment.teachers
+    else
+      @teachers = Teacher.all
     end
   end
 

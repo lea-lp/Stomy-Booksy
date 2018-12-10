@@ -1,84 +1,95 @@
-        <!-- Spotlight -->
-        <section class="slice slice-lg pb-250 bg-gradient-primary">
-          <div class="container pt-lg">
-              <div class="row">
-                  <div class="col-lg-6">
-                      <h1 class="display-4 text-white lh-110">Disponibilités</h1>
-                      <p class="lead mb-4 text-white mt-4"><%=@student.first_name.capitalize%>, un monde de possibilités s'offre à vous.</p>
-                      <p class="lead mb-4 text-white mt-4">Voici les paramètres choisis pour votre rendez-vous &nbsp; <i class="fas fa-arrow-circle-right"></i></p>
-                      <div class="mt-5">
-                          <a href="#" class="btn btn-outline-white btn-icon btn-circle btn-translate--hover">
-                              <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                              <span class="btn-inner--text">Réserver un créneau</span>
-                          </a>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div data-animate-hover="1">
-                          <div class="card shadow-sm animate-this">
-                              <div class="card-body py-8 px-lg-8">
-                                  <%= image_tag 'etabl.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
-                                  <h5 class="h5 mt-4"><%=@establishment.name%></h5>
-                                  <a href="<%= root_path %>" class="link font-weight-light" data-link="1">Changer d'établissement</a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div data-animate-hover="1">
-                          <div class="card shadow-sm animate-this">
-                              <div class="card-body py-8 px-lg-8">
-                                  <%= image_tag 'prof.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
-                                  <h5 class="h5 mt-4"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
-                                  <a href="<%= root_path %>" class="link font-weight-light" data-link="1">Changer de professeur</a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+<section class="slice bg-gradient-danger" style="padding-top: 2.5em;" id="calendar-card">
+</section>
+
+<section class="slice pb-0 pt-0" style="padding-top: 2.5em;" id="calendar-card">
+    <div class="card">
+        <div class="card-header border-0">
+             <div class="row">
+                <div class="card col-3" data-toggle="sticky" data-sticky-offset="100" style="height: 500px; z-index: 10;">
+                <div class="card-header border-0">
+
+                    <h6 class="mb-2">Salles proposées</h6>
+                    <div class="row justify-content-start" style="width: 230px">
+                        <% room_id = @resource.id %>
+                        <% @resources.each do |resource|%>
+                            <% if resource.id == room_id %>
+                                <a href="<%=resource_teacher_events_path(resource, @teacher)%>" class="btn btn-success btn-circle btn-sm m-2 disabled" style="padding: 0.4em 1.3em"> <%=resource.name%></a>
+                            <% else %>
+                                <a href="<%=resource_teacher_events_path(resource, @teacher)%>" class="btn btn-success btn-circle btn-sm m-2 active" style="padding: 0.4em 1.3em"> <%=resource.name%></a>
+                            <%end%>    
+                        <%end%>  
+                    </div><br>
+
+                    <div class="row justify-content-start mt-4">
+                        <%= form_tag resource_teacher_events_path do %>
+                            <input type="hidden" id="hidden_tag" name="event[student_id]" value="<%=current_student.id%>">
+                            <input type="hidden" id="hidden_tag" name="event[teacher_id]" value="<%=@teacher.id%>">
+                            <input type="hidden" id="hidden_tag" name="event[resource_id]" value="<%=@resource.id%>">
+                            <div class="form-group">
+                                <%=label_tag "Date et heure de début", nil, class: "font-weight-bold" %><br>
+                                <%=datetime_field_tag "event[start_time]", Time.current.strftime("%d-%m-%YT%H:%M"), class: "form-control" %>
+                            </div>
+                            <div class="form-group">
+                                <%=label_tag "Durée", nil, class: "font-weight-bold"%>
+                                <%=select_tag "[event][duration]", options_for_select(@duration_picker), class:"form-control"%>
+                            </div><br>
+                            <%=submit_tag "Réserver", class:"btn btn-primary btn-circle"%>
+                        <% end %>      
+                    </div>
+
+                </div>                
+                </div>
+                <div class="col-9">
+                    <%= add_weekly_calendar(@events) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="slice slice-lg pb-250 bg-gradient-primary pt-0" style="padding-bottom: 9em !important;box-shadow: 0px -6px 24px 0px rgba(209,209,209,0.75) !important;
+">
+
+  <div class="container pt-lg">
+      <div class="row" >
+          <div class="col-lg-6" >
+              <h1 class="display-4 text-white lh-110">Disponibilités</h1>
+              <p class="lead mb-4 text-white mt-4"><%=@student.first_name.capitalize%>, un monde de possibilités s'offre à vous.</p>
+              <p class="lead mb-4 text-white mt-4">Voici les paramètres choisis pour votre rendez-vous &nbsp; <i class="fas fa-arrow-circle-right"></i></p>
+              <div class="mt-5">
+                  <a href="<%= establishment_teachers_path(@establishment) %>" class="btn btn-outline-white btn-icon btn-circle btn-translate--hover">
+                      <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                      <span class="btn-inner--text">Changer les paramètres</span>
+                  </a>
               </div>
           </div>
-          <div class="shape-container" data-shape-style="curve" data-shape-position="bottom">
-              <svg class="shape-fill-white" fill="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                  <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path>
-              </svg>
-          </div>
-      </section>
-
-
-      <br><br><br><br>
-
-      (ressource: <%=@resource.name%>)
-
-<h4>Etabl. concerné: <%=@establishment.name%> (ressource: <%=@resource.name%>)</h4>
-<h4>Prof concerné: <%=@teacher.first_name%> <%=@teacher.last_name%></h4>
-
-<div class="row container">
-  <p>Basculer vers une autre salle : </p> <br>
-  <% @resources.each do |resource|%>
-    <a href="<%=resource_teacher_events_path(resource, @teacher)%>" class="col-md-1"> <%=resource.name%></a> 
-  <%end%>    
-</div>
-
-<div class="row container">
-  <div class="col-md-4">
-      <%= form_tag resource_teacher_events_path do %>
-        <input type="hidden" id="hidden_tag" name="event[student_id]" value="<%=current_student.id%>">
-        <input type="hidden" id="hidden_tag" name="event[teacher_id]" value="<%=@teacher.id%>">
-        <input type="hidden" id="hidden_tag" name="event[resource_id]" value="<%=@resource.id%>">
-        <div class="form-group">
-          <%=label_tag "Heure et date de début" %><br>
-          <%=datetime_field_tag "event[start_time]", Time.current.strftime("%d-%m-%YT%H:%M"), class: "form-control" %>
+          <div class="col-lg-3 mr-4">
+            <div class="card" style="width: 16rem;">
+                <%= image_tag 'etabl.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
+                <div class="card-body">
+                    <h5 class="h5 card-title"><%=@establishment.name%></h5>
+                    <p class="card-text">Établissement</p>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <%=label_tag "Durée"%>
-          <%=select_tag "[event][duration]", options_for_select(@duration_picker), class:"form-control"%>
+        <div class="card" style="width: 16rem;" >
+                <%= image_tag 'prof.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
+            <div class="card-body">
+                <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
+                <p class="card-text">Professeur</p>
+            </div>
         </div>
-        <%=submit_tag "Créer un event", class:"btn btn-primary"%>
-      <% end %>      
+    </div>
 
-  </div>
-  <div class="col-md-8">
-    <%= add_weekly_calendar(@events) %>
-  </div>
-  
+    <div class="shape-container" data-shape-style="curve" data-shape-position="bottom">
+        <svg class="shape-fill-white" fill="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMax meet" >
+            <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path>
+        </svg>
+    </div>
+    
 </div>
+</div>
+</section>
