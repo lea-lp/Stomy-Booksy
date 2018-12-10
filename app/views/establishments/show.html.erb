@@ -68,7 +68,7 @@
     								    <% string_result = "(" +string_result+")"%>
                                         <div class="col-lg-6 mt-4">
                                             <div class="card bg-secondary shadow-sm border-0">
-                                                <div class="media align-items-center p-3">
+                                                <div class="media align-items-center p-3" >
                                                     <a href="#" class="avatar rounded-circle mr-2">
                                                         <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg">
                                                     </a>
@@ -88,18 +88,22 @@
                                             </div>
                                         </div>
                                     <% end %>
+                                    <% if @establishment == current_establishment %>
+                                        <div class="d-flex  justify-content-space-between text-center mx-3 pt-3">
+                                            <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Ajouter un professeur</span>
+                                            <%= form_tag(establishment_teacher_establishments_path(@establishment)) do %>
+                                              <%= select_tag "teacher_id", options_from_collection_for_select(@teachers, "id", "email"), class: "btn-sm btn-outline-primary dropdown-toggle", type: "button" %>
+                                              <%= submit_tag("Ajouter", class: "btn btn-sm btn-primary") %>
+                                            <% end %>
+                                        </div>
+                                        <div class="container">
+                                        <div>
+                                            <%= link_to '<i class="fas fa-sliders-h"></i> &nbsp; Modifier mon profil'.html_safe, edit_establishment_registration_path, class: "badge badge-lg badge-info mr-2 mb-2", id: "btn-group-settings"  %>
+                                        </div>
                                 </div>
-                                <br>
-                                <% if @establishment == current_establishment %>
-                                <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Ajouter un professeur</span>
-                                <div id="jquery">
-                                    <%= form_tag(establishment_teacher_establishments_path(@establishment)) do %>
-                                      <%= label_tag("Nouveau professeur") %>
-                                      <%= select_tag "teacher_id", options_from_collection_for_select(@teachers, "id", "email") %>
-                                      <%= submit_tag("Ajouter", class: "btn btn-large btn-primary") %>
-                                    <% end %>
                                 </div>
                                 <% end %>
+                                <br>
                             </div>
                         </div>
                     </div>

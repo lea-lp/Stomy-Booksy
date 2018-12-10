@@ -2,8 +2,6 @@
     <div class="container">
         <div class="row justify-content-end">
             <div class=" col-lg-8">
-                <!-- Salute + Small stats -->
-
                 <% if page_type == 'establishment' %>
                 <div class="row align-items-center mb-4">
                     <div class="col-md-12" style="text-align: right;">
@@ -98,19 +96,6 @@
                         </a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-                <% end %>
-                <% if current_user == @establishment || current_user == @teacher || current_user == @student %>
-                <!-- Account navigation --> 
-                <div class="d-flex">
-                    <div class="btn-group btn-group-nav shadow ml-auto" role="group" aria-label="Basic example">
-                        <div class="btn-group" role="group">
-                            <%= link_to '<i class="fas fa-chart-line"></i> &nbsp; Mon dashboard'.html_safe, dashboard_path, class: "btn btn-secondary btn-icon", id: "btn-group-boards"  %>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <%= link_to '<i class="fas fa-sliders-h"></i> &nbsp; Modifier mon profil'.html_safe, edit_student_registration_path, class: "btn btn-secondary btn-icon", id: "btn-group-settings"  %>
-                        </div>
                     </div>
                 </div>
                 <% end %>
