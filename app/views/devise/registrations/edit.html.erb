@@ -285,14 +285,10 @@
 
                         <div>
 
-                            <!-- A rajouter car ça marche pas sa mère -->
-                            <% if false %>
                             <div class="d-flex justify-content-center pt-5">
-                                <%= button_to "Supprimer mon compte", registration_path(resource_name), class: "btn btn-danger btn-icon-label", data: { confirm: "Are you sure?" }, method: :delete %>
+                                <%= link_to '<i class="fas fa-user-times"></i> &nbsp; Supprimer mon compte'.html_safe, registration_path(resource_name), class: "btn btn-danger btn-icon-label", data: { confirm: "Are you sure?" }, method: :delete %>
                             </div>
-                            <!-- A rajouter car ça marche pas sa mère -->
 
-                            <% end %>
                             <div class="pt-5 mt-5 delimiter-top d-flex justify-content-between">
                                 <%= f.submit "Sauvegarder les changements", class: "btn btn-primary btn-icon actions" %>
                                 <%= link_to "Retour", current_user, class: "btn btn-link" %>
