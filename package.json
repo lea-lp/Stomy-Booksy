@@ -1,5 +1,7 @@
 {
   "name": "stomy_booksy",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "typed.js": "^2.0.9"
+  }
 }
