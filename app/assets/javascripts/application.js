@@ -24,6 +24,7 @@
 //= require swiper.min
 //= require sticky-kit.min
 //= require jquery.fancybox.min
+//= require typed.min.js
 
 //= require_tree .
 

@@ -17,7 +17,8 @@
                         <div class="card-body ">
                             <div class="d-lg-flex mt-3">
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
-                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
+
+                                    
                                     <div class="media-body pl-2">
                                         <span class="h6"><%= @sub_cat_hash.count %> services proposés</span>
                                     </div>
@@ -57,6 +58,7 @@
                                 <!-- Endorsements -->
                                 <h6><i class="fas fa-user mr-2"></i>Professeur(s) inscrit(s) à <%= @establishment.name %></h6>
                                 <div class="row">
+
     								<% @establishment.teachers.each do |teacher| %>
     								    <% teach_sub_cat = [] %>
     								    <% teacher.sub_categories.each do |sub_cat| %>
