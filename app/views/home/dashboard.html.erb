@@ -1,6 +1,8 @@
 
 <!-- HEADER -->
 
+<!-- KQtiti -->
+<% if false %>
 <!-- <section class="slice slice-lg bg-gradient-primary d-flex align-items-end mt--2" style="height: 310px">
   <div class="container pt-lg">
       <div class="row justify-content-center">
@@ -32,8 +34,8 @@
         </svg>
     </div>
 </section> -->
-
-       
+<!-- KQtiti -->
+<% end %>
     <!-- Main navbar -->
     
     <nav class="navbar navbar-transparent navbar-light bg-light" style="height: 50px">
@@ -71,10 +73,8 @@
           </div>
       </nav>
 
-
 <section class="slice bg-secondary" style="margin-top: -2.5em !important" id="dash">
     <div class="container">
-
         <!-- establishment name card -->
         <div class="row row-grid">
             <div class="col-lg-3">
@@ -82,7 +82,13 @@
                 <div class="card-header">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h5 class="heading h5 mb-0"><%= current_user.name %></h5>
+                            <!-- KQtiti -->
+                            <% if current_establishment %>
+                              <h5 class="heading h5 mb-0"><%= current_user.name %></h5>
+                            <% else %>
+                              <h5 class="heading h5 mb-0"><%= current_user.first_name %></h5>
+                            <% end %>
+                            <!-- KQtiti -->
                         </div>
                         <div class="col-4">
                             <div class="card-icon-actions text-right">
@@ -196,17 +202,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <%@resources.each do |resource|%>
-                      <tr>
-                          <td><span class="font-weight-bold text-sm"><%=resource.id%></span></td>
-                          <td><span class="badge badge-dot mr-4"><%=resource.resource_type%></span></td>
-                          <td><span class="text-sm"><%=resource.name%></span></td>
-                          <td><span class="text-sm"><%=resource.description%></span></td>
-                          <td><span class="text-sm"><%=resource.is_active%></span></td>
-                          <td><a href="<%= resource_path(resource) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
-                            <i class="fas fa-trash-alt"></i></a></td>
-                      </tr>
-                    <%end%>
+                    <!-- KQtiti   -->
+                    <% if current_establishment %>
+                      <%@resources.each do |resource|%>
+                        <tr>
+                            <td><span class="font-weight-bold text-sm"><%=resource.id%></span></td>
+                            <td><span class="badge badge-dot mr-4"><%=resource.resource_type%></span></td>
+                            <td><span class="text-sm"><%=resource.name%></span></td>
+                            <td><span class="text-sm"><%=resource.description%></span></td>
+                            <td><span class="text-sm"><%=resource.is_active%></span></td>
+                            <td><a href="<%= resource_path(resource) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
+                              <i class="fas fa-trash-alt"></i></a></td>
+                        </tr>
+                      <%end%>
+                    <% end %>
+                    <!-- KQtiti -->
                 </table>
             </div>
 

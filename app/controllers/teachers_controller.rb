@@ -2,16 +2,12 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = Teacher.find(params[:id])
-    @teacher_hash = Hash.new
-    @teacher.establishments.each do |establishment|
-      @teacher_hash[establishment.name] ||= []
-      @teacher_hash[establishment.name] << establishment
-    end
+    @sub_categories = SubCategory.all
+    @sub_categories =  @sub_categories.select {|s| !@teacher.sub_categories.include?(s)}
   end
 
   def destroy
   end
-
 
   def edit
   end
