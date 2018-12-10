@@ -33,7 +33,7 @@
           <div class="card overflow-hidden" data-animate-hover="2">
               <div class="overflow-hidden">
                   <div class="animate-this">
-                      <a href="#">
+                      <a href="<%= resource_teacher_events_path(@establishment.resources.first, teacher) %>">
                           <%= image_tag ("prof2.jpg"), :style => "width:348px;" %>
                       </a>
                   </div>
@@ -58,9 +58,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fab fa-github"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fab fa-dribbble"></i></a>
                         </li>
                     </ul>
                     <%= link_to 'Réserver un cours avec moi', resource_teacher_events_path(@establishment.resources.first, teacher), class:"btn btn-success mt-3" %>
