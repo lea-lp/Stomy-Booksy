@@ -1,3 +1,4 @@
+<%= render 'layouts/navbar' %>
 <main>
     <header class="header-account-page bg-gradient-primary d-flex align-items-end" style="height:250px">
         <div class="container">
@@ -17,21 +18,6 @@
                             <span class="text-light">Have a nice day!</span>
                         </div>
                     </div>
-                    <!-- Account navigation -->
-                    <div class="d-flex">
-                        <a href="<%= current_user %>" class="btn btn-icon btn-group-nav shadow btn-secondary">
-                            <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
-                            <span class="btn-inner--text d-none d-md-inline-block">Retour à mon profil</span>
-                        </a>
-                        <div class="btn-group btn-group-nav shadow ml-auto" role="group" aria-label="Basic example">
-                            <div class="btn-group" role="group">
-                                <button id="btn-group-boards" type="button" class="btn btn-secondary btn-icon">
-                                    <span class="btn-inner--icon"><i class="fas fa-chart-line"></i></span>
-                                    <span class="btn-inner--text d-none d-sm-inline-block">Accès à mon dashboard</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -49,42 +35,61 @@
                                 <span class="h6">Settings</span>
                             </div>
                             <div class="list-group list-group-sm list-group-flush">
-                                <a href="account-profile.html" class="list-group-item list-group-item-action d-flex justify-content-between">
-                                    <div>
+                                <% if current_student %>
+                                    <a href="<%= student_path(current_user) %>" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                                                            <div>
                                         <i class="fas fa-user-circle mr-2"></i>
-                                        <span>Profile</span>
+                                        <span>Mon Profil</span>
                                     </div>
                                     <div>
                                         <i class="fas fa-angle-right"></i>
                                     </div>
+                                    </a>
+                                <% elsif current_teacher %>
+                                    <a href="<%= teacher_path(current_user) %>" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                                                            <div>
+                                        <i class="fas fa-user-circle mr-2"></i>
+                                        <span>Mon Profil</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-angle-right"></i>
+                                    </div>
+                                    </a>
+                                <% elsif current_establishment %>
+                                    <a href="<%= establishment_path(current_user) %>" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                                                            <div>
+                                        <i class="fas fa-user-circle mr-2"></i>
+                                        <span>Mon Profil</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-angle-right"></i>
+                                    </div>
+                                    </a>
+                                <% end %>
+
                                 </a>
-                                <a href="account-settings.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                <a href="<%= get_dashboard(current_user) %>" class="list-group-item list-group-item-action d-flex justify-content-between">
                                     <div>
                                         <i class="fas fa-cog mr-2"></i>
-                                        <span>Settings</span>
+                                        <span>Mon Dashboard</span>
                                     </div>
                                     <div>
                                         <i class="fas fa-angle-right"></i>
                                     </div>
                                 </a>
-                                <a href="account-billing.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                <a href="<%= registration_path(current_user) %>" class="btn btn-danger btn-icon-label font-weight-light", data-confirm="Êtes-vous sûr ?", data-method="DELETE">
+
                                     <div>
-                                        <i class="fas fa-credit-card mr-2"></i>
-                                        <span>Billing</span>
-                                    </div>
-                                    <div>
-                                        <i class="fas fa-angle-right"></i>
+                                        <i class="far fa-trash-alt mr-2"></i>
+                                        <span>Supprimer</span>
                                     </div>
                                 </a>
-                                <a href="account-notifications.html" class="list-group-item list-group-item-action d-flex justify-content-between">
-                                    <div>
-                                        <i class="fas fa-bell mr-2"></i>
-                                        <span>Notifications</span>
-                                    </div>
-                                    <div>
-                                        <i class="fas fa-angle-right"></i>
-                                    </div>
-                                </a>
+
+
+
+
+
+
                             </div>
                         </div>
 
@@ -284,11 +289,6 @@
                         </div>
 
                         <div>
-
-                            <div class="d-flex justify-content-center pt-5">
-                                <%= link_to '<i class="fas fa-user-times"></i> &nbsp; Supprimer mon compte'.html_safe, registration_path(resource_name), class: "btn btn-danger btn-icon-label", data: { confirm: "Are you sure?" }, method: :delete %>
-                            </div>
-
                             <div class="pt-5 mt-5 delimiter-top d-flex justify-content-between">
                                 <%= f.submit "Sauvegarder les changements", class: "btn btn-primary btn-icon actions" %>
                                 <%= link_to "Retour", current_user, class: "btn btn-link" %>
@@ -300,63 +300,4 @@
             </div>
         </div>
     </section>
-
-    <!-- Call to action -->
-
-    <section class="slice slice-lg bg-primary">
-
-        <span class="tongue tongue-top"><i class="fas fa-angle-up"></i></span>
-
-        <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-lg-8 text-center">
-                    <h3 class="font-weight-400 text-white">I am ready to start a new project with <span class="font-weight-700">Purpose</span> UI Kit.</h3>
-                    <div class="mt-5">
-                        <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-white btn-circle btn-translate--hover px-4">Purchase now<span class="badge badge-pill badge-danger text-sm">$49 USD</span></a>
-                        <a href="mailto:support@webpixels.io" class="btn btn-link text-white">Have an issue?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<%= get_user_type %>
-
-
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-
-    <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-    <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-<h3>Cancel my account</h3>
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
- <%= link_to "Back", establishment_path(current_user) %>
-
-
-    <h2>Site internet </h2>
-    <h2>Horaires d'ouverture</h2>
-    <h2>Email confirmation ???????</h2>
 </main>
