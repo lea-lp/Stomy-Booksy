@@ -1,0 +1,89 @@
+  <header class="slice pt-lg pb-5 bg-gradient-success d-flex align-items-end">
+      <div class="container pt-lg">
+          <div class="row">
+              <div class=" col-lg-12">
+                  <div class="row align-items-center mb-4">
+                      <div class="col-lg-12 mb-4 mb-lg-0">
+                        <span class="h2 mb-0 text-white d-block">Vos activités à portée de clics.</span>
+                          <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                              <li class="breadcrumb-item">
+                                  <a href="#" class="text-normal">Choisissez votre établissement et votre professeur</a>
+                              </li>
+                              <li class="breadcrumb-item">
+                                  <a href="#" class="text-normal">Sélectionnez sur un créneau, et voilà !</a>
+                              </li>
+                          </ol>
+                          </ol>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
+          <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
+              <defs></defs>
+              <path d="" class="shape-fill-white" />
+          </svg>
+      </div>
+  </header>
+  <div class="container">
+    <%if @establishment%>
+      <span class="h2 mb-0 d-block">Voici les <%=@teachers.count%> professeurs affiliés à l'établissement <a href="<%=establishment_path(@establishment)%>">"<%=@establishment.name%>"</a></span>
+    <%else%>
+      <h4 class="text-center">Liste de l'ensemble de nos professeurs</h4>
+    <%end%>
+    <div class="row">
+      <% @teachers.each do |teacher| %>
+      <div class="col-lg-4 pt-5">
+        <div class="card overflow-hidden" data-animate-hover="2">
+          <div class="overflow-hidden">
+            <div class="animate-this">
+              <a href="<%= teacher_path(teacher) %>">
+                <%= image_tag ("prof2.jpg"), :style => "width:348px;" %>
+              </a>
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0"><%=teacher.first_name%> <%= teacher.last_name %></h5>
+            <p class="text-muted mb-0">
+              <%teacher.sub_categories.each_with_index do |sub_cat, ind|%>
+                <%unless ind == 0 %>
+                 - 
+                <%end%>
+                <%=sub_cat.title%> 
+              <%end%>
+            </p>
+            <p class="card-text" > <strong>Description</strong>: <%= teacher.description %> </p>
+            <ul class="nav justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-instagram"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-facebook"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-github"></i></a>
+              </li>
+            </ul>
+            <%if @establishment%>
+              <a href="<%=resource_teacher_events_path(@establishment.resources.first, teacher)%>">
+                <button class="btn btn-sm btn-success btn-circle btn-icon">
+                  <span class="btn-inner--text">Réserver un créneau ici</span>
+                  <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                </button>
+              </a>
+            <%else%>
+              <a href="<%=teacher_establishments_path(teacher)%>">
+                <button class="btn btn-sm btn-success btn-circle btn-icon">
+                  <span class="btn-inner--text">Voir mes établissements</span>
+                  <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                </button>
+              </a>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <br>
+</div>

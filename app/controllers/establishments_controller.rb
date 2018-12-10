@@ -2,7 +2,10 @@ class EstablishmentsController < ApplicationController
 
 
   def show
+    @teachers = Teacher.all.order(:email)
     @establishment = Establishment.find(params[:id])
+    @teachers =  @teachers.select {|s| !@establishment.teachers.include?(s)}
+
     @sub_cat_hash = Hash.new
     @establishment.teachers.each do |teacher|
       teacher.sub_categories.each do |sub_cat|
@@ -12,27 +15,45 @@ class EstablishmentsController < ApplicationController
     end
   end
 
-  def destroy_relation_teach_esta
-    @teacher = Teacher.find(params[:teacher_id])
-    @establishment = Establishment.find(params[:establishment_id])
-    unless @establishment == current_establishment
-      flash[:danger] = "Vous n'êtes pas autorisé à faire cette action!"
-    redirect_to(root_path)
-    end
-    @establishment.teachers.delete(@teacher)
-    redirect_back(fallback_location: root_path)
-  end
-
   def edit
+    filter_user_allowed
+
     @establishment = Establishment.find(params[:id])
   end
 
   def index
-    @establishments = Establishment.all
+    if params[:teacher_id]
+      @teacher = Teacher.find(params[:teacher_id])
+      @establishments = @teacher.establishments
+    else
+      @establishments = Establishment.all
+    end
   end
 
-  def index_of_teachers
-    @establishment = Establishment.find(params[:establishment_id])
-    @teachers = @establishment.teachers
+  def dashboard
+    filter_user_allowed
+
+    @establishment = current_user
+
+    @resources = @establishment.resources.order(created_at: :desc)
+    @resource = Resource.new
+
+  end
+
+  private
+
+  def filter_user_allowed
+    if params[:establishment_id]
+      user_id = params[:establishment_id]
+    elsif params[:id]
+      user_id = params[:id]
+    else
+      user_id = 0
+    end
+      
+    unless current_user == Establishment.find(user_id)
+      flash[:danger] = "Vous n'êtes pas autorisé à accéder à cette page"
+      redirect_to root_path
+    end
   end
 end

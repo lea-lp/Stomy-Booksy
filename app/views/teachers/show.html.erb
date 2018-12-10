@@ -41,16 +41,32 @@
                                 <h6><i class="fas fa-user mr-2"></i>Services proposé(s)</h6>
                                 <div>
                                     <% @teacher.sub_categories.each do |sub| %>
-                                        <span class="badge badge-lg badge-info mr-2 mb-2"><%= sub.title %></span>
+                                        <span class="badge badge-lg badge-info mr-2 mb-2"><%= sub.title %>
+                                        <% if current_teacher == @teacher %>
+                                            <a href="<%= teacher_teacher_cat_path(current_teacher, sub)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?">
+                                            <i class="fas fa-trash-alt"></i>
+                                            </a>
+                                        <% end %>
+                                        </span>
                                     <%end%>
                                 </div>
+                                <br>
+                                <% if current_teacher == @teacher %>
+                                    <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Nouvelle catégorie</span>
+                                        <div id="jquery"> 
+                                    <%= form_tag(teacher_teacher_cats_path(@teacher)) do %>
+                                      <%= label_tag "" %>
+                                      <%= select_tag "sub_category_id", options_from_collection_for_select(@sub_categories, "id", "title") %>
+                                      <%= submit_tag("Ajouter", class: "btn btn-large btn-primary") %>
+                                    <% end %>
+                                <% end %>
+                                    </div>
                             </div>
                             <div class="pt-5 mt-5 delimiter-top">
                                 <!-- Endorsements -->
                                 <h6><i class="fas fa-user mr-2"></i>Ecole(s)</h6>
                                 <div class="row">
-                                    <% @teacher_hash.each do |key, val| %>
-                                    <% val.each do |valeur| %>
+                                    <% @teacher.establishments.each do |establishment| %>
                                     <div class="col-lg-6 mt-4">
                                         <div class="card bg-secondary shadow-sm border-0">
                                             <div class="media align-items-center p-3">
@@ -58,12 +74,19 @@
                                                     <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg">
                                                 </a>
                                                 <div class="media-body">
-                                                    <h6 class="text-sm mb-0"> <a href="<%=establishment_path(valeur.id)%>"><%= valeur.name %></a></h6>
+                                                    <h6 class="text-sm mb-0"> <a href="<%=establishment_path(establishment)%>"><%= establishment.name %></a></h6>
                                                 </div>
+                                                <% if current_teacher == @teacher %>
+                                                    <a href="<%= teacher_teacher_establishment_path(current_teacher, establishment)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
+                                                    <i class="fas fa-trash-alt"></i>
+                                                    </a>
+                                                <% end %>
+                                                <% if false %>
+                                                <% end %>
+                                                </a>
                                             </div>
                                         </div>                                
                                     </div>
-                                    <% end %>
                                     <% end %>
                                 </div>
                             </div>
@@ -73,22 +96,9 @@
             </div>
         </div>
     </section>
-
-    <!-- Call to action -->
-
-    <section class="slice slice-lg bg-primary">
-
-        <span class="tongue tongue-top tongue-secondary"><i class="fas fa-angle-up"></i></span>
-
-        <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-lg-8 text-center">
-                    <h3 class="font-weight-400 text-white">Un conseil sur votre <span class="font-weight-700">apprentissage</span></h3>
-                    <div class="mt-5">
-                        <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-white btn-circle btn-translate--hover px-4">Contacter ce professeur</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <% if current_user %>
+        <%= render 'layouts/logged' %>
+    <% else %>
+        <%= render 'layouts/guest' %>
+    <% end %>
 </main>

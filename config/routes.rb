@@ -4,30 +4,34 @@ Rails.application.routes.draw do
   devise_for :students
 
   root 'home#index'
-  get '/dashboard', to: 'home#dashboard', as: 'dashboard'
 
-  resources :students, only: [:show, :edit]
+  resources :students, only: [:show, :edit] do
+    get '/dashboard', to: 'students#dashboard', as: 'dashboard'
+  end
 
-  resources :teachers, only: [:show, :edit] do
-    resources :availability_slots, only: [:new, :create, :index]
+  resources :teachers, only: [:index, :show, :edit] do
+    resources :establishments, only: [:index]
+    resources :teacher_establishments, only: [:destroy]
+    resources :teacher_cats, only: [:create, :destroy]
+    get '/dashboard', to: 'teachers#dashboard', as: 'dashboard'
+    # resources :availability_slots, only: [:new, :create, :index]
+  end
+  
+  resources :establishments, only: [:index, :show, :edit] do
+    resources :teacher_establishments, only: [:create]
+    resources :teachers, only: [:index]
+    get '/dashboard', to: 'establishments#dashboard', as: 'dashboard'
+
+  end
+
+  resources :resources, only: [:show, :create, :destroy, :edit] do
+    resources :teachers, only: [:show] do
+      resources :events, only: [:index, :create]
+    end
+    # resources :availability_slots, only: [:new, :create, :index]
   end
 
   resources :events, only: [:show, :edit]
 
-  resources :resources, only: [:show, :create, :destroy, :edit] do
-    resources :availability_slots, only: [:new, :create, :index]
-    resources :teachers do
-      resources :events, only: [:index, :create]
-    end
-  end
-
-  resources :availability_slots, only: [:show, :edit, :update, :destroy]
-
-
-  resources :establishments, only: [:index, :show, :edit] do
-    get '/teachers/', to: 'establishments#index_of_teachers', as: :teachers_index
-  end
-  
-  delete '/establishments/:establishment_id/teachers/:teacher_id', to: 'establishments#destroy_relation_teach_esta', as: :destroy_relation_teach_esta
-
+  # resources :availability_slots, only: [:show, :edit, :update, :destroy]
 end

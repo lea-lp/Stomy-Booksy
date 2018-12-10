@@ -2,8 +2,6 @@
     <div class="container">
         <div class="row justify-content-end">
             <div class=" col-lg-8">
-                <!-- Salute + Small stats -->
-
                 <% if page_type == 'establishment' %>
                 <div class="row align-items-center mb-4">
                     <div class="col-md-12" style="text-align: right;">
@@ -44,7 +42,7 @@
                 </div>
                 <% elsif page_type == 'teacher' %>
                 <div class="row align-items-center mb-4">
-                    <div class="col-md-5 mb-4 mb-md-0">
+                    <div class="col-md-12" style="text-align: right;">
                         <span class="h3 mb-0 text-white d-block"><%= @teacher.first_name %> <strong><%= @teacher.last_name %></strong></span>
                         <span class="text-light"><%= @teacher.address %></span>
                     </div>
@@ -73,7 +71,7 @@
                 </div>
                 <% elsif page_type == 'student' %>
                 <div class="row align-items-center mb-4">
-                    <div class="col-md-5 mb-4 mb-md-0">
+                    <div class="col-md-12" style="text-align: right;">
                         <span class="h3 mb-0 text-white d-block"><%= @student.first_name %> <strong><%= @student.last_name %></strong></span>
                         <span class="text-light"><%= @student.address %></span>
                     </div>
@@ -98,25 +96,6 @@
                         </a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-                <% end %>
-                <% if current_user == @establishment || current_user == @teacher || current_user == @student %>
-                <!-- Account navigation --> 
-                <div class="d-flex">
-                    <div class="btn-group btn-group-nav shadow ml-auto" role="group" aria-label="Basic example">
-                        <div class="btn-group" role="group">
-                            <button id="btn-group-boards" type="button" class="btn btn-secondary btn-icon" >
-                                <span class="btn-inner--icon"><i class="fas fa-chart-line"></i></span>
-                                <span class="btn-inner--text d-none d-sm-inline-block">Mon dashboard</span>
-                            </button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button id="btn-group-settings" type="button" class="btn btn-secondary btn-icon">
-                                <span class="btn-inner--icon"><i class="fas fa-sliders-h"></i></span>
-                                <span class="btn-inner--text d-none d-sm-inline-block">Modifier mon profil</span>
-                            </button>
-                        </div>
                     </div>
                 </div>
                 <% end %>

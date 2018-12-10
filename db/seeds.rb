@@ -36,7 +36,7 @@ end
 Establishment.create(phone:"04 34 11 02 25",email:"contact@lanacrouse.fr", name:"L'Anacrouse", password:"sylvain", address:"5 Place du Petit Scel 34000 Montpellier",description:"Centre d'expression artistique et culturel",siret:"80043065400015")
 
 9.times do |i|
-  Establishment.create(phone:Faker::IDNumber.valid,email:Faker::Internet.safe_email, name:Faker::GreekPhilosophers.name, siret: Faker::Device.serial,password:"azerty",address:address[i], description:Faker::ChuckNorris.fact)
+  Establishment.create(phone:Faker::IDNumber.valid,email:Faker::Internet.safe_email, name:Faker::GreekPhilosophers.name, siret:Faker::Company.duns_number,password:"azerty",address:address[i], description:Faker::ChuckNorris.fact)
 end
 
 Establishment.all.each do |establishment|
@@ -45,6 +45,7 @@ Establishment.all.each do |establishment|
     establishment.teachers << Teacher.find(rand_array_teach[i])
   end
   4.times do |i|
-    Resource.create(name: Faker::Cat.name, resource_type: "salle", description: Faker::GreekPhilosophers.quote, establishment_id: establishment.id)
+    Resource.create(name: Faker::Cat.unique.name, resource_type: "salle", description: Faker::GreekPhilosophers.quote, establishment_id: establishment.id)
   end
+  Faker::UniqueGenerator.clear
 end

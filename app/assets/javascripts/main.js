@@ -1,5 +1,10 @@
 $( document ).ready(function() {
 
+$('#jquery').hide()
+$('#hidden').click(function(){
+        $('#jquery').toggle(500);
+    });
+
 /// Wavify
 'use strict';
 var Wavify = (function() {
@@ -110,6 +115,44 @@ var Wavify = (function() {
 	if ($wavify.length) {
 		// Init selects
 		$wavify.each(function() {
+			init($(this));
+		});
+	}
+
+})();
+
+
+// Typed
+'use strict';
+
+var Typed = (function() {
+	// Variables
+	var typed = '.typed',
+		$typed = $(typed);
+	// Methods
+	function init($this) {
+		var el = '#' + $this.attr('id'),
+        	strings = $this.data('type-this'),
+			strings = strings.split(',');
+
+		var options = {
+			strings: strings,
+            typeSpeed: 100,
+            backSpeed: 70,
+            loop: true
+		};
+
+        var animation = new Typed(el, options);
+
+		inView(el).on('enter', function() {
+			animation.start();
+		}).on('exit', function() {
+			animation.stop();
+		});
+	}
+	// Events
+	if ($typed.length) {
+		$typed.each(function() {
 			init($(this));
 		});
 	}

@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   def index
     unless current_student
-      flash[:danger] = "Merci de vous connecter pour pouvoir réserver"
+      flash[:danger] = "Merci de vous connecter en tant qu'Elève pour pouvoir réserver"
       redirect_to new_student_session_path
     end
 
