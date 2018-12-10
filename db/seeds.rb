@@ -45,9 +45,7 @@ Establishment.all.each do |establishment|
     establishment.teachers << Teacher.find(rand_array_teach[i])
   end
   4.times do |i|
-    Resource.create(name: Faker::Cat.name, resource_type: "salle", description: Faker::GreekPhilosophers.quote, establishment_id: establishment.id)
+    Resource.create(name: Faker::Cat.unique.name, resource_type: "salle", description: Faker::GreekPhilosophers.quote, establishment_id: establishment.id)
   end
+  Faker::UniqueGenerator.clear
 end
-
-
-

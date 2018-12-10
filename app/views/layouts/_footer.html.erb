@@ -6,21 +6,27 @@
                 </a>
                 <% if current_user %>
                 <div class="foot-links-a">
-                    <h6 class="heading mb-3">Profil</h6>
+                    <h6 class="heading mb-3">Ma page</h6>
                     <ul class="list-unstyled">
-                        <li><a href="<%= root_path %>">Ma page</a></li>
+                        <li><a href="<%= get_profil(current_user) %>">Profil</a></li>
                     </ul>
                 </div>
                 <div class="foot-links">
-                    <h6 class="heading mb-3">Paramètres</h6>
+                    <h6 class="heading mb-3">Mes infos</h6>
                     <ul class="list-unstyled">
-                        <li><a href="<%= edit_student_registration_path %>">Éditer mon profil</a></li>
+                        <% if current_student %>
+                            <li><a href="<%= edit_student_registration_path %>">Éditer mon profil</a></li>
+                        <% elsif current_teacher %>
+                            <li><a href="<%= edit_teacher_registration_path %>">Éditer mon profil</a></li>
+                        <% elsif current_establishment %>
+                            <li><a href="<%= edit_establishment_registration_path %>">Éditer mon profil</a></li>
+                        <% end %>
                     </ul>
                 </div>
                 <div class="foot-links">
-                    <h6 class="heading mb-3">Mon panier</h6>
+                    <h6 class="heading mb-3">Mon suivi</h6>
                     <ul class="list-unstyled">
-                        <li><a href="<%= root_path %>">Mes commandes</a></li>
+                        <li><a href="<%= root_path %>">Mon Dashboard</a></li>
                     </ul>
                 </div>
                 <% end %>

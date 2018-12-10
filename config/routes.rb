@@ -4,23 +4,33 @@ Rails.application.routes.draw do
   devise_for :students
 
   root 'home#index'
-  resources :students, only: [:show, :edit]
+
+  resources :students, only: [:show, :edit] do
+    get '/dashboard', to: 'students#dashboard', as: 'dashboard'
+  end
+
   resources :teachers, only: [:show, :edit] do
     resources :teacher_establishments, only: [:destroy]
     resources :teacher_cats, only: [:create, :destroy]
-    resources :availability_slots, only: [:new, :create, :index]
+    get '/dashboard', to: 'teachers#dashboard', as: 'dashboard'
+    # resources :availability_slots, only: [:new, :create, :index]
   end
+  
   resources :establishments, only: [:index, :show, :edit] do
     resources :teacher_establishments, only: [:create]
-    get '/teachers/', to: 'establishments#index_of_teachers', as: :teachers_index
+    resources :teachers, only: [:index]
+    get '/dashboard', to: 'establishments#dashboard', as: 'dashboard'
+
   end
+
   resources :resources, only: [:show, :create, :destroy, :edit] do
-    resources :availability_slots, only: [:new, :create, :index]
-    resources :teachers do
+    resources :teachers, only: [:show] do
       resources :events, only: [:index, :create]
     end
+    # resources :availability_slots, only: [:new, :create, :index]
   end
-  get '/dashboard', to: 'home#dashboard', as: 'dashboard'
+
   resources :events, only: [:show, :edit]
-  resources :availability_slots, only: [:show, :edit, :update, :destroy]
+
+  # resources :availability_slots, only: [:show, :edit, :update, :destroy]
 end
