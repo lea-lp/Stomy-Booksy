@@ -48,21 +48,14 @@
                                     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center btn-translate--hover" style="color: white; font-size: 2.6em"></i></a>
                                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
                                         <div class="list-group">
-                                            <a href="<%= get_dashboard %>" class="list-group-item list-group-item-action">
+                                            <a href="<%= get_dashboard(current_user) %>" class="list-group-item list-group-item-action">
                                                 <div class="media d-flex align-items-center">
                                                     <div class="media-body ml-3">
                                                         <h6 class="mb-1">Dashboard</h6>
                                                     </div>
                                                 </div>
                                             </a>
-
-                                            <% if current_student %>
-                                                <a href="<%= student_path(current_user) %>" class="list-group-item list-group-item-action">
-                                            <% elsif current_teacher %>
-                                                <a href="<%= teacher_path(current_user) %>" class="list-group-item list-group-item-action">
-                                            <% elsif current_establishment %>
-                                                <a href="<%= establishment_path(current_user) %>" class="list-group-item list-group-item-action">
-                                            <% end %>
+                                                <a href="<%= get_profil(current_user) %>" class="list-group-item list-group-item-action">
                                                 <div class="media d-flex align-items-center">
                                                     <div class="media-body ml-3">
                                                         <h6 class="mb-1">Profil</h6>
@@ -84,6 +77,13 @@
                                         <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center btn-translate--hover" style="color: black; font-size: 1.5em"></i></a>
                                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
                                             <div class="list-group">
+                                                <a href="<%= get_dashboard(current_user) %>" class="list-group-item list-group-item-action">
+                                                    <div class="media d-flex align-items-center">
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-1">Dashboard</h6>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                                 <a href="<%= @current_user_path %>" class="list-group-item list-group-item-action">
                                                     <div class="media d-flex align-items-center">
                                                         <div class="media-body ml-3">

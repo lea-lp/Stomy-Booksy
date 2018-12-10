@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout, :filter_on_signed_in, :get_css_color, :get_dashboard
+  helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout, :filter_on_signed_in, :get_css_color, :get_dashboard, :get_profil
 
   before_action :configure_devise_parameters, if: :devise_controller?
 
@@ -48,13 +48,25 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def get_dashboard
+  def get_dashboard(user_object)
     if student_signed_in?
-      return student_dashboard_path
+      return student_dashboard_path(user_object)
     elsif teacher_signed_in?
-      return teacher_dashboard_path
+      return teacher_dashboard_path(user_object)
     elsif establishment_signed_in?
-      return establishment_dashboard_path
+      return establishment_dashboard_path(user_object)
+    else
+      return ""
+    end
+  end
+
+  def get_profil(user_object)
+    if student_signed_in?
+      return student_path(user_object)
+    elsif teacher_signed_in?
+      return teacher_path(user_object)
+    elsif establishment_signed_in?
+      return establishment_path(user_object)
     else
       return ""
     end
