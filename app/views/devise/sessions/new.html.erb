@@ -1,12 +1,10 @@
 <main class="registers-<%= resource.class.name %>">
-
     <div class="container h-100vh d-flex align-items-center">
         <div class="col">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
 
                     <% if user_signed_in? %>
-
                         <div class="card">
                             <%= image_tag ("ananas.jpg"), class: "card-img-top" %>
                             <div class="card-body text-center">
@@ -15,15 +13,10 @@
                                 </h5> 
                                 <div class="d-flex justify-content-between">
                                     <%= link_to "Retour à l'accueil", root_path, class: "btn btn-warning mt-3" %>
-                                    <% if current_teacher %>
-                                    <%= link_to "Déconnection", destroy_teacher_session_path, class: "btn btn-danger mt-3" %>
-                                    <% elsif current_establishment %>
-                                    <%= link_to "Déconnection", destroy_establishment_session_path, class: "btn btn-danger mt-3" %>
-                                    <% end %>
+                                    <%= link_to "Déconnection", get_logout, class: "btn btn-danger mt-3", method: :delete %>
                                 </div>
                             </div>
                         </div>
-
                     <% else %>
                         <div class="text-center mb-5">
                             <h6 class="h3">Se connecter <%= resource.class.name %></h6>
