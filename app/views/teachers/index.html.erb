@@ -4,7 +4,7 @@
               <div class=" col-lg-12">
                   <div class="row align-items-center mb-4">
                       <div class="col-lg-12 mb-4 mb-lg-0">
-                          <span class="h2 mb-0 text-white d-block">Voici les <%=@teachers.count%> professeurs affiliés à <%=@establishment.name%></span>
+                          <span class="h2 mb-0 text-white d-block">Voici les <%=@teachers.count%> professeurs affiliés à l'établissement <a href="<%=establishment_path(@establishment)%>">"<%=@establishment.name%>"</a></span>
                           <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                               <li class="breadcrumb-item">
                                   <a href="#" class="text-normal">Plus qu'un professeur</a>
@@ -25,48 +25,49 @@
           </svg>
       </div>
   </header>
+  <div class="col-lg-12 text-left mx-5 ">
+    <%= link_to "Retour à l'index des écoles", establishments_path, class:"btn btn-primary" %>
+  </div>
 
   <div class="container">
     <div class="row">
       <% @teachers.each do |teacher| %>
       <div class="col-lg-4 pt-5">
-          <div class="card overflow-hidden" data-animate-hover="2">
-              <div class="overflow-hidden">
-                  <div class="animate-this">
-                      <a href="<%= resource_teacher_events_path(@establishment.resources.first, teacher) %>">
-                          <%= image_tag ("prof2.jpg"), :style => "width:348px;" %>
-                      </a>
-                  </div>
-              </div>
-              <div class="card-body text-center">
-                  <h5 class="card-title mb-0"><%=teacher.first_name%> <%= teacher.last_name %></h5>
-                    <%teacher.sub_categories.each_with_index do |sub_cat, ind|%>
-                    <%unless ind ==0 %>
-                    <p class="text-muted mb-0"> 
-                      <%=" - "%> 
-                      <%end%>
-                      <%=sub_cat.title%> 
-                      <%end%>
-                    </p>
-                    <p class="card-text" > <strong>Description</strong>: <%= teacher.description %> </p>
-                    <ul class="nav justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fab fa-instagram"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fab fa-facebook"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fab fa-github"></i></a>
-                        </li>
-                    </ul>
-                    <%= link_to 'Réserver un cours avec moi', resource_teacher_events_path(@establishment.resources.first, teacher), class:"btn btn-success mt-3" %>
-              </div>
+        <div class="card overflow-hidden" data-animate-hover="2">
+          <div class="overflow-hidden">
+            <div class="animate-this">
+              <a href="<%= resource_teacher_events_path(@establishment.resources.first, teacher) %>">
+                <%= image_tag ("prof2.jpg"), :style => "width:348px;" %>
+              </a>
+            </div>
           </div>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0"><%=teacher.first_name%> <%= teacher.last_name %></h5>
+            <p class="text-muted mb-0">
+              <%teacher.sub_categories.each_with_index do |sub_cat, ind|%>
+                <%unless ind == 0 %>
+                 - 
+                <%end%>
+                <%=sub_cat.title%> 
+              <%end%>
+            </p>
+            <p class="card-text" > <strong>Description</strong>: <%= teacher.description %> </p>
+            <ul class="nav justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-instagram"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-facebook"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-github"></i></a>
+              </li>
+            </ul>
+            <%= link_to 'Réserver un cours avec moi', resource_teacher_events_path(@establishment.resources.first, teacher), class:"btn btn-success mt-3" %>
+          </div>
+        </div>
       </div>
-      <% end %>
-    </div>
-    <div class="col-lg-12 text-center mt-3 mb-4">
-    <%= link_to "Retour à l'index des écoles", establishments_path, class:"btn btn-warning" %>
-    </div>
+    <% end %>
+  </div>
+  <br>
 </div>
