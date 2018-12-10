@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'students#dashboard', as: 'dashboard'
   end
 
-  resources :teachers, only: [:show, :edit] do
+  resources :teachers, only: [:index, :show, :edit] do
+    resources :establishments, only: [:index]
     resources :teacher_establishments, only: [:destroy]
     resources :teacher_cats, only: [:create, :destroy]
     get '/dashboard', to: 'teachers#dashboard', as: 'dashboard'
