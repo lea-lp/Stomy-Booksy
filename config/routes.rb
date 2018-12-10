@@ -24,7 +24,3 @@ Rails.application.routes.draw do
   resources :events, only: [:show, :edit]
   resources :availability_slots, only: [:show, :edit, :update, :destroy]
 end
-
-# just in case
-  # delete '/establishments/:establishment_id/teachers/:teacher_id', to: 'establishments#destroy_relation_teach_esta', as: :destroy_relation_teach_esta
-  # delete '/teachers/:teacher_id/sub_categories/:sub_category_id', to: 'teachers#destroy_relation_teacher_subcat', as: :destroy_relation_teacher_subcat
