@@ -4,6 +4,7 @@
                 <a href="<%= root_path %>">
                     <%= image_tag "logo.png", :alt => "logo", style: "width: 150px" -%>
                 </a>
+                <% if current_user %>
                 <div class="foot-links-a">
                     <h6 class="heading mb-3">Profil</h6>
                     <ul class="list-unstyled">
@@ -22,6 +23,7 @@
                         <li><a href="<%= root_path %>">Mes commandes</a></li>
                     </ul>
                 </div>
+                <% end %>
             </div>
             <div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
                 <div class="col-md-6">

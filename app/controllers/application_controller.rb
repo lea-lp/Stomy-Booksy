@@ -28,6 +28,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_user_id
+    @student = Student.find(params[:id])
+    @teacher = Teacher.find(params[:id])
+    @establishment = Establishment.find(params[:id])
+  end
+
   def get_user_type
     if current_user
       return current_user.class.name
