@@ -1,8 +1,5 @@
 <main class="registers-<%= resource.class.name %>">
 
-
-
-
     <div class="container h-100vh d-flex align-items-center">
         <div class="col">
             <div class="row justify-content-center">
@@ -10,7 +7,22 @@
 
                     <% if user_signed_in? %>
 
-                        <h1>Vous êtes déjà connecté en tant que <%= current_user.class.name %>, veuillez vous déconnecter pour accéder à un autre profil. </h1>
+                        <div class="card">
+                            <%= image_tag ("ananas.jpg"), class: "card-img-top" %>
+                            <div class="card-body text-center">
+                                <h5 class="heading h5 mb-1">
+                                    <span class="card-title">Vous êtes déjà connecté avec un compte, veuillez vous déconnecter pour accéder à un autre profil.</span>
+                                </h5> 
+                                <div class="d-flex justify-content-between">
+                                    <%= link_to "Retour à l'accueil", root_path, class: "btn btn-warning mt-3" %>
+                                    <% if current_teacher %>
+                                    <%= link_to "Déconnection", destroy_teacher_session_path, class: "btn btn-danger mt-3" %>
+                                    <% elsif current_establishment %>
+                                    <%= link_to "Déconnection", destroy_establishment_session_path, class: "btn btn-danger mt-3" %>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
 
                     <% else %>
                         <div class="text-center mb-5">
