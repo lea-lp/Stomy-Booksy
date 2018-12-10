@@ -27,6 +27,10 @@ class EventsController < ApplicationController
   end
 
   def show
+    p "-" * 50
+    p "SHOW EVENTS ---" * 3
+    p params
+    p "-" * 50
   end
 
   def edit
