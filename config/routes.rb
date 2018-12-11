@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     # resources :availability_slots, only: [:new, :create, :index]
   end
 
-  resources :events, only: [:show, :edit]
+  resources :events, only: [:show, :edit, :destroy]
 
   # resources :availability_slots, only: [:show, :edit, :update, :destroy]
 end

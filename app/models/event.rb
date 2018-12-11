@@ -6,9 +6,9 @@ class Event < ApplicationRecord
 
 
 
-  belongs_to :student, dependent: :destroy
-  belongs_to :teacher, dependent: :destroy
-  belongs_to :resource, dependent: :destroy
+  belongs_to :student
+  belongs_to :teacher
+  belongs_to :resource
   has_one :establishment, through: :resource
 
   def end_time
@@ -16,7 +16,7 @@ class Event < ApplicationRecord
   end
 
   def set_event_name
-    self.name = "RDV "+self.student.first_name+" "+self.student.last_name[0]+". avec "+self.teacher.first_name+" à "+self.establishment.name+"(salle: "+self.resource.name+")"
+    self.name = "RDV "+self.student.first_name+" "+self.student.last_name[0]+". avec "+self.teacher.first_name+" à "+self.establishment.name+" (salle: "+self.resource.name+")"
   end
 
   def no_overlaping_event
