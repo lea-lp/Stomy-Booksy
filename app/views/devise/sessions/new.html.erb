@@ -62,9 +62,10 @@
                                 <div class="col-sm-7">
                                     <div><%= f.submit "Log in", class: "btn btn-#{get_css_color(resource.class.name)} mb-3 mb-sm-0" %></div>
                                 </div>
+
                                 <button type="button" class="btn btn-secondary btn-icon">
                                         <span class="btn-inner--icon"><i class="fas fa-arrow-left"></i></span>
-                                        <span class="btn-inner--text"><%= link_to "Page d'accueil", root_path %></span>
+                                        <span class="btn-inner--text"><%= link_to "Page d'accueil".html_safe, root_path %></span>
                                     </button>
                             </div>
                             <div class="pt-4">
@@ -87,7 +88,6 @@
 
 </main>
 
-<br><br>
 
 
 

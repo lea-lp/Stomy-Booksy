@@ -16,14 +16,18 @@ address = ["31 Rue Caizergues de Pradines 34000 Montpellier", "31 Rue de l'Unive
   SubCategory.create(title:music[i], category_id:Category.first.id)
   SubCategory.create(title:sport[i], category_id:Category.last.id)
 end
+puts "subcat"
 
 10.times do
   Student.create(phone:Faker::IDNumber.valid,email:Faker::Internet.free_email, first_name:Faker::DragonBall.character, last_name:Faker::Cat.name,password:"azerty",address:Faker::Address.full_address)
 end
+puts "stud"
 
 40.times do
   Teacher.create(phone:Faker::IDNumber.valid,email:Faker::Internet.email, first_name:Faker::FunnyName.name, last_name:Faker::Cat.name,password:"azerty",address:Faker::Address.full_address, siret:Faker::Device.serial, description:Faker::ChuckNorris.fact)
 end
+puts "teach"
+
 
 Teacher.all.each do |teacher|
   rand_array_sub_cat = (SubCategory.first.id..SubCategory.last.id).to_a.shuffle
@@ -32,15 +36,20 @@ Teacher.all.each do |teacher|
     teacher.sub_categories << SubCategory.find(rand_array_sub_cat[i])
   end
 end
+puts "teach + subcat"
+
 
 Establishment.create(phone:"04 34 11 02 25",email:"contact@lanacrouse.fr", name:"L'Anacrouse", password:"sylvain", address:"5 Place du Petit Scel 34000 Montpellier",description:"Centre d'expression artistique et culturel",siret:"80043065400015")
 
 9.times do |i|
   Establishment.create(phone:Faker::IDNumber.valid,email:Faker::Internet.safe_email, name:Faker::GreekPhilosophers.name, siret:Faker::Company.duns_number,password:"azerty",address:address[i], description:Faker::ChuckNorris.fact)
 end
+puts "Estab"
+
 
 Establishment.all.each do |establishment|
   rand_array_teach = (Teacher.first.id..Teacher.last.id).to_a.shuffle
+  puts rand_array_teach
   4.times do |i|
     establishment.teachers << Teacher.find(rand_array_teach[i])
   end

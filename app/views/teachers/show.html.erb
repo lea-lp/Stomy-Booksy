@@ -52,23 +52,26 @@
                                 </div>
                                 <br>
                                 <% if current_teacher == @teacher %>
-                                    <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Nouvelle catégorie</span>
-                                        <div id="jquery"> 
-                                    <%= form_tag(teacher_teacher_cats_path(@teacher)) do %>
-                                      <%= label_tag "" %>
-                                      <%= select_tag "sub_category_id", options_from_collection_for_select(@sub_categories, "id", "title") %>
-                                      <%= submit_tag("Ajouter", class: "btn btn-large btn-primary") %>
-                                    <% end %>
+                            
+                                <div class="d-flex justify-content-between text-center">
+                                <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Nouvelle catégorie</span>
+                                <div id="jquery">
+                                        <%= form_tag(teacher_teacher_cats_path(@teacher)) do %>
+                                        <div class="d-flex flex-row" >
+                                        <%= select_tag 'sub_category_id', options_from_collection_for_select(@sub_categories, "id", "title"), class: "form-control-sm mx-1" %>
+                                        <%= submit_tag("Ajouter", class: "btn-sm btn-warning") %>
+                                        </div>
+                                        <% end %>
+                                </div>
                                 <% end %>
-                                    </div>
                             </div>
                             <div class="pt-5 mt-5 delimiter-top">
                                 <!-- Endorsements -->
                                 <h6><i class="fas fa-user mr-2"></i>Ecole(s)</h6>
                                 <div class="row">
-                                    <% @teacher.establishments.each do |establishment| %>
                                     <div class="col-lg-6 mt-4">
                                         <div class="card bg-secondary shadow-sm border-0">
+                                            <% @teacher.establishments.each do |establishment| %>
                                             <div class="media align-items-center p-3">
                                                 <a href="#" class="avatar rounded-circle mr-2">
                                                     <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg">
@@ -81,20 +84,15 @@
                                                     <i class="fas fa-trash-alt"></i>
                                                     </a>
                                                 <% end %>
-                                                <% if false %>
-                                                <% end %>
-                                                </a>
                                             </div>
-                                        </div>                                
+                                            <% end %>
+                                        </div>  
                                     </div>
-                                    <% end %>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
     <% if current_user %>
         <%= render 'layouts/logged' %>

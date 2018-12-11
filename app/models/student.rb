@@ -7,10 +7,15 @@ class Student < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
-  has_many :events
+  has_many :events, dependent: :destroy
 
   def upcoming_events
     events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now- 1.week) }
+  end
+
+  after_create :welcome_send
+  def welcome_send
+    ContactMailer.welcome_send(self).deliver
   end
 
 end

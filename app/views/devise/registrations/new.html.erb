@@ -6,7 +6,6 @@
     <div class="container d-flex align-items-center">
         <div class="col">
             <div class="row justify-content-center">
-
                 <% if user_signed_in? %>
                     <div class="card">
                         <%= image_tag ("ananas.jpg"), class: "card-img-top" %>
@@ -24,13 +23,13 @@
                     <div class="col-md-8 col-lg-6">
                         <div class="text-center mb-5">
                             <% if resource.class.name == "Student" %>
-                                <h6 class="h3">Créer un compte <%= resource.class.name %></h6>
+                                <h6 class="h3">Créer un compte étudiant.</h6>
                                 <p class="text-muted mb-0">Des centaines d'activités à portée de main</p>
                             <% elsif resource.class.name == "Teacher" %>
-                                <h6 class="h3">Créer un compte</h6>
+                                <h6 class="h3">Créer un compte professeur.</h6>
                                 <p class="text-muted mb-0">Un gestion de votre emploi du temps simplifiée</p>
                             <% else resource.class.name == "Establishment" %>
-                                <h6 class="h3">Créer un compte</h6>
+                                <h6 class="h3">Créer un compte association.</h6>
                                 <p class="text-muted mb-0">Une gestion de votre établissement simplifiée</p>
                             <% end %>
                             <!-- a voir si on affiche le nom de la page (eleve student ...) -->
@@ -39,7 +38,7 @@
 
                         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                         <%= devise_error_messages! %>
-
+                        <div class="card p-4 mb-5">
                             <div class="form-group">
                                 <label class="form-control-label">Adresse email</label>
                                 <div class="input-group input-group-transparent">
@@ -74,25 +73,32 @@
                             </div>
 
                             <% if resource.class.name == "Teacher" || resource.class.name == "Student" %>
-                                <div class="form-group">
+                                
+
+                            <div class="d-flex">
+                                <div class="form-group col-6 pl-0">
+                                    <label class="form-control-label ">Prénom</label>
+                                    <div class="input-group input-group-transparent">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <%= f.text_field :first_name, class: "form-control form-control-label", placeholder: "Michou" %>
+                                    </div>
+                                </div>
+                                <div class="form-group col-6 pr-0">
                                     <label class="form-control-label">Nom</label>
                                     <div class="input-group input-group-transparent">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
-                                        <%= f.text_field :last_name, class: "form-control form-control-label", autofocus: true, placeholder: "Dupont" %>
+                                        <%= f.text_field :last_name, class: "form-control form-control-label", placeholder: "Dupont" %>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label class="form-control-label">Prénom</label>
-                                    <div class="input-group input-group-transparent">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                        </div>
-                                        <%= f.text_field :first_name, class: "form-control form-control-label", autofocus: true, placeholder: "Michou" %>
-                                    </div>
-                                </div>
+
+
+
                             <% elsif resource.class.name == "Establishment" %>
                                 <div class="form-group">
                                     <label class="form-control-label">Nom de votre établissement</label>
@@ -111,7 +117,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <%= f.text_field :phone, class: "form-control form-control-label", autofocus: true, placeholder: "01 23 45 67 89" %>
+                                    <%= f.telephone_field :phone, class: "form-control form-control-label", type: "tel", placeholder: "01 23 45 67 89" %>
                                 </div>
                             </div>
 
@@ -122,7 +128,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
-                                        <%= f.text_field :siret, class: "form-control form-control-label", autofocus: true, placeholder: "843 586 147" %>
+                                        <%= f.number_field :siret, min: 100000000, max: 999999999, class: "form-control form-control-label", placeholder: "843 586 147" %>
                                     </div>
                                 </div>
 
@@ -132,7 +138,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
-                                        <%= f.text_field :description, class: "form-control form-control-label", autofocus: true, placeholder: "Description de vos activités" %>
+                                        <%= f.text_field :description, class: "form-control form-control-label", placeholder: "Description de vos activités" %>
                                     </div>
                                 </div>
 
@@ -142,7 +148,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
-                                        <%= f.text_field :address, class: "form-control form-control-label", autofocus: true, placeholder: "5 place du petit Scel, 34000 Montpellier" %>
+                                        <%= f.text_field :address, class: "form-control form-control-label", placeholder: "5 place du petit Scel, 34000 Montpellier" %>
                                     </div>
                                 </div>
 
@@ -157,19 +163,15 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
-                                        <%= f.text_field :address, class: "form-control form-control-label", autofocus: true, placeholder: "Montpellier" %>
+                                        <%= f.text_field :address, class: "form-control form-control-label", placeholder: "Montpellier" %>
                                     </div>
                                 </div>
                                 <% end %>
                                 <!-- Si jamais besoin demander à Titi il sait tout sur tout -->
 
-
                                 <% end %>
 
-                                
-                            
-
-                            <div id="form-buttons">
+                            <div class="mt-3">
                                 <div class="d-flex justify-content-center" id="button_create_account">
                                    <%= f.submit "Créer un compte", class: "btn btn-primary btn-circle" %>
                                 </div>
@@ -177,17 +179,18 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <button type="button" class="btn btn-secondary btn-icon">
                                         <span class="btn-inner--icon"><i class="fas fa-arrow-left"></i></span>
-                                        <span class="btn-inner--text"><%= link_to "Page d'accueil", root_path %></span>
+                                        <span class="btn-inner--text"><%= link_to "Page d'accueil".html_safe, root_path %></span>
                                     </button>
                                     <div class="col-sm-5 text-sm-right">
-                                        <span class="small d-sm-block d-md-inline">Déjà inscrit ?</span>
+                                        <span class="small d-sm-block d-md-inline">Déjà inscrit ?</span><br>
                                         <%= render "devise/shared/links" %>
                                     </div>
                                 </div>
                             </div>
-                        <% end %>
-                    </div>
-                <% end %>
+                        <% end %> 
+                        </div>  
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>

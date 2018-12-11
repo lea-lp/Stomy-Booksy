@@ -21,11 +21,9 @@
                 <div class="pt-4 mt-4 delimiter-top">
                     <div class="btn-group shadow rounded-circle">
                         <button class="btn btn-sm btn-primary btn-circle btn-icon">
-                            <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
-                            <span class="btn-inner--text">Follow</span>
-                        </button>
-                        <button class="btn btn-sm btn-dark btn-circle"><i class="fas fa-envelope"></i>
-                        </button>
+                            <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
+                            <span class="btn-inner--text"><%= link_to 'Modifier mon profil'.html_safe, edit_establishment_registration_path, class: "text-white", id: "btn-group-settings"  %></span>
+                        </button> 
                     </div>
                 </div>
             </div>
@@ -39,16 +37,13 @@
                     <h6 class="mb-0 pt-3">Email</h6>
                     <span class="btn-inner--icon"><i class="fas fa-envelope"></i></span>
                     <span class="text-muted"><%= @teacher.email %></span>
-                    <span class="text-muted"><%= @teacher.description %></span>
                 </div>
                 <span class="text-muted"><i class="fas fa-map-marker mr-2"></i><%= @teacher.address %></span>
                 <div class="pt-4 mt-4 delimiter-top">
                     <div class="btn-group shadow rounded-circle">
                         <button class="btn btn-sm btn-primary btn-circle btn-icon">
-                            <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
-                            <span class="btn-inner--text">Follow</span>
-                        </button>
-                        <button class="btn btn-sm btn-dark btn-circle"><i class="fas fa-envelope"></i>
+                            <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
+                            <span class="btn-inner--text"><%= link_to 'Modifier mon profil'.html_safe, edit_teacher_registration_path, class: "text-white", id: "btn-group-settings"  %></span>
                         </button>
                     </div>
                 </div>
@@ -67,10 +62,8 @@
                 <div class="pt-4 mt-4 delimiter-top">
                     <div class="btn-group shadow rounded-circle">
                         <button class="btn btn-sm btn-primary btn-circle btn-icon">
-                            <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
-                            <span class="btn-inner--text">Follow</span>
-                        </button>
-                        <button class="btn btn-sm btn-dark btn-circle"><i class="fas fa-envelope"></i>
+                            <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
+                            <span class="btn-inner--text"><%= link_to 'Modifier mon profil'.html_safe, edit_student_registration_path, class: "text-white", id: "btn-group-settings"  %></span>
                         </button>
                     </div>
                 </div>
