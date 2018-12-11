@@ -34,6 +34,9 @@ class EstablishmentsController < ApplicationController
   def dashboard
     filter_user_allowed
 
+    @establishment = Establishment.find(params[:establishment_id])
+    @events = @establishment.events
+
     @establishment = current_user
 
     @resources = @establishment.resources.order(created_at: :desc)
