@@ -18,7 +18,7 @@ Copyright 2018 Webpixels
     --pink: #f074ad;
     --red: #F93A30;
     --orange: #FB9500;
-    --yellow: #F3B700;
+    --yellow: #ff170a;
     --green: #4CD964;
     --teal: #26B7FA;
     --cyan: #4bd6e5;
@@ -3138,7 +3138,7 @@ fieldset:disabled a.btn
 .btn-danger:hover
 {
     color: #fff;
-    border-color: #F3B700d00; 
+    border-color: #ff170a; 
     background-color: #ff170a;
 }
 .btn-danger:focus,
@@ -3159,7 +3159,7 @@ fieldset:disabled a.btn
 {
     color: #fff;
     border-color: #ef0d00; 
-    background-color: #F3B700d00;
+    background-color: #ff170a;
 }
 .btn-danger:not(:disabled):not(.disabled):active:focus,
 .btn-danger:not(:disabled):not(.disabled).active:focus,
@@ -6291,7 +6291,7 @@ nav .nav-link:hover
 }
 .alert-danger .alert-link
 {
-    color: #F3B700d00;
+    color: #ff170a;
 }
 
 .alert-light
@@ -7712,7 +7712,7 @@ a.bg-danger:focus,
 button.bg-danger:hover,
 button.bg-danger:focus
 {
-    background-color: #F3B700d00 !important;
+    background-color: #ff170a !important;
 }
 
 a.bg-light:hover,
@@ -12043,7 +12043,7 @@ a.text-warning:focus
 a.text-danger:hover,
 a.text-danger:focus
 {
-    color: #F3B700d00 !important;
+    color: #ff170a !important;
 }
 
 .text-light
@@ -12619,7 +12619,7 @@ a.bg-red:focus,
 button.bg-red:hover,
 button.bg-red:focus
 {
-    background-color: #F3B700d00 !important;
+    background-color: #ff170a !important;
 }
 
 .bg-orange
@@ -12637,7 +12637,7 @@ button.bg-orange:focus
 
 .bg-yellow
 {
-    background-color: #F3B700 !important;
+    background-color: #ff170a !important;
 }
 
 a.bg-yellow:hover,
@@ -13599,12 +13599,12 @@ button.bg-lighter:focus
 
 .shape-fill-yellow
 {
-    fill: #F3B700 !important;
+    fill: #ff170a !important;
 }
 
 .shape-stroke-yellow
 {
-    stroke: #F3B700 !important;
+    stroke: #ff170a !important;
 }
 
 .shape-fill-green
@@ -17405,7 +17405,7 @@ Styled shaped wrappers for displaying code and images in a more stylish manner
 .icon-actions > .favorite:hover,
 .icon-actions > .favorite.active
 {
-    color: #F3B700;
+    color: #ff170a;
 }
 
 .icon-actions > .love:hover,
@@ -19006,7 +19006,7 @@ Styled shaped wrappers for displaying code and images in a more stylish manner
 }
 .static-rating .voted
 {
-    color: #F3B700;
+    color: #ff170a;
 }
 
 .static-rating-sm .star
@@ -19047,11 +19047,11 @@ Styled shaped wrappers for displaying code and images in a more stylish manner
 }
 .rating:hover .over:before
 {
-    color: #F3B700;
+    color: #ff170a;
 }
 .rating .voted:before
 {
-    color: #F3B700;
+    color: #ff170a;
 }
 
 .rating-lg .star:before
@@ -21274,13 +21274,13 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
 
 .input-slider--yellow .noUi-connect
 {
-    background: #F3B700;
+    background: #ff170a;
 }
 
 .input-slider--yellow.noUi-horizontal .noUi-handle,
 .input-slider--yellow.noUi-vertical .noUi-handle
 {
-    background-color: #F3B700;
+    background-color: #ff170a;
 }
 
 .input-slider--pink .noUi-connect
