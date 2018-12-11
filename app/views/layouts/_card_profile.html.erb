@@ -18,6 +18,7 @@
                     <span class="btn-inner--icon"><i class="fas fa-envelope"></i></span>
                     <span class="text-muted"><%= @establishment.email %></span>
                 </div>
+                <% if current_user == @establishment %>
                 <div class="pt-4 mt-4 delimiter-top">
                     <div class="btn-group shadow rounded-circle">
                         <button class="btn btn-sm btn-primary btn-circle btn-icon">
@@ -26,6 +27,7 @@
                         </button> 
                     </div>
                 </div>
+                <% end %>
             </div>
             <% elsif page_type == 'teacher' %>
             <div class="card-body">
@@ -39,6 +41,7 @@
                     <span class="text-muted"><%= @teacher.email %></span>
                 </div>
                 <span class="text-muted"><i class="fas fa-map-marker mr-2"></i><%= @teacher.address %></span>
+                <% if current_user == @teacher %>
                 <div class="pt-4 mt-4 delimiter-top">
                     <div class="btn-group shadow rounded-circle">
                         <button class="btn btn-sm btn-primary btn-circle btn-icon">
@@ -47,6 +50,7 @@
                         </button>
                     </div>
                 </div>
+                <% end %>
             </div>
             <% elsif page_type == 'student' %>
             <div class="card-body">
@@ -59,7 +63,7 @@
                     <span class="btn-inner--icon"><i class="fas fa-envelope"></i></span>
                     <span class="text-muted"><%= @student.email %></span>
                 </div>
-                <% if current_user == @current_establishments || current_user == @current_teacher || current_user == @current_student %>
+                <% if current_user == @student %>
                     <div class="pt-4 mt-4 delimiter-top">
                         <div class="btn-group shadow rounded-circle">
                             <button class="btn btn-sm btn-primary btn-circle btn-icon">
