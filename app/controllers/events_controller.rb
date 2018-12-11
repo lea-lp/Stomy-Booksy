@@ -43,9 +43,6 @@ class EventsController < ApplicationController
 
   def create
     params[:event][:start_time] = params[:event][:date]+"T"+params[:event][:hours]+":"+params[:event][:minutes]
-    puts "$"*60
-    puts params[:event][:start_time]
-    puts "$"*60
 
     @event = Event.new(event_params)
     @event.set_event_name

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def filter_on_signed_in
     unless user_signed_in?
-      redirect_to root_path
+      redirect_to new_student_session_path
     end
   end
 
