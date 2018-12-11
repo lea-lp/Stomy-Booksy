@@ -4,7 +4,7 @@ module EventsCalendarHelper
   end
   
   def event_position(event)
-    "top: #{ ( ( (event.start_time - event.start_time.midnight)/3600 - 8 ) * 40 ) + 28}px;"
+    "top: #{ ( ( (event.start_time - event.start_time.midnight)/3600 - 8 ) * 39.5 ) + 28}px;"
   end
   
   def event_height(event)
