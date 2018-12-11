@@ -6,9 +6,9 @@ class Event < ApplicationRecord
 
 
 
-  belongs_to :student, dependent: :destroy
-  belongs_to :teacher, dependent: :destroy
-  belongs_to :resource, dependent: :destroy
+  belongs_to :student
+  belongs_to :teacher
+  belongs_to :resource
   has_one :establishment, through: :resource
 
   def end_time
