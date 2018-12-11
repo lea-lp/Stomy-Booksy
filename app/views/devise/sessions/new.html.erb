@@ -1,91 +1,88 @@
 <main class="registers-<%= resource.class.name %>">
     <div class="container h-100vh d-flex align-items-center">
         <div class="col">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-5">
                 <div class="col-md-8 col-lg-6">
-
                     <% if user_signed_in? %>
-                        <div class="card">
-                            <%= image_tag ("ananas.jpg"), class: "card-img-top" %>
-                            <div class="card-body text-center">
-                                <h5 class="heading h5 mb-1">
-                                    <span class="card-title">Vous êtes déjà connecté avec un compte, veuillez vous déconnecter pour accéder à un autre profil.</span>
-                                </h5> 
-                                <div class="d-flex justify-content-between">
-                                    <%= link_to "Retour à l'accueil", root_path, class: "btn btn-warning mt-3" %>
-                                    <%= link_to "Déconnection", get_logout, class: "btn btn-danger mt-3", method: :delete %>
-                                </div>
+                    <div class="card">
+                        <%= image_tag ("ananas.jpg"), class: "card-img-top" %>
+                        <div class="card-body text-center">
+                            <h5 class="heading h5 mb-1">
+                                <span class="card-title">Vous connecté avec un mauvais type de compte, veuillez vous déconnecter pour accéder à un autre profil.</span>
+                            </h5> 
+                            <div class="d-flex justify-content-between">
+                                <%= link_to "Retour à l'accueil", root_path, class: "btn btn-warning mt-3" %>
+                                <%= link_to "Déconnection", get_logout, class: "btn btn-danger mt-3", method: :delete %>
                             </div>
                         </div>
+                    </div>
                     <% else %>
-                        <div class="text-center mb-5">
-                            <h6 class="h3">Se connecter <%= resource.class.name %></h6>
+                    <span class="clearfix"></span>
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <%= devise_error_messages! %>
+                    <div class="card p-4 mb-5">
+                        <div class="text-center mb-5 mt-3">
+                        <% if resource.class.name == "Student" %>
+                            <h4>Se connecter en tant qu'étudiant.</h4>
+                        <% elsif resource.class.name == "Teacher" %>
+                            <h4>Se connecter en tant que professeur.</h4>
+                        <% else resource.class.name == "Establishment" %>
+                            <h4>Se connecter en tant qu'établissement.</h4>
+                        <% end %>
                         </div>
-                        <span class="clearfix"></span>
-                        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                        <%= devise_error_messages! %>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Adresse email</label>
-                                <div class="input-group input-group-transparent">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                    </div>
-                                    <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email", placeholder: "exemple@gmail.com" %>
+                        <div class="form-group">
+                            <label class="form-control-label">Adresse email</label>
+                            <div class="input-group input-group-transparent">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
+                                <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email", placeholder: "exemple@gmail.com" %>
                             </div>
-
-                            <div class="form-group mb-4">
-                                <label class="form-control-label">Mot de passe</label>
-                                <% if @minimum_password_length %>
-                                <em>(<%= @minimum_password_length %> characters minimum)</em>
-                                <% end %><br />
-                                <div class="input-group input-group-transparent">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                    </div>
-                                    <%= f.password_field :password, class: "form-control", id: "input-password", autocomplete: "current-password", placeholder: "********"  %>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="form-control-label">Mot de passe</label>
+                            <% if @minimum_password_length %>
+                            <em>(<%= @minimum_password_length %> characters minimum)</em>
+                            <% end %><br />
+                            <div class="input-group input-group-transparent">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
+                                <%= f.password_field :password, class: "form-control", id: "input-password", autocomplete: "current-password", placeholder: "********"  %>
                             </div>
-
-                            <div class="form-group">
-                                      <% if devise_mapping.rememberable? -%>
-                                      <div class="field">
-                                        <%= f.check_box :remember_me %>
-                                        <%= f.label :remember_me %>
-                                      </div>
-                                    <% end -%>
+                        </div>
+                        <div class="form-group">
+                            <% if devise_mapping.rememberable? -%>
+                            <div class="field">
+                                <%= f.check_box :remember_me %>
+                                <%= f.label :remember_me %>
                             </div>
-
-                            <div id="form-buttons">
-                                <div class="row">
+                            <% end -%>
+                        </div>
+                        <div id="form-buttons">
+                            <div class="row">
                                 <div class="col-sm-7">
                                     <div><%= f.submit "Log in", class: "btn btn-#{get_css_color(resource.class.name)} mb-3 mb-sm-0" %></div>
                                 </div>
-
                                 <button type="button" class="btn btn-secondary btn-icon">
-                                        <span class="btn-inner--icon"><i class="fas fa-arrow-left"></i></span>
-                                        <span class="btn-inner--text"><%= link_to "Page d'accueil".html_safe, root_path %></span>
-                                    </button>
+                                    <span class="btn-inner--icon"><i class="fas fa-arrow-left"></i></span>
+                                    <span class="btn-inner--text"><%= link_to "Page d'accueil".html_safe, root_path %></span>
+                                </button>
                             </div>
                             <div class="pt-4">
-                                    <div class="">
-                                        <span class="">Pas encore inscrit ?</span>
-                                        <%= render "devise/shared/links" %>
-                                    </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="">Pas encore inscrit ?</span>
+                                    <%= render "devise/shared/links" %>
                                 </div>
                             </div>
-
-                          <% end %>
-                          <br><br>
                         </div>
+                    </div>
                     <% end %>
                 </div>
-
+                <% end %>
+            </div>
         </div>
-
     </div>
-
 </main>
 
 

@@ -105,7 +105,7 @@
               
             </div>
 
-            <div class="col-9" red" >
+            <div class="col-9" >
 
                 <!-- CALENDAR -->
                 <div class="card" id="card-calendar">
@@ -118,7 +118,7 @@
                 <div class="card mt-4" id="card-table" >
                     <div class="card-header border-0">
 
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
                             <div>
                             <h6 class="mb-0">Liste des rendez-vous</h6>
                             </div>
@@ -128,24 +128,24 @@
                 
                     <!-- resources list (table) -->
                         <div class="table-responsive">
-                        <table class="table table-hover table-flush align-items-center table-striped">
+                        <table class="table table-flush align-items-center">
                             <thead class="thead-light">
                             <tr class="row">
-                                <th class="col-1" style="color: rgba(0, 0, 0, 0.596)"> Id </th>
-                                <th class="col-2" style="color: rgba(0, 0, 0, 0.596)"> Heure </th>
-                                <th class="col-2" style="color: rgba(0, 0, 0, 0.596)"> Durée </th>
-                                <th class="col-6" style="color: rgba(0, 0, 0, 0.596)"> Description </th>
-                                <th class="col-1" style="color: rgba(0, 0, 0, 0.596)"><i class="fas fa-trash-alt"></i></th>
+                                <th class="col-2 pr-2" style="color: rgba(0, 0, 0, 0.596)"> Date </th>
+                                <th class="col-1 px-2" style="color: rgba(0, 0, 0, 0.596)"> Heure </th>
+                                <th class="col-1 px-2" style="color: rgba(0, 0, 0, 0.596)"> Durée </th>
+                                <th class="col-6 px-2" style="color: rgba(0, 0, 0, 0.596)"> Description </th>
+                                <th class="col-1 px-2" style="color: rgba(0, 0, 0, 0.596)"><i class="fas fa-trash-alt"></i></th>
                             </tr>
                             </thead>
                             <tbody class="container">
                                 <% current_user.upcoming_events.each do |event|%>
                                 <tr class="row">
-                                <td class="col-1" style="height: auto"><span class="font-weight-bold text-sm wrap"><%=event.id%></span></td>
-                                <td class="col-2" style="height: auto"><span class="font-weight-bold wrap"><%=Time.at(event.start_time).utc.strftime("%Hh%M")%></span></td>
-                                <td class="col-2" style="height: auto"><span class="text-sm wrap"><%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
-                                <td class="col-6" style="height: auto"><span class="text-sm wrap"><%=event.name%></span></td>
-                                <td class="col-1" style="height: auto"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
+                                <td class="col-2 pr-2" style="height: auto"><span class="font-weight-bold text-sm wrap"><%=(event.start_time).strftime("%d/%m/%Y")%></span></td>
+                                <td class="col-1 px-2" style="height: auto"><span class="font-weight-bold wrap"><%=Time.at(event.start_time).utc.strftime("%Hh%M")%></span></td>
+                                <td class="col-1 px-2" style="height: auto"><span class="text-sm wrap"><%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
+                                <td class="col-6 px-2" style="height: auto"><span class="text-sm wrap"><%=event.name%></span></td>
+                                <td class="col-1 px-2" style="height: auto"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Êtes vous sûr ?" >
                                     <i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             <%end%>
