@@ -1,10 +1,9 @@
 class ContactMailer < ApplicationMailer
-  def contact(teachers)
+ 
 
-  @teachers = teachers
-
-  mail(to: 'kasskq@gmail.com', subject: 'test')
+  def welcome_send(user)
+    @user = user
+    mail(to: user.email, subject: "Welcome !!")
 
   end
-
 end
