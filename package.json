@@ -2,6 +2,7 @@
   "name": "stomy_booksy",
   "private": true,
   "dependencies": {
-    "typed.js": "^2.0.9"
+    "typed.js": "^2.0.9",
+    "wc-typed-js": "^1.0.1"
   }
 }

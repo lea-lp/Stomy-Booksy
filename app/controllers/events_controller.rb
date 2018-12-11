@@ -24,33 +24,19 @@ class EventsController < ApplicationController
     @events.concat(@events_resource) 
     @events.concat(@events_teacher) 
     @events.uniq!
-
-    p "-" * 50
-    p "SHOW PARAMS INDEX ---" * 2
-    p params
-    p "-" * 50
-    p "PARAMS RESOURCE = ID => #{@resource.id}"
-    p "PARAMS RESOURCE = NAME => #{@resource.name}"
-    p "inspect RESOURCE = #{@resource.inspect}"
-    p "-" * 50
-    p "PARAMS TEACHER = ID => #{@teacher.id}"
-    p "PARAMS TEACHER = NAME => #{@teacher.first_name}"
-    p "PARAMS TEACHER = NAME => #{@teacher.last_name}"
-    p "inspect TEACHER = #{@teacher.inspect}"
-    p "-" * 50
-    p "PARAMS ESTAB = ID => #{@establishment.id}"
-    p "PARAMS ESTAB = NAME => #{@establishment.name}"
-    p "inspect ESTAB = #{@establishment.inspect}"
-    p "-" * 50
-    p "PARAMS STUDENT = ID => #{@student.id}"
-    p "PARAMS STUDENT = NAME => #{@student.first_name}"
-    p "PARAMS STUDENT = NAME => #{@student.last_name}"
-    p "inspect STUDENT = #{@student.inspect}"
-    p "-" * 50
-
   end
 
   def show
+    @event = Event.find(params[:id])
+
+    @resource = Resource.find(@event.resource_id).name
+    @resource_id = Resource.find(@event.resource_id).id
+
+    @teacher = Teacher.find(@event.teacher_id)
+    @establishment = Establishment.find(@resource_id)
+    @duration = Time.at(@event.duration).utc.strftime("%Hh%M")
+
+
   end
 
   def edit

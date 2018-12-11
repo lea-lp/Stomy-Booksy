@@ -47,45 +47,6 @@
     </div>
 </section>
 
-<!-- Modal -->
-<div class="modal modal-fluid fade" id="modal_1" tabindex="-1" role="dialog" aria-labelledby="modal_1" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center py-4">
-                        <h4 class="heading h3">Votre réservation</h4>
-                        <p class="lead text-muted">
-                            N'oubliez pas de signaler tout changement <br> à votre professeur !
-                        </p>
-
-                        <div class="row d-flex justify-content-around pb-5">
-                            <div class="card" style="width: 14rem; z-index: 1000">
-                                <%= image_tag 'etabl.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
-                                <div class="card-body">
-                                    <h5 class="h5 card-title"><%=@establishment.name%></h5>
-                                    <p class="card-text">Établissement</p>
-                                    <%= link_to 'voir le profil', teacher_path(@teacher), class: "btn btn-outline-success btn-sm btn-circle btn-translate--hover" %>
-                                </div>
-                            </div>
-                            <div class="card" style="width: 14rem; z-index: 1000" >
-                                    <%= image_tag 'prof.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
-                                <div class="card-body">
-                                    <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
-                                    <p class="card-text">Professeur</p>
-                                    <%= link_to 'voir le profil', establishment_path(@establishment), class: "btn btn-outline-danger btn-sm btn-circle btn-translate--hover" %>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Compris !</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
 
 <section class="slice slice-lg pb-250 bg-gradient-primary pt-0" style="padding-bottom: 9em !important;box-shadow: 0px -6px 24px 0px rgba(209,209,209,0.75) !important;

@@ -1,62 +1,49 @@
+<!-- Modal -->
 
-<section class="slice slice-lg pb-250 bg-gradient-danger" style="padding-bottom: 9em !important;box-shadow: 0px -6px 24px 0px rgba(209,209,209,0.75) !important;
-">
+<section class="slice bg-white bg cover">
 
-  <div class="container pt-lg">
-     
-<div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header py-4">
-                    <div class="d-flex align-items-center">
-                        <h5 class="heading h5 mb-0">Add team members</h5>
+        <div class="row justify-content-center">
+                <div class="col-lg-8 text-center py-4">
+                    <h4 class="heading h3">Votre réservation</h4>
+                    <p class="lead text-muted">
+                        N'oubliez pas de signaler tout changement <br> à votre professeur !
+                    </p>
+
+                    <div class="row d-flex justify-content-around pb-5">
+
+                        <div class="card" style="width: 14rem; z-index: 1000" >
+                            <%= image_tag 'prof.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
+                            <div class="card-body">
+                                <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
+                                <p class="card-text">Professeur</p>
+                                <%= link_to 'voir le profil', establishment_path(@establishment), class: "btn btn-outline-danger btn-sm btn-circle btn-translate--hover" %>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 14rem; z-index: 1000" >
+                            <%= image_tag 'etabl.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
+                            <div class="card-body">
+                                <h5 class="h5 card-title"><%=@establishment.name%></h5>
+                                <p class="card-text">Établissement</p>
+                                <%= link_to 'voir le profil', teacher_path(@teacher), class: "btn btn-outline-success btn-sm btn-circle btn-translate--hover" %>
+                            </div>
+                        </div>
+
+
+                        <div class="card" style="width: 20rem; z-index: 1000" >
+                            <div class="card-body">
+                                <h5 class="h5 card-title">Salle réservée : <%=@resource%></h5>
+                                <h5 class="h5 card-title">Le <%=@event.start_time.strftime("%d/%m/%Y")%></h5>
+                                <h5 class="h5 card-title">à <%=@event.start_time.strftime("%Hh%M")%></h5>
+                                <p class="card-text">Durée <%=@duration%></p>
+                                <p class="card-text"> <strong>Point de rendez-vous :</strong> <br> <%=@establishment.address%></p>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-                <div class="list-group list-group-flush">
-                    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
-                        <div class="list-group-img">
-                            <span class="avatar bg-purple">JD</span>
-                        </div>
-                        <div class="list-group-content">
-                            <div class="list-group-heading">Johnyy Depp <small>10:05 PM</small></div>
-                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing eiusmod tempor</p>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
-                        <div class="list-group-img">
-                            <span class="avatar bg-pink">TC</span>
-                        </div>
-                        <div class="list-group-content">
-                            <div class="list-group-heading">Tom Cruise <small>11:30 PM</small></div>
-                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing eiusmod tempor</p>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
-                        <div class="list-group-img">
-                            <span class="avatar bg-blue">WS</span>
-                        </div>
-                        <div class="list-group-content">
-                            <div class="list-group-heading">Will Smith <small>15:45 PM</small></div>
-                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing eiusmod tempor</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card-footer py-2 border-top-0">
-                    <form class="card-comment-box" role="form">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <input class="form-control" placeholder="e.g @willsmith">
-                            </div>
-                            <div class="col-4 text-right">
-                                <button type="button" class="btn btn-sm btn-success btn-icon-only rounded-circle">
-                                    <span class="btn-inner--icon"><i class="fas fa-check"></i></span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <%= link_to "Retour à l'agenda", resource_teacher_events_path(@resource_id, @teacher), class: "btn btn-circle btn-primary" %>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+
 </section>
