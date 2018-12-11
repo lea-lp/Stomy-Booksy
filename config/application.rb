@@ -19,3 +19,7 @@ module StomyBooksy
     # the framework and any gems in your application.
   end
 end
+
+
+config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+config.i18n.default_locale = :fr
