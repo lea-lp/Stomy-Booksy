@@ -8,10 +8,10 @@
                 <div class="card col-3 mh-100" data-toggle="sticky" data-sticky-offset="100" style="z-index: 10;">
                     <div class="card-header border-0">
                         <h6 class="mb-2">Etablissement choisi</h6>
-                        <p><%=@establishment.name%> <%=link_to "<changer>", teacher_establishments_path(@teacher)%></p>
+                        <p><%=link_to '<i class="fas fa-pen"></i> &nbsp;'.html_safe, teacher_establishments_path(@teacher)%> <%=@establishment.name%>  </p>
 
                         <h6 class="mb-2">Professeur choisi</h6>
-                        <p><%=@teacher.first_name%> <%=@teacher.last_name%> <%=link_to "<changer>", establishment_teachers_path(@establishment)%></p>
+                        <p> <%=link_to '<i class="fas fa-pen"></i> &nbsp;'.html_safe, establishment_teachers_path(@establishment)%> <%=@teacher.first_name%> <%=@teacher.last_name%></p>
 
                         <h6 class="mb-2">Salles proposées</h6>
                         <div class="row justify-content-start">
