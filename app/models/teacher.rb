@@ -11,7 +11,7 @@ class Teacher < ApplicationRecord
   has_and_belongs_to_many :sub_categories
   has_and_belongs_to_many :establishments
 
-  has_many :availablity_slots, dependent: :destroy
+  has_many :availablity_slots
   has_many :events, dependent: :destroy
   has_many :resources, through: :establishments
 
