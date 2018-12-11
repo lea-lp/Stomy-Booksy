@@ -5,6 +5,11 @@ td {
     color: rgba(138, 138, 138, 0.747);
 }
 
+td.day {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
 td.day.today.current-month {
     background-color: rgba(91, 243, 180, 0.123);
 }

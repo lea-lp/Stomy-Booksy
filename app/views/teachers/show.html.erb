@@ -43,7 +43,7 @@
                                     <% @teacher.sub_categories.each do |sub| %>
                                         <span class="badge badge-lg badge-info mr-2 mb-2"><%= sub.title %>
                                         <% if current_teacher == @teacher %>
-                                            <a href="<%= teacher_teacher_cat_path(current_teacher, sub)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?">
+                                            <a href="<%= teacher_teacher_cat_path(current_teacher, sub)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Êtes vous sûr ?">
                                             <i class="fas fa-trash-alt"></i>
                                             </a>
                                         <% end %>
@@ -80,7 +80,7 @@
                                                     <h6 class="text-sm mb-0"> <a href="<%=establishment_path(establishment)%>"><%= establishment.name %></a></h6>
                                                 </div>
                                                 <% if current_teacher == @teacher %>
-                                                    <a href="<%= teacher_teacher_establishment_path(current_teacher, establishment)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
+                                                    <a href="<%= teacher_teacher_establishment_path(current_teacher, establishment)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Êtes vous sûr ?" >
                                                     <i class="fas fa-trash-alt"></i>
                                                     </a>
                                                 <% end %>
