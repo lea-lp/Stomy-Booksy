@@ -29,11 +29,9 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
 
-    @resource = Resource.find(@event.resource_id).name
-    @resource_id = Resource.find(@event.resource_id).id
-
-    @teacher = Teacher.find(@event.teacher_id)
-    @establishment = Establishment.find(@resource_id)
+    @resource = @event.resource
+    @teacher = @event.teacher
+    @establishment = @event.resource.establishment
     @duration = Time.at(@event.duration).utc.strftime("%Hh%M")
 
 
@@ -56,6 +54,14 @@ class EventsController < ApplicationController
       return
     end
   end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    flash[:success]="Votre rendez-vous a été supprimé"
+    redirect_back(fallback_location: root_path)
+
+  end 
 
   private
 
