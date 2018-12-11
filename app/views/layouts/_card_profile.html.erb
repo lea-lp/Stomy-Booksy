@@ -59,14 +59,16 @@
                     <span class="btn-inner--icon"><i class="fas fa-envelope"></i></span>
                     <span class="text-muted"><%= @student.email %></span>
                 </div>
-                <div class="pt-4 mt-4 delimiter-top">
-                    <div class="btn-group shadow rounded-circle">
-                        <button class="btn btn-sm btn-primary btn-circle btn-icon">
-                            <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
-                            <span class="btn-inner--text"><%= link_to 'Modifier mon profil'.html_safe, edit_student_registration_path, class: "text-white", id: "btn-group-settings"  %></span>
-                        </button>
+                <% if current_user == @current_establishments || current_user == @current_teacher || current_user == @current_student %>
+                    <div class="pt-4 mt-4 delimiter-top">
+                        <div class="btn-group shadow rounded-circle">
+                            <button class="btn btn-sm btn-primary btn-circle btn-icon">
+                                <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
+                                <span class="btn-inner--text"><%= link_to 'Modifier mon profil'.html_safe, edit_student_registration_path, class: "text-white", id: "btn-group-settings"  %></span>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                <% end %>
             </div>
             <% end %>
         </div>
