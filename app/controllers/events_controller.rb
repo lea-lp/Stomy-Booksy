@@ -27,10 +27,16 @@ class EventsController < ApplicationController
   end
 
   def show
-    p "-" * 50
-    p "SHOW EVENTS ---" * 3
-    p params
-    p "-" * 50
+    @event = Event.find(params[:id])
+
+    @resource = Resource.find(@event.resource_id).name
+    @resource_id = Resource.find(@event.resource_id).id
+
+    @teacher = Teacher.find(@event.teacher_id)
+    @establishment = Establishment.find(@resource_id)
+    @duration = Time.at(@event.duration).utc.strftime("%Hh%M")
+
+
   end
 
   def edit

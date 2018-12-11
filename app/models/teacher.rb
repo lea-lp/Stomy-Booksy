@@ -19,4 +19,9 @@ class Teacher < ApplicationRecord
     events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now- 1.week) }
   end
 
+  after_create :welcome_send
+  def welcome_send
+    ContactMailer.welcome_send(self).deliver
+  end
+
 end
