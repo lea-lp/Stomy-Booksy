@@ -18,4 +18,10 @@ class Establishment < ApplicationRecord
   def upcoming_events
     events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now) }
   end
+
+  after_create :welcome_send
+  def welcome_send
+    ContactMailer.welcome_send(self).deliver
+  end
+  
 end

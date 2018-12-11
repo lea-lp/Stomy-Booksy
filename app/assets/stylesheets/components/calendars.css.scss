@@ -1,15 +1,17 @@
 td {
     height: 120px;
     width: 10%;
+    background-color: rgb(255, 255, 255);
+    color: rgba(138, 138, 138, 0.747);
 }
 
 td.day.today.current-month {
-    background-color: lightgray;
+    background-color: rgba(91, 243, 180, 0.123);
 }
 
 td div {
-   height: 15px;
-   line-height: 15px;
+   height: 9px;
+   line-height: 7px;
 }
 
 .simple-calendar.weekly h2, .simple-calendar.weekly h3 {
@@ -19,151 +21,167 @@ td div {
 
 .simple-calendar.weekly td {
     height: 550px;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.11);
     position: relative;
 }
 
 .quarter {
-  font-size: 9px;
-  line-height: 7px;
+  font-size: 11px;
+  line-height: 9px;
   background: clear;
   content: "";
-  height: 10px;
+  height: 9.9px;
   width: 100%;
-  border-bottom: 1px dotted black;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.11);
 }
 .quarter:first-child {
-    border-top: 1px solid black;
+    border-top: 1px solid rgba(0, 0, 0, 0.164);
 }
 
 .quarter:nth-child(4n) {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.11);
 }
 
 td .quarter:first-child:before {
-    content: "8 AM"
+    content: "8h"
+        // content: "8"
 }
 
-td .quarter:nth-child(3):before {
-    content: "8:30";
-}
+// td .quarter:nth-child(3):before {
+//     content: "8:30";
+// }
 
 td .quarter:nth-child(5):before {
-    content: "9 AM"
+    content: "9h"
+        // content: "9"
 }
 
-td .quarter:nth-child(7):before {
-    content: "9:30";
-}
+// td .quarter:nth-child(7):before {
+//     content: "9:30";
+// }
 
 td .quarter:nth-child(9):before {
-    content: "10 AM"
+    content: "10h"
+        // content: "10"
 }
 
-td .quarter:nth-child(11):before {
-    content: "10:30";
-}
+// td .quarter:nth-child(11):before {
+//     content: "10:30";
+// }
 
 td .quarter:nth-child(13):before {
-    content: "11 AM"
+    content: "11h"
+        // content: "11"
 }
 
-td .quarter:nth-child(15):before {
-    content: "11:30";
-}
+// td .quarter:nth-child(15):before {
+//     content: "11:30";
+// }
 
 td .quarter:nth-child(17):before {
-    content: "12 PM"
+    content: "12h"
+        // content: "12"
 }
 
-td .quarter:nth-child(19):before {
-    content: "12:30";
-}
+// td .quarter:nth-child(19):before {
+//     content: "12:30";
+// }
 
 td .quarter:nth-child(21):before {
-    content: "1 PM"
+    content: "13h"
+        // content: "13"
 }
 
-td .quarter:nth-child(23):before {
-    content: "1:30";
-}
+// td .quarter:nth-child(23):before {
+//     content: "13:30";
+// }
 
 td .quarter:nth-child(25):before {
-    content: "2 PM"
+    content: "14h"
+        // content: "14"
 }
 
-td .quarter:nth-child(27):before {
-    content: "2:30";
-}
+// td .quarter:nth-child(27):before {
+//     content: "14:30";
+// }
 
 td .quarter:nth-child(29):before {
-    content: "3 PM"
+    content: "15h"
+        // content: "15"
 }
 
-td .quarter:nth-child(31):before {
-    content: "3:30";
-}
+// td .quarter:nth-child(31):before {
+//     content: "15:30";
+// }
 
 td .quarter:nth-child(33):before {
-    content: "4 PM"
+    content: "16h"
+        // content: "16"
 }
 
-td .quarter:nth-child(35):before {
-    content: "4:30";
-}
+// td .quarter:nth-child(35):before {
+//     content: "16:30";
+// }
 
 td .quarter:nth-child(37):before {
-    content: "5 PM"
+    content: "17h"
+        // content: "17"
 }
 
-td .quarter:nth-child(39):before {
-    content: "5:30";
-}
+// td .quarter:nth-child(39):before {
+//     content: "17:30";
+// }
 
 td .quarter:nth-child(41):before {
-    content: "6 PM"
+    content: "18h"
+        // content: "18"
 }
 
-td .quarter:nth-child(43):before {
-    content: "6:30";
-}
+// td .quarter:nth-child(43):before {
+//     content: "18:30";
+// }
 
 td .quarter:nth-child(45):before {
-    content: "7 PM"
+    content: "19h"
+        // content: "19"
 }
 
-td .quarter:nth-child(47):before {
-    content: "7:30";
-}
+// td .quarter:nth-child(47):before {
+//     content: "19:30";
+// }
 
 td .quarter:nth-child(49):before {
-    content: "8 PM"
+    content: "20h"
+        // content: "20"
 }
 
-td .quarter:nth-child(51):before {
-    content: "8:30";
-}
+// td .quarter:nth-child(51):before {
+//     content: "20:30";
+// }
 
 td .event {
     position: absolute;
     height: 1px;
     width: 74.5%;
     margin-left: 16%;
-    background: rgba(255, 192, 203, 0.85);
+    background: rgba(236, 73, 32, 0.733);
     content: " ";
     text-align: center;
     font-size: 85%;
+    border-radius: 5px;
 }
 
 td .event a {
-    display: block;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.event.highlight {
-    background: hotpink;
-}
+// .event.highlight {
+//     background: hotpink;
+// }
 
 .name {
     font-size: 140%;
@@ -221,3 +239,7 @@ form#new_event, form.edit_event {
 }
 
 
+#calendar-link {
+    color: white;
+    text-align: center;
+}

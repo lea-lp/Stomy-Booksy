@@ -12,6 +12,9 @@
         <div class="row align-items-center">
             <div class="col-lg-5 mt-xl-5">
                 <h1 class="text-white mb-3">Simplifiez-vous la vie</h1>
+
+                <h2 class="h1 text-white mb-3">Unleash your <span class="text-info typed" id="type-example" data-type-this="creativity., imagination., energy., inspiration."></span></h2>
+               
                 <p class="lead text-white lh-180">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <div class="mt-5">
                     <a href="#map" class="btn btn-dark btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
@@ -154,7 +157,7 @@
 	}
     </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GOOGLE_MAPS_api_key_clem %>&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GOOGLE_MAPS_api_key %>&libraries=places&callback=initMap" async defer></script>
 
 
 <section>
@@ -169,7 +172,13 @@
 <% else %>
 
     <!-- Spotlight -->
-    <section class="bg-info bg-cover" id="index-spotlight">
+    <section class="bg-cover pt-5" id="index-spotlight" style="z-index: 1">
+            <div class="shape-container" data-shape-style="wavify" data-shape-position="top" data-shape-orientation="inverse">
+                    <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
+                        <defs></defs>
+                        <path d="" class="shape-fill-white" />
+                    </svg>
+                </div>
             <div class="container pt-md mb-150">
                 <div class="row row-grid justify-content-center mb-lg">
                     <div class="col-lg-6 text-center">

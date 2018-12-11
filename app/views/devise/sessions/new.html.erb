@@ -1,17 +1,22 @@
 <main class="registers-<%= resource.class.name %>">
-
-
-
-
     <div class="container h-100vh d-flex align-items-center">
         <div class="col">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
 
                     <% if user_signed_in? %>
-
-                        <h1>Vous êtes déjà connecté en tant que <%= current_user.class.name %>, veuillez vous déconnecter pour accéder à un autre profil. </h1>
-
+                        <div class="card">
+                            <%= image_tag ("ananas.jpg"), class: "card-img-top" %>
+                            <div class="card-body text-center">
+                                <h5 class="heading h5 mb-1">
+                                    <span class="card-title">Vous êtes déjà connecté avec un compte, veuillez vous déconnecter pour accéder à un autre profil.</span>
+                                </h5> 
+                                <div class="d-flex justify-content-between">
+                                    <%= link_to "Retour à l'accueil", root_path, class: "btn btn-warning mt-3" %>
+                                    <%= link_to "Déconnection", get_logout, class: "btn btn-danger mt-3", method: :delete %>
+                                </div>
+                            </div>
+                        </div>
                     <% else %>
                         <div class="text-center mb-5">
                             <h6 class="h3">Se connecter <%= resource.class.name %></h6>
@@ -57,9 +62,10 @@
                                 <div class="col-sm-7">
                                     <div><%= f.submit "Log in", class: "btn btn-#{get_css_color(resource.class.name)} mb-3 mb-sm-0" %></div>
                                 </div>
+
                                 <button type="button" class="btn btn-secondary btn-icon">
                                         <span class="btn-inner--icon"><i class="fas fa-arrow-left"></i></span>
-                                        <span class="btn-inner--text"><%= link_to "Page d'accueil", root_path %></span>
+                                        <span class="btn-inner--text"><%= link_to "Page d'accueil".html_safe, root_path %></span>
                                     </button>
                             </div>
                             <div class="pt-4">
@@ -82,7 +88,6 @@
 
 </main>
 
-<br><br>
 
 
 

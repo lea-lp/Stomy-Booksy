@@ -1,0 +1,214 @@
+
+<!-- HEADER -->
+
+<!-- <section class="slice slice-lg bg-gradient-primary d-flex align-items-end mt--2" style="height: 310px">
+  <div class="container pt-lg">
+      <div class="row justify-content-center">
+          <div class=" col-lg-6 text-center">
+              <span class="h1 text-white">Dashborad de <%= @current_user.name %></span>
+              <span class="h5 text-white font-weight-light">Gérez votre établissement en un clic</span>
+          </div>
+      </div>
+      -->
+      <!-- Account navigation --> 
+     
+      <!-- <div class="clearfix">
+          <div class="btn-group btn-group-nav shadow ml-auto" style="float: right;" role="group" aria-label="Basic example">
+              <div class="btn-group" role="group">
+                  <button id="btn-group-settings" type="button" class="btn btn-secondary btn-icon" style="z-index: 100; background-color: rgb(233, 228, 220)">
+                      <span class="btn-inner--icon"><i class="fas fa-user-circle"></i></span>
+                      <span class="btn-inner--text d-none d-sm-inline-block">Mon profil</span>
+                  </button>
+              </div>
+          </div>
+      </div> -->
+    
+      <!-- WAVIFY -->
+    
+      <!-- <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom" style="z-index: 0">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
+            <defs></defs>
+            <path d="" class="shape-fill-white" />
+        </svg>
+    </div>
+</section> -->
+
+       
+    <!-- Main navbar -->
+    
+    <nav class="navbar navbar-transparent navbar-light bg-light" style="height: 50px">
+        <div class="container">
+            <div class="row" style="display: flex; justify-content: space-between; width: 100%">
+                <div style="padding-top: 5px;">
+                    <a  href="<%= root_path %>">
+                        <%= image_tag "logo-row.png", alt: "logo-row", class: "btn-translate--hover", style: "width: 130px; margin-left: 50px" %>
+                    </a>
+                </div>
+                <ul class="navbar-nav align-items-lg-center ml-lg-auto" style="margin-right: 40px">
+                    <li class="nav-item dropdown dropdown-animate " data-toggle="hover">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center btn-translate--hover" style="color: black; font-size: 1.5em"></i></a>
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
+                                <div class="list-group">
+                                    <a href="<%= root_path %>" class="list-group-item list-group-item-action">
+                                        <div class="media d-flex align-items-center">
+                                            <div class="media-body ml-3">
+                                                <h6 class="mb-1">Profil</h6>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="<%= get_logout %>" class="list-group-item list-group-item-action" data-method="DELETE">
+                                        <div class="media d-flex align-items-center">
+                                            <div class="media-body ml-3">
+                                                <h6 class="mb-1"><strong>Déconnexion</strong></h6>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+
+
+<section class="slice bg-secondary" style="margin-top: -2.5em !important" id="dash">
+    <div class="container">
+
+        <!-- establishment name card -->
+        <div class="row row-grid">
+            <div class="col-lg-3">
+              <div class="card">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h5 class="heading h5 mb-0"><%= current_user.name %></h5>
+                        </div>
+                        <div class="col-4">
+                            <div class="card-icon-actions text-right">
+                                <a href="#" class="favorite active" data-toggle="tooltip" data-original-title="Save to favorites"><i class="fas fa-pen"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+              <!-- floating menu -->
+              <div data-toggle="sticky" data-sticky-offset="100">
+                  <div class="card">
+
+                  <div class="card-header border-0">
+                      <div class="d-flex justify-content-between align-items-center">
+                          <div>
+                              <h6 class="mb-0">Dashboard</h6>
+                          </div>
+                      </div>
+                  </div>
+
+                    <div class="list-group list-group-sm list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+                            <div>
+                                <%= image_tag "img/icons/dusk/svg/add.svg", alt: "float menu icon", class: "avatar" %>
+                            </div>
+                            <div class="flex-fill pl-3 text-limit">
+                                <h6 class="text-sm d-block text-limit">Ressources</h6>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+                            <div>
+                                <%= image_tag "img/icons/dusk/svg/open-in-browser.svg", alt: "float menu icon", class: "avatar" %>
+                            </div>
+                            <div class="flex-fill pl-3 text-limit">
+                                <h6 class="text-sm d-block text-limit">Services</h6>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+                            <div>
+                                <%= image_tag "img/icons/dusk/svg/expired.svg", alt: "float menu icon", class: "avatar" %>
+                            </div>
+                            <div class="flex-fill pl-3 text-limit">
+                                <h6 class="text-sm d-block">Horaires</h6>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+                            <div>
+                                <%= image_tag "img/icons/dusk/svg/maintenance.svg", alt: "float menu icon", class: "avatar" %>
+                            </div>
+                            <div class="flex-fill pl-3 text-limit">
+                                <h6 class="text-sm d-block text-limit">Paramètres</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+      <div class="card col-9">
+
+            <div class="card-header border-0">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="mb-0">Liste des ressources</h6>
+                    </div>
+                    <div class="text-right">
+                        <div class="actions">
+                            <a href="#" class="action-item"><i class="fas fa-plus"></i></a>
+                            <a href="#" class="action-item"><i class="fas fa-sync"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- resource creation form -->
+            <table class="table table-hover align-items-center">
+                <thead class="thead-light">
+                    <th> Type </th>
+                    <th> Nom </th>
+                    <th> Description </th>
+                    <th> Disponible ? </th>
+                </thead>
+                <%= form_for @resource do |form| %>
+                  <input type="hidden" id="hidden_tag" name="resource[establishment_id]" value="<%=current_user.id%>">
+                  <td><%=form.select :resource_type, [["salle","salle"],["objet","objet"]], {}, {class: "form-control", style: "width: 100px"}%></td>
+                  <td><%=form.text_field :name, class:"form-control border-1", placeholder: "Bleue" %></td>
+                  <td><%=form.text_field :description, class:"form-control border-1", placeholder: "Danse"%></td>
+                  <td><%=form.select :is_active, [["active",true],["inactive",false]], {}, {class: "form-control", style: "width: 100px"}%></td>
+                  <td><%=form.submit "Créer ressource", class:"btn btn-sm btn-primary"%></td>
+                <% end %>
+            </table>
+
+            <hr>
+
+            <!-- resources list (table) -->
+            <div class="table-responsive">
+                <table class="table table-sm table-flush align-items-center">
+                    <thead>
+                        <tr>
+                            <th> Id </th>
+                            <th> Type </th>
+                            <th> Nom </th>
+                            <th> Description </th>
+                            <th> Disponible </th>
+                            <th><i class="fas fa-trash-alt"></i></th>
+                        </tr>
+                    </thead>
+                    <%@resources.each do |resource|%>
+                      <tr>
+                          <td><span class="font-weight-bold text-sm"><%=resource.id%></span></td>
+                          <td><span class="badge badge-dot mr-4"><%=resource.resource_type%></span></td>
+                          <td><span class="text-sm"><%=resource.name%></span></td>
+                          <td><span class="text-sm"><%=resource.description%></span></td>
+                          <td><span class="text-sm"><%=resource.is_active%></span></td>
+                          <td><a href="<%= resource_path(resource) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
+                            <i class="fas fa-trash-alt"></i></a></td>
+                      </tr>
+                    <%end%>
+                </table>
+            </div>
+          </div>
+      </div>
+  </div>
+</section>
