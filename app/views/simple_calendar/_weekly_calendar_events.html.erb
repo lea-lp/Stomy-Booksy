@@ -3,10 +3,42 @@
   <% events.each do |event| %>
     <div class="event" style="<%= event_position(event) %> <%= event_height(event) %> width: 70px; display: flex; flex-wrap: wrap;">
       <%if event.student == current_user || event.teacher == current_user %>
-        <%= link_to '<i class="fas fa-info-circle"></i> &nbsp; infos'.html_safe, event_path(event), id: "calendar-link" %>
+
+
+<!-- Button trigger modal -->
+    <%= link_to '<i class="fas fa-info-circle"></i> &nbsp; infos'.html_safe, event_path(event), id: "calendar-link", data: { toggle: 'modal',  target: '#modal_1' } %>
+<!-- Modal -->
+<div class="modal modal-fluid fade" id="modal_1" tabindex="-1" role="dialog" aria-labelledby="modal_1" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center py-4">
+                        <h4 class="heading h3">Unleash your creativity!</h4>
+                        <p class="lead text-muted">
+                            You can easy create stackable modal boxes. For example, your inline content or Ajax response can contain a gallery:
+                        </p>
+                        <div class="py-md">
+                          <%= image_tag 'assos.jpg', class: "img-fluid img-center" %>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Let's do this!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
       <%else%>
       <%= link_to '<i class="fas fa-ban"></i> &nbsp; occupé'.html_safe, nil, id: "calendar-link" %>
       <%end%>
     </div>
   <% end %>
 <% end %>
+
+
