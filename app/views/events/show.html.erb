@@ -13,7 +13,7 @@
 
                         <div class="card" style="width: 20rem; z-index: 1000" >
                             <div class="card-body">
-                                <h5 class="h5 card-title">Salle réservée : <%=@resource%></h5>
+                                <h5 class="h5 card-title">Salle réservée : <%=@resource.name%></h5>
                                 <h5 class="h5 card-title">Le <%=@event.start_time.strftime("%d/%m/%Y")%></h5>
                                 <h5 class="h5 card-title">à <%=@event.start_time.strftime("%Hh%M")%></h5>
                                 <p class="card-text">Durée <%=@duration%></p>
@@ -40,7 +40,7 @@
                         </div>
 
                     </div>
-                    <%= link_to "Retour à l'agenda", resource_teacher_events_path(@resource_id, @teacher), class: "btn btn-circle btn-primary" %>
+                    <%= link_to "Retour à l'agenda", resource_teacher_events_path(@resource, @teacher), class: "btn btn-circle btn-primary" %>
                 </div>
             </div>
         </div>
