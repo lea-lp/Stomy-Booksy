@@ -220,26 +220,42 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="">
+                            <div class="page-inner-header mb-4">
+                                <h5 class="mb-1">Confirmer votre nouveau mot-de-passe </h5>
+                                <p class="text-muted mb-0">Nouveau mot de passe</p>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <%= f.password_field :password_confirmation, class: "form-control", id: "input-password-confirm", autocomplete: "new-password", placeholder: "********" %>
+                                            <small class="form-text text-muted mt-2">Laissez la case vide si vous ne voulez pas le changer.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Skills -->
                         
                         <div class="pt-5 mt-5 delimiter-top">
 
                             <div class="page-inner-header mb-4">
-                                <h5 class="mb-1">Étape de confirmation</h5>
-                                <p class="text-muted mb-0">Confirmez les changements opérés en renseignant votre mot de passe actuel </p>
+                                <h5 class="mb-1">Confirmer les changements</h5>
+                                <p class="text-muted mb-0">Confirmer les changements opérés en renseignant votre mot de passe actuel </p>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
                                         <label class="sr-only"></label>
-                                        <%= f.password_field :current_password, class: "form-control", id: "input-password-confirm", autocomplete: "current-password", placeholder: "********" %>
+                                        <%= f.password_field :current_password, class: "form-control danger is-invalid", id: "input-password-confirm", autocomplete: "current-password", placeholder: "SAISIE OBLIGATOIRE" %>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div>
-                            <div class="pt-5 mt-5 delimiter-top d-flex justify-content-between">
+                            <div class=" d-flex justify-content-between">
                                 <%= f.submit "Sauvegarder les changements", class: "btn btn-primary btn-icon actions" %>
                                 <%= link_to "Retour", current_user, class: "btn btn-link" %>
                             </div>
