@@ -13,13 +13,11 @@ Rails.application.routes.draw do
 
   resources :teachers, only: [:index, :show, :edit] do
     resources :establishments, only: [:index]
-    resources :teacher_establishments, only: [:destroy]
     resources :teacher_cats, only: [:create, :destroy]
     get '/dashboard', to: 'teachers#dashboard', as: 'dashboard'
   end
   
   resources :establishments, only: [:index, :show, :edit] do
-    resources :teacher_establishments, only: [:create]
     resources :teachers, only: [:index]
     get '/dashboard', to: 'establishments#dashboard', as: 'dashboard'
 

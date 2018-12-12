@@ -79,11 +79,6 @@
                                                 <div class="media-body">
                                                     <h6 class="text-sm mb-0"> <a href="<%=establishment_path(establishment)%>"><%= establishment.name %></a></h6>
                                                 </div>
-                                                <% if current_teacher == @teacher %>
-                                                    <a href="<%= teacher_teacher_establishment_path(current_teacher, establishment)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Êtes vous sûr ?" >
-                                                    <i class="fas fa-trash-alt"></i>
-                                                    </a>
-                                                <% end %>
                                             </div>
                                             <% end %>
                                         </div>  

@@ -77,11 +77,6 @@
                                                         <p class="text-sm mb-0"><%= teacher.email %></p>
                                                         <p class="text-sm mb-0"><%= string_result %></p>
                                                         <a href="<%=resource_teacher_events_path(@establishment.resources.first,teacher)%>">Réserver un cours</a>
-                                                        <% if current_establishment == @establishment %>
-                                                            <a href="<%= teacher_teacher_establishment_path(teacher, current_establishment)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Êtes vous sûr ?" >
-                                                            <i class="fas fa-trash-alt"></i>
-                                                            </a>
-                                                        <% end %>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -89,21 +84,6 @@
                                         </div>
                                     <% end %>
 
-                                    <% if @establishment == current_establishment %>
-                                    <div class="container">
-                                        <div class="d-flex  justify-content-between text-center mx-3 pt-5">
-                                            <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Ajouter un professeur</span>
-                                            <div id="jquery">
-                                                <%= form_tag(establishment_teacher_establishments_path(@establishment)) do %>
-                                                <div class="d-flex flex-row" >
-                                                <%= select_tag 'teacher_id', options_from_collection_for_select(@teachers_all, "id", "email"), class: "form-control-sm mx-1" %>
-                                                <%= submit_tag("Ajouter", class: "btn-sm btn-warning") %>
-                                                </div>
-                                                <% end %>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <% end %>
                                 <br>
                             </div>
                         </div>
