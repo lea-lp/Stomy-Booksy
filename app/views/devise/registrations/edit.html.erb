@@ -114,7 +114,12 @@
                         <!-- Première ligne -->
 
                         <div class="row">
-                        
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-control-label">Votre avatar</label>
+                                    <%= f.file_field :avatar, :class => "form-control" %>
+                                </div>
+                            </div>
                             <% if resource.class.name == "Establishment" %>
 
                             <div class="col-md-12">
@@ -266,6 +271,7 @@
                                 </div>
                             </div>
                         </div>
+                        
 
 
                         
@@ -296,6 +302,10 @@
                         </div>
                     </div>
                     <% end %>
+                        <%= form_with model: @teacher, local: true  do |form| %>
+        <%= form.file_field :image %><br>
+        <%= form.submit %>
+    <% end %>
                 </div>
             </div>
         </div>

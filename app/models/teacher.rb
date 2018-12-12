@@ -14,6 +14,7 @@ class Teacher < ApplicationRecord
   has_many :availablity_slots
   has_many :events
   has_many :resources, through: :establishments
+  has_one_attached :avatar
 
   def upcoming_events
     events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now- 1.week) }
