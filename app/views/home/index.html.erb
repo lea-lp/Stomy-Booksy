@@ -172,7 +172,7 @@
 <% if establishment_signed_in? %>
     <div><h4>Log with esta account</h4></div>
 <% elsif teacher_signed_in? %>
-    <%= image_tag Teacher.first.avatar.variant(resize: "200x200") %>
+    <%= image_tag Teacher.last.avatar.variant(resize: "200x200") %>
     <div><h4>Log with teacher account</h4></div>
 <% elsif student_signed_in? %>
     <div><h4>Log with student account</h4></div>

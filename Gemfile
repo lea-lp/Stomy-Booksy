@@ -81,4 +81,6 @@ gem 'rails-i18n', '~> 5.1'
 gem 'mail'
 gem 'mini_magick'
 
-gem 'aws-sdk', '~> 3'
+# gem 'aws-sdk', '~> 3'
+gem "aws-sdk-s3", require: false
+

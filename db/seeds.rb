@@ -24,7 +24,8 @@ end
 puts "stud"
 
 40.times do
-  Teacher.create(phone:Faker::IDNumber.valid,email:Faker::Internet.email, first_name:Faker::FunnyName.name, last_name:Faker::Cat.name,password:"azerty",address:Faker::Address.full_address, siret:Faker::Device.serial, description:Faker::ChuckNorris.fact)
+  temp_teach = Teacher.create(phone:Faker::IDNumber.valid,email:Faker::Internet.email, first_name:Faker::FunnyName.name, last_name:Faker::Cat.name,password:"azerty",address:Faker::Address.full_address, siret:Faker::Device.serial, description:Faker::ChuckNorris.fact)
+  # temp_teach.avatar.attach(io: File.open("app/assets/images/student.jpg"), filename: 'avatar')
 end
 puts "teach"
 
