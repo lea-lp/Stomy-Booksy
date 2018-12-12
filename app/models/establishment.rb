@@ -8,7 +8,7 @@ class Establishment < ApplicationRecord
   validates :address, presence: true
   validates :phone, presence: true
 
-  has_many :services
+  has_many :services, dependent: :destroy
   has_many :teachers, -> { distinct }, through: :services
   has_many :resources, dependent: :destroy
   has_many :events, through: :resources

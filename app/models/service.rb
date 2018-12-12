@@ -5,10 +5,10 @@ class Service < ApplicationRecord
   validate :resource_belongs_to_establishment
   validate :subcategory_belongs_to_teacher
 
-  belongs_to :establishment, dependent: :destroy
-  belongs_to :teacher, dependent: :destroy
-  belongs_to :resource, dependent: :destroy
-  belongs_to :sub_category, dependent: :destroy
+  belongs_to :establishment
+  belongs_to :teacher
+  belongs_to :resource
+  belongs_to :sub_category
 
   private
 

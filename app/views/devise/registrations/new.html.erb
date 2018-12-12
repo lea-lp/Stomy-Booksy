@@ -17,24 +17,23 @@
                     </div>
                 <% else %>
                     <div class="col-md-8 col-lg-6">
-                        <div class="text-center mb-5">
-                            <% if resource.class.name == "Student" %>
-                                <h6 class="h3">Créer un compte étudiant.</h6>
-                                <p class="text-muted mb-0">Des centaines d'activités à portée de main</p>
-                            <% elsif resource.class.name == "Teacher" %>
-                                <h6 class="h3">Créer un compte professeur.</h6>
-                                <p class="text-muted mb-0">Un gestion de votre emploi du temps simplifiée</p>
-                            <% else resource.class.name == "Establishment" %>
-                                <h6 class="h3">Créer un compte association.</h6>
-                                <p class="text-muted mb-0">Une gestion de votre établissement simplifiée</p>
-                            <% end %>
-                            <!-- a voir si on affiche le nom de la page (eleve student ...) -->
-                        </div>
-                        <span class="clearfix"></span>
-
                         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                         <%= devise_error_messages! %>
                         <div class="card p-4 mb-5">
+                            <div class="text-center mb-5">
+                                <% if resource.class.name == "Student" %>
+                                    <h6 class="h3">Créer un compte étudiant.</h6>
+                                    <p class="text-muted mb-0">Des centaines d'activités à portée de main</p>
+                                <% elsif resource.class.name == "Teacher" %>
+                                    <h6 class="h3">Créer un compte professeur.</h6>
+                                    <p class="text-muted mb-0">Un gestion de votre emploi du temps simplifiée</p>
+                                <% else resource.class.name == "Establishment" %>
+                                    <h6 class="h3">Créer un compte association.</h6>
+                                    <p class="text-muted mb-0">Une gestion de votre établissement simplifiée</p>
+                                <% end %>
+                                <!-- a voir si on affiche le nom de la page (eleve student ...) -->
+                            </div>
+                            <span class="clearfix"></span>
                             <div class="form-group">
                                 <label class="form-control-label">Adresse email</label>
                                 <div class="input-group input-group-transparent">
@@ -119,7 +118,7 @@
 
                             <% if resource.class.name == "Teacher" || resource.class.name == "Establishment" %>
                                 <div class="form-group">
-                                    <label class="form-control-label">N° de SIRET</label>
+                                    <label class="form-control-label">N° de SIREN</label>
                                     <div class="input-group input-group-transparent">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-user"></i></span>
