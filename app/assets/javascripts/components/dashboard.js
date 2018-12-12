@@ -1,10 +1,10 @@
 $( document ).ready(function() {
 
     // HIDE
-    $("#hide-rdv").hide();
-    $("#hide-resource-list").hide();
-    $("#hide-resource-add").hide();
-    $("#hide-calendar").hide();
+    // $("#hide-rdv").hide();
+    // $("#hide-resource-list").hide();
+    // $("#hide-resource-add").hide();
+    // $("#hide-calendar").hide();
 
     // SHOW
     $("#rdv").click(function(){
