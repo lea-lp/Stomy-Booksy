@@ -95,7 +95,7 @@
                       <%= image_tag "img/icons/dusk/svg/add.svg", alt: "float menu icon", class: "avatar", style: "width: 33px" %>
                     </div>
                     <div class="flex-fill pl-3 text-limit">
-                      <h6 class="text-sm d-block text-limit">Ajouter une ressource</h6>
+                      <h6 class="text-sm d-block text-limit">Mes services</h6>
                     </div>
                 </a>
                 <a href="<%=establishment_path(current_user)%>" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
@@ -200,55 +200,47 @@
 
 
         <div class="card mt-4" id="card-resource-list" >
-            <div class="card-header border-0">
-
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <div>
-                    <h6 id="list-resource">Liste des ressources</h6>
-                    </div>
-                </div>
-          <div class="table-responsive" id="hide-resource-list">
-          <table class="table table-hover table-flush align-items-center table-striped">
-            <thead class="thead-light">
-              <tr class="row">
-                <th class="col-1 pr-2 pb-2" style="height: auto; color: gray"> Id </th>
-                <th class="col-1 px-2 pb-2" style="height: auto; color: gray"> Type </th>
-                <th class="col-2 px-2 pb-2" style="height: auto; color: gray"> Nom </th>
-                <th class="col-6 px-2 pb-2" style="height: auto; color: gray"> Description </th>
-                <th class="col-1 px-2 pb-2" style="height: auto; color: gray"> Dispo </th>
-                <th class="col-1 px-2 pb-2" style="height: auto; color: gray"><i class="fas fa-trash-alt"></i></th>
-              </tr>
-            </thead>
-            <tbody class="container">
-              <%@resources.each do |resource|%>
-                <tr class="row">
-                  <td class="col-1 pr-2 pb-2" style="height: auto;"><span class="font-weight-bold text-sm wrap"><%=resource.id%></span></td>
-                  <td class="col-1 px-2 pb-2" style="height: auto;"><span class="font-weight-bold wrap"><%=resource.resource_type%></span></td>
-                  <td class="col-2 px-2 pb-2" style="height: auto;"><span class="text-sm wrap"><%=resource.name%></span></td>
-                  <td class="col-6 px-2 pb-2" style="height: auto;"><span class="text-sm wrap"><%=resource.description%></span></td>
-                  <td class="col-1 px-2 pb-2" style="height: auto;"><span class="text-sm wrap"><%=resource.is_active%></span></td>
-                  <td class="col-1 px-2 pb-2" style="height: auto;"><a href="<%= resource_path(resource) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
-                    <i class="fas fa-trash-alt"></i></a></td>
-                </tr>
-              <%end%>
-            </tbody>
-          </table>
-        </div>
+          <div class="card-header border-0">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div>
+                <h6 id="list-resource">Mes ressources</h6>
+              </div>
             </div>
-        </div>
-
-
-        <!-- resource creation form -->
-        <div class="card mt-4" id="card-resource-add" >
-            <div class="card-header border-0">
-
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <div>
-                    <h6 id="add-resource"> Ajouter une ressource</h6>
-                    </div>
-                </div>
-              <div id="hide-resource-add">
-              <%= form_for @resource do |form| %>
+            <div class="table-responsive" id="hide-resource-list">
+              <table class="table table-hover table-flush align-items-center table-striped">
+                <thead class="thead-light">
+                  <tr class="row">
+                    <th class="col-1 pr-2 pb-2" style="height: auto; color: gray"> Id </th>
+                    <th class="col-1 px-2 pb-2" style="height: auto; color: gray"> Type </th>
+                    <th class="col-2 px-2 pb-2" style="height: auto; color: gray"> Nom </th>
+                    <th class="col-6 px-2 pb-2" style="height: auto; color: gray"> Description </th>
+                    <th class="col-1 px-2 pb-2" style="height: auto; color: gray"> Dispo </th>
+                    <th class="col-1 px-2 pb-2" style="height: auto; color: gray"><i class="fas fa-trash-alt"></i></th>
+                  </tr>
+                </thead>
+                <tbody class="container">
+                  <%@resources.each do |resource|%>
+                    <tr class="row">
+                      <td class="col-1 pr-2 pb-2" style="height: auto;"><span class="font-weight-bold text-sm wrap"><%=resource.id%></span></td>
+                      <td class="col-1 px-2 pb-2" style="height: auto;"><span class="font-weight-bold wrap"><%=resource.resource_type%></span></td>
+                      <td class="col-2 px-2 pb-2" style="height: auto;"><span class="text-sm wrap"><%=resource.name%></span></td>
+                      <td class="col-6 px-2 pb-2" style="height: auto;"><span class="text-sm wrap"><%=resource.description%></span></td>
+                      <td class="col-1 px-2 pb-2" style="height: auto;"><span class="text-sm wrap"><%=resource.is_active%></span></td>
+                      <td class="col-1 px-2 pb-2" style="height: auto;"><a href="<%= resource_path(resource) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
+                        <i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                  <%end%>
+                  </tbody>
+                </table>
+              <!-- resource creation form -->
+              <br>
+              <div class="delimiter-top"></div>
+              <br>
+              <div>
+                <h6 class="mt-2">Ajouter une ressource</h6>
+              </div>
+              <div>
+                <%= form_for @resource do |form| %>
                 <table class="table align-items-center">
                   <thead class="thead-light">
                     <tr class="row">
@@ -270,12 +262,88 @@
                 </table>
                   <%=form.submit "Créer la ressource", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Êtes-vous sûr(e) ?"}%></td>
               <% end %>
+              </div>
             </div>
-            </div>
+          </div>
         </div>
 
-      </div>
 
+        <div class="card mt-4" id="card-resource-add" >
+          <div class="card-header border-0">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div>
+                <h6 id="add-resource"> Mes services</h6>
+              </div>
+            </div>
+
+            <div id="hide-resource-add">
+              <table class="table table-flush align-items-center">
+                <thead class="thead-light">
+                  <tr class="row">
+                    <th class="col-2 p-3" style="height: auto; color: gray"> Nom </th>
+                    <th class="col-1 p-2 pt-3" style="height: auto; color: gray"> Prof. </th>
+                    <th class="col-1 p-3" style="height: auto; color: gray"> Salle </th>
+                    <th class="col-5 p-3" style="height: auto; color: gray"> Description </th>
+                    <th class="col-1 p-3" style="height: auto; color: gray"> Durée </th>
+                    <th class="col-1 p-3" style="height: auto; color: gray"><i class="fas fa-trash-alt"></i></th>
+                  </tr>
+                </thead>
+                <tbody class="container">
+                  <%@services.each do |service|%>
+                    <tr class="row">
+                      <td class="col-2 p-3" style="height: auto;"><span class="font-weight-bold text-sm wrap"><%=service.name%></span></td>
+                      <td class="col-1 p-2 pt-3" style="height: auto;"><a href="<%=teacher_path(service.teacher)%>" class="font-weight-bold wrap"><%=service.teacher.first_name%></a></td>
+                      <td class="col-1 p-3" style="height: auto;"><span class="text-sm wrap"><%=service.resource.name%></span></td>
+                      <td class="col-5 text-overflow p-3" style="height: auto;"><span class="text-sm wrap"><%=service.description%></span></td>
+                      <td class="col-1 p-3" style="height: auto;"><span class="text-sm wrap"><%=service.duration/60%> min</span></td>
+                      <td class="col-1 p-3" style="height: auto;"><a href="#" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
+                        <i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                  <%end%>
+                  </tbody>
+                </table>
+              <!-- resource creation form -->
+              <div>
+                <h6 class="mt-4">Ajouter un service</h6>
+              </div>
+              <div class="container">
+                <%= form_tag @service do %>
+                <input type="hidden" id="hidden_tag" name="service[establishment_id]" value="<%=current_user.id%>">
+                <div class="row  d-flex justify-content-center align-items-center">
+                  <div class="col-5">
+                    <p>Nom du service</p>
+                    <%=text_field_tag :name, placeholder: "Cours de xxxx", class:"form-control border-1" %>
+                  </div>
+                  <div class="col-5">
+                    <%=label_tag "Teacher"%>
+                    <%= select_tag :teacher_id, options_from_collection_for_select(@teachers, :id, :email), {class: "form-control"} %>
+                  </div>
+                  <div class="col-5">
+                    <%=label_tag "Categorie"%>
+                    <%=select_tag :sub_category_id, options_from_collection_for_select(@sub_categories, :id, :title), class: "form-control"%>
+                  </div>
+                  <div class="col-5">
+                    <p>Ressource</p>
+                    <%=select_tag :resource_id, options_from_collection_for_select(@resources, :id, :name), class: "form-control"%>
+                  </div>
+                  <div class="col-5">
+                    <p>Description</p>
+                    <%=text_area_tag(:description, size: "60x3", class: "form-control")%>
+                  </div>
+                  <div>
+                    <p>Durée (en minutes)</p>
+                    <%=number_field_tag(:duration_minutes, min: 15)%>
+                  </div>
+                  <div class="col-5">
+                    <%=submit_tag "Créer la ressource", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Êtes-vous sûr(e) ?"}%></td>
+                  </div>
+                </div>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </section>
 

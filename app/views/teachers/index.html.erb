@@ -56,7 +56,7 @@
             <p class="card-text" > <strong>Description</strong>: <%= teacher.description %> </p>
             <a href="<%=teacher_services_path(teacher)%>">
               <button class="btn btn-sm btn-success btn-circle btn-icon">
-                <span class="btn-inner--text">Voir mes services</span>
+                <span class="btn-inner--text">Voir mes services (<%=teacher.services.count%>)</span>
                 <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
               </button>
             </a>
