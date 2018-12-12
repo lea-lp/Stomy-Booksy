@@ -12,7 +12,7 @@ class Teacher < ApplicationRecord
   has_and_belongs_to_many :establishments
 
   has_many :availablity_slots
-  has_many :events
+  has_many :events, dependent: :destroy
   has_many :resources, through: :establishments
   has_one_attached :avatar
 

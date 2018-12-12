@@ -15,6 +15,9 @@ class TeachersController < ApplicationController
 
   def dashboard
     filter_user_allowed
+    @teacher = Teacher.find(params[:teacher_id])
+    @events = @teacher.events
+    
   end
 
   def index

@@ -7,7 +7,6 @@
                     <!-- Salute + Small stats -->
                     <div class="row align-items-center mb-4">
                         <div class="col-md-5 mb-4 mb-md-0">
-
                             <% if current_establishment %>
                             <span class="h2 mb-0 text-white d-block">Bonjour <%= @establishment.name %></span>
                             <% elsif current_teacher %>
@@ -27,9 +26,7 @@
         <div class="container">
             <div class="row row-grid">
                 <div class="col-lg-3">
-
                     <div data-toggle="sticky" data-sticky-offset="100" data-negative-margin=".card-profile-cover">
-
                         <div class="card">
                             <div class="card-header py-3">
                                 <span class="h6">Settings</span>
@@ -66,8 +63,6 @@
                                     </div>
                                     </a>
                                 <% end %>
-
-                                </a>
                                 <a href="<%= get_dashboard(current_user) %>" class="list-group-item list-group-item-action d-flex justify-content-between">
                                     <div>
                                         <i class="fas fa-cog mr-2"></i>
@@ -78,39 +73,26 @@
                                     </div>
                                 </a>
                                 <a href="<%= registration_path(current_user) %>" class="btn btn-danger btn-icon-label font-weight-light", data-confirm="Êtes-vous sûr ?", data-method="DELETE">
-
                                     <div>
                                         <i class="far fa-trash-alt mr-2"></i>
                                         <span>Supprimer</span>
                                     </div>
                                 </a>
-
-
-
-
-
-
                             </div>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="col-lg-9">
 
                     <div>
                         <!-- General -->
-
                         <div class="page-inner-header mb-4">
                             <h5 class="mb-1">Information générales</h5>
-
                             <p class="text-muted mb-0">Plus vous serez précis, plus les utilisateurs auront envie d'échanger avec vous.</p>
-
                         </div>
                         
                         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                         <%= devise_error_messages! %>
-
                         <!-- Première ligne -->
 
                         <div class="row">
@@ -121,16 +103,13 @@
                                 </div>
                             </div>
                             <% if resource.class.name == "Establishment" %>
-
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="form-control-label">Raison Sociale</label>
                                     <%= f.text_field :name, class: "form-control form-control-label", autofocus: true, value: "#{@establishment.name}" %>
                                 </div>
                             </div>
-                        
                             <% elsif resource.class.name == "Student" || resource.class.name == "Teacher" %>
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-control-label">Prénom</label>
@@ -143,27 +122,20 @@
                                     <%= f.text_field :last_name, class: "form-control form-control-label", autofocus: true, placeholder: "#{current_user.last_name}" %>
                                 </div>
                             </div>
-
                             <% end %>
-                        </div>
-                                                    
+                        </div>           
                         <!-- Deuxième ligne -->
 
-
                         <div class="row">
-
                             <% if resource.class.name == "Establishment" || resource.class.name == "Teacher" %>
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-control-label">SIRET</label>
                                         <%= f.text_field :siret, class: "form-control form-control-label", value: "#{current_user.siret}" %>
                                 </div>
                             </div>
-
                             <div class="col-md-6">
                                 <div class="form-group">    
-
                                     <label class="form-control-label">Email</label>
                                     <%= f.email_field :email, class: "form-control form-control-label", autocomplete: "email", value: "#{current_user.email}" %>
                                     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -171,12 +143,9 @@
                                     <% end %>
                                 </div>
                             </div>
-
                             <% elsif resource.class.name == "Student" %>
-
                             <div class="col-md-12">
                                 <div class="form-group">    
-
                                     <label class="form-control-label">Email</label>
                                     <%= f.email_field :email, class: "form-control form-control-label", autocomplete: "email", value: "#{current_user.email}" %>
                                     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -184,15 +153,12 @@
                                     <% end %>
                                 </div>
                             </div>
-
                             <% end %>
-
                         </div>
 
                         <!-- Troisième ligne -->
 
                         <div class="row">
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-control-label">Téléphone</label>
@@ -203,6 +169,7 @@
 
                         <% if get_user_type == "Teacher" || get_user_type == "Establishment" %>
                         <!-- Address -->
+                        
                         <div class="pt-5 mt-5 delimiter-top">
 
                             <div class="page-inner-header mb-4">
@@ -221,18 +188,13 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Description -->
 
                         <div class="pt-5 mt-5 delimiter-top">
-
                             <div class="page-inner-header mb-4">
                                 <h5 class="mb-1">Changez votre description</h5>
-
                                 <p class="text-muted mb-0">Dites en quoi vous vous démarquez.</p>
-
                             </div>
-
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -245,21 +207,14 @@
                                 </div>
                             </div>
                         </div>
-
                         <% end %>
-
-
                         <!-- Change Password -->
 
                         <div class="pt-5 mt-5 delimiter-top">
-
                             <div class="page-inner-header mb-4">
                                 <h5 class="mb-1">Changez votre mot-de-passe </h5>
-
                                 <p class="text-muted mb-0">Nouveau mot de passe</p>
-
                             </div>
-
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -271,31 +226,43 @@
                                 </div>
                             </div>
                         </div>
-                        
 
-
-                        
+                        <div class="">
+                            <div class="page-inner-header mb-4">
+                                <h5 class="mb-1">Confirmer votre nouveau mot-de-passe </h5>
+                                <p class="text-muted mb-0">Nouveau mot de passe</p>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <%= f.password_field :password_confirmation, class: "form-control", id: "input-password-confirm", autocomplete: "new-password", placeholder: "********" %>
+                                            <small class="form-text text-muted mt-2">Laissez la case vide si vous ne voulez pas le changer.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Skills -->
+                        
                         <div class="pt-5 mt-5 delimiter-top">
 
                             <div class="page-inner-header mb-4">
-                                <h5 class="mb-1">Étape de confirmation</h5>
-
-                                <p class="text-muted mb-0">Confirmez les changements opérés en renseignant votre mot de passe actuel </p>
-
+                                <h5 class="mb-1">Confirmer les changements</h5>
+                                <p class="text-muted mb-0">Confirmer les changements opérés en renseignant votre mot de passe actuel </p>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
                                         <label class="sr-only"></label>
-                                        <%= f.password_field :current_password, class: "form-control", id: "input-password-confirm", autocomplete: "current-password", placeholder: "********" %>
+                                        <%= f.password_field :current_password, class: "form-control danger is-invalid", id: "input-password-confirm", autocomplete: "current-password", placeholder: "SAISIE OBLIGATOIRE" %>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div>
-                            <div class="pt-5 mt-5 delimiter-top d-flex justify-content-between">
+                            <div class=" d-flex justify-content-between">
                                 <%= f.submit "Sauvegarder les changements", class: "btn btn-primary btn-icon actions" %>
                                 <%= link_to "Retour", current_user, class: "btn btn-link" %>
                             </div>

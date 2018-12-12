@@ -2,9 +2,10 @@ class EstablishmentsController < ApplicationController
 
 
   def show
-    @teachers = Teacher.all.order(:email)
     @establishment = Establishment.find(params[:id])
-    @teachers =  @teachers.select {|s| !@establishment.teachers.include?(s)}
+    
+    @teachers_all = Teacher.all.order(:email)
+    @teachers_all =  @teachers_all.select {|s| !@establishment.teachers.include?(s)}
 
     @sub_cat_hash = Hash.new
     @establishment.teachers.each do |teacher|
