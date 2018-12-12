@@ -28,7 +28,7 @@ Copyright 2018 Webpixels
     --light: #ced4da;
     --lighter: #f5f9fb;
     --primary: #5110A7;
-    --secondary: #fafbfe;
+    --secondary: #F0F0F0;
     --success: #4CD964;
     --info: #26B7FA;
     --warning: #FB9500;
@@ -2971,8 +2971,8 @@ fieldset:disabled a.btn
 .btn-secondary
 {
     color: #212529;
-    border-color: #fafbfe;
-    background-color: #fafbfe;
+    border-color: #F0F0F0;
+    background-color: #F0F0F0;
     box-shadow: none;
 }
 .btn-secondary:hover
@@ -2990,8 +2990,8 @@ fieldset:disabled a.btn
 .btn-secondary:disabled
 {
     color: #212529;
-    border-color: #fafbfe; 
-    background-color: #fafbfe;
+    border-color: #F0F0F0; 
+    background-color: #F0F0F0;
 }
 .btn-secondary:not(:disabled):not(.disabled):active,
 .btn-secondary:not(:disabled):not(.disabled).active,
@@ -3369,16 +3369,16 @@ fieldset:disabled a.btn
 
 .btn-outline-secondary
 {
-    color: #fafbfe;
-    border-color: #fafbfe; 
+    color: #F0F0F0;
+    border-color: #F0F0F0; 
     background-color: transparent;
     background-image: none;
 }
 .btn-outline-secondary:hover
 {
     color: #212529;
-    border-color: #fafbfe; 
-    background-color: #fafbfe;
+    border-color: #F0F0F0; 
+    background-color: #F0F0F0;
 }
 .btn-outline-secondary:focus,
 .btn-outline-secondary.focus
@@ -3388,7 +3388,7 @@ fieldset:disabled a.btn
 .btn-outline-secondary.disabled,
 .btn-outline-secondary:disabled
 {
-    color: #fafbfe;
+    color: #F0F0F0;
     background-color: transparent;
 }
 .btn-outline-secondary:not(:disabled):not(.disabled):active,
@@ -3396,8 +3396,8 @@ fieldset:disabled a.btn
 .show > .btn-outline-secondary.dropdown-toggle
 {
     color: #212529;
-    border-color: #fafbfe; 
-    background-color: #fafbfe;
+    border-color: #F0F0F0; 
+    background-color: #F0F0F0;
 }
 .btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
 .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
@@ -7652,7 +7652,7 @@ button.bg-primary:focus
 
 .bg-secondary
 {
-    background-color: #fafbfe !important;
+    background-color: #F0F0F0 !important;
 }
 
 a.bg-secondary:hover,
@@ -7830,7 +7830,7 @@ button.bg-darker:focus
 
 .border-secondary
 {
-    border-color: #fafbfe !important;
+    border-color: #F0F0F0 !important;
 }
 
 .border-success
@@ -11993,7 +11993,7 @@ a.text-primary:focus
 
 .text-secondary
 {
-    color: #fafbfe !important;
+    color: #F0F0F0 !important;
 }
 
 a.text-secondary:hover,
@@ -12759,7 +12759,7 @@ button.bg-lighter:focus
 
 .bg-gradient-secondary
 {
-    background: linear-gradient(80deg, #fafbfe 0, #fafcfe 100%) !important;
+    background: linear-gradient(80deg, #F0F0F0 0, #fafcfe 100%) !important;
 }
 
 .bg-gradient-success
@@ -12809,7 +12809,7 @@ button.bg-lighter:focus
 
 .bg-section-secondary
 {
-    background-color: #fafbfe !important;
+    background-color: #F0F0F0 !important;
 }
 
 .bg-section-light
@@ -12949,7 +12949,7 @@ button.bg-lighter:focus
 
     background: none no-repeat 50%;
     background-image: none;
-    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg width=\'783\' height=\'726\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M606.14 725.179c144.64-.87 225.447-587.194 144.64-694.046-73.915-97.74-579.852 50.733-716.756 222.443-12.763 16.009-22.32 32.22-28.019 48.451-66.83 190.337 442.822 424.098 600.136 423.152z\' fill=\'%23fafbfe\' fill-rule=\'evenodd\'/%3E%3C/svg%3E'); 
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg width=\'783\' height=\'726\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M606.14 725.179c144.64-.87 225.447-587.194 144.64-694.046-73.915-97.74-579.852 50.733-716.756 222.443-12.763 16.009-22.32 32.22-28.019 48.451-66.83 190.337 442.822 424.098 600.136 423.152z\' fill=\'%23F0F0F0\' fill-rule=\'evenodd\'/%3E%3C/svg%3E'); 
     background-size: auto auto;
     background-size: contain;
 }
@@ -13478,7 +13478,7 @@ button.bg-lighter:focus
 [data-separator-bg='secondary']:before,
 [data-separator-bg='secondary']:after
 {
-    background: #fafbfe;
+    background: #F0F0F0;
 }
 
 [data-separator-bg='light']:before,
@@ -17719,7 +17719,7 @@ Styled shaped wrappers for displaying code and images in a more stylish manner
 .modal-secondary .modal-content
 {
     color: #212529; 
-    background-color: #fafbfe;
+    background-color: #F0F0F0;
 }
 .modal-secondary .modal-content .heading
 {
@@ -18506,12 +18506,12 @@ Styled shaped wrappers for displaying code and images in a more stylish manner
 
 .popover-secondary
 {
-    background-color: #fafbfe;
+    background-color: #F0F0F0;
 }
 .popover-secondary .popover-header
 {
     color: #212529; 
-    background-color: #fafbfe;
+    background-color: #F0F0F0;
 }
 .popover-secondary .popover-body
 {
@@ -18524,22 +18524,22 @@ Styled shaped wrappers for displaying code and images in a more stylish manner
 .popover-secondary.bs-popover-top .arrow::after,
 .popover-secondary.bs-popover-auto[x-placement^='top'] .arrow::after
 {
-    border-top-color: #fafbfe;
+    border-top-color: #F0F0F0;
 }
 .popover-secondary.bs-popover-right .arrow::after,
 .popover-secondary.bs-popover-auto[x-placement^='right'] .arrow::after
 {
-    border-right-color: #fafbfe;
+    border-right-color: #F0F0F0;
 }
 .popover-secondary.bs-popover-bottom .arrow::after,
 .popover-secondary.bs-popover-auto[x-placement^='bottom'] .arrow::after
 {
-    border-bottom-color: #fafbfe;
+    border-bottom-color: #F0F0F0;
 }
 .popover-secondary.bs-popover-left .arrow::after,
 .popover-secondary.bs-popover-auto[x-placement^='left'] .arrow::after
 {
-    border-left-color: #fafbfe;
+    border-left-color: #F0F0F0;
 }
 
 .popover-success
@@ -19766,7 +19766,7 @@ tr.table-divider
     }
     [data-timeline-axis-color='secondary']:before
     {
-        border-color: #fafbfe;
+        border-color: #F0F0F0;
     }
     [data-timeline-axis-color='success']:before
     {
@@ -19862,7 +19862,7 @@ tr.table-divider
 .tongue-secondary
 {
     color: #212529; 
-    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'138\' height=\'35\' viewBox=\'0 0 138 35\'%3E%3Cpath fill=\'%23fafbfe\' d=\'M 3.15027 34.4375C 1.74207 34.6025 0.68396 34.7266 0 35L 68.9982 35C 68.9982 35 68.9998 28.6387 69 19.5132C 69 20.7261 69.0001 21.8892 69.0001 22.9956L 69.0018 35L 138 35C 137.316 34.7266 136.258 34.6025 134.85 34.4375C 131.11 33.9995 124.903 33.2729 116.678 28.6875C 111.015 25.3901 106.523 20.9771 102.07 16.6025C 93.5474 8.23096 85.1685 -1.97984e-15 69.0018 3.55056e-31C 69.0006 5.271 69 10.4292 69 15.0952C 69 10.4287 68.9994 5.27148 68.9982 3.55056e-31C 52.8314 1.97986e-15 44.4526 8.23096 35.9302 16.6025C 31.4772 20.9771 26.985 25.3901 21.3221 28.6875C 13.0974 33.2729 6.88965 33.9995 3.15027 34.4375Z\'/%3E%3C/svg%3E');
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'138\' height=\'35\' viewBox=\'0 0 138 35\'%3E%3Cpath fill=\'%23F0F0F0\' d=\'M 3.15027 34.4375C 1.74207 34.6025 0.68396 34.7266 0 35L 68.9982 35C 68.9982 35 68.9998 28.6387 69 19.5132C 69 20.7261 69.0001 21.8892 69.0001 22.9956L 69.0018 35L 138 35C 137.316 34.7266 136.258 34.6025 134.85 34.4375C 131.11 33.9995 124.903 33.2729 116.678 28.6875C 111.015 25.3901 106.523 20.9771 102.07 16.6025C 93.5474 8.23096 85.1685 -1.97984e-15 69.0018 3.55056e-31C 69.0006 5.271 69 10.4292 69 15.0952C 69 10.4287 68.9994 5.27148 68.9982 3.55056e-31C 52.8314 1.97986e-15 44.4526 8.23096 35.9302 16.6025C 31.4772 20.9771 26.985 25.3901 21.3221 28.6875C 13.0974 33.2729 6.88965 33.9995 3.15027 34.4375Z\'/%3E%3C/svg%3E');
 }
 
 .tongue-success
@@ -20015,11 +20015,11 @@ h6,
 
 .link-underline-secondary
 {
-    border-bottom-color: #fafbfe;
+    border-bottom-color: #F0F0F0;
 }
 .link-underline-secondary:hover
 {
-    color: #fafbfe;
+    color: #F0F0F0;
 }
 
 .link-underline-success
@@ -20740,7 +20740,7 @@ article h5 + figure
     border: 0;
     border-top-right-radius: .375rem;
     border-bottom-left-radius: .375rem;
-    background: #f0f0f0;
+    background: #F0F0F0;
 }
 .quick-view-close:hover
 {
@@ -20951,7 +20951,7 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
     border: 0;
     border-radius: 4px;
     background: #dee2e6;
-    box-shadow: inset 0 1px 1px #f0f0f0, 0 3px 6px -5px #bbb;
+    box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #bbb;
 }
 
 .noUi-connects

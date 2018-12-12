@@ -1,39 +1,24 @@
 
+<!-- HEADER -->
 <section id="top-index">
 
     <div class="section-inner bg-gradient-primary">
         <span class="section-inner-bg"></span>
     </div>
-    <!--Illustation -->
-    <div class="position-absolute middle right-0 col-lg-7 col-xl-7 d-none d-lg-block mt-5 mt-xl-lg">
-        <img alt="Image placeholder" src="../assets/img/prv/macbook-pro-clay.png" class="img-fluid d-none d-lg-block" style="margin-bottom: 10em">
+
+    <!--illustation -->
+    <div class="position-absolute middle right-0 col-lg-7 col-xl-7 d-none d-lg-block mt-2">
+        <%= image_tag 'img/prv/macbook-pro-clay.png', alt: "Image placeholder", class: "img-fluid d-none d-lg-block mb-xl" %>
     </div>
+
+    <!-- header text -->
     <div class="container pt-xl">
         <div class="row align-items-center">
-            <div class="col-lg-5 mt-xl-5">
-                <h1 class="text-white mb-3">Simplifiez-vous la vie</h1>
-
-                <h2 class="h1 text-white mb-3">Unleash your <span class="text-info typed" id="type-example" data-type-this="creativity., imagination., energy., inspiration."></span></h2>
-               
-                <p class="lead text-white lh-180">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <div class="mt-5">
-                    <a href="#map" class="btn btn-dark btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
-                        <span class="btn-inner--text">Chercher une école sur la carte</span>
-                        <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                    </a>
-                </div>
-                <div class="mt-5">
-                    <a href="<%=teachers_path%>" class="btn btn-dark btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
-                        <span class="btn-inner--text">Voir la liste des professeurs</span>
-                        <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                    </a>
-                </div>
-                <div class="mt-5">
-                    <a href="<%=establishments_path%>" class="btn btn-dark btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
-                        <span class="btn-inner--text">Voir la liste des écoles</span>
-                        <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                    </a>
-                </div>
+            <div class="col-lg-4 mt-xl-5">
+                <h1 class="text-white mb-3">One account <br> to rule them all *</h1>
+                <p class="lead text-white">* Un compte pour les gouverner OKLM</p>
+                <br>
+                <h5 class="lead text-white"><strong>Simplifiez-vous la vie avec Stomy Booksy !</strong></h5>
             </div>
         </div>
     </div>
@@ -41,211 +26,372 @@
 </section>
 
 
+<!-- BUTTONS -->
+<section class="slice p-0">
+
+    <div class="row d-flex justify-content-between">
+
+        <div class="col-4 d-flex justify-content-center">
+            <a href="#map" class="btn btn-outline-info btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
+                <span class="btn-inner--text">Carte des établissements</span>
+                <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+            </a>
+        </div>
+
+        <div class="col-4 d-flex justify-content-center">
+            <a href="<%=teachers_path%>" class="btn btn-outline-danger btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
+                <span class="btn-inner--text">Les professeurs</span>
+                <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+            </a>
+        </div>
+
+        <div class="col-4 d-flex justify-content-center">
+            <a href="<%=establishments_path%>" class="btn btn-outline-success btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
+                <span class="btn-inner--text">Les établissements</span>
+                <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+            </a>
+        </div>
+
+    </div> 
+
+    <!-- tongue (arrow) -->
+    <div class="">
+        <div class="p-5">
+            <a href="#" class="tongue tongue-bottom scroll-me"><i class="fas fa-angle-down"></i></a>
+        </div>
+    </div>
+
+</section>
 
 
-<!-- Maps CLEM -->
-
-
-<!-- 
-<div class="map embed-container">
-    
-        <div class="map-overlay"> 
-            <h3 class="font-weight-bold" style="color: aliceblue; margin-top: 50px"><strong>Toutes vos activités en un clic (à modifier)</strong></h3>
-            <div id="research_module">
-
-            </div>
-            <div id="research_buttons">
-                <%= link_to "", "#", class: "nav-link d-lg-none", id: "button-sign-up" %>
-                <a href="#" class="btn btn-sm btn-info btn-lg btn-circle btn-icon d-none d-lg-inline-flex">
-                    <span class="btn-inner--text">Lancer la recherche</span>
-                </a>
+<!-- TITLE MAP -->
+<section class="slice bg-cover" >
+    <div class="container">
+        <div class="text-center">
+            <h2 class="heading display-4 mb-2">Trouver un établissement</h2>
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10">
+                    <p class="lead lh-180">Une carte dynamique à votre diposition. <br> Remplissez la barre de recherche et laissez-vous guider.</p>
+                </div>
             </div>
         </div>
     </div>
-</div> -->
-
-<div id="map"></div> 
-
-    <input id="search-box" class="controls form-control" type="text" placeholder="Cherchez une école près de chez vous">
-
-
-    <script>
-    // Map
-	function initMap() {
-		//initiate de map
-		var map = new google.maps.Map(document.getElementById('map'), {
-		   center: {lat: 43.610875, lng: 3.876341}, //Centered on Montpellier
-		   zoom: 15,
-		   disableDefaultUI: true,
-		   styles: [ { "featureType": "administrative", "elementType": "geometry", "stylers": [ { "visibility": "off" } ] }, { "featureType": "poi", "stylers": [ { "visibility": "off" } ] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] }, { "featureType": "transit", "stylers": [ { "visibility": "off" } ] } ]
-
-		});
-
-		//create 1 market per establishment (the entire DB is shown for now)
-		<%@establishments.each_with_index do |establishment, i|%>
-			<%if establishment.latitude && establishment.longitude #in case geocoder did not work%>
-				var marker<%=i%> = new google.maps.Marker({
-				  position: {lat: <%=establishment.latitude%>, lng: <%=establishment.longitude%>},
-				  map: map,
-				  title: '<%=establishment.name%>'
-				});
-
-				marker<%=i%>.addListener('click', function() {
-					infowindow.setContent('<h6><%=establishment.name%></h6><p><%=establishment.description%></p> <br> <a href="<%=establishment_path(establishment)%>">Voir le profil </a>');
-					infowindow.open(map, this);
-				});
-			<%end%>
-		<%end%>
-		var infowindow = new google.maps.InfoWindow({
-			maxWidth: 200
-		});
-
-		// Create the search box and link it to the UI element.
-		var input = document.getElementById('search-box');
-		var searchBox = new google.maps.places.SearchBox(input);
-		map.controls[google.maps.ControlPosition.TOP_CENTER].push(input); //puts the searchbox at the bottom center of the map
-
-
-		// Bias the SearchBox results towards current map's viewport.
-		map.addListener('bounds_changed', function() {
-		  searchBox.setBounds(map.getBounds());
-		});
-
-		var placesMarkers = [];
-		// Listen for the event fired when the user selects a prediction and retrieve
-		// more details for that place.
-		searchBox.addListener('places_changed', function() {
-		  var places = searchBox.getPlaces();
-
-		  if (places.length == 0) {
-			return;
-		  }
-
-		  // Clear out the old markers.
-		  placesMarkers.forEach(function(marker) {
-			marker.setMap(null);
-		  });
-		  placesMarkers = [];
-
-		  // For each place, get the icon, name and location.
-		  var bounds = new google.maps.LatLngBounds();
-		  places.forEach(function(place) {
-			if (!place.geometry) {
-			  console.log("Returned place contains no geometry");
-			  return;
-			}
-			var icon = {
-			  url: "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
-			  size: new google.maps.Size(71, 71),
-			  origin: new google.maps.Point(0, 0),
-			  anchor: new google.maps.Point(17, 34),
-			  scaledSize: new google.maps.Size(25, 25)
-			};
-
-			// Create a marker for each place.
-			placesMarkers.push(new google.maps.Marker({
-			  map: map,
-			  icon: icon,
-			  title: place.name,
-			  position: place.geometry.location
-			}));
-
-			if (place.geometry.viewport) {
-			  // Only geocodes have viewport.
-			  bounds.union(place.geometry.viewport);
-			} else {
-			  bounds.extend(place.geometry.location);
-			}
-		  });
-		  map.fitBounds(bounds);
-		  map.setZoom(17);
-		});
-	}
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GOOGLE_MAPS_api_key %>&libraries=places&callback=initMap" async defer></script>
-
-
-<section>
-    <div class="container pt-md mb-150"></div>
 </section>
-<% if establishment_signed_in? %>
-    <div><h4>Log with esta account</h4></div>
-<% elsif teacher_signed_in? %>
-    <div><h4>Log with teacher account</h4></div>
-<% elsif student_signed_in? %>
-    <div><h4>Log with student account</h4></div>
-<% else %>
 
-    <!-- Spotlight -->
-    <section class="bg-cover pt-5" id="index-spotlight" style="z-index: 1">
-            <div class="shape-container" data-shape-style="wavify" data-shape-position="top" data-shape-orientation="inverse">
-                    <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
-                        <defs></defs>
-                        <path d="" class="shape-fill-white" />
-                    </svg>
+
+<!-- MAP -->
+<%= render 'map' %>
+
+
+<!-- USER TYPE PRENSENTATION CARDS (only when user not logged) -->
+<% if !current_user  %>
+    <section class="bg-cover pt-1" id="index-spotlight" >
+
+        <div class="container pt-md mb-150">
+
+            <!-- titles -->
+            <div class="row row-grid justify-content-center mb-lg">
+                <div class="col-lg-8 text-center">
+                    <h4 class="display-4 mb-2">Qui êtes vous ?</h4>
+                    <h6 class="lead text-muted">Choisissez le compte qui vous correspond</h6>
+                    <!-- <h6 class="text-uppercase ls-2 text-light-white font-weight-700">Choisissez le compte qui vous correspond</h6> -->
                 </div>
-            <div class="container pt-md mb-150">
-                <div class="row row-grid justify-content-center mb-lg">
-                    <div class="col-lg-6 text-center">
-                        <h6 class="text-uppercase ls-2 text-white font-weight-700">utilisateur</h6>
-                        <h2 class="heading h1 text-white font-weight-light">Choisissez votre profil</h2>
-                    </div>
-                </div>
-                    <div class="pricing card-group flex-column flex-md-row mb-3">
-            
-                        <!-- LEFT CARD -->
-                        <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
-                            <div class="animate-this">
-                                <div class="card card-pricing">
-                                    <%= image_tag 'etabl.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
-                                    <div class="card-body">
-                                        <ul class="list-unstyled mb-4">
-                                            <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Établissement</h5></li>
-                                            <li>Toutes vos activités sur une plateforme</li>
-                                            <li>Agenda personnalisé</li>
-                                        </ul>
-                                        <a href="<%=new_establishment_registration_path%>" class="btn btn-success btn-circle mb-3 font-weight-bold">M'inscrire</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <!-- MIDDLE CARD -->
-                        <div class="card card-pricing zoom-in shadow-lg rounded text-center border-0" data-animate-hover="2">
-                            <div class="animate-this">
-                                <div class="card card-pricing">
-                                    <%= image_tag 'student1.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
-                                    <div class="card-body">
-                                        <ul class="list-unstyled mb-4">
-                                            <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Particulier</h5></li>
-                                            <li>Toutes vos activités sur une plateforme</li>
-                                            <li>Agenda personnalisé</li>
-                                        </ul>
-                                        <a href="<%= new_student_registration_path %>" class="btn btn-warning btn-circle mb-3 font-weight-bold">M'inscrire</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <!-- RIGHT CARD -->
-                        <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
-                            <div class="animate-this">
-                                <div class="card card-pricing">
-                                    <%= image_tag 'prof2.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
-                                    <div class="card-body">
-                                        <ul class="list-unstyled mb-4">
-                                            <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Professeur</h5></li>
-                                            <li>Toutes vos activités sur une plateforme</li>
-                                            <li>Agenda personnalisé</li>
-                                        </ul>
-                                        <a href="<%= new_teacher_registration_path %>" class="btn btn-danger btn-circle mb-3 font-weight-bold">M'inscrire</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
             </div>
-        </section>
+
+            <!-- cards -->
+            <div class="card flex-column flex-md-row" id="card-group-index">
+        
+                <!-- left -->
+                <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
+                    <div class="animate-this">
+                        <div class="card card-pricing">
+                            <%= image_tag 'prof2.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-4">
+                                    <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Professeur</h5></li>
+                                    <li>Concentrer vous sur votre activité</li>
+                                    <li>Intervenez dans plusieurs établissements </li>
+                                </ul>
+                                <a href="<%= new_teacher_registration_path %>" class="btn btn-danger btn-circle mb-3 font-weight-bold">M'inscrire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        
+                <!-- middle -->
+                <div class="card card-pricing zoom-in shadow-lg rounded text-center border-0" data-animate-hover="2" >
+                    <div class="animate-this">
+                        <div class="card card-pricing">
+                            <%= image_tag 'student1.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-4">
+                                    <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Particulier</h5></li>
+                                    <li>Découvrez de nouvelles activités</li>
+                                    <li>Adhérez, réservez, annulez en toute liberté</li>
+                                </ul>
+                                <a href="<%= new_student_registration_path %>" class="btn btn-warning btn-circle mb-3 font-weight-bold">M'inscrire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- right  -->
+                <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
+                    <div class="animate-this">
+                        <div class="card card-pricing">
+                            <%= image_tag 'etabl.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-4">
+                                    <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Établissement</h5></li>
+                                    <li>Créez vos ressources, gérez vos adhésions</li>
+                                    <li>Simplifiez vous la comptabilité</li>
+                                </ul>
+                                <a href="<%=new_establishment_registration_path%>" class="btn btn-success btn-circle mb-3 font-weight-bold">M'inscrire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 <% end %>
+
+<!-- WHAT WE DO (icon cards) -->
+<section class="slice slice-lg mt-0 pt-0">
+    <div class="container">
+
+            <!-- title - text -->
+            <div class="mb-md text-center">
+                <span class="badge badge-lg badge-success badge-pill">Notre process</span>
+                <h3 class="display-4 mt-4">Réservations centralisés</h3>
+                <div class="fluid-paragraph text-center mt-4">
+                    <p class="lead lh-180"> <strong>  Notre but est de vous simplifier la vie. </strong> <br> Que vous soyez un particulier, une association, un intervenant, <strong>Stomy Booksy</strong> vous propose un service rassemblant les features nécessaires pour vous organiser et <em>garder l'esprit libre.</em> </p>
+                </div>
+            </div>
+
+            <!-- cards -->
+            <div class="row row-grid">
+
+                <!-- left -->
+                <div class="col-lg-4">
+                    <div class="card shadow shadow-lg--hover">
+                        <div class="py-5 text-center">
+                            <div class="icon icon-xl icon-shape rounded-circle icon-teal">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-5 text-center">
+                            <h5 class="font-weight-bold">Dashboard</h5>
+                            <p class="mt-2">Un accès simple et intuitif à vos <br> rendez-vous, votre agenda sur une semaine, vos activités en cours</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- middle -->
+                <div class="col-lg-4">
+                    <div class="card shadow shadow-lg--hover">
+                        <div class="py-5 text-center">
+                            <div class="icon icon-xl icon-shape rounded-circle icon-pink">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-5 text-center">
+                            <h5 class="font-weight-bold">Tout en 1</h5>
+                            <p class="mt-2">Marre d'oublier vos mots de passe ? Retrouvez toutes vos activités <br> <strong>en un seul compte</strong> </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- right -->
+                <div class="col-lg-4">
+                    <div class="card shadow shadow-lg--hover">
+                        <div class="py-5 text-center">
+                            <div class="icon icon-xl icon-shape rounded-circle icon-yellow">
+                                <i class="fas fa-fingerprint"></i>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-5 text-center">
+                            <h5 class="font-weight-bold">Portail unique</h5>
+                            <p class="mt-2">Une plateforme rassemblant les acteurs sociaux et culturels de votre région, dans le souci d'une lisibilité simplifiée</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+</section>
+
+
+<!-- TESTIMONIALS CARROUSSEL + LOGOS (partnership) -->
+<section class="slice slice-lg bg-gradient-secondary">
+    <div class="container">
+
+        <!-- reversed wave-->
+        <div class="shape-container" data-shape-style="wavify" data-shape-position="top" data-shape-orientation="inverse">
+            <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
+                <defs></defs>
+                <path d="" class="shape-fill-white" />
+            </svg>
+        </div>
+
+        <!-- title -->
+        <div class="text-center mb-5 mt-5">
+            <h2 class="heading display-4 mb-2">Ils nous font confiance</h2>
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10">
+                    <p class="lead lh-180">texte ou pas texte ?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- action -->
+        <div id="carousel-action" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-action" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-action" data-slide-to="1"></li>
+                <li data-target="#carousel-action" data-slide-to="2"></li>
+            </ol>
+
+            <!-- elements -->
+            <div class="carousel-inner">
+
+                <!-- item 1 -->
+                <div class="carousel-item active">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg" class="avatar avatar-lg">
+                                <h5 class=" mt-4 mb-0">Heather Wright</h5>
+                                <span class="d-block text-muted">@Google</span>
+                                <p class="mt-4 lh-180">Amazing template! All-in-one, clean code, beautiful design, and really not hard to work with.Highly recommended for any kind on website.</p>
+                                <span class="static-rating static-rating-sm">
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- item 2 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg" class="avatar avatar-lg">
+                                <h5 class=" mt-4 mb-0">Heather Wright</h5>
+                                <span class="d-block text-muted">@Google</span>
+                                <p class="mt-4 lh-180">Amazing template! All-in-one, clean code, beautiful design, and really not hard to work with.Highly recommended for any kind on website.</p>
+                                <span class="static-rating static-rating-sm">
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- item 3 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg" class="avatar avatar-lg">
+                                <h5 class=" mt-4 mb-0">Heather Wright</h5>
+                                <span class="d-block text-muted">@Google</span>
+                                <p class="mt-4 lh-180">Amazing template! All-in-one, clean code, beautiful design, and really not hard to work with.Highly recommended for any kind on website.</p>
+                                <span class="static-rating static-rating-sm">
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- swiper pagination -->
+            <a class="carousel-control-prev" href="#carousel-action" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Précédent</span>
+            </a>
+
+            <a class="carousel-control-next" href="#carousel-action" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Suivant</span>
+            </a>
+
+        </div>
+
+
+        <!-- logos  -->
+        <div class="blurable--hover mt-xl">
+            <a href="#">
+
+                <div class="row blurable-item">
+                    <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
+                        <div class="px-4 py-4">
+                            <%= image_tag 'img/prv/partners/brand-1.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
+                        <div class="px-4 py-4">
+                            <%= image_tag 'img/prv/partners/brand-2.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
+                        <div class="px-4 py-4">
+                            <%= image_tag 'img/prv/partners/brand-3.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
+                        <div class="px-4 py-4">
+                            <%= image_tag 'img/prv/partners/brand-4.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
+                        <div class="px-4 py-4">
+                            <%= image_tag 'img/prv/partners/brand-5.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
+                        <div class="px-4 py-4">
+                            <%= image_tag 'img/prv/partners/brand-6.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
+                        </div>
+                    </div>
+
+                </div>
+                <span class="blurable-hidden btn btn-sm btn-info btn-circle">See all customers</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
 
