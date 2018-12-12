@@ -32,7 +32,7 @@ class Event < ApplicationRecord
     student_events.each do |student_event|
       unless student_event == self
         if self.start_time >= student_event.start_time  && self.start_time <= student_event.end_time || self.start_time <= student_event.start_time && student_event.start_time <= self.end_time
-          errors.add(:start_time, "the student is not available.")
+          errors.add(:start_time, "L'élève n'est pas dispo sur ce créneau.")
         end
       end
     end
@@ -40,7 +40,7 @@ class Event < ApplicationRecord
     resource_events.each do |resource_event|
       unless resource_event == self
         if self.start_time >= resource_event.start_time  && self.start_time <= resource_event.end_time || self.start_time <= resource_event.start_time && resource_event.start_time <= self.end_time
-          errors.add(:start_time, "the resource is not available.")
+          errors.add(:start_time, "La ressource n'est pas dispo sur ce créneau.")
         end
       end
     end
@@ -48,7 +48,7 @@ class Event < ApplicationRecord
     teacher_events.each do |teacher_event|
       unless teacher_event == self
         if self.start_time >= teacher_event.start_time  && self.start_time <= teacher_event.end_time || self.start_time <= teacher_event.start_time && teacher_event.start_time <= self.end_time
-          errors.add(:start_time, "the teacher is not available.")
+          errors.add(:start_time, "Le professeur n'est pas dispo sur ce créneau.")
         end
       end
     end
@@ -58,7 +58,7 @@ class Event < ApplicationRecord
 
   def no_over_night_event
     if self.end_time.midnight != self.start_time.midnight
-      errors.add(:duration, "An event cannot be created on 2 days. Please make it stop on the same day as when it started")
+      errors.add(:duration, "Un évènement ne peut pas s'étaler sur 2 jours. Merci de le scinder en 2.")
     end
   end
 end

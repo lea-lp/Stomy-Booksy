@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     resources :teacher_establishments, only: [:destroy]
     resources :teacher_cats, only: [:create, :destroy]
     get '/dashboard', to: 'teachers#dashboard', as: 'dashboard'
-    # resources :availability_slots, only: [:new, :create, :index]
   end
   
   resources :establishments, only: [:index, :show, :edit] do
@@ -28,10 +27,8 @@ Rails.application.routes.draw do
     resources :teachers, only: [:show] do
       resources :events, only: [:index, :create]
     end
-    # resources :availability_slots, only: [:new, :create, :index]
   end
 
   resources :events, only: [:show, :edit, :destroy]
 
-  # resources :availability_slots, only: [:show, :edit, :update, :destroy]
 end
