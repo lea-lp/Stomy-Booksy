@@ -49,7 +49,8 @@ Establishment.create(phone:"04 34 11 02 25",email:"contact@lanacrouse.fr", name:
 
 13.times do |i|
   estab_name = Faker::GreekPhilosophers.name
-  Establishment.create(phone:Faker::IDNumber.valid,email: "contact@"+estab_name+".com", name: estab_name, siret:Faker::Company.french_siren_number,password:"azerty",address:address[i], description:Faker::Company.catch_phrase)
+  temp_esta = Establishment.create(phone:Faker::IDNumber.valid,email: "contact@"+estab_name+".com", name: estab_name, siret:Faker::Company.french_siren_number,password:"azerty",address:address[i], description:Faker::Company.catch_phrase)
+  temp_esta.avatar.attach(io: File.open("app/assets/images/profile_pictures/establishments/establishment_"+i.to_s+".jpg"), filename: 'avatar')
 end
 puts "Estab"
 
