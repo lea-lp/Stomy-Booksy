@@ -12,7 +12,7 @@ class Teacher < ApplicationRecord
   has_and_belongs_to_many :establishments
 
   has_many :events, dependent: :destroy
-  has_many :resources, through: :establishments
+  has_many :services
 
   def upcoming_events
     events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now- 1.week) }

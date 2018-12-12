@@ -11,6 +11,7 @@ class Establishment < ApplicationRecord
   has_and_belongs_to_many :teachers
   has_many :resources, dependent: :destroy
   has_many :events, through: :resources
+  has_many :services
 
   geocoded_by :address
   after_validation :geocode

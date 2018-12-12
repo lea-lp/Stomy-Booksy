@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'services/index'
+  get 'services/show'
   devise_for :establishments
   devise_for :teachers
   devise_for :students

@@ -6,6 +6,7 @@ class Resource < ApplicationRecord
 
   belongs_to :establishment
   has_many :events, dependent: :destroy
+  has_many :services
   
 
   def init
