@@ -77,7 +77,7 @@
                     </div>
                 <% if @student.avatar.attached? %>
                     <a href="#">
-                        <%= image_tag @student.avatar.variant(resize: "200x200") , class: "card-profile-image avatar shadow" %>
+                        <%= image_tag @student.avatar, style: "height: 150px; width: auto", class: "card-profile-image avatar shadow" %>
                     </a>
                 <% else %>
                     <a href="#">
