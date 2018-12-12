@@ -29,6 +29,7 @@ puts "stud"
   firstName = Faker::Name.first_name
   lastName = Faker::Name.last_name 
   Teacher.create(phone:Faker::IDNumber.valid, email: firstName+"."+lastName+"@gmail.com", first_name: firstName, last_name: lastName, password:"azerty",address: Faker::Address.full_address, siret:Faker::Company.french_siren_number, description:Faker::ChuckNorris.fact)
+  # temp_teach.avatar.attach(io: File.open("app/assets/images/student.jpg"), filename: 'avatar')
 end
 puts "teach"
 

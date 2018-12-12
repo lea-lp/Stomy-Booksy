@@ -14,12 +14,20 @@ class Teacher < ApplicationRecord
   has_many :availablity_slots
   has_many :events, dependent: :destroy
   has_many :resources, through: :establishments
+  has_one_attached :avatar
 
   def upcoming_events
     events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now- 1.week) }
   end
 
-  after_create :welcome_send
+  after_create :welcome_send, :avatar_attach
+
+  def avatar_attach
+    temp_user = self
+    temp_user.avatar.attach(io: File.open("app/assets/images/neutral.jpeg"), filename: 'avatar')
+  end
+
+  
   def welcome_send
     ContactMailer.welcome_send(self).deliver
   end
