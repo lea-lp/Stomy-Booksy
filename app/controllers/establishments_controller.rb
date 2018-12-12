@@ -35,9 +35,22 @@ class EstablishmentsController < ApplicationController
     filter_user_allowed
 
     @establishment = current_user
+    @events = @establishment.events
 
     @resources = @establishment.resources.order(created_at: :desc)
     @resource = Resource.new
+
+    if params[:search_resource]
+      @resource_calendar = Resource.find(params[:search_resource])
+    else 
+      @resource_calendar = @resources.first
+    end 
+
+    # @resource_calendar = Resource.find(@establishment.resources)
+    p "*" * 50
+    p params
+    p @establishment.resources
+    p "*" * 50
 
   end
 
