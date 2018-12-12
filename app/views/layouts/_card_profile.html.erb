@@ -18,6 +18,7 @@
                     <span class="btn-inner--icon"><i class="fas fa-envelope"></i></span>
                     <span class="text-muted"><%= @establishment.email %></span>
                 </div>
+                <% if current_user == @establishment %>
                 <div class="pt-4 mt-4 delimiter-top">
                     <div class="btn-group shadow rounded-circle">
                         <button class="btn btn-sm btn-primary btn-circle btn-icon">
@@ -26,6 +27,7 @@
                         </button> 
                     </div>
                 </div>
+                <% end %>
             </div>
             <% elsif page_type == 'teacher' %>
             <div class="card-body">
@@ -39,6 +41,7 @@
                     <span class="text-muted"><%= @teacher.email %></span>
                 </div>
                 <span class="text-muted"><i class="fas fa-map-marker mr-2"></i><%= @teacher.address %></span>
+                <% if current_user == @teacher %>
                 <div class="pt-4 mt-4 delimiter-top">
                     <div class="btn-group shadow rounded-circle">
                         <button class="btn btn-sm btn-primary btn-circle btn-icon">
@@ -47,6 +50,7 @@
                         </button>
                     </div>
                 </div>
+                <% end %>
             </div>
             <% elsif page_type == 'student' %>
             <div class="card-body">
@@ -59,14 +63,16 @@
                     <span class="btn-inner--icon"><i class="fas fa-envelope"></i></span>
                     <span class="text-muted"><%= @student.email %></span>
                 </div>
-                <div class="pt-4 mt-4 delimiter-top">
-                    <div class="btn-group shadow rounded-circle">
-                        <button class="btn btn-sm btn-primary btn-circle btn-icon">
-                            <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
-                            <span class="btn-inner--text"><%= link_to 'Modifier mon profil'.html_safe, edit_student_registration_path, class: "text-white", id: "btn-group-settings"  %></span>
-                        </button>
+                <% if current_user == @student %>
+                    <div class="pt-4 mt-4 delimiter-top">
+                        <div class="btn-group shadow rounded-circle">
+                            <button class="btn btn-sm btn-primary btn-circle btn-icon">
+                                <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
+                                <span class="btn-inner--text"><%= link_to 'Modifier mon profil'.html_safe, edit_student_registration_path, class: "text-white", id: "btn-group-settings"  %></span>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                <% end %>
             </div>
             <% end %>
         </div>

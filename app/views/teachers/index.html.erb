@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="card-body text-center">
-            <h5 class="card-title mb-0"><%=teacher.first_name%> <%= teacher.last_name %></h5>
+            <h5 class="card-title mb-0"><a href="<%= teacher_path(teacher) %>"><%=teacher.first_name%> <%= teacher.last_name %></a></h5>
             <p class="text-muted mb-0">
               <%teacher.sub_categories.each_with_index do |sub_cat, ind|%>
                 <%unless ind == 0 %>
@@ -54,17 +54,6 @@
               <%end%>
             </p>
             <p class="card-text" > <strong>Description</strong>: <%= teacher.description %> </p>
-            <ul class="nav justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fab fa-instagram"></i></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fab fa-facebook"></i></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fab fa-github"></i></a>
-              </li>
-            </ul>
             <%if @establishment%>
               <a href="<%=resource_teacher_events_path(@establishment.resources.first, teacher)%>">
                 <button class="btn btn-sm btn-success btn-circle btn-icon">

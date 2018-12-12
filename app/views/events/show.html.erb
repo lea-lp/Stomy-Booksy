@@ -11,22 +11,22 @@
 
                     <div class="row d-flex justify-content-around pb-5">
 
-                        <div class="card" style="width: 20rem; z-index: 1000" >
-                            <div class="card-body">
-                                <h5 class="h5 card-title">Salle réservée : <%=@resource.name%></h5>
-                                <h5 class="h5 card-title">Le <%=@event.start_time.strftime("%d/%m/%Y")%></h5>
-                                <h5 class="h5 card-title">à <%=@event.start_time.strftime("%Hh%M")%></h5>
-                                <p class="card-text">Durée <%=@duration%></p>
-                                <p class="card-text"> <strong>Point de rendez-vous :</strong> <br> <%=@establishment.address%></p>
-                            </div>
-                        </div>
-
                         <div class="card" style="width: 14rem; z-index: 1000" >
                             <%= image_tag 'prof.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
                             <div class="card-body">
                                 <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
                                 <p class="card-text">Professeur</p>
                                 <%= link_to 'voir le profil', establishment_path(@establishment), class: "btn btn-outline-danger btn-sm btn-circle btn-translate--hover" %>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 20rem; z-index: 1000" >
+                            <div class="card-body">
+                                <h5 class="h5 card-title">Salle réservée : <%=@resource.name%></h5>
+                                <h5 class="h5 card-title">Le <%=@event.start_time.strftime("%d/%m/%Y")%></h5>
+                                <h5 class="h5 card-title">à <%=@event.start_time.strftime("%Hh%M")%></h5>
+                                <p class="card-text">Durée <%=@duration%></p>
+                                <p class="card-text"> <strong>Lieu de rendez-vous :</strong> <br> <%=@establishment.address%></p>
                             </div>
                         </div>
 
