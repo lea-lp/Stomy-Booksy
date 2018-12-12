@@ -1,2 +1,67 @@
-<h1>Services#index</h1>
-<p>Find me in app/views/services/index.html.erb</p>
+<header class="slice pt-lg pb-5 bg-gradient-info d-flex align-items-end">
+    <div class="container pt-lg">
+        <div class="row">
+            <div class=" col-lg-12">
+                <div class="row align-items-center mb-4">
+                    <div class="col-lg-12 mb-4 mb-lg-0">
+                      <span class="h2 mb-0 text-white d-block">Vos activités à portée de clics.</span>
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item">
+                                <a href="#" class="text-normal">Choisissez votre service</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="#" class="text-normal">Sélectionnez sur un créneau, et voilà !</a>
+                            </li>
+                        </ol>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
+            <defs></defs>
+            <path d="" class="shape-fill-white" />
+        </svg>
+    </div>
+</header>
+<div class="container">
+  <%if @establishment%>
+    <span class="h2 mb-0 d-block">Voici les <%=@services.count%> service(s) de l'établissement <a href="<%=establishment_path(@establishment)%>">"<%=@establishment.name%>"</a></span>
+  <%elsif @teacher%>
+    <span class="h2 mb-0 d-block">Voici les <%=@services.count%> service(s) du professeur <a href="<%=teacher_path(@teacher)%>">"<%=@teacher.first_name%> <%=@teacher.last_name%>"</a></span>
+  <%else%>
+    <h4 class="text-center">Liste de l'ensemble de nos services </h4>
+  <%end%>
+  <div class="row">
+    <% @services.each do |service| %>
+    <div class="col-lg-4 pt-5">
+      <div class="card overflow-hidden" data-animate-hover="2">
+        <div class="overflow-hidden">
+          <div class="animate-this">
+            <%= image_tag ("prof2.jpg"), :style => "width:348px;" %>
+          </div>
+        </div>
+        <div class="card-body text-center">
+          <!-- href à changer (mettre lien pour résa) -->
+          <h5 class="card-title mb-0"><a href="#"><%=service.name %></a></h5>
+          <p class="text-muted mb-0"> <strong> Catégorie:</strong> <%=service.sub_category.title%> </p>
+          <a href="<%=teacher_path(service.teacher)%>" class="text-muted mb-0"> <strong> Professeur:</strong> <%=service.teacher.first_name%> <%=service.teacher.last_name%></a>
+          <p class="text-muted mb-0"> <strong> Durée:</strong> <%=service.duration/60%> min </p>
+          <a href="<%=establishment_path(service.establishment)%>"  class="text-muted mb-0"> <strong> Lieu:</strong> <%=service.establishment.name%> (salle: <%=service.resource.name%>) </a>
+          <p class="card-text" > <strong>Description</strong>: <%= service.description %> </p>
+          <!-- href à changer (mettre lien pour résa) -->
+          <a href="#">
+            <button class="btn btn-sm btn-info btn-circle btn-icon">
+              <span class="btn-inner--text">Réserver un créneau</span>
+              <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <br>
+</div>

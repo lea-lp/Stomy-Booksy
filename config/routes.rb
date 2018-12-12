@@ -13,12 +13,14 @@ Rails.application.routes.draw do
 
   resources :teachers, only: [:index, :show, :edit] do
     resources :establishments, only: [:index]
+    resources :services, only: [:index]
     resources :teacher_cats, only: [:create, :destroy]
     get '/dashboard', to: 'teachers#dashboard', as: 'dashboard'
   end
   
   resources :establishments, only: [:index, :show, :edit] do
     resources :teachers, only: [:index]
+    resources :services, only: [:index]
     get '/dashboard', to: 'establishments#dashboard', as: 'dashboard'
 
   end
@@ -28,6 +30,8 @@ Rails.application.routes.draw do
       resources :events, only: [:index, :create]
     end
   end
+
+  resources :services, only: [:index, :create, :destroy]
 
   resources :events, only: [:show, :edit, :destroy]
 
