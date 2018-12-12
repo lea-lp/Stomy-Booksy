@@ -9,10 +9,10 @@ class Teacher < ApplicationRecord
   validates :phone, presence: true
 
   has_and_belongs_to_many :sub_categories
-  has_and_belongs_to_many :establishments
 
   has_many :events, dependent: :destroy
   has_many :services
+  has_many :establishments, -> { distinct }, through: :services
 
   def upcoming_events
     events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now- 1.week) }

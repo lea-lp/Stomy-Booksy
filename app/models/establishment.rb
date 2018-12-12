@@ -8,10 +8,10 @@ class Establishment < ApplicationRecord
   validates :address, presence: true
   validates :phone, presence: true
 
-  has_and_belongs_to_many :teachers
+  has_many :services
+  has_many :teachers, -> { distinct }, through: :services
   has_many :resources, dependent: :destroy
   has_many :events, through: :resources
-  has_many :services
 
   geocoded_by :address
   after_validation :geocode
