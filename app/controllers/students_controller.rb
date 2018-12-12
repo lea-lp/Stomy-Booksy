@@ -12,6 +12,7 @@ class StudentsController < ApplicationController
     filter_user_allowed
     @student = Student.find(params[:student_id])
     @events = @student.events
+    
   end
 
   private
