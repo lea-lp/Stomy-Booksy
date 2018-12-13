@@ -1,61 +1,170 @@
+
+
+<% if current_user %>
+
 <footer>
-        <div class="container" id="container-footer">
-            <div class="row d-flex justify-content-between">
-                <a href="<%= root_path %>">
-                    <%= image_tag "logo.png", :alt => "logo", style: "width: 150px" -%>
-                </a>
-                <% if current_user %>
-                <div class="foot-links-a">
-                    <h6 class="heading mb-3">Ma page</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="<%= get_profil(current_user) %>">Profil</a></li>
-                    </ul>
-                </div>
-                <div class="foot-links">
-                    <h6 class="heading mb-3">Mes infos</h6>
-                    <ul class="list-unstyled">
-                        <% if current_student %>
-                            <li><a href="<%= edit_student_registration_path %>">Éditer mon profil</a></li>
-                        <% elsif current_teacher %>
-                            <li><a href="<%= edit_teacher_registration_path %>">Éditer mon profil</a></li>
-                        <% elsif current_establishment %>
-                            <li><a href="<%= edit_establishment_registration_path %>">Éditer mon profil</a></li>
-                        <% end %>
-                    </ul>
-                </div>
-                <div class="foot-links">
-                    <h6 class="heading mb-3">Mon suivi</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="<%= get_dashboard(current_user) %>">Dashboard</a></li>
-                    </ul>
-                </div>
-                <% end %>
-            </div>
-            <div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
-                <div class="col-md-6">
-                    <div class="copyright text-sm font-weight-bold text-center text-md-left">
-                        <strong>THP Team MONTPELLIER</strong> <a class="font-weight-light">&copy; 2018</a> <a href="https://webpixels.io/" class="font-weight-regular" target="_blank">Webpixels</a>. <a class="font-weight-light">All rights reserved.</a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="https://www.instagram.com/the_hacking_project/" target="_blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/lea-lp/Stomy-Booksy" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://fr-fr.facebook.com/thehackingproject/" target="_blank">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+
+<div class="container" id="container-footer">
+
+	<!-- top - logo + navig menu -->
+	<div class="row d-flex justify-content-around align-items-center">
+
+		<a href="<%= root_path %>">
+			<%= image_tag "logo-row.png", :alt => "logo", style: "width: 180px" -%>
+		</a>	
+
+		<!-- user profile menu -->
+		<div class="foot-links">
+			<% if current_student %>
+				<h6 class="heading text-white mb-3">Bienvenue <%= current_student.first_name %></h6>
+				<ul class="list-unstyled">
+					<li><a href="<%= get_profil(current_user) %>">Mon profil</a></li>
+					<li><a href="<%= edit_student_registration_path %>">Éditer mon profil</a></li>
+					<li><a href="<%= get_dashboard(current_user) %>">Dashboard</a></li>
+				<% elsif current_teacher %>
+				<h6 class="heading text-white mb-3">Bienvenue <%= current_teacher.first_name %></h6>
+				<ul class="list-unstyled">
+					<li><a href="<%= get_profil(current_user) %>">Mon profil</a></li>
+					<li><a href="<%= edit_teacher_registration_path %>">Éditer mon profil</a></li>
+					<li><a href="<%= get_dashboard(current_user) %>">Dashboard</a></li>
+				<% elsif current_establishment %>
+				<h6 class="heading text-white mb-3">Bienvenue <%= current_establishment.name %></h6>
+				<ul class="list-unstyled">
+					<li><a href="<%= get_profil(current_user) %>">Mon Profil</a></li>
+					<li><a href="<%= edit_establishment_registration_path %>">Éditer mon profil</a></li>
+					<li><a href="<%= get_dashboard(current_user) %>">Dashboard</a></li>
+				<% end %>
+			</ul>
+		</div>
+
+		<!-- navigation menu -->
+		<div class="foot-links">
+			<h6 class="heading text-white mb-3">Services</h6>
+			<ul class="list-unstyled">
+				<li><a href="<%= root_path %>">Tous nous services</a></li>
+				<li><a href="<%= teachers_path %>">Tous nous professeur</a></li>
+				<li><a href="<%= establishments_path %>">Tous nous établissement</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+	<!-- bottom - credits + social media -->
+	<div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
+		<div class="col-md-6">
+			<div class="copyright text-sm font-weight-bold text-center text-md-left">
+				<strong>THP Team MONTPELLIER</strong> <a class="font-weight-light">&copy; 2018</a> <a href="https://webpixels.io/" class="font-weight-regular" target="_blank">Webpixels</a>. <a class="font-weight-light">All rights reserved.</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
+				<li class="nav-item">
+					<a class="nav-link active" href="https://www.instagram.com/the_hacking_project/" target="_blank">
+						<i class="fab fa-instagram"></i>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://github.com/lea-lp/Stomy-Booksy" target="_blank">
+						<i class="fab fa-github"></i>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://fr-fr.facebook.com/thehackingproject/" target="_blank">
+						<i class="fab fa-facebook"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</footer>
+
+<% else %>
+
+<footer>
+
+	<div class="container" id="container-footer">
+
+		<!-- top - logo + navig menu -->
+		<div class="row d-flex justify-content-around align-items-center">
+
+			<a href="<%= root_path %>">
+				<%= image_tag "logo-row.png", :alt => "logo", style: "width: 180px" -%>
+			</a>	
+
+			<!-- student -->
+			<div class="foot-links ml-5">
+				<h6 class="heading text-white mb-3">Particulier</h6>
+				<ul class="list-unstyled">
+					<li><a href="<%= new_student_session_path %>">Se connecter</a></li>
+					<li><a href="<%= new_student_registration_path %>">S'inscrire</a></li>
+					<li><a href="#we-do">En savoir plus</a></li>
+				</ul>
+			</div>
+
+			<!-- teacher -->
+			<div class="foot-links">
+				<h6 class="heading text-white mb-3">Professeur</h6>
+				<ul class="list-unstyled">
+					<li><a href="<%= new_teacher_session_path %>">Se connecter</a></li>
+					<li><a href="<%= new_teacher_registration_path %>">S'inscrire</a></li>
+					<li><a href="#we-do">En savoir plus</a></li>
+				</ul>
+			</div>
+
+			<!-- establishment -->
+			<div class="foot-links">
+				<h6 class="heading text-white mb-3">Établissement</h6>
+				<ul class="list-unstyled">
+					<li><a href="<%= new_establishment_session_path %>">Se connecter</a></li>
+					<li><a href="<%= new_establishment_registration_path %>">S'inscrire</a></li>
+					<li><a href="#we-do">En savoir plus</a></li>
+				</ul>
+			</div>
+
+			<!-- navigation menu -->
+			<div class="foot-links">
+				<h6 class="heading text-white mb-3">Services</h6>
+				<ul class="list-unstyled">
+					<li><a href="<%= root_path %>">Tous nous services</a></li>
+					<li><a href="<%= teachers_path %>">Tous nous professeur</a></li>
+					<li><a href="<%= establishments_path %>">Tous nous établissement</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+	<!-- bottom - credits + social media -->
+	<div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
+		<div class="col-md-6">
+			<div class="copyright text-sm font-weight-bold text-center text-md-left">
+				<strong>THP Team MONTPELLIER</strong> <a class="font-weight-light">&copy; 2018</a> <a href="https://webpixels.io/" class="font-weight-regular" target="_blank">Webpixels</a>. <a class="font-weight-light">All rights reserved.</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
+				<li class="nav-item">
+					<a class="nav-link active" href="https://www.instagram.com/the_hacking_project/" target="_blank">
+						<i class="fab fa-instagram"></i>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://github.com/lea-lp/Stomy-Booksy" target="_blank">
+						<i class="fab fa-github"></i>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://fr-fr.facebook.com/thehackingproject/" target="_blank">
+						<i class="fab fa-facebook"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</footer>
+							
+
+<% end %>
+
+
