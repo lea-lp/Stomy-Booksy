@@ -1,12 +1,12 @@
 #index-spotlight {
-    background-image: url('components/images/clouds-bottom.png');
+    background-image: image-url("clouds-bottom.png");
     background-position: center bottom;
     background-size: 100% auto;
     padding-bottom: 13em
 }
 
 #top-index {
-    background-image: url('components/images/intro-left.svg');
+    background-image: image-url("intro-left.svg");
     background-repeat: no-repeat;
     background-size: 100% auto;
     height: 91%;
