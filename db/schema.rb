@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 2018_12_13_091819) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "availability_slots", force: :cascade do |t|
+    t.datetime "start_time"
+    t.integer "duration"
+    t.bigint "resource_id"
+    t.bigint "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_id"], name: "index_availability_slots_on_resource_id"
+    t.index ["teacher_id"], name: "index_availability_slots_on_teacher_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
