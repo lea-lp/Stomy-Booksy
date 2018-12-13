@@ -16,7 +16,7 @@
                             <div class="card-body">
                                 <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
                                 <p class="card-text">Professeur</p>
-                                <%= link_to 'voir le profil', establishment_path(@establishment), class: "btn btn-outline-danger btn-sm btn-circle btn-translate--hover" %>
+                                <%= link_to 'voir le profil', teacher_path(@teacher), class: "btn btn-outline-danger btn-sm btn-circle btn-translate--hover" %>
                             </div>
                         </div>
 
@@ -35,7 +35,7 @@
                             <div class="card-body">
                                 <h5 class="h5 card-title"><%=@establishment.name%></h5>
                                 <p class="card-text">Établissement</p>
-                                <%= link_to 'voir le profil', teacher_path(@teacher), class: "btn btn-outline-success btn-sm btn-circle btn-translate--hover" %>
+                                <%= link_to 'voir le profil', establishment_path(@establishment), class: "btn btn-outline-success btn-sm btn-circle btn-translate--hover" %>
                             </div>
                         </div>
 

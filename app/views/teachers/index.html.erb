@@ -39,10 +39,10 @@
           <div class="overflow-hidden">
             <div class="animate-this text-center">
               <% if teacher.avatar.attached? %>
-                <%= image_tag teacher.avatar.variant(resize: "250x250") , style: "width:300" %>
+                <%= image_tag teacher.avatar, style: "width:348px" %>
               <% else %>
                 <a href="<%= teacher_path(teacher) %>">
-                  <%= image_tag ("prof2.jpg"), :style => "width:348px;" %>
+                  <%= image_tag ("prof2.jpg"), style: "width:348px;" %>
                 </a>
               <% end %>
             </div>

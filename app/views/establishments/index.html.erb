@@ -49,7 +49,7 @@
             <div class="card-image">
               <% if establishment.avatar.attached? %>
                 <a href="<%=establishment_path(establishment)%>">
-                <%= image_tag establishment.avatar.variant(resize: "600x600") , style: "width:100%" %>
+                <%= image_tag establishment.avatar, style: "width:100%" %>
                 </a>
               <% else %>
               <a href="<%=establishment_path(establishment)%>">
