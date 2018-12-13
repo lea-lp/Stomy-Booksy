@@ -129,7 +129,7 @@
                             <td class="col-2" style="height: auto"><span class="font-weight-bold wrap"><%=Time.at(event.start_time).utc.strftime("%Hh%M")%></span></td>
                             <td class="col-2" style="height: auto"><span class="text-sm wrap"><%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
                             <td class="col-6" style="height: auto"><span class="text-sm wrap"><%=event.name%></span></td>
-                            <td class="col-1" style="height: auto"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Êtes vous sûr ?" >
+                            <td class="col-1" style="height: auto"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer." >
                                 <i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                         <%end%>

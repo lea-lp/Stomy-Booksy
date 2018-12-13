@@ -170,7 +170,7 @@
                               <td class="col-2" style="height: auto"><span class="font-weight-bold wrap"><%=Time.at(event.start_time).utc.strftime("%Hh%M")%></span></td>
                               <td class="col-2" style="height: auto"><span class="text-sm wrap"><%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
                               <td class="col-6" style="height: auto"><span class="text-sm wrap"><%=event.name%></span></td>
-                              <td class="col-1" style="height: auto"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Êtes vous sûr ?" >
+                              <td class="col-1" style="height: auto"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer." >
                                   <i class="fas fa-trash-alt"></i></a></td>
                               </tr>
                           <%end%>
@@ -226,7 +226,7 @@
                       <td class="col-2 px-2 pb-2" style="height: auto;"><span class="text-sm wrap"><%=resource.name%></span></td>
                       <td class="col-6 px-2 pb-2" style="height: auto;"><span class="text-sm wrap"><%=resource.description%></span></td>
                       <td class="col-1 px-2 pb-2" style="height: auto;"><span class="text-sm wrap"><%=resource.is_active%></span></td>
-                      <td class="col-1 px-2 pb-2" style="height: auto;"><a href="<%= resource_path(resource) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
+                      <td class="col-1 px-2 pb-2" style="height: auto;"><a href="<%= resource_path(resource) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm='Vous allez effacer "<%=resource.name%>". Veuillez confirmer.' >
                         <i class="fas fa-trash-alt"></i></a></td>
                     </tr>
                   <%end%>
@@ -260,7 +260,7 @@
                     </tr>
                   </tbody>
                 </table>
-                  <%=form.submit "Créer la ressource", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Êtes-vous sûr(e) ?"}%></td>
+                  <%=form.submit "Créer la ressource", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Vous confirmez la création de cette ressource ?"}%></td>
               <% end %>
               </div>
             </div>
@@ -296,7 +296,7 @@
                       <td class="col-1 p-3" style="height: auto;"><span class="text-sm wrap"><%=service.resource.name%></span></td>
                       <td class="col-5 text-overflow p-3" style="height: auto;"><span class="text-sm wrap"><%=service.description%></span></td>
                       <td class="col-1 p-3" style="height: auto;"><span class="text-sm wrap"><%=service.duration/60%> min</span></td>
-                      <td class="col-1 p-3" style="height: auto;"><a href="#" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
+                      <td class="col-1 p-3" style="height: auto;"><a href="<%=service_path(service)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm='Vous allez effacer "<%=service.name%>". Veuillez confirmer.' >
                         <i class="fas fa-trash-alt"></i></a></td>
                     </tr>
                   <%end%>
@@ -304,38 +304,38 @@
                 </table>
               <!-- resource creation form -->
               <div>
-                <h6 class="mt-4">Ajouter un service</h6>
+                <h6 class="my-4">Ajouter un service</h6>
               </div>
               <div class="container">
                 <%= form_tag @service do %>
                 <input type="hidden" id="hidden_tag" name="service[establishment_id]" value="<%=current_user.id%>">
-                <div class="row  d-flex justify-content-center align-items-center">
-                  <div class="col-5">
-                    <p>Nom du service</p>
-                    <%=text_field_tag :name, placeholder: "Cours de xxxx", class:"form-control border-1" %>
+                <div class="row ">
+                  <div class="col-5 form-group offset-1">
+                    <%=label_tag "Nom du service"%>
+                    <%=text_field_tag "service[name]", nil, placeholder: "Cours de xxxx", class:"form-control border-1" %>
                   </div>
-                  <div class="col-5">
-                    <%=label_tag "Teacher"%>
-                    <%= select_tag :teacher_id, options_from_collection_for_select(@teachers, :id, :email), {class: "form-control"} %>
+                  <div class="col-5 form-group">
+                    <%=label_tag "Professeur"%>
+                    <%= select_tag "service[teacher_id]", options_from_collection_for_select(@teachers, :id, :email), {class: "form-control"} %>
                   </div>
-                  <div class="col-5">
+                  <div class="col-5 form-group offset-1">
                     <%=label_tag "Categorie"%>
-                    <%=select_tag :sub_category_id, options_from_collection_for_select(@sub_categories, :id, :title), class: "form-control"%>
+                    <%=select_tag "service[sub_category_id]", options_from_collection_for_select(@sub_categories, :id, :title), class: "form-control"%>
                   </div>
-                  <div class="col-5">
-                    <p>Ressource</p>
-                    <%=select_tag :resource_id, options_from_collection_for_select(@resources, :id, :name), class: "form-control"%>
+                  <div class="col-5 form-group">
+                    <%=label_tag "Ressource"%>
+                    <%=select_tag "service[resource_id]", options_from_collection_for_select(@resources, :id, :name), class: "form-control"%>
                   </div>
-                  <div class="col-5">
-                    <p>Description</p>
-                    <%=text_area_tag(:description, size: "60x3", class: "form-control")%>
+                  <div class="col-8 form-group offset-1">
+                    <%=label_tag "Description"%>
+                    <%=text_area_tag("service[description]", nil, size: "60x3", class: "form-control")%>
                   </div>
-                  <div>
-                    <p>Durée (en minutes)</p>
-                    <%=number_field_tag(:duration_minutes, min: 15)%>
+                  <div class="col-3 form-group">
+                    <%=label_tag "Durée (minutes)"%><br>
+                    <%=number_field_tag("service[duration_minutes]", nil, min: 15, class: "form-control col-6")%>
                   </div>
-                  <div class="col-5">
-                    <%=submit_tag "Créer la ressource", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Êtes-vous sûr(e) ?"}%></td>
+                  <div class="offset-1 col-10 d-flex justify-content-center">
+                    <%=submit_tag "Créer le service", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Confirmez-vous la création du service ?"}%></td>
                   </div>
                 </div>
               <% end %>
