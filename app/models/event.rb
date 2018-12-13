@@ -24,13 +24,9 @@ class Event < ApplicationRecord
 
   def no_overlaping_event
     #getting all the events one the same day for the student, the teacher and the resource.
-    puts "coucou"
     student_events = self.student.events.select{ |e| e.start_time.midnight == self.start_time.midnight}
-    puts "ok pour les students"
     resource_events = self.resource.events.select{ |e| e.start_time.midnight == self.start_time.midnight}
-    puts "ok pour les resources"
     teacher_events = self.teacher.events.select{ |e| e.start_time.midnight == self.start_time.midnight}
-    puts "ok pour les teachers"
 
     # makes sure that current appointments don’t overlap:
       # 1)first checks if an existing appointment is still in progress when the new appointment is set to start

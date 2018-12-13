@@ -18,19 +18,19 @@
                             <!-- Badges -->
                             <div class="d-lg-flex">
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
-                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/natural-user-interface-1.svg" style="width: 36px;">
+                                    <%= image_tag 'img/icons/dusk/svg/natural-user-interface-1.svg', alt: 'icon', style: 'width: 36px' %>
                                     <div class="media-body pl-2">
                                         <span class="h6"><%=@teacher.sub_categories.count %> compétence(s)</span>
                                     </div>
                                 </a>
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
-                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
+                                    <%= image_tag 'img/icons/dusk/svg/in-progress.svg', alt: 'icon', style: 'width: 36px' %>
                                     <div class="media-body pl-2">
                                         <span class="h6"><%=@teacher.services.count %> service(s)</span>
                                     </div>
                                 </a>
                                 <a class="media d-flex align-items-center mb-3 mb-lg-0">
-                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/collect.svg" style="width: 36px;">
+                                    <%= image_tag 'img/icons/dusk/svg/collect.svg', alt: 'icon', style: 'width: 36px' %>
                                     <div class="media-body pl-2">
                                         <span class="h6"> <%= @teacher.establishments.count %> établissement(s)</span>
                                     </div>
@@ -38,7 +38,9 @@
                             </div>
                             <div class="pt-5 mt-5 delimiter-top">
                                 <!-- Interests -->
-                                <h6><img alt="Image placeholder" src="../assets/img/icons/dusk/svg/natural-user-interface-1.svg" style="width: 36px;">  Compétences</h6>
+                                <h6>
+                                    <%= image_tag 'img/icons/dusk/svg/natural-user-interface-1.svg', alt: 'icon', style: 'width: 36px' %> Compétences
+                                </h6>
                                 <div>
                                     <% @teacher.sub_categories.each do |sub| %>
                                         <span class="badge badge-lg badge-info mr-2 mb-2"><%= sub.title %>
@@ -67,7 +69,9 @@
                             </div>
                             <div class="pt-5 mt-5 delimiter-top">
                                 <!-- Interests -->
-                                <h6><img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">  Services proposé(s)</h6>
+                                <h6>
+                                    <%= image_tag 'img/icons/dusk/svg/in-progress.svg', alt: 'icon', style: 'width: 36px' %> Services proposé(s)
+                                </h6>
                                 <div class="row">
                                     <% @teacher.services.each do |service| %>
                                      <div class="col-lg-6 mt-4">
@@ -94,7 +98,9 @@
                             </div>
                             <div class="pt-5 mt-5 delimiter-top">
                                 <!-- Endorsements -->
-                                <h6><img alt="Image placeholder" src="../assets/img/icons/dusk/svg/collect.svg" style="width: 36px;"> Etablissement(s)</h6>
+                                <h6>
+                                    <%= image_tag 'img/icons/dusk/svg/collect.svg', alt: 'icon', style: 'width: 36px' %> Établissement(s)
+                                </h6>
                                 <div class="row">
                                     <% @teacher.establishments.each do |establishment| %>
                                     <div class="col-lg-6 mt-4">

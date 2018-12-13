@@ -10,12 +10,12 @@ class Student < ApplicationRecord
   has_many :events, dependent: :destroy
   has_one_attached :avatar
   
+  after_create :welcome_send, :avatar_attach
 
   def upcoming_events
     events.order(start_time: :asc).select { |e| e.start_time > (DateTime.now- 1.week) }
   end
 
-  after_create :welcome_send, :avatar_attach
 
   def avatar_attach
     temp_user = self
@@ -23,7 +23,7 @@ class Student < ApplicationRecord
   end
 
   def welcome_send
-    ContactMailer.welcome_send(self).deliver
+    ContactMailer.welcome_send(self).deliver_later
   end
 
 end

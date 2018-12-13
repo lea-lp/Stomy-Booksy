@@ -37,7 +37,7 @@ class EstablishmentsController < ApplicationController
     @establishment = current_user
     @events = @establishment.events
 
-    @resources = @establishment.resources.order(created_at: :desc)
+    @resources = @establishment.resources.order(name: :asc)
     @resource = Resource.new
 
     @services = @establishment.services.order(created_at: :desc)

@@ -2,6 +2,11 @@ class EventsController < ApplicationController
   before_action :filter_on_signed_in
 
   def index
+    unless get_user_type == "Student"
+      flash[:danger] = "Vous devez être connecté en tant qu'élève pour accéder à cette page."
+      redirect_back(fallback_location: root_path)
+    end
+
     #to build the "new event" form
     @hours = []
     (8..20).to_a.each do |i| 
@@ -33,6 +38,7 @@ class EventsController < ApplicationController
     @service = @event.service
     @resource = @event.resource
     @teacher = @event.teacher
+    @student = @event.student
     @establishment = @event.resource.establishment
     @duration = Time.at(@event.duration).utc.strftime("%Hh%M")
 
@@ -50,8 +56,8 @@ class EventsController < ApplicationController
 
     if @event.save
       flash[:success]="Le créneau a bien été réservé!"
-      ContactMailer.event_confirmation(@event, "student").deliver_now
-      ContactMailer.event_confirmation(@event, "teacher").deliver_now
+      ContactMailer.event_confirmation(@event, "student").deliver_later
+      ContactMailer.event_confirmation(@event, "teacher").deliver_later
 
       redirect_back(fallback_location: root_path)
       return
@@ -68,8 +74,8 @@ class EventsController < ApplicationController
 
     @event.destroy
     flash[:success]="Votre rendez-vous a été supprimé"
-    ContactMailer.event_cancel(@event, "student").deliver_now
-    ContactMailer.event_cancel(@event, "teacher").deliver_now
+    ContactMailer.event_cancel(@event, "student").deliver_later
+    ContactMailer.event_cancel(@event, "teacher").deliver_later
 
     redirect_to(get_dashboard(current_student))
 
