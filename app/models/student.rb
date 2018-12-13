@@ -23,7 +23,7 @@ class Student < ApplicationRecord
   end
 
   def welcome_send
-    ContactMailer.welcome_send(self).deliver
+    ContactMailer.welcome_send(self).deliver_now
   end
 
 end

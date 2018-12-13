@@ -17,13 +17,13 @@
                         <div class="card-body ">
                             <div class="d-lg-flex mt-3">
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
-                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
+                                    <%= image_tag 'img/icons/dusk/svg/in-progress.svg', alt: 'icon', style: 'width: 36px' %>
                                     <div class="media-body pl-2">
                                         <span class="h6"><%= @sub_cat_hash.count %> service(s) proposé(s)</span>
                                     </div>
                                 </a>
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
-                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/natural-user-interface-1.svg" style="width: 36px;">
+                                        <%= image_tag 'img/icons/dusk/svg/natural-user-interface-1.svg', alt: 'icon', style: 'width: 36px' %>
                                     <div class="media-body pl-2">
                                         <span class="h6"><%= @establishment.teachers.length %> professeurs</span>
                                     </div>
@@ -32,7 +32,9 @@
                             <div class="pt-5 mt-5 delimiter-top">
                                 <!-- Interests -->
                                     
-                                <h6><img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;"> Service(s) proposé(s)</h6>
+                                <h6>
+                                    <%= image_tag 'img/icons/dusk/svg/in-progress.svg', alt: 'icon', style: 'width: 36px' %> Service(s) proposé(s)
+                                </h6>
                                 <div class="pt-3 row">
                                     <% @establishment.services.each do |service| %>
                                      <div class="col-lg-6 mt-4">
@@ -60,7 +62,9 @@
                             </div>
                             <div class="pt-5 mt-5 delimiter-top">
                                 <!-- Endorsements -->
-                                <h6><img alt="Image placeholder" src="../assets/img/icons/dusk/svg/natural-user-interface-1.svg" style="width: 36px;">  Professeur(s) à <%= @establishment.name %></h6>
+                                <h6>
+                                    <%= image_tag 'img/icons/dusk/svg/natural-user-interface-1.svg', alt: 'icon', style: 'width: 36px' %> Professeur(s) à <%= @establishment.name %>
+                                </h6>
                                 <div class="row">
 
     								<% @establishment.teachers.order(:first_name).each do |teacher| %>

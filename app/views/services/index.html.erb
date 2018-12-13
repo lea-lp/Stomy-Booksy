@@ -40,7 +40,7 @@
       <div class="card overflow-hidden" data-animate-hover="2">
         <div class="card-body text-center">
           <!-- href à changer (mettre lien pour résa) -->
-          <h5 class="card-title mb-0"><a href="#"><%=service.name %></a></h5>
+          <h5 class="card-title mb-0"><%=service.name %></h5>
           <p class="text-muted mb-0"> <strong> Catégorie:</strong> <%=service.sub_category.title%> </p>
           <a href="<%=teacher_path(service.teacher)%>" class="text-muted mb-0"> <strong> Professeur:</strong> <%=service.teacher.first_name%> <%=service.teacher.last_name%></a>
           <p class="text-muted mb-0"> <strong> Durée:</strong> <%=service.duration/60%> min </p>

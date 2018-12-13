@@ -4,16 +4,17 @@
   }
   
   .registers-Student{
-    background: image-url('background_student_form.jpg');
+    background-image: image-url("background_student_form.jpg");
   }
 
   .registers-Teacher{
-    background: image-url('background_teacher_form.jpg');
+    background-image: image-url("background_teacher_form.jpg");
   }
 
   .registers-Establishment{
-    background: image-url('background_establishment_form.jpg');
+    background-image: image-url("background_establishment_form.jpg");
   }
+
 
   .registers-Student, .registers-Teacher, .registers-Establishment, #pass-new {
     background-repeat: no-repeat;
@@ -28,7 +29,7 @@
   }
 
   #section-index-background, #pass-new {
-    background-image: url('images/clouds-bottom.png');
+    background-image: image-url("clouds-bottom.png");
     background-size: 100% auto;
   }
 
