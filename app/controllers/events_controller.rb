@@ -38,6 +38,7 @@ class EventsController < ApplicationController
     @service = @event.service
     @resource = @event.resource
     @teacher = @event.teacher
+    @student = @event.student
     @establishment = @event.resource.establishment
     @duration = Time.at(@event.duration).utc.strftime("%Hh%M")
 
