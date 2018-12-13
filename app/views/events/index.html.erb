@@ -6,29 +6,32 @@
         <div class="card-header border-0">
             <div class="row">
                 <div class="card col-3 mh-100" data-toggle="sticky" data-sticky-offset="100" style="z-index: 10;">
-                    <div class="card-header border-0">
-                        <h6 class="mb-2">Etablissement choisi</h6>
-                        <p><%=link_to '<i class="fas fa-pen"></i> &nbsp;'.html_safe, teacher_establishments_path(@teacher)%> <%=@establishment.name%>  </p>
+                    <div class="card-header border-0 row">
+                        <div class="col-12 text-center">
+                            <h6 class="mb-2">Service choisi:</h6>
+                            <p><%=@service.name%></p>
+                        </div>
+                        <div class="col-6 p-0 text-center">
+                            <h6 class="mb-2">Etablissement:</h6>
+                            <p><%=link_to '<i class="fas fa-pen"></i> &nbsp;'.html_safe, teacher_establishments_path(@teacher)%><%=@establishment.name%>  </p>
+                        </div>
+                        <div class="col-6 p-0 text-center">
+                            <h6 class="mb-2">Professeur:</h6>
+                            <p> <%=link_to '<i class="fas fa-pen"></i> &nbsp;'.html_safe, establishment_teachers_path(@establishment)%><%=@teacher.first_name%> <%=@teacher.last_name%></p>
+                        </div>
+                        <div class="col-6 p-0 text-center">
+                            <h6 class="mb-2">Durée:</h6>
+                            <p><%=@service.duration/60%> min </p>
+                        </div>
+                        <div class="col-6 p-0 text-center">
+                            <h6 class="mb-2">Salle:</h6>
+                            <p> <%=@service.resource.name%></p>
+                        </div>
 
-                        <h6 class="mb-2">Professeur choisi</h6>
-                        <p> <%=link_to '<i class="fas fa-pen"></i> &nbsp;'.html_safe, establishment_teachers_path(@establishment)%> <%=@teacher.first_name%> <%=@teacher.last_name%></p>
-
-                        <h6 class="mb-2">Salles proposées</h6>
-                        <div class="row justify-content-start">
-                            <% room_id = @resource.id %>
-                            <% @resources.each do |resource|%>
-                                <% if resource.id == room_id %>
-                                    <a href="<%=resource_teacher_events_path(resource, @teacher)%>" class="btn btn-success btn-circle btn-sm m-2 disabled" style="padding: 0.4em 1.3em"> <%=resource.name%></a>
-                                <% else %>
-                                    <a href="<%=resource_teacher_events_path(resource, @teacher)%>" class="btn btn-success btn-circle btn-sm m-2 active" style="padding: 0.4em 1.3em"> <%=resource.name%></a>
-                                <%end%>    
-                            <%end%>  
-                        </div><hr>
-                        <div class="row justify-content-start mt-4">
-                            <%= form_tag resource_teacher_events_path do %>
+                        <div class="container row justify-content-start mt-2">
+                            <%= form_tag service_events_path do %>
                                 <input type="hidden" id="hidden_tag" name="event[student_id]" value="<%=current_student.id%>">
-                                <input type="hidden" id="hidden_tag" name="event[teacher_id]" value="<%=@teacher.id%>">
-                                <input type="hidden" id="hidden_tag" name="event[resource_id]" value="<%=@resource.id%>">
+                                <input type="hidden" id="hidden_tag" name="event[service_id]" value="<%=@service.id%>">
                                 <div class="form-group row ">
                                     <%=label_tag "Choix du jour", nil, class: "font-weight-bold col-lg-12" %><br>
                                     <%=date_field_tag "event[date]", Date.today, class: "form-control col-lg-10 offset-1" %>
@@ -37,11 +40,7 @@
                                     <%=label_tag "Heure de début", nil, class: "font-weight-bold col-lg-12" %><br>
                                     <%=select_tag "event[hours]", options_for_select(@hours), class: "form-control col-lg-4 offset-1"  %>
                                     <span class="col-lg-2">H</span>
-                                    <%=select_tag "event[minutes]", options_for_select(@minutes), class: "form-control  col-lg-4" %>
-                                </div>
-                                <div class="form-group">
-                                    <%=label_tag "Durée", nil, class: "font-weight-bold"%>
-                                    <%=select_tag "[event][duration]", options_for_select(@duration_picker), class:"form-control col-lg-11"%>
+                                    <%=select_tag "event[minutes]", options_for_select(@minutes), class: "form-control col-lg-4" %>
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <%=submit_tag "Réserver", class:"btn btn-success btn-circle"%>

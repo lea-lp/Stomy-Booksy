@@ -47,7 +47,7 @@
                                                         <p class="text-sm mb-0"><%= service.sub_category.title.upcase %></p>
                                                         <p class="text-sm mb-0">Prof: <%= service.teacher.first_name+" "+service.teacher.last_name %></p>
                                                         <!-- href à mettre à jour -->
-                                                        <a href="#">Réserver un créneau</a>
+                                                        <a href="<%=service_events_path(service)%>">Réserver un créneau</a>
                                                         </a>
                                                     </div>
                                                 </div>

@@ -27,7 +27,11 @@
   </header>
 
   <div class="container">
-    <h4 class="text-center">Liste de l'ensemble de nos établissements</h4>
+    <%if @teacher%>
+      <h4 class="text-center">Voici les <%=@establishments.count%> établissements auxquels <a href="<%=teacher_path(@teacher)%>">"<%=@teacher.first_name%> <%=@teacher.last_name%>"</a>est affilié(e)</h4>
+    <%else%>
+      <h4 class="text-center">Liste de l'ensemble de nos établissements</h4>
+    <%end%>
     <div class="row">
       <% @establishments.each do |establishment| %>
         <div class="col-lg-4 pt-3 mt-3 nf-item spacing-grid">

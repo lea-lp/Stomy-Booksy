@@ -10,7 +10,7 @@ class Student < ApplicationRecord
   has_many :events, dependent: :destroy
 
   def upcoming_events
-    events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now- 1.week) }
+    events.order(start_time: :asc).select { |e| e.start_time > (DateTime.now- 1.week) }
   end
 
   after_create :welcome_send

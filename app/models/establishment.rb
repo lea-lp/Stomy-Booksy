@@ -17,7 +17,7 @@ class Establishment < ApplicationRecord
   after_validation :geocode
 
   def upcoming_events
-    events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now) }
+    events.order(start_time: :asc).select { |e| e.start_time > (DateTime.now) }
   end
 
   after_create :welcome_send

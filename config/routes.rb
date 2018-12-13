@@ -24,12 +24,12 @@ Rails.application.routes.draw do
   end
 
   resources :resources, only: [:show, :create, :destroy, :edit] do
-    resources :teachers, only: [:show] do
-      resources :events, only: [:index, :create]
-    end
+    resources :teachers, only: [:show]
   end
 
-  resources :services, only: [:index, :create, :destroy]
+  resources :services, only: [:index, :create, :destroy] do
+    resources :events, only: [:index, :create]
+  end
 
   resources :events, only: [:show, :edit, :destroy]
 

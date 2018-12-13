@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout, :filter_on_signed_in, :get_css_color, :get_dashboard, :get_profil
+  helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout, :filter_on_signed_in, :get_css_color, :get_dashboard, :get_profil, :page_belongs_to_user?
 
   before_action :configure_devise_parameters, if: :devise_controller?
   before_action :set_locale
@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   def filter_on_signed_in
     unless user_signed_in?
+      flash[:danger] = "Vous devez etre connecté pour accéder à cette page"
       redirect_to new_student_session_path
     end
   end
@@ -55,13 +56,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def get_dashboard(user_object)
+  def get_dashboard(user)
     if student_signed_in?
-      return student_dashboard_path(user_object)
+      return student_dashboard_path(user)
     elsif teacher_signed_in?
-      return teacher_dashboard_path(user_object)
+      return teacher_dashboard_path(user)
     elsif establishment_signed_in?
-      return establishment_dashboard_path(user_object)
+      return establishment_dashboard_path(user)
     else
       return ""
     end
@@ -89,6 +90,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def page_belongs_to_user?(object)
+    unless current_user == object.teacher || current_user == object.student || current_user == object.establishment
+      flash[:danger] = "Vous n'êtes pas autorisé à accéder à cette page. Veuillez vous connecter"
+      redirect_to new_student_session_path
+    end 
+  end
 
   private
 

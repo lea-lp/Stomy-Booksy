@@ -52,7 +52,7 @@
           <a href="<%=establishment_path(service.establishment)%>"  class="text-muted mb-0"> <strong> Lieu:</strong> <%=service.establishment.name%> (salle: <%=service.resource.name%>) </a>
           <p class="card-text" > <strong>Description</strong>: <%= service.description %> </p>
           <!-- href à changer (mettre lien pour résa) -->
-          <a href="#">
+          <a href="<%=service_events_path(service)%>">
             <button class="btn btn-sm btn-info btn-circle btn-icon">
               <span class="btn-inner--text">Réserver un créneau</span>
               <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
