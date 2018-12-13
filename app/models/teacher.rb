@@ -10,8 +10,8 @@ class Teacher < ApplicationRecord
 
   has_and_belongs_to_many :sub_categories
 
-  has_many :events, dependent: :destroy
   has_many :services, dependent: :destroy
+  has_many :events, through: :services, dependent: :destroy
   has_many :establishments, -> { distinct }, through: :services
 
   def upcoming_events

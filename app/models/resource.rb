@@ -5,8 +5,8 @@ class Resource < ApplicationRecord
   after_initialize :init
 
   belongs_to :establishment
-  has_many :events, dependent: :destroy
   has_many :services, dependent: :destroy
+  has_many :events, through: :services, dependent: :destroy
   
 
   def init

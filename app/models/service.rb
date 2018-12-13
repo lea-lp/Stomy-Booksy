@@ -9,6 +9,7 @@ class Service < ApplicationRecord
   belongs_to :teacher
   belongs_to :resource
   belongs_to :sub_category
+  has_many :events
 
   private
 

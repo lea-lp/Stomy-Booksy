@@ -1,29 +1,36 @@
 class Event < ApplicationRecord
   validates :start_time, presence: true
-  validates :duration, presence: true
   validate :no_over_night_event # we will block events that are spread on 2 different days (to simplify the overlap testing)
   validate :no_overlaping_event
 
 
-
+  belongs_to :service
   belongs_to :student
-  belongs_to :teacher
-  belongs_to :resource
-  has_one :establishment, through: :resource
+  has_one :teacher, through: :service
+  has_one :resource, through: :service
+  has_one :establishment, through: :service
 
   def end_time
-    start_time + duration.seconds
+    self.start_time + self.service.duration.seconds
   end
 
   def set_event_name
     self.name = "RDV "+self.student.first_name+" "+self.student.last_name[0]+". avec "+self.teacher.first_name+" à "+self.establishment.name+" (salle: "+self.resource.name+")"
   end
 
+  def duration
+    self.service.duration
+  end
+
   def no_overlaping_event
     #getting all the events one the same day for the student, the teacher and the resource.
+    puts "coucou"
     student_events = self.student.events.select{ |e| e.start_time.midnight == self.start_time.midnight}
+    puts "ok pour les students"
     resource_events = self.resource.events.select{ |e| e.start_time.midnight == self.start_time.midnight}
+    puts "ok pour les resources"
     teacher_events = self.teacher.events.select{ |e| e.start_time.midnight == self.start_time.midnight}
+    puts "ok pour les teachers"
 
     # makes sure that current appointments don’t overlap:
       # 1)first checks if an existing appointment is still in progress when the new appointment is set to start
