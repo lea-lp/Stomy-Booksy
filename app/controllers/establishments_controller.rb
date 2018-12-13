@@ -27,7 +27,7 @@ class EstablishmentsController < ApplicationController
       @teacher = Teacher.find(params[:teacher_id])
       @establishments = @teacher.establishments
     else
-      @establishments = Establishment.all
+      @establishments = Establishment.all.order(name: :asc)
     end
   end
 
