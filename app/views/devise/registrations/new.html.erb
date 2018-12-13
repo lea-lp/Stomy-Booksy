@@ -22,13 +22,13 @@
                         <div class="card p-4 mb-5">
                             <div class="text-center mb-5">
                                 <% if resource.class.name == "Student" %>
-                                    <h6 class="h3">Créer un compte étudiant.</h6>
+                                    <h6 class="h3">Créer un compte élève (particulier).</h6>
                                     <p class="text-muted mb-0">Des centaines d'activités à portée de main</p>
                                 <% elsif resource.class.name == "Teacher" %>
                                     <h6 class="h3">Créer un compte professeur.</h6>
                                     <p class="text-muted mb-0">Un gestion de votre emploi du temps simplifiée</p>
                                 <% else resource.class.name == "Establishment" %>
-                                    <h6 class="h3">Créer un compte association.</h6>
+                                    <h6 class="h3">Créer un compte établissement.</h6>
                                     <p class="text-muted mb-0">Une gestion de votre établissement simplifiée</p>
                                 <% end %>
                                 <!-- a voir si on affiche le nom de la page (eleve student ...) -->
