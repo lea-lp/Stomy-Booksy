@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  establishment: 
+  teacher: 
+  resource: 
+  sub_category: 
+  duration: 1
+
+two:
+  name: MyString
+  description: MyText
+  establishment: 
+  teacher: 
+  resource: 
+  sub_category: 
+  duration: 1

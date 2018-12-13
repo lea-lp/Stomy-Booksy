@@ -8,7 +8,8 @@ class Establishment < ApplicationRecord
   validates :address, presence: true
   validates :phone, presence: true
 
-  has_and_belongs_to_many :teachers
+  has_many :services, dependent: :destroy
+  has_many :teachers, -> { distinct }, through: :services
   has_many :resources, dependent: :destroy
   has_many :events, through: :resources
   has_one_attached :avatar
@@ -17,7 +18,7 @@ class Establishment < ApplicationRecord
   after_validation :geocode
 
   def upcoming_events
-    events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now) }
+    events.order(start_time: :asc).select { |e| e.start_time > (DateTime.now) }
   end
 
   after_create :welcome_send, :avatar_attach

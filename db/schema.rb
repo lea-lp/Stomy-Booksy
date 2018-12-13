@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_120344) do
+ActiveRecord::Schema.define(version: 2018_12_13_091819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,25 +72,15 @@ ActiveRecord::Schema.define(version: 2018_12_11_120344) do
     t.index ["reset_password_token"], name: "index_establishments_on_reset_password_token", unique: true
   end
 
-  create_table "establishments_teachers", id: false, force: :cascade do |t|
-    t.bigint "teacher_id", null: false
-    t.bigint "establishment_id", null: false
-    t.index ["establishment_id", "teacher_id"], name: "establishment_teacher"
-    t.index ["teacher_id", "establishment_id"], name: "teacher_establishment"
-  end
-
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "start_time"
-    t.integer "duration"
     t.bigint "student_id"
-    t.bigint "teacher_id"
-    t.bigint "resource_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["resource_id"], name: "index_events_on_resource_id"
+    t.bigint "service_id"
+    t.index ["service_id"], name: "index_events_on_service_id"
     t.index ["student_id"], name: "index_events_on_student_id"
-    t.index ["teacher_id"], name: "index_events_on_teacher_id"
   end
 
   create_table "resources", force: :cascade do |t|
@@ -102,6 +92,22 @@ ActiveRecord::Schema.define(version: 2018_12_11_120344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["establishment_id"], name: "index_resources_on_establishment_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "duration"
+    t.bigint "establishment_id"
+    t.bigint "teacher_id"
+    t.bigint "resource_id"
+    t.bigint "sub_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["establishment_id"], name: "index_services_on_establishment_id"
+    t.index ["resource_id"], name: "index_services_on_resource_id"
+    t.index ["sub_category_id"], name: "index_services_on_sub_category_id"
+    t.index ["teacher_id"], name: "index_services_on_teacher_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -153,4 +159,5 @@ ActiveRecord::Schema.define(version: 2018_12_11_120344) do
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "students", on_delete: :cascade
 end

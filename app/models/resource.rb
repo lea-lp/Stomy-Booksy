@@ -5,8 +5,8 @@ class Resource < ApplicationRecord
   after_initialize :init
 
   belongs_to :establishment
-  has_many :availablity_slots
-  has_many :events, dependent: :destroy
+  has_many :services, dependent: :destroy
+  has_many :events, through: :services, dependent: :destroy
   
 
   def init
@@ -14,6 +14,6 @@ class Resource < ApplicationRecord
   end
 
   def upcoming_events
-    events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now- 1.week) }
+    events.order(start_time: :asc).select { |e| e.start_time > (DateTime.now- 1.week) }
   end
 end
