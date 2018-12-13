@@ -4,15 +4,15 @@
 
             <% if page_type == 'establishment' %>
                     <div class="card-profile-cover">
-                        <img alt="Image placeholder" src="../assets/background_establishment_card.jpg" class="card-img-top">
+                        <%= image_tag 'background_establishment_card.jpg', class: 'card-img-top', alt: 'card-background' %>
                     </div>
                 <% if @establishment.avatar.attached? %>
                     <a href="#">
-                        <%= image_tag @establishment.avatar, class: "card-profile-image avatar shadow", style: "height: 150px; width: auto" %>
+                        <%= image_tag @establishment.avatar, class: 'card-profile-image avatar shadow', style: 'height: 150px; width: auto', alt: 'card-picture' %>
                     </a>
                 <% else %>
                     <a href="#">
-                        <img alt="Image placeholder" src="../assets/neutral.jpeg" class="card-profile-image avatar shadow">
+                        <%= image_tag 'neutral.jpeg', class: "card-profile-image avatar shadow", alt: 'card-picture-default' %>
                     </a>
                 <% end %>
             <div class="card-body">
@@ -38,15 +38,15 @@
             </div>
             <% elsif page_type == 'teacher' %>
                     <div class="card-profile-cover">
-                        <img alt="Image placeholder" src="../assets/background_teacher_card.jpg" class="card-img-top">
+                        <%= image_tag 'background_teacher_card.jpg', class: 'card-img-top', alt: 'card-background' %>
                     </div>
                 <% if @teacher.avatar.attached? %>
                     <a href="#">
-                        <%= image_tag @teacher.avatar, class: "card-profile-image avatar shadow", style: "height: 150px; width: auto" %>
+                        <%= image_tag @teacher.avatar, class: "card-profile-image avatar shadow", style: "height: 150px; width: auto", alt: 'card-picture' %>
                     </a>
                 <% else %>
                     <a href="#">
-                        <img alt="Image placeholder" src="../assets/neutral.jpeg" class="card-profile-image avatar shadow">
+                        <%= image_tag 'neutral.jpeg', class: "card-profile-image avatar shadow", alt: 'card-picture-default' %>
                     </a>
                 <% end %>
             <div class="card-body">
@@ -73,15 +73,15 @@
             </div>
             <% elsif page_type == 'student' %>
                     <div class="card-profile-cover">
-                        <img alt="Image placeholder" src="../assets/background_student_card.jpg" class="card-img-top">
+                        <%= image_tag 'background_student_card.jpg', class: 'card-img-top', alt: 'card-background' %>
                     </div>
                 <% if @student.avatar.attached? %>
                     <a href="#">
-                        <%= image_tag @student.avatar, style: "height: 150px; width: auto", class: "card-profile-image avatar shadow" %>
+                        <%= image_tag @student.avatar, style: "height: 150px; width: auto", class: "card-profile-image avatar shadow", alt: 'card-picture' %>
                     </a>
                 <% else %>
                     <a href="#">
-                        <img alt="Image placeholder" src="../assets/neutral.jpeg" class="card-profile-image avatar shadow">
+                        <%= image_tag 'neutral.jpeg', class: "card-profile-image avatar shadow", alt: 'card-picture-default' %>
                     </a>
                 <% end %>
 
