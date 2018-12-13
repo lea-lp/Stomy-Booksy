@@ -18,32 +18,32 @@
                             <!-- Badges -->
                             <div class="d-lg-flex">
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
-                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
+                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/natural-user-interface-1.svg" style="width: 36px;">
                                     <div class="media-body pl-2">
-                                        <span class="h6"><%=@teacher.sub_categories.length %> service(s) proposé(s)</span>
+                                        <span class="h6"><%=@teacher.sub_categories.count %> compétence(s)</span>
                                     </div>
                                 </a>
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
-                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/natural-user-interface-1.svg" style="width: 36px;">
+                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
                                     <div class="media-body pl-2">
-                                        <span class="h6">??? élève(s)</span>
+                                        <span class="h6"><%=@teacher.services.count %> service(s)</span>
                                     </div>
                                 </a>
                                 <a class="media d-flex align-items-center mb-3 mb-lg-0">
                                     <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/collect.svg" style="width: 36px;">
                                     <div class="media-body pl-2">
-                                        <span class="h6">Inscrit à <%= @teacher.establishments.count %> école(s)</span>
+                                        <span class="h6"> <%= @teacher.establishments.count %> établissement(s)</span>
                                     </div>
                                 </a>
                             </div>
                             <div class="pt-5 mt-5 delimiter-top">
                                 <!-- Interests -->
-                                <h6><i class="fas fa-user mr-2"></i>Services proposé(s)</h6>
+                                <h6><img alt="Image placeholder" src="../assets/img/icons/dusk/svg/natural-user-interface-1.svg" style="width: 36px;">  Compétences</h6>
                                 <div>
                                     <% @teacher.sub_categories.each do |sub| %>
                                         <span class="badge badge-lg badge-info mr-2 mb-2"><%= sub.title %>
                                         <% if current_teacher == @teacher %>
-                                            <a href="<%= teacher_teacher_cat_path(current_teacher, sub)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Êtes vous sûr ?">
+                                            <a href="<%= teacher_teacher_cat_path(current_teacher, sub)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm='Vous allez vous supprimer la catégorie "<%=sub.title%>". ÊtesVeuillez confirmer.'>
                                             <i class="fas fa-trash-alt"></i>
                                             </a>
                                         <% end %>
@@ -54,7 +54,7 @@
                                 <% if current_teacher == @teacher %>
                             
                                 <div class="d-flex justify-content-between text-center">
-                                <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Nouvelle catégorie</span>
+                                <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Nouvelle compétence</span>
                                 <div id="jquery">
                                         <%= form_tag(teacher_teacher_cats_path(@teacher)) do %>
                                         <div class="d-flex flex-row" >
@@ -66,34 +66,59 @@
                                 <% end %>
                             </div>
                             <div class="pt-5 mt-5 delimiter-top">
-                                <!-- Endorsements -->
-                                <h6><i class="fas fa-user mr-2"></i>Ecole(s)</h6>
+                                <!-- Interests -->
+                                <h6><img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">  Services proposé(s)</h6>
                                 <div class="row">
+                                    <% @teacher.services.each do |service| %>
+                                     <div class="col-lg-6 mt-4">
+                                            <div class="card bg-secondary shadow-sm border-0">
+                                                <div class="media align-items-center p-3" >
+                                                    <a href="#" class="avatar rounded-circle mr-2">
+                                                        <%= image_tag service.establishment.avatar, style: "width:50px; height:50px" %>
+                                                        
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <!-- href à mettre à jour -->
+                                                        <h6 class="text-sm mb-0"><a href="#"> <strong><%= service.name %></strong></a></h6>
+                                                        <p class="text-sm mb-0"><%= service.sub_category.title.upcase %></p>
+                                                        <p class="text-sm mb-0">Prof: <%= service.teacher.first_name+" "+service.teacher.last_name %></p>
+                                                        <!-- href à mettre à jour -->
+                                                        <a href="#">Réserver un créneau</a>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% end %>
+                                </div>
+                            </div>
+                            <div class="pt-5 mt-5 delimiter-top">
+                                <!-- Endorsements -->
+                                <h6><img alt="Image placeholder" src="../assets/img/icons/dusk/svg/collect.svg" style="width: 36px;"> Etablissement(s)</h6>
+                                <div class="row">
+                                    <% @teacher.establishments.each do |establishment| %>
                                     <div class="col-lg-6 mt-4">
                                         <div class="card bg-secondary shadow-sm border-0">
-                                            <% @teacher.establishments.each do |establishment| %>
                                             <div class="media align-items-center p-3">
                                                 <a href="#" class="avatar rounded-circle mr-2">
-                                                    <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg">
+                                                    <%= image_tag establishment.avatar, style: "width:50px; height:50px" %>
                                                 </a>
                                                 <div class="media-body">
                                                     <h6 class="text-sm mb-0"> <a href="<%=establishment_path(establishment)%>"><%= establishment.name %></a></h6>
                                                 </div>
-                                                <% if current_teacher == @teacher %>
-                                                    <a href="<%= teacher_teacher_establishment_path(current_teacher, establishment)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Êtes vous sûr ?" >
-                                                    <i class="fas fa-trash-alt"></i>
-                                                    </a>
-                                                <% end %>
                                             </div>
-                                            <% end %>
-                                        </div>  
+                                        </div>
                                     </div>
+                                    <% end %>
+
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
-    </section>
+        </div>
+    </section>      
     <% if current_user %>
         <%= render 'layouts/logged' %>
     <% else %>

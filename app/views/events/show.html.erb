@@ -4,9 +4,9 @@
 
         <div class="row justify-content-center">
                 <div class="col-lg-8 text-center py-4">
-                    <h4 class="heading h3">Votre réservation</h4>
+                    <h4 class="heading h3">Votre réservation pour <br> "<%=@service.name%>" </h4>
                     <p class="lead text-muted">
-                        N'oubliez pas de signaler tout changement <br> à votre professeur !
+                        <%=@service.description%>
                     </p>
 
                     <div class="row d-flex justify-content-around pb-5">
@@ -16,16 +16,15 @@
                             <div class="card-body">
                                 <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
                                 <p class="card-text">Professeur</p>
-                                <%= link_to 'voir le profil', establishment_path(@establishment), class: "btn btn-outline-danger btn-sm btn-circle btn-translate--hover" %>
+                                <%= link_to 'voir le profil', teacher_path(@teacher), class: "btn btn-outline-danger btn-sm btn-circle btn-translate--hover" %>
                             </div>
                         </div>
 
                         <div class="card" style="width: 20rem; z-index: 1000" >
                             <div class="card-body">
-                                <h5 class="h5 card-title">Salle réservée : <%=@resource.name%></h5>
-                                <h5 class="h5 card-title">Le <%=@event.start_time.strftime("%d/%m/%Y")%></h5>
-                                <h5 class="h5 card-title">à <%=@event.start_time.strftime("%Hh%M")%></h5>
-                                <p class="card-text">Durée <%=@duration%></p>
+                                <h5 class="h5 card-title">Salle réservée : <%=@resource.name%><br> à: <%=@resource.establishment.name%></h5>
+                                <h5 class="h5 card-title">Le <%=@event.start_time.strftime("%d/%m/%Y")%><br>à <%=@event.start_time.strftime("%Hh%M")%></h5>
+                                <p class="card-text">(Durée <%=@duration%>)</p>
                                 <p class="card-text"> <strong>Lieu de rendez-vous :</strong> <br> <%=@establishment.address%></p>
                             </div>
                         </div>
@@ -35,12 +34,14 @@
                             <div class="card-body">
                                 <h5 class="h5 card-title"><%=@establishment.name%></h5>
                                 <p class="card-text">Établissement</p>
-                                <%= link_to 'voir le profil', teacher_path(@teacher), class: "btn btn-outline-success btn-sm btn-circle btn-translate--hover" %>
+                                <%= link_to 'voir le profil', establishment_path(@establishment) , class: "btn btn-outline-success btn-sm btn-circle btn-translate--hover" %>
                             </div>
                         </div>
 
                     </div>
-                    <%= link_to "Retour à l'agenda", get_dashboard(current_user), class: "btn btn-circle btn-primary" %>
+                    <%= link_to "Retour à mon dashboard", get_dashboard(current_user), class: "btn btn-circle btn-primary btn-translate--hover" %>
+                    <a href="<%= event_path(@event) %>" class="mx-5 btn-translate--hover" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=@event.name%>'. Veuillez confirmer." ><i class="fas fa-trash-alt text-danger"></i></a>
+
                 </div>
             </div>
         </div>

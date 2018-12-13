@@ -72,7 +72,7 @@
                                         <i class="fas fa-angle-right"></i>
                                     </div>
                                 </a>
-                                <a href="<%= registration_path(current_user) %>" class="btn btn-danger btn-icon-label font-weight-light", data-confirm="Êtes-vous sûr ?", data-method="DELETE">
+                                <a href="<%= registration_path(current_user) %>" class="btn btn-danger btn-icon-label font-weight-light", data-confirm="Vous allez supprimer de manière PERMANENTE votre compte. Veuillez confirmer.", data-method="DELETE">
                                     <div>
                                         <i class="far fa-trash-alt mr-2"></i>
                                         <span>Supprimer</span>
@@ -94,23 +94,30 @@
                         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                         <%= devise_error_messages! %>
                         <!-- Première ligne -->
-
                         <div class="row">
-                            <% if resource.class.name == "Establishment" %>
                             <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-control-label">Avatar</label>
+                                    <i class="fa fa-upload"></i>
+                                    <span><%= f.file_field :avatar%></span>
+                                </div>
+                            </div>
+
+                            <% if resource.class.name == "Establishment" %>
+                            <div class="col-md-12 pt-2">
                                 <div class="form-group">
                                     <label class="form-control-label">Raison Sociale</label>
                                     <%= f.text_field :name, class: "form-control form-control-label", autofocus: true, value: "#{@establishment.name}" %>
                                 </div>
                             </div>
                             <% elsif resource.class.name == "Student" || resource.class.name == "Teacher" %>
-                            <div class="col-md-6">
+                            <div class="col-md-6 pt-2">
                                 <div class="form-group">
                                     <label class="form-control-label">Prénom</label>
                                     <%= f.text_field :first_name, class: "form-control form-control-label", autofocus: true, placeholder: "#{current_user.first_name}" %>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 pt-2">
                                 <div class="form-group">
                                     <label class="form-control-label">Nom</label>
                                     <%= f.text_field :last_name, class: "form-control form-control-label", autofocus: true, placeholder: "#{current_user.last_name}" %>
@@ -220,6 +227,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="">
                             <div class="page-inner-header mb-4">
                                 <h5 class="mb-1">Confirmer votre nouveau mot-de-passe </h5>
