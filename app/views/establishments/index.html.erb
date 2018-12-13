@@ -59,17 +59,13 @@
             </div>
 
             <div class="card-body">
-                <div>
-                  <h6 class="mb-3"><%= establishment.teachers.count %> professeur(s) affilié(s)</h6>
-                  <h6 class="mb-3"><%= establishment.services.count %> service(s) proposé(s)</h6>
-                </div>
                 <p class="card-text"><%= establishment.description %></p>
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center ">
                   <a href="<%=establishment_teachers_path(establishment)%>">
                     <button class="btn btn-sm btn-success btn-circle btn-icon">
-                      <span class="btn-inner--text">Voir nos professeurs</span>
+                      <span class="btn-inner--text">Voir nos professeurs (<%=establishment.teachers.count%>)</span>
                       <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
                     </button>
                   </a>
@@ -77,7 +73,7 @@
                 <div class="d-flex justify-content-center my-2">
                   <a href="<%=establishment_services_path(establishment)%>">
                     <button class="btn btn-sm btn-info btn-circle btn-icon">
-                      <span class="btn-inner--text">Voir nos services</span>
+                      <span class="btn-inner--text">Voir nos services (<%=establishment.services.count%>)</span>
                       <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
                     </button>
                   </a>
