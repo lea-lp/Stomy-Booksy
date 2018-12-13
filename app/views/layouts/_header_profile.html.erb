@@ -21,19 +21,10 @@
                             </li>
                             <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                                 <span class="badge badge-dot text-white">
-                                    <i class="bg-green"></i>Email
+                                    <i class="bg-green"></i>Contacter cet établissement
                                 </span>
-                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
-                                    <%= @establishment.email %>
-                                    <small class="far fa-angle-up text-success"></small>
-                                </a>
-                            </li>
-                            <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
-                                <span class="badge badge-dot text-white">
-                                    <i class="bg-red"></i>Site internet
-                                </span>
-                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
-                                    <%= @establishment.email %>
+                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="mailto:<%= @establishment.email %>?subject=Message en provenance de Stomy-Booksy&body=Je souhaiterais avoir plus d'informations sur votre établissement.">
+                                    Envoyer un mail
                                     <small class="far fa-angle-up text-success"></small>
                                 </a>
                             </li>
@@ -50,10 +41,10 @@
                         <ul class="list-inline row justify-content-lg-end mb-0">
                             <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                                 <span class="badge badge-dot text-white">
-                            <i class="bg-green"></i>Email
-                        </span>
-                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
-                            <%= @teacher.email %>
+                            <i class="bg-green"></i>Contacter ce professeur
+                                </span>
+                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="mailto:<%= @teacher.email %>?subject=Message en provenance de Stomy-Booksy&body=Je souhaiterais avoir plus d'informations sur votre établissement.">
+                                    Envoyer un mail
                             <small class="far fa-angle-up text-success"></small>
                         </a>
                             </li>
@@ -79,10 +70,10 @@
                         <ul class="list-inline row justify-content-lg-end mb-0">
                             <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                                 <span class="badge badge-dot text-white">
-                            <i class="bg-green"></i>Email
-                        </span>
-                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
-                            <%= @student.email %>
+                            <i class="bg-green"></i>Contacter cet élève
+                                </span>
+                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="mailto:<%= @establishment.email %>?subject=Message en provenance de Stomy-Booksy&body=Je souhaiterais avoir plus d'informations sur votre établissement.">
+                                    Envoyer un mail
                             <small class="far fa-angle-up text-success"></small>
                         </a>
                             </li>
