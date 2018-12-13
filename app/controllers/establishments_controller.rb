@@ -35,9 +35,23 @@ class EstablishmentsController < ApplicationController
     filter_user_allowed
 
     @establishment = current_user
+    @events = @establishment.events
 
     @resources = @establishment.resources.order(created_at: :desc)
     @resource = Resource.new
+
+    @services = @establishment.services.order(created_at: :desc)
+    @service = Service.new
+
+    @teachers = Teacher.all.order(email: :asc)
+
+    @sub_categories = SubCategory.all.order(title: :asc)
+
+    if params[:search_resource]
+      @resource_calendar = Resource.find(params[:search_resource])
+    else 
+      @resource_calendar = @resources.first
+    end 
 
   end
 

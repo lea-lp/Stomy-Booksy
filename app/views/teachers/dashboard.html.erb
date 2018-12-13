@@ -12,7 +12,7 @@
             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center btn-translate--hover" style="color: black; font-size: 1.5em"></i></a>
             <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow" style="width: 170px">
               <div class="list-group">
-                <a href="<%= root_path %>" class="list-group-item list-group-item-action">
+                <a href="<%= teacher_path(current_teacher) %>" class="list-group-item list-group-item-action">
                   <div class="media d-flex align-items-center">
                     <div class="media-body ml-3">
                       <h6 class="mb-1">Profil</h6>
@@ -66,7 +66,7 @@
                 </div>
               </div>
               <div class="list-group list-group-sm list-group-flush">
-                <a href="#card-table" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+                <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
                   <div>
                       <%= image_tag "img/icons/dusk/svg/numbered-list.svg", alt: "float menu icon", class: "avatar", style: "width: 33px" %>
                   </div>
@@ -74,7 +74,7 @@
                     <h6 class="text-sm d-block text-limit">Mes rendez-vous</h6>
                   </div>
                 </a>
-                <a href="#card-calendar" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+                <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
                   <div>
                       <%= image_tag "img/icons/dusk/svg/expired.svg", alt: "float menu icon", class: "avatar", style: "width: 33px" %>
                   </div>
@@ -98,27 +98,23 @@
 
         <div class="col-9" >
 
-            <!-- CALENDAR -->
-            <div class="card" id="card-calendar">
-                <div class="card-header">
-                    <%= add_weekly_calendar(@events) %>
-                </div>
-            </div>
-
             <!-- TABLE -->
-            <div class="card mt-4" id="card-table" >
+            <div class="card" id="card-rdv">
                 <div class="card-header border-0">
 
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                        <h6 class="mb-0">Liste des rendez-vous</h6>
-                        </div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <div>
+                        <h6>Mes rendez-vous</h6>
+                      </div>
+                      <div id="rdv" style="cursor:pointer;" >
+                        <i class="fas fa-angle-down"></i>
+                      </div>
                     </div>
 
                     <% if current_user.upcoming_events.any? %>
             
                 <!-- resources list (table) -->
-                    <div class="table-responsive">
+                    <div class="table-responsive" id="hide-rdv">
                     <table class="table table-hover table-flush align-items-center table-striped">
                         <thead class="thead-light">
                         <tr class="row">
@@ -136,7 +132,7 @@
                             <td class="col-2" style="height: auto"><span class="font-weight-bold wrap"><%=Time.at(event.start_time).utc.strftime("%Hh%M")%></span></td>
                             <td class="col-2" style="height: auto"><span class="text-sm wrap"><%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
                             <td class="col-6" style="height: auto"><span class="text-sm wrap"><%=event.name%></span></td>
-                            <td class="col-1" style="height: auto"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Êtes vous sûr ?" >
+                            <td class="col-1" style="height: auto"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer." >
                                 <i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                         <%end%>
@@ -146,20 +142,13 @@
 
                     <% else %>
 
-                    <div class="row mt-4 d-flex justify-content-around">
-                        
-                        <span class="mb-0">Aucun rendez-vous pour le moment !</span>
+                    <div id="hide-rdv">
 
-                        <a href="<%=establishments_path%>" class="btn-sm btn-success btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
-                            <span class="btn-inner--text">Voir la liste des écoles</span>
-                            <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                        </a>
+                      <div class="row mt-4 d-flex justify-content-around" id="hide-rdv">
+                          
+                          <span class="mb-0">Aucun rendez-vous de prévu (pour le moment !)</span>
 
-                        <a href="<%=teachers_path%>" class="btn-sm btn-danger btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
-                            <span class="btn-inner--text">Voir la liste des écoles</span>
-                            <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                        </a>
-
+                      </div>
                     </div>
 
                     <% end %>
@@ -169,6 +158,23 @@
                 </div>
 
             </div>
+
+              <!-- CALENDAR -->
+              <div class="card mt-4" id="card-calendar">
+                  <div class="card-header" >
+                    <div class="d-flex justify-content-between align-items-center mb-2 justify-content-between">
+                      <div>
+                        <h6>Mon calendrier</h6>
+                      </div>
+                      <div id="calendar" style="cursor:pointer;" >
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </div>
+                    <div id="hide-calendar">
+                      <%= add_weekly_calendar(@events) %>
+                    </div>
+                  </div>
+              </div>
             </div>
         </div>
 
