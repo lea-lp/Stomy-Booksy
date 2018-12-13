@@ -25,7 +25,7 @@ puts "*"*50
   firstName = Faker::Name.first_name
   lastName = Faker::Name.last_name
   puts temp_stud = Student.create(phone:Faker::IDNumber.valid, first_name: firstName, last_name: lastName, password:"azerty", email: firstName+"."+lastName+"@gmail.com", address:Faker::Address.full_address)
-  # temp_stud.avatar.attach(io: File.open("app/assets/images/profile_pictures/students/student_"+i.to_s+".jpg"), filename: 'avatar')
+  temp_stud.avatar.attach(io: File.open("app/assets/images/profile_pictures/students/student_"+i.to_s+".jpg"), filename: 'avatar')
 end
 puts "*"*50
 puts "students created"
@@ -35,7 +35,7 @@ puts "*"*50
   firstName = Faker::Name.first_name
   lastName = Faker::Name.last_name
   puts temp_teach = Teacher.create(phone:Faker::IDNumber.valid, email: firstName+"."+lastName+"@gmail.com", first_name: firstName, last_name: lastName, password:"azerty",address: Faker::Address.full_address, siret:Faker::Company.french_siren_number, description:Faker::ChuckNorris.fact)
-  # temp_teach.avatar.attach(io: File.open("app/assets/images/profile_pictures/teachers/teacher_"+i.to_s+".jpg"), filename: 'avatar')
+  temp_teach.avatar.attach(io: File.open("app/assets/images/profile_pictures/teachers/teacher_"+i.to_s+".jpg"), filename: 'avatar')
 end
 puts "*"*50
 puts "teachers created"
