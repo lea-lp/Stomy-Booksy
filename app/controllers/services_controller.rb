@@ -17,9 +17,6 @@ class ServicesController < ApplicationController
 
   def create
     params[:service][:duration] = params[:service][:duration_minutes].to_i*60
-    puts "$"*60
-    puts params
-    puts "$"*60
     @service = Service.new(service_params)
 
     if @service.save

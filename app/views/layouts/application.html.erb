@@ -14,8 +14,7 @@
   </head>
 
   <body>
-    <%= render 'layouts/flash' %> 
-    <%= render 'layouts/navbar' unless current_page?(get_dashboard(current_user)) %>
+    <%= render 'layouts/navbar' unless current_page?(get_dashboard(current_user)) %>    
     <%= yield %>
     <%= render 'layouts/footer' unless current_page?(get_dashboard(current_user)) %> 
   </body>
