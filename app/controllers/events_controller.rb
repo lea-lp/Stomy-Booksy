@@ -53,8 +53,7 @@ class EventsController < ApplicationController
 
     if @event.save
       flash[:success]="Le créneau a bien été réservé!"
-      ContactMailer.event_confirmation(@event.teacher).deliver_now
-      ContactMailer.event_confirmation(@event.student).deliver_now
+      ContactMailer.event_confirmation(@event).deliver_now
 
       redirect_back(fallback_location: root_path)
       return
@@ -69,8 +68,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     flash[:success]="Votre rendez-vous a été supprimé"
-    ContactMailer.event_cancel(@event.teacher).deliver_now
-    ContactMailer.event_cancel(@event.student).deliver_now
+    ContactMailer.event_cancel(@event).deliver_now
     redirect_back(fallback_location: root_path)
 
   end 
