@@ -12,6 +12,7 @@ class Establishment < ApplicationRecord
   has_many :teachers, -> { distinct }, through: :services
   has_many :resources, dependent: :destroy
   has_many :events, through: :resources
+  has_one_attached :avatar
 
   geocoded_by :address
   after_validation :geocode
@@ -20,7 +21,14 @@ class Establishment < ApplicationRecord
     events.order(start_time: :asc).select { |e| e.start_time > (DateTime.now) }
   end
 
-  after_create :welcome_send
+  after_create :welcome_send, :avatar_attach
+
+  def avatar_attach
+    temp_user = self
+    temp_user.avatar.attach(io: File.open("app/assets/images/neutral.jpeg"), filename: 'avatar')
+  end
+
+
   def welcome_send
     ContactMailer.welcome_send(self).deliver
   end

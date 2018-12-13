@@ -47,9 +47,15 @@
               </div>
             </div>
             <div class="card-image">
+              <% if establishment.avatar.attached? %>
+                <a href="<%=establishment_path(establishment)%>">
+                <%= image_tag establishment.avatar, style: "width:100%" %>
+                </a>
+              <% else %>
               <a href="<%=establishment_path(establishment)%>">
                 <%= image_tag ("assos.jpg"), :style => "width:348px;" %>
               </a>
+              <% end %>
             </div>
 
             <div class="card-body">

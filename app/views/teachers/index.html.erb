@@ -37,10 +37,14 @@
       <div class="col-lg-4 pt-5">
         <div class="card overflow-hidden" data-animate-hover="2">
           <div class="overflow-hidden">
-            <div class="animate-this">
-              <a href="<%= teacher_path(teacher) %>">
-                <%= image_tag ("prof2.jpg"), :style => "width:348px;" %>
-              </a>
+            <div class="animate-this text-center">
+              <% if teacher.avatar.attached? %>
+                <%= image_tag teacher.avatar, style: "width:348px" %>
+              <% else %>
+                <a href="<%= teacher_path(teacher) %>">
+                  <%= image_tag ("prof2.jpg"), style: "width:348px;" %>
+                </a>
+              <% end %>
             </div>
           </div>
           <div class="card-body text-center">
