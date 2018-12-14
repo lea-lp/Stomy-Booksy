@@ -70,22 +70,22 @@
           </div>
           <div class="col-lg-3 mr-3">
             <div class="card" style="width: 16rem;">
-                <div class="text-center" style="height: auto; width: 100%;">
+                <a href="<%=establishment_path(@establishment)%>" class="text-center" style="height: auto; width: 100%;">
                     <%= image_tag @establishment.avatar.variant(resize: "300x300"), style: "width: 100%; height:auto; border-radius:5px;" %>
-                </div>
+                </a>
                 <div class="card-body">
-                    <h5 class="h5 card-title"><%=@establishment.name%></h5>
+                    <a href="<%=establishment_path(@establishment)%>" class="h5 card-title"><%=@establishment.name%></a>
                     <p class="card-text">Établissement</p>
                     <%=link_to "Voir tous les établissements", establishments_path %>
                 </div>
             </div>
         </div>
         <div class="card" style="width: 16rem;" >
-            <div class="text-center" style="height: auto; width: 100%;">
+            <a href="<%=teacher_path(@teacher)%>" class="text-center" style="height: auto; width: 100%;">
                 <%= image_tag @teacher.avatar.variant(resize: "300x300"), style: "width: 100%; height:auto; border-radius:5px;"%>
-            </div>
+            </a>
             <div class="card-body">
-                <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
+                <a href="<%=teacher_path(@teacher)%>" class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></a>
                 <p class="card-text">Professeur</p>
                 <%=link_to "Voir tous les professeurs", teachers_path %>
             </div>
