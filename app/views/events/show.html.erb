@@ -23,9 +23,9 @@
                             <div class="card-body">
                                 <h5 class="h5 card-title">Salle réservée : <%=@resource.name%><br> à: <%=@resource.establishment.name%></h5>
                                 <h5 class="h5 card-title">Le <%=@event.start_time.strftime("%d/%m/%Y")%><br>à <%=@event.start_time.strftime("%Hh%M")%></h5>
-                                <p class="card-text">(Durée <%=@duration%>)</p>
+                                <p class="card-text">(Durée: <%=@duration%>)</p>
                                 <p class="card-text"> <strong>Lieu de rendez-vous :</strong> <br> <%=@establishment.address%></p>
-                                <a href="<%=student_path(@student)%>" class="card-text" style="color:grey;" > (Elève: <%=@student.first_name%> <%=@student.last_name%>)</a>
+                                <a href="<%=student_path(@student)%>" class="card-text" style="color:grey;" ><strong>Elève: <%=@student.first_name%> <%=@student.last_name%></strong></a>
 
                             </div>
                         </div>
