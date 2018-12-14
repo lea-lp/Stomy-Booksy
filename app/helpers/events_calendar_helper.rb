@@ -1,6 +1,6 @@
 module EventsCalendarHelper
-  def add_weekly_calendar(events)
-    render partial: "simple_calendar/weekly_calendar_events", locals: { events: events }
+  def add_weekly_calendar(events, teacher, resource)
+    render partial: "simple_calendar/weekly_calendar_events", locals: { events: events, teacher: teacher, resource: resource }
   end
   
   def event_position(event)

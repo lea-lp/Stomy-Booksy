@@ -5,7 +5,11 @@
       <%if event.student == current_user || event.teacher == current_user || event.resource.establishment == current_user %>
         <%= link_to '<i class="fas fa-info-circle"></i> &nbsp; infos'.html_safe, event_path(event), id: "calendar-link", style:"z-index:5;"%>
       <%else%>
-        <a id= "calendar-link" style="z-index: 1;"><i class="fas fa-ban"></i>&nbsp;occupé</a>
+        <%if event.teacher == teacher%>
+          <a id= "calendar-link" style="z-index: 1;"><i class="fas fa-ban"></i>&nbsp;prof</a>
+        <%elsif event.resource == resource%>
+          <a id= "calendar-link" style="z-index: 1;"><i class="fas fa-ban"></i>&nbsp;salle</a>
+          <%end%>
       <%end%>
     </div>
   <% end %>
