@@ -41,21 +41,21 @@
                         <ul class="list-inline row justify-content-lg-end mb-0">
                             <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                                 <span class="badge badge-dot text-white">
-                            <i class="bg-green"></i>Contacter ce professeur
-                                </span>
-                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="mailto:<%= @teacher.email %>?subject=Message en provenance de Stomy-Booksy&body=Je souhaiterais avoir plus d'informations sur vos cours.">
-                                    Envoyer un mail
-                                     <small class="far fa-angle-up text-success"></small>
-                                 </a>
-                            </li>
-                            <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
-                                <span class="badge badge-dot text-white">
                                     <i class="bg-orange"></i>Téléphone
                                </span>
                                 <span class="d-sm-block h6 text-white font-weight-bold pl-2" href="#">
                                     <%= @teacher.phone %>
                                     <small class="far fa-angle-up text-warning"></small>
                                 </span>
+                            </li>
+                            <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                <span class="badge badge-dot text-white">
+                            <i class="bg-green"></i>Contacter ce professeur
+                                </span>
+                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="mailto:<%= @teacher.email %>?subject=Message en provenance de Stomy-Booksy&body=Je souhaiterais avoir plus d'informations sur vos cours.">
+                                    Envoyer un mail
+                                     <small class="far fa-angle-up text-success"></small>
+                                 </a>
                             </li>
                         </ul>
                     </div>
@@ -69,14 +69,6 @@
                     <div class="col-auto flex-fill">
                         <ul class="list-inline row justify-content-lg-end mb-0">
                             <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
-                                <span class="badge badge-dot text-white"><i class="bg-green"></i>Contacter cet élève
-                                </span>
-                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="mailto:<%= @student.email %>">
-                                    Envoyer un mail
-                                    <small class="far fa-angle-up text-success"></small>
-                                </a>
-                            </li>
-                            <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                                 <span class="badge badge-dot text-white">
                                     <i class="bg-orange"></i>Téléphone
                                 </span>
@@ -84,6 +76,14 @@
                                         <%= @student.phone %>
                                     <small class="far fa-angle-up text-warning"></small>
                                 </span>
+                            </li>
+                            <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                <span class="badge badge-dot text-white"><i class="bg-green"></i>Contacter cet élève
+                                </span>
+                                <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="mailto:<%= @student.email %>">
+                                    Envoyer un mail
+                                    <small class="far fa-angle-up text-success"></small>
+                                </a>
                             </li>
                         </ul>
                     </div>
