@@ -43,5 +43,5 @@ Elle a l'ambition de proposer sa propre interface de réservation en ligne afin 
 
 Mais Stomy Booksy c'est aussi:  
 - le point d'orgue de 11 semaines de boulot
-- le feu d'artifice final pour 2 groupes de malade (8 montpelliérains!) où la bonne humeur et l'entraide a régné de bout en bout
+- le feu d'artifice final pour 2 groupes de malade (big up aux potos de `Click & Shop`!) où la bonne humeur et l'entraide a régné de bout en bout
 - un hommage à un des rappeurs les plus malaisants de l'histoire de France (https://fr.wikipedia.org/wiki/Stomy_Bugsy)
