@@ -31,7 +31,7 @@ class Establishment < ApplicationRecord
 
 
   def welcome_send
-    ContactMailer.welcome_send(self).deliver_later
+    ContactMailer.welcome_send(self).deliver_now
   end
   
 end
