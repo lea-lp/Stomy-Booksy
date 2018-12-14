@@ -5,7 +5,7 @@
       <%if event.student == current_user || event.teacher == current_user || event.resource.establishment == current_user %>
         <%= link_to '<i class="fas fa-info-circle"></i> &nbsp; infos'.html_safe, event_path(event), id: "calendar-link"%>
       <%else%>
-        <%= link_to '<i class="fas fa-ban"></i> &nbsp; occupé'.html_safe, nil, id: "calendar-link" %>
+        <a id= "calendar-link"><i class="fas fa-ban"></i>&nbsp;occupé</a>
       <%end%>
     </div>
   <% end %>
