@@ -297,7 +297,7 @@
                     <th class="col-1 p-2 pt-3" style="height: auto; color: gray"> Prof. </th>
                     <th class="col-1 p-3" style="height: auto; color: gray"> Salle </th>
                     <th class="col-5 p-3" style="height: auto; color: gray"> Description </th>
-                    <th class="col-1 p-3" style="height: auto; color: gray"> Durée </th>
+                    <th class="col-2 p-3" style="height: auto; color: gray"> Durée </th>
                     <th class="col-1 p-3" style="height: auto; color: gray"><i class="fas fa-trash-alt"></i></th>
                   </tr>
                 </thead>
@@ -308,7 +308,7 @@
                       <td class="col-1 p-2 pt-3" style="height: auto;"><a href="<%=teacher_path(service.teacher)%>" class="font-weight-bold wrap"><%=service.teacher.first_name%></a></td>
                       <td class="col-1 p-3" style="height: auto;"><span class="text-sm wrap"><%=service.resource.name%></span></td>
                       <td class="col-5 text-overflow p-3" style="height: auto;"><span class="text-sm wrap"><%=service.description%></span></td>
-                      <td class="col-1 p-3" style="height: auto;"><span class="text-sm wrap"><%=service.duration/60%> min</span></td>
+                      <td class="col-2 p-3" style="height: auto;"><span class="text-sm wrap"><%=service.duration/60%> min</span></td>
                       <td class="col-1 p-3" style="height: auto;"><a href="<%=service_path(service)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm='Vous allez effacer "<%=service.name%>". Veuillez confirmer.' >
                         <i class="fas fa-trash-alt"></i></a></td>
                     </tr>
