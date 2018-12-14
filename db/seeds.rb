@@ -10,7 +10,7 @@ Category.create(title:"Musique")
 Category.create(title:"Sport")
 
 music = ["Piano", "Pipo", "Contrebasse", "Banjo", "Didgeridoo", "Tuba", "Triangle", "Balafon", "Flûte", "Accordéon", "Guitare", "Trombone", "Harpe"]
-sport = ["Danse classique", "Ultimate", "Coutûre acrobatique", "Dressage de loutre", "Tire aux mouettes", "Chasse aux escargots", "Serge lama training", "Football", "Handball", "Tennis", "Danse", "Rugby", ]
+sport = ["Danse classique", "Ultimate", "Coutûre acrobatique", "Dressage de loutre", "Tir aux mouettes", "Chasse aux escargots", "Serge lama training", "Football", "Handball", "Tennis", "Danse", "Rugby", ]
 address = ["31 Rue Caizergues de Pradines 34000 Montpellier", "31 Rue de l'Université 34000 Montpellier", "28 Rue du Faubourg Figuerolles 34070 Montpellier","18 Rue Fouques 34000 Montpellier", "1603 Avenue de la Pompignane 34000 Montpellier" ,"Place Eugène Bataillon 34095 Montpellier", "99 Avenue d'Occitanie 34090 Montpellier", "Route de Sète 34430 Saint-Jean-de-Védas", "390 Route de Pérols 34970 Lattes", "3 rue Rhin et Danube 34000 Montpellier", "195 boulevard de l'aéroport international 34000 Montpellier", "6 rue Jacques d'Aragon 34000 Montpellier", "1 rue Joubert 34000 Montpellier", "9 rue de Valfère 34000 Montpellier"]
 
 5.times do |i|
