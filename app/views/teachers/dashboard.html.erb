@@ -68,15 +68,15 @@
                 </div>
               </div>
               <div class="list-group list-group-sm list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+                <a href="#rdv" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
                   <div>
                       <%= image_tag "img/icons/dusk/svg/numbered-list.svg", alt: "float menu icon", class: "avatar", style: "width: 33px" %>
                   </div>
                   <div class="flex-fill pl-3 text-limit">
-                    <h6 class="text-sm d-block text-limit">Mes rendez-vous</h6>
+                    <h6 class="text-sm d-block text-limit">Mes rendez-vous (à venir)</h6>
                   </div>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+                <a href="#calendar" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
                   <div>
                       <%= image_tag "img/icons/dusk/svg/expired.svg", alt: "float menu icon", class: "avatar", style: "width: 33px" %>
                   </div>
@@ -116,25 +116,25 @@
                     <% if current_user.upcoming_events.any? %>
             
                 <!-- resources list (table) -->
-                    <div class="table-responsive" id="hide-rdv">
-                    <table class="table table-hover table-flush align-items-center table-striped">
+                    <div class="table-responsive container" id="hide-rdv">
+                    <table class="table  table-flush align-items-center">
                         <thead class="thead-light">
                         <tr class="row">
-                            <th class="col-1" style="color: rgba(0, 0, 0, 0.596)"> Id </th>
+                            <th class="col-2" style="color: rgba(0, 0, 0, 0.596)"> Date </th>
                             <th class="col-2" style="color: rgba(0, 0, 0, 0.596)"> Heure </th>
                             <th class="col-2" style="color: rgba(0, 0, 0, 0.596)"> Durée </th>
-                            <th class="col-6" style="color: rgba(0, 0, 0, 0.596)"> Description </th>
+                            <th class="col-5" style="color: rgba(0, 0, 0, 0.596)"> Description </th>
                             <th class="col-1" style="color: rgba(0, 0, 0, 0.596)"><i class="fas fa-trash-alt"></i></th>
                         </tr>
                         </thead>
                         <tbody class="container">
                             <% current_user.upcoming_events.each do |event|%>
                             <tr class="row">
-                            <td class="col-1" style="height: auto"><span class="font-weight-bold text-sm wrap"><%=event.id%></span></td>
-                            <td class="col-2" style="height: auto"><span class="font-weight-bold wrap"><%=Time.at(event.start_time).strftime("%Hh%M")%></span></td>
-                            <td class="col-2" style="height: auto"><span class="text-sm wrap"><%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
-                            <td class="col-6" style="height: auto"><span class="text-sm wrap"><%=event.name%></span></td>
-                            <td class="col-1" style="height: auto"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer." >
+                              <td class="col-2" style="height: auto"><span class="font-weight-bold text-sm wrap"><%=(event.start_time).strftime("%d/%m/%Y")%></span></td>
+                              <td class="col-2" style="height: auto"><span class="font-weight-bold wrap"><%=Time.at(event.start_time).strftime("%Hh%M")%></span></td>
+                              <td class="col-2" style="height: auto"><span class="text-sm wrap"><%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
+                              <td class="col-5" style="height: auto"><span class="text-sm wrap"><%=event.name%></span></td>
+                              <td class="col-1" style="height: auto"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer." >
                                 <i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                         <%end%>
