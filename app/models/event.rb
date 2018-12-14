@@ -34,7 +34,7 @@ class Event < ApplicationRecord
 
     student_events.each do |student_event|
       unless student_event == self
-        if self.start_time >= student_event.start_time  && self.start_time <= student_event.end_time || self.start_time <= student_event.start_time && student_event.start_time <= self.end_time
+        if self.start_time >= student_event.start_time  && self.start_time < student_event.end_time || self.start_time <= student_event.start_time && student_event.start_time < self.end_time
           errors.add(:start_time, "L'élève n'est pas dispo sur ce créneau.")
         end
       end
@@ -42,7 +42,7 @@ class Event < ApplicationRecord
 
     resource_events.each do |resource_event|
       unless resource_event == self
-        if self.start_time >= resource_event.start_time  && self.start_time <= resource_event.end_time || self.start_time <= resource_event.start_time && resource_event.start_time <= self.end_time
+        if self.start_time >= resource_event.start_time  && self.start_time < resource_event.end_time || self.start_time <= resource_event.start_time && resource_event.start_time < self.end_time
           errors.add(:start_time, "La ressource n'est pas dispo sur ce créneau.")
         end
       end
@@ -50,7 +50,7 @@ class Event < ApplicationRecord
 
     teacher_events.each do |teacher_event|
       unless teacher_event == self
-        if self.start_time >= teacher_event.start_time  && self.start_time <= teacher_event.end_time || self.start_time <= teacher_event.start_time && teacher_event.start_time <= self.end_time
+        if self.start_time >= teacher_event.start_time  && self.start_time < teacher_event.end_time || self.start_time <= teacher_event.start_time && teacher_event.start_time < self.end_time
           errors.add(:start_time, "Le professeur n'est pas dispo sur ce créneau.")
         end
       end
