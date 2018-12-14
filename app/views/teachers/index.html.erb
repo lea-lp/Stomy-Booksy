@@ -38,17 +38,17 @@
         <div class="card overflow-hidden" data-animate-hover="2">
           <div class="overflow-hidden">
             <div class="animate-this text-center">
-              <% if teacher.avatar.attached? %>
-                <%= image_tag teacher.avatar, style: "width:348px" %>
-              <% else %>
                 <a href="<%= teacher_path(teacher) %>">
-                  <%= image_tag ("prof2.jpg"), style: "width:348px;" %>
+                  <% if teacher.avatar.attached? %>
+                    <%= image_tag teacher.avatar, style: "width:348px" %>
+                  <% else %>
+                      <%= image_tag ("prof2.jpg"), style: "width:348px;" %>
+                  <% end %>
                 </a>
-              <% end %>
             </div>
           </div>
           <div class="card-body text-center">
-            <h5 class="card-title mb-0"><a href="<%= teacher_path(teacher) %>"><%=teacher.first_name%> <%= teacher.last_name %></a></h5>
+            <h5 class="card-title mb-0"><a href="<%= teacher_path(teacher) %>" class="text-dark"><%=teacher.first_name%> <%= teacher.last_name %></a></h5>
             <p class="text-muted mb-0">
               <%teacher.sub_categories.each_with_index do |sub_cat, ind|%>
                 <%unless ind == 0 %>

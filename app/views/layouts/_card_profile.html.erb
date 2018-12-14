@@ -63,7 +63,7 @@
                 <% if current_user == @teacher %>
                 <div class="pt-4 mt-4 delimiter-top">
                     <div class="btn-group shadow rounded-circle">
-                        <a href="edit_teacher_registration_path" class="btn btn-sm btn-primary btn-circle btn-icon">
+                        <a href="<%=edit_teacher_registration_path%>" class="btn btn-sm btn-primary btn-circle btn-icon">
                             <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
                             <span class="btn-inner--text text-white" id="btn-group-settings">Modifier mon profil</span>
                         </a>
@@ -91,7 +91,7 @@
                     <h6 class="mb-0 pt-3">Téléphone</h6>
                     <span class="btn-inner--icon"><i class="fas fa-phone"></i></span>
                     <span class="text-muted"><%= @student.phone %></span>
-                    <h6 class="mb-0 pt-3">Emailsdqsdqds</h6>
+                    <h6 class="mb-0 pt-3">Email</h6>
                     <span class="btn-inner--icon"><i class="fas fa-envelope"></i></span>
                     <span class="text-muted"><%= @student.email %></span>
                 </div>
