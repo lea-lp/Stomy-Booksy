@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout, :filter_on_signed_in, :get_css_color, :get_dashboard, :get_profil, :page_belongs_to_user?
+  helper_method :user_signed_in?, :current_user, :get_user_type, :get_logout, :filter_on_signed_in, :get_css_color, :get_dashboard, :get_profil, :object_belongs_to_user?, :page_belongs_to_user?
 
   before_action :configure_devise_parameters, if: :devise_controller?
   before_action :set_locale
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def filter_on_signed_in
     unless user_signed_in?
       flash[:danger] = "Vous devez etre connecté pour accéder à cette page"
-      redirect_to new_student_session_path
+      redirect_to root_path
     end
   end
 
@@ -90,11 +90,39 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def page_belongs_to_user?(object)
+  def object_belongs_to_user?(object)
     unless current_user == object.teacher || current_user == object.student || current_user == object.establishment
       flash[:danger] = "Vous n'êtes pas autorisé à accéder à cette page. Veuillez vous connecter"
       redirect_to new_student_session_path
     end 
+  end
+
+  def page_belongs_to_user?
+    belongs = false
+    if params[:id]
+      user_id = params[:id]
+      if current_user == Teacher.find(user_id) || current_user == Student.find(user_id) || current_user == Establishment.find(user_id)
+        belongs = true
+      end
+    elsif params[:establishment_id]
+      if current_user == Establishment.find(params[:establishment_id])
+        belongs = true
+      end
+    elsif params[:teacher_id]
+        if current_user == Teacher.find(params[:teacher_id])
+        belongs = true
+      end
+    elsif params[:student_id]
+        if current_user == Student.find(params[:student_id])
+        belongs = true
+      end
+    end
+
+    unless belongs
+      flash[:danger] = "Vous n'êtes pas autorisé à accéder à cette page. Veuillez vous connecter"
+      redirect_to root_path
+      return
+    end
   end
 
   private

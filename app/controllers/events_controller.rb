@@ -33,7 +33,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    page_belongs_to_user?(@event)
+    object_belongs_to_user?(@event)
 
     @service = @event.service
     @resource = @event.resource
@@ -62,7 +62,12 @@ class EventsController < ApplicationController
       redirect_back(fallback_location: root_path)
       return
     else
-      flash[:danger]= @event.errors
+      error_message = ""
+      @event.errors.each do |k,v|
+        error_message += v+" "
+      end
+      flash[:danger]= error_message
+
       redirect_back(fallback_location: root_path)
       return
     end
@@ -70,7 +75,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    page_belongs_to_user?(@event)
+    object_belongs_to_user?(@event)
 
     @event.destroy
     flash[:success]="Votre rendez-vous a été supprimé"
