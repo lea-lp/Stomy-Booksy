@@ -1,6 +1,6 @@
 # Projet final THP - STOMY BOOKSY
 
-## Participants  
+## Makers  
 Ce superbe projet a été réalisé par Arthur Vouloir, Léa Leipp, thierry Delongueville et Clément Baldy  
 Fait à Montpellier en 2018!
 
