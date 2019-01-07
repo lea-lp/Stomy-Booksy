@@ -1,0 +1,27 @@
+<!-- CALENDAR -->
+<div class="card" id="card-calendar">
+    <div class="card-header">
+        <div class="">
+            <div class="row mb-4 d-flex align-items-center">
+                <div class="col-4">
+                    <h6>Mon calendrier (salle:
+                        <%=@resource_calendar.name.upcase%>)</h6>
+                </div>
+                <%= form_tag(establishment_dashboard_path(@establishment), method: :get, class: "col-7 row") do %>
+                <div>
+                    <%= select_tag 'search_resource', options_for_select(@resources.collect { |r| [r.name, r.id]}.insert(0, "Afficher le calendrier d'une autre salle")), {class: "form-control"} %>
+                </div>
+                <div class="mx-2">
+                    <%= submit_tag("Voir", class: "btn btn-outline-info") %>
+                </div>
+                <% end %>
+                <div id="calendar" class="col-1 text-right p-0" style="cursor:pointer;">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+        <div id="hide-calendar">
+            <%= add_weekly_calendar(@resource_calendar.events) %>
+        </div>
+    </div>
+</div>

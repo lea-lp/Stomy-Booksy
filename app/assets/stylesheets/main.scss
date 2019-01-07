@@ -6,8 +6,21 @@
 }
 
 #top-index {
-    background-image: image-url("intro-left.svg");
+    background-image: image-url("intro-small-left.svg");
     background-repeat: no-repeat;
     background-size: 100% auto;
-    height: 91%;
+}
+
+#top-index-teacher {
+    background-image: image-url("intro-small-left.svg");
+    background-repeat: no-repeat;
+}
+
+#card-index {
+    height: 23em;
+}
+
+.image-size {
+    max-width: 300px;
+    height: 200px;
 }

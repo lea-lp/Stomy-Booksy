@@ -20,7 +20,7 @@ Copyright 2018 Webpixels
     --orange: #FB9500;
     --yellow: #ff170a;
     --green: #4CD964;
-    --teal: #26B7FA;
+    --teal: #1A2962;
     --cyan: #4bd6e5;
     --white: #fff;
     --gray: #6c7686;
@@ -30,7 +30,7 @@ Copyright 2018 Webpixels
     --primary: #5110A7;
     --secondary: #F0F0F0;
     --success: #4CD964;
-    --info: #26B7FA;
+    --info: #1A2962;
     --warning: #FB9500;
     --danger: #F93A30;
     --light: #ced4da;
@@ -3051,15 +3051,15 @@ fieldset:disabled a.btn
 .btn-info
 {
     color: #fff;
-    border-color: rgb(99, 153, 240);
-    background-color: rgb(99, 153, 240);
+    border-color: #1A2962;
+    background-color: #1A2962;
     box-shadow: none;
 }
 .btn-info:hover
 {
     color: #fff;
-    border-color: rgba(59, 113, 201, 0.89); 
-    background-color: rgba(60, 117, 209, 0.89);
+    border-color: rgb(47, 65, 138); 
+    background-color: rgb(54, 71, 138);
 }
 .btn-info:focus,
 .btn-info.focus
@@ -3070,8 +3070,8 @@ fieldset:disabled a.btn
 .btn-info:disabled
 {
     color: #fff;
-    border-color: #26B7FA; 
-    background-color: #26B7FA;
+    border-color: #1A2962; 
+    background-color: #1A2962;
 }
 .btn-info:not(:disabled):not(.disabled):active,
 .btn-info:not(:disabled):not(.disabled).active,
@@ -3447,16 +3447,16 @@ fieldset:disabled a.btn
 
 .btn-outline-info
 {
-    color: #26B7FA;
-    border-color: #26B7FA; 
+    color: #1A2962;
+    border-color: #1A2962; 
     background-color: transparent;
     background-image: none;
 }
 .btn-outline-info:hover
 {
     color: #fff;
-    border-color: #26B7FA; 
-    background-color: #26B7FA;
+    border-color: #1A2962; 
+    background-color: #1A2962;
 }
 .btn-outline-info:focus,
 .btn-outline-info.focus
@@ -3466,7 +3466,7 @@ fieldset:disabled a.btn
 .btn-outline-info.disabled,
 .btn-outline-info:disabled
 {
-    color: #26B7FA;
+    color: #1A2962;
     background-color: transparent;
 }
 .btn-outline-info:not(:disabled):not(.disabled):active,
@@ -3474,8 +3474,8 @@ fieldset:disabled a.btn
 .show > .btn-outline-info.dropdown-toggle
 {
     color: #fff;
-    border-color: #26B7FA; 
-    background-color: #26B7FA;
+    border-color: #1A2962; 
+    background-color: #1A2962;
 }
 .btn-outline-info:not(:disabled):not(.disabled):active:focus,
 .btn-outline-info:not(:disabled):not(.disabled).active:focus,
@@ -7678,7 +7678,7 @@ button.bg-success:focus
 
 .bg-info
 {
-    background-color: #26B7FA !important;
+    background-color: #1A2962 !important;
 }
 
 a.bg-info:hover,
@@ -7840,7 +7840,7 @@ button.bg-darker:focus
 
 .border-info
 {
-    border-color: #26B7FA !important;
+    border-color: #1A2962 !important;
 }
 
 .border-warning
@@ -12015,7 +12015,7 @@ a.text-success:focus
 
 .text-info
 {
-    color: #26B7FA !important;
+    color: #1A2962 !important;
 }
 
 a.text-info:hover,
@@ -12663,7 +12663,7 @@ button.bg-green:focus
 
 .bg-teal
 {
-    background-color: #26B7FA !important;
+    background-color: #1A2962 !important;
 }
 
 a.bg-teal:hover,
@@ -12769,7 +12769,7 @@ button.bg-lighter:focus
 
 .bg-gradient-info
 {
-    background: linear-gradient(80deg, #26B7FA 0, #24e2fa 100%) !important;
+    background: linear-gradient(80deg, #1A2962 0, #24e2fa 100%) !important;
 }
 
 .bg-gradient-warning
@@ -13619,12 +13619,12 @@ button.bg-lighter:focus
 
 .shape-fill-teal
 {
-    fill: #26B7FA !important;
+    fill: #1A2962 !important;
 }
 
 .shape-stroke-teal
 {
-    stroke: #26B7FA !important;
+    stroke: #1A2962 !important;
 }
 
 .shape-fill-cyan
@@ -17771,7 +17771,7 @@ Styled shaped wrappers for displaying code and images in a more stylish manner
 .modal-info .modal-content
 {
     color: #fff; 
-    background-color: #26B7FA;
+    background-color: #1A2962;
 }
 .modal-info .modal-content .heading
 {
@@ -18582,12 +18582,12 @@ Styled shaped wrappers for displaying code and images in a more stylish manner
 
 .popover-info
 {
-    background-color: #26B7FA;
+    background-color: #1A2962;
 }
 .popover-info .popover-header
 {
     color: #fff; 
-    background-color: #26B7FA;
+    background-color: #1A2962;
 }
 .popover-info .popover-body
 {
@@ -18600,22 +18600,22 @@ Styled shaped wrappers for displaying code and images in a more stylish manner
 .popover-info.bs-popover-top .arrow::after,
 .popover-info.bs-popover-auto[x-placement^='top'] .arrow::after
 {
-    border-top-color: #26B7FA;
+    border-top-color: #1A2962;
 }
 .popover-info.bs-popover-right .arrow::after,
 .popover-info.bs-popover-auto[x-placement^='right'] .arrow::after
 {
-    border-right-color: #26B7FA;
+    border-right-color: #1A2962;
 }
 .popover-info.bs-popover-bottom .arrow::after,
 .popover-info.bs-popover-auto[x-placement^='bottom'] .arrow::after
 {
-    border-bottom-color: #26B7FA;
+    border-bottom-color: #1A2962;
 }
 .popover-info.bs-popover-left .arrow::after,
 .popover-info.bs-popover-auto[x-placement^='left'] .arrow::after
 {
-    border-left-color: #26B7FA;
+    border-left-color: #1A2962;
 }
 
 .popover-warning
@@ -19774,7 +19774,7 @@ tr.table-divider
     }
     [data-timeline-axis-color='info']:before
     {
-        border-color: #26B7FA;
+        border-color: #1A2962;
     }
     [data-timeline-axis-color='warning']:before
     {
@@ -20033,11 +20033,11 @@ h6,
 
 .link-underline-info
 {
-    border-bottom-color: #26B7FA;
+    border-bottom-color: #1A2962;
 }
 .link-underline-info:hover
 {
-    color: #26B7FA;
+    color: #1A2962;
 }
 
 .link-underline-warning

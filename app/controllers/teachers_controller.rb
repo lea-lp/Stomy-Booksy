@@ -27,6 +27,11 @@ class TeachersController < ApplicationController
     else
       @teachers = Teacher.all
     end
+
+    p "*" * 50
+    puts params 
+    p "*" * 50
+
   end
 
   private
