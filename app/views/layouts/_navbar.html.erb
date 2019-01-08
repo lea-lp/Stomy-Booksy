@@ -3,9 +3,9 @@
     <!-- ............................USER IN.......................... -->
     <% if user_signed_in? %>
 
-    <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-light bg-white h-25 pt-3">
+    <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-light bg-white pt-3 px-xl">
 
-        <ul class="navbar-nav align-items-center justify-content-between w-100 pr-5">
+        <ul class="navbar-nav align-items-center justify-content-between w-100">
 
             <!-- logo -->
             <div>
@@ -16,7 +16,7 @@
             </div>
 
             <!-- BUTTON PROFILE REGULAR (transparent) -->
-            <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-profile">
+            <li class="nav-item dropdown dropdown-animate" data-toggle="hover" id="button-profile">
 
                 <!-- icon -->
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,12 +55,11 @@
             </li>
 
             <!-- BUTTON PROFILE SLIM (scroll) -->
-            <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-profile-slim">
+            <li class="nav-item dropdown dropdown-animate" data-toggle="hover" id="button-profile-slim">
 
                 <!-- icon -->
-                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user-circle align-items-center btn-translate--hover text-dark h4"></i>
-                </a>
+                <%= link_to "", "#", class: "nav-link d-lg-none" %>
+                <i class="fas fa-user-circle align-items-center text-grey mr-5"></i>
 
                 <!-- dropdown menu -->
                 <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow w-25">
@@ -100,186 +99,186 @@
     <!-- ............................USER OUT.......................... -->
     <% else %>
 
-    <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-light bg-white h-25 pt-3">
+    <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-light bg-white pt-3 px-xl">
 
-            <ul class="navbar-nav align-items-center justify-content-between w-100 pr-5">
-    
-                <!-- logo -->
-                <div>
-                    <a href="<%= root_path %>">
-                        <%= image_tag "logo-row.png", alt: "logo", class: "btn-translate--hover w-100", id: "logo-nav" %>
-                        <%= image_tag "logo-row.png", alt: "logo-row", class: "btn-translate--hover w-75", id: "logo-nav-row" %>
+        <ul class="navbar-nav align-items-center justify-content-between w-100">
+
+            <!-- logo -->
+            <div>
+                <a href="<%= root_path %>">
+                    <%= image_tag "logo-row.png", alt: "logo", class: "btn-translate--hover w-75", id: "logo-nav" %>
+                    <%= image_tag "logo-row.png", alt: "logo-row", class: "btn-translate--hover w-50", id: "logo-nav-row" %>
+                </a>
+            </div>
+
+            <!-- BUTTON PROFILE REGULAR (transparent) -->
+            <div>
+
+                <!-- LOG IN -->
+                <li class="nav-item dropdown dropdown-animate pr-3" data-toggle="hover" id="button-log-in">
+
+                    <!-- icon -->
+                    <%= link_to "Se connecter", "#", class: "nav-link text-shadow btn-translate--hover", id: "button-connect" %>
+
+                    <!-- dropdown menu -->
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+                        <div class="list-group">
+
+                            <a href="<%= new_student_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_teacher_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_establishment_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </li>
+
+                <!-- SIGN UP -->
+                <li class="nav-item dropdown dropdown-animate" data-toggle="hover" id="button-sign-up">
+
+                    <!-- icon -->
+                    <%= link_to "S'inscrire", "#", class: "nav-link d-lg-none", id: "button-sign-up" %>
+                    <a href="#" class="btn btn-sm btn-white btn-circle btn-translate--hover btn-icon d-none d-lg-inline-flex scroll-me"
+                        style="box-shadow: 5px 5px 15px rgba(8, 16, 20, 0.89)">
+                        <span class="btn-inner--text">S'inscrire</span>
                     </a>
-                </div>
 
-                <!-- BUTTON PROFILE REGULAR (transparent) -->
-                <div>
+                    <!-- dropdown menu -->
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+                        <div class="list-group">
 
-                    <!-- LOG IN -->
-                    <li class="nav-item dropdown dropdown-animate pr-3" data-toggle="hover" id="button-log-in">
-
-                        <!-- icon -->
-                        <%= link_to "Se connecter", "#", class: "nav-link text-shadow btn-translate--hover", id: "button-connect" %>
-
-                        <!-- dropdown menu -->
-                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
-                            <div class="list-group">
-
-                                <a href="<%= new_student_session_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
-                                        </div>
+                            <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
                                     </div>
-                                </a>
-                                <a href="<%= new_teacher_session_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
-                                        </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_teacher_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
                                     </div>
-                                </a>
-                                <a href="<%= new_establishment_session_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
-                                        </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_establishment_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
                                     </div>
-                                </a>
+                                </div>
+                            </a>
 
-                            </div>
                         </div>
+                    </div>
 
-                    </li>
-
-                    <!-- SIGN UP -->
-                    <li class="nav-item dropdown dropdown-animate " data-toggle="hover" id="button-sign-up">
-
-                        <!-- icon -->
-                        <%= link_to "S'inscrire", "#", class: "nav-link d-lg-none", id: "button-sign-up" %>
-                        <a href="#" class="btn btn-sm btn-white btn-circle btn-translate--hover btn-icon d-none d-lg-inline-flex scroll-me"
-                            style="box-shadow: 5px 5px 15px rgba(8, 16, 20, 0.89)">
-                            <span class="btn-inner--text">S'inscrire</span>
-                        </a>
-
-                        <!-- dropdown menu -->
-                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
-                            <div class="list-group">
-
-                                <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="<%= new_teacher_registration_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="<%= new_establishment_registration_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
-                                        </div>
-                                    </div>
-                                </a>
-
-                            </div>
-                        </div>
-
-                    </li>
+                </li>
 
 
                 <!-- BUTTON PROFILE SLIM (scroll) -->
 
-                    <!-- LOG IN -->
-                    <li class="nav-item dropdown dropdown-animate pr-5" data-toggle="hover" id="button-log-in-slim">
+                <!-- LOG IN -->
+                <li class="nav-item dropdown dropdown-animate pr-5" data-toggle="hover" id="button-log-in-slim">
 
-                        <!-- icon -->
-                        <%= link_to "", "#", class: "nav-link d-lg-none" %>
-                        <i class="fas fa-sign-in-alt align-items-center text-grey"></i>
+                    <!-- icon -->
+                    <%= link_to "", "#", class: "nav-link d-lg-none" %>
+                    <i class="fas fa-sign-in-alt align-items-center text-grey"></i>
 
-                        <!-- dropdown menu -->
-                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
-                            <div class="list-group">
+                    <!-- dropdown menu -->
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+                        <div class="list-group">
 
-                                <a href="<%= new_student_session_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
-                                        </div>
+                            <a href="<%= new_student_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
                                     </div>
-                                </a>
-                                <a href="<%= new_teacher_session_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
-                                        </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_teacher_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
                                     </div>
-                                </a>
-                                <a href="<%= new_establishment_session_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
-                                        </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_establishment_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
                                     </div>
-                                </a>
+                                </div>
+                            </a>
 
-                            </div>
                         </div>
+                    </div>
 
-                    </li>
+                </li>
 
-                    <!-- SIGN UP -->
-                    <li class="nav-item dropdown dropdown-animate pr-5" data-toggle="hover" id="button-sign-up-slim">
+                <!-- SIGN UP -->
+                <li class="nav-item dropdown dropdown-animate pr-5" data-toggle="hover" id="button-sign-up-slim">
 
-                        <!-- icon -->
-                        <%= link_to "", "#", class: "nav-link d-lg-none" %>
-                        <i class="fas fa-user-plus align-items-center text-grey"></i>
+                    <!-- icon -->
+                    <%= link_to "", "#", class: "nav-link d-lg-none" %>
+                    <i class="fas fa-user-plus align-items-center text-grey"></i>
 
-                        <!-- dropdown menu -->
-                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
-                            <div class="list-group">
+                    <!-- dropdown menu -->
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+                        <div class="list-group">
 
-                                <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
-                                        </div>
+                            <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
                                     </div>
-                                </a>
-                                <a href="<%= new_teacher_registration_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
-                                        </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_teacher_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
                                     </div>
-                                </a>
-                                <a href="<%= new_establishment_registration_path %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-1">
-                                            <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
-                                        </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_establishment_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
                                     </div>
-                                </a>
+                                </div>
+                            </a>
 
-                            </div>
                         </div>
+                    </div>
 
-                    </li>
+                </li>
 
-                </div>
-                
-            </ul>
+            </div>
+
+        </ul>
 
         <% end %>
 
     </nav>
 
     <%= render 'layouts/flash' %>
-    
+
 </header>
