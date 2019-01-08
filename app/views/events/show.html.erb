@@ -1,5 +1,4 @@
 <!-- Modal -->
-
 <section class="slice bg-white bg cover">
 
         <div class="row justify-content-center">
@@ -11,8 +10,8 @@
 
                     <div class="row d-flex justify-content-around pb-5">
 
-                        <div class="card" style="width: 14rem; z-index: 1000" >
-                            <%= image_tag 'prof.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
+                        <div class="card" style="width: 14rem;" >
+                            <%= image_tag @teacher.avatar.variant(resize: "300x300"), class: "card-img-top img-fluid"%>
                             <div class="card-body">
                                 <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
                                 <p class="card-text">Professeur</p>
@@ -20,17 +19,19 @@
                             </div>
                         </div>
 
-                        <div class="card" style="width: 20rem; z-index: 1000" >
+                        <div class="card" style="width: 20rem;" >
                             <div class="card-body">
                                 <h5 class="h5 card-title">Salle réservée : <%=@resource.name%><br> à: <%=@resource.establishment.name%></h5>
                                 <h5 class="h5 card-title">Le <%=@event.start_time.strftime("%d/%m/%Y")%><br>à <%=@event.start_time.strftime("%Hh%M")%></h5>
-                                <p class="card-text">(Durée <%=@duration%>)</p>
+                                <p class="card-text">(Durée: <%=@duration%>)</p>
                                 <p class="card-text"> <strong>Lieu de rendez-vous :</strong> <br> <%=@establishment.address%></p>
+                                <a href="<%=student_path(@student)%>" class="card-text" style="color:grey;" ><strong>Elève: <%=@student.first_name%> <%=@student.last_name%></strong></a>
+
                             </div>
                         </div>
 
-                        <div class="card" style="width: 14rem; z-index: 1000" >
-                            <%= image_tag 'etabl.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
+                        <div class="card" style="width: 14rem;" >
+                            <%= image_tag @establishment.avatar.variant(resize: "300x300"), class: "card-img-top img-fluid"%>
                             <div class="card-body">
                                 <h5 class="h5 card-title"><%=@establishment.name%></h5>
                                 <p class="card-text">Établissement</p>
@@ -40,7 +41,7 @@
 
                     </div>
                     <%= link_to "Retour à mon dashboard", get_dashboard(current_user), class: "btn btn-circle btn-primary btn-translate--hover" %>
-                    <a href="<%= event_path(@event) %>" class="mx-5 btn-translate--hover" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=@event.name%>'. Veuillez confirmer." ><i class="fas fa-trash-alt text-danger"></i></a>
+                    <a href="<%= event_path(@event) %>" class="mx-5 btn btn-circle btn-danger btn-translate--hover" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=@event.name%>'. Veuillez confirmer." ><i class="fas fa-trash-alt"></i></a>
 
                 </div>
             </div>

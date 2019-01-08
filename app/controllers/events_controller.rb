@@ -2,6 +2,11 @@ class EventsController < ApplicationController
   before_action :filter_on_signed_in
 
   def index
+    unless get_user_type == "Student"
+      flash[:danger] = "Vous devez être connecté en tant qu'élève pour accéder à cette page."
+      redirect_back(fallback_location: root_path)
+    end
+
     #to build the "new event" form
     @hours = []
     (8..20).to_a.each do |i| 
@@ -28,11 +33,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    page_belongs_to_user?(@event)
+    object_belongs_to_user?(@event)
 
     @service = @event.service
     @resource = @event.resource
     @teacher = @event.teacher
+    @student = @event.student
     @establishment = @event.resource.establishment
     @duration = Time.at(@event.duration).utc.strftime("%Hh%M")
 
@@ -50,12 +56,18 @@ class EventsController < ApplicationController
 
     if @event.save
       flash[:success]="Le créneau a bien été réservé!"
-      ContactMailer.event_confirmation(@event).deliver_now
+      ContactMailer.event_confirmation(@event, "student").deliver_now
+      ContactMailer.event_confirmation(@event, "teacher").deliver_now
 
       redirect_back(fallback_location: root_path)
       return
     else
-      flash[:danger]= @event.errors
+      error_message = ""
+      @event.errors.each do |k,v|
+        error_message += v+" "
+      end
+      flash[:danger]= error_message
+
       redirect_back(fallback_location: root_path)
       return
     end
@@ -63,11 +75,13 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    page_belongs_to_user?(@event)
+    object_belongs_to_user?(@event)
 
     @event.destroy
     flash[:success]="Votre rendez-vous a été supprimé"
-    ContactMailer.event_cancel(@event).deliver_now
+    ContactMailer.event_cancel(@event, "student").deliver_now
+    ContactMailer.event_cancel(@event, "teacher").deliver_now
+
     redirect_to(get_dashboard(current_student))
 
   end 

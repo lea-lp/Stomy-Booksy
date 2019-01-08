@@ -3,18 +3,18 @@
         <div class="card card-profile border-0 shadow  text-center">
 
             <% if page_type == 'establishment' %>
-            <div class="card-profile-cover">
-                <img alt="Image placeholder" src="../assets/background_establishment_card.jpg" class="card-img-top">
-            </div>
-            <% if @establishment.avatar.attached? %>
-            <a href="#">
-                <%= image_tag @establishment.avatar, class: "card-profile-image avatar shadow", style: "height: 150px; width: auto" %>
-            </a>
-            <% else %>
-            <a href="#">
-                <img alt="Image placeholder" src="../assets/neutral.jpeg" class="card-profile-image avatar shadow">
-            </a>
-            <% end %>
+                    <div class="card-profile-cover">
+                        <%= image_tag 'background_establishment_card.jpg', class: 'card-img-top', alt: 'card-background' %>
+                    </div>
+                <% if @establishment.avatar.attached? %>
+                    <a>
+                        <%= image_tag @establishment.avatar, class: 'card-profile-image avatar shadow', style: 'height: 150px; width: auto', alt: 'card-picture' %>
+                    </a>
+                <% else %>
+                    <a>
+                        <%= image_tag 'neutral.jpeg', class: "card-profile-image avatar shadow", alt: 'card-picture-default' %>
+                    </a>
+                <% end %>
             <div class="card-body">
                 <div class="mb-3">
                     <h4 class="mb-0">
@@ -32,7 +32,7 @@
                 <% if current_user == @establishment %>
                 <div class="pt-4 mt-4 delimiter-top">
                     <div class="btn-group shadow rounded-circle">
-                        <button class="btn btn-sm btn-primary btn-circle btn-icon">
+                        <a href="<%=edit_establishment_registration_path%>" class="btn btn-sm btn-primary btn-circle btn-icon">
                             <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
                             <span class="btn-inner--text">
                                 <%= link_to 'Modifier mon profil'.html_safe, edit_establishment_registration_path, class: "text-white", id: "btn-group-settings"  %></span>
@@ -42,18 +42,18 @@
                 <% end %>
             </div>
             <% elsif page_type == 'teacher' %>
-            <div class="card-profile-cover">
-                <img alt="Image placeholder" src="../assets/background_teacher_card.jpg" class="card-img-top">
-            </div>
-            <% if @teacher.avatar.attached? %>
-            <a href="#">
-                <%= image_tag @teacher.avatar, class: "card-profile-image avatar shadow", style: "height: 150px; width: auto" %>
-            </a>
-            <% else %>
-            <a href="#">
-                <img alt="Image placeholder" src="../assets/neutral.jpeg" class="card-profile-image avatar shadow">
-            </a>
-            <% end %>
+                    <div class="card-profile-cover">
+                        <%= image_tag 'background_teacher_card.jpg', class: 'card-img-top', alt: 'card-background' %>
+                    </div>
+                <% if @teacher.avatar.attached? %>
+                    <a>
+                        <%= image_tag @teacher.avatar, class: "card-profile-image avatar shadow", style: "height: 150px; width: auto", alt: 'card-picture' %>
+                    </a>
+                <% else %>
+                    <a>
+                        <%= image_tag 'neutral.jpeg', class: "card-profile-image avatar shadow", alt: 'card-picture-default' %>
+                    </a>
+                <% end %>
             <div class="card-body">
                 <div class="mb-3">
                     <h6 class="mb-0">
@@ -73,7 +73,7 @@
                 <% if current_user == @teacher %>
                 <div class="pt-4 mt-4 delimiter-top">
                     <div class="btn-group shadow rounded-circle">
-                        <button class="btn btn-sm btn-primary btn-circle btn-icon">
+                        <a href="<%=edit_teacher_registration_path%>" class="btn btn-sm btn-primary btn-circle btn-icon">
                             <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
                             <span class="btn-inner--text">
                                 <%= link_to 'Modifier mon profil'.html_safe, edit_teacher_registration_path, class: "text-white", id: "btn-group-settings"  %></span>
@@ -83,18 +83,18 @@
                 <% end %>
             </div>
             <% elsif page_type == 'student' %>
-            <div class="card-profile-cover">
-                <img alt="Image placeholder" src="../assets/background_student_card.jpg" class="card-img-top">
-            </div>
-            <% if @student.avatar.attached? %>
-            <a href="#">
-                <%= image_tag @student.avatar, style: "height: 150px; width: auto", class: "card-profile-image avatar shadow" %>
-            </a>
-            <% else %>
-            <a href="#">
-                <img alt="Image placeholder" src="../assets/neutral.jpeg" class="card-profile-image avatar shadow">
-            </a>
-            <% end %>
+                    <div class="card-profile-cover">
+                        <%= image_tag 'background_student_card.jpg', class: 'card-img-top', alt: 'card-background' %>
+                    </div>
+                <% if @student.avatar.attached? %>
+                    <a>
+                        <%= image_tag @student.avatar, style: "height: 150px; width: auto", class: "card-profile-image avatar shadow", alt: 'card-picture' %>
+                    </a>
+                <% else %>
+                    <a>
+                        <%= image_tag 'neutral.jpeg', class: "card-profile-image avatar shadow", alt: 'card-picture-default' %>
+                    </a>
+                <% end %>
 
             <div class="card-body">
                 <div class="mb-3">

@@ -1,12 +1,10 @@
-<br><br>
+<main id="pass-new ">
 
-<main id="pass-new">
+    <div class="container d-flex align-items-center mt-lg">
 
-    <div class="container d-flex align-items-center">
-
-        <div class="col">
+        <div class="col mt-lg">
             <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6">
+                <div class="card container col-md-8 col-lg-6 p-4 ">
 
                     <div class="text-center mb-5">
                         <h6 class="h3">Nouveau mot de passe</h6>
@@ -17,7 +15,7 @@
                     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
                     <%= devise_error_messages! %>
 
-                        <div class="form-group">
+                        <div class="form-group text">
                             <label class="form-control-label">Adresse email</label>
                             <div class="input-group input-group-transparent">
                                 <div class="input-group-prepend">
@@ -27,8 +25,8 @@
                             </div>
                         </div>
 
-                        <div class="row align-items-center">
-                            <div class="col-sm-7">
+                        <div class="d-flex justify-content-center">
+                            <div class="">
                                 <div><%= f.submit "Envoyer la demande de réinitialisation", class: "btn btn-primary mb-3 mb-sm-0" %></div>
                             </div>
 
@@ -36,17 +34,8 @@
                       <% end %>
                       <br>
                     <%= link_to "<< Page d'accueil", root_path %>
-
                 </div>
-
             </div>
-
-
         </div>
-
     </div>
-    <!-- <%= image_tag("img/backgrounds/" + "clouds-bottom.png", alt: "clouds") %> -->
-
 </main>
-
-<br><br><br>

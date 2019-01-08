@@ -1,39 +1,33 @@
 
-<section id="top-index">
+<section id="top-index" class="d-flex flex-column justify-content-between">
 
-    <div class="section-inner bg-gradient-primary">
-        <span class="section-inner-bg"></span>
-    </div>
-
-    <!--illustation -->
-    <div class="position-absolute middle right-0 col-lg-7 col-xl-7 d-none d-lg-block mt-2">
-        <%= image_tag 'img/prv/macbook-pro-clay.png', alt: "Image placeholder", class: "img-fluid d-none d-lg-block mb-xl" %>
-    </div>
-
-    <!-- header text -->
-    <div class="container pt-xl">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mt-xl-5">
-                <h1 class="text-white mb-3">One account to rule them all *</h1>
-                <p class="lead text-white">* Un compte pour tous les gouverner</p>
-                <br>
-                <h5 class="lead text-white pb-2"><strong>Simplifiez-vous la vie avec Stomy Booksy !</strong></h5>
-                <h5 class="lead text-white pb-1">Les établissements et intervenants de votre région <br> sont sur notre site ! </h5>
-                <h5 class="lead text-white">Gérez toutes vos activités depuis votre dashboard, un agenda personnalisé vous attend.</h5>
+    <div>
+        <div class="section-inner bg-gradient-primary">
+            <span class="section-inner-bg"></span>
+        </div>
+    
+        <!--illustation -->
+        <div class="position-absolute middle right-0 col-lg-7 col-xl-7 d-none d-lg-block mt-2">
+            <%= image_tag 'img/prv/macbook-pro-clay.png', alt: "Image placeholder", class: "img-fluid d-none d-lg-block mb-xl" %>
+        </div>
+    
+        <!-- header text -->
+        <div class="container pt-xl">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mt-xl-5">
+                    <h1 class="text-white mb-3">Simplifiez-vous la vie avec Stomy Booksy !</h1>
+                    <p class="lead text-white"><em>One account to rule them all</em></p>
+                    <br>
+                    <h5 class="lead text-white pb-2">Stomy Booksy est un site facilitant la réservation de cours en proposant une interface commune entre établissements, professeurs et élèves.</h5>
+                    <h5 class="lead text-white pb-1">Gérez vos cours en live et en ligne! <a href="#we-do" class="text-white"><i class="fas fa-arrow-right"></i> <u>En savoir plus</u></a></h5>
+                </div>
             </div>
         </div>
     </div>
-
-</section>
-
-
-<!-- BUTTONS -->
-<section class="slice p-0">
-
-    <div class="row d-flex justify-content-between">
+    <div class="row d-flex justify-content-between pb-4">
 
         <div class="col-4 d-flex justify-content-center">
-            <a href="#map" class="btn btn-outline-info btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
+            <a href="#above-map" class="btn btn-outline-info btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
                 <span class="btn-inner--text">Carte des établissements</span>
                 <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
             </a>
@@ -54,14 +48,6 @@
         </div>
 
     </div> 
-
-    <!-- tongue (arrow) -->
-    <div class="">
-        <div class="p-5">
-            <a href="#" class="tongue tongue-bottom scroll-me"><i class="fas fa-angle-down"></i></a>
-        </div>
-    </div>
-
 </section>
 
 
@@ -69,14 +55,15 @@
 <section class="slice bg-cover" >
     <div class="container">
         <div class="text-center">
-            <h2 class="heading display-4 mb-2">Trouver un établissement</h2>
+            <h2 class="heading display-4 ">Trouvez un établissement</h2>
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-10">
-                    <p class="lead lh-180">Une carte dynamique à votre diposition. <br> Remplissez la barre de recherche et laissez-vous guider.</p>
+                    <p class="lead lh-180">Une carte dynamique à votre diposition. <br> Cherchez une adresse et découvrez les écoles de votre région.</p>
                 </div>
             </div>
         </div>
     </div>
+    <div id="above-map"></div>
 </section>
 
 
@@ -96,7 +83,7 @@
             <div class="row row-grid justify-content-center mb-lg">
                 <div class="col-lg-8 text-center">
                     <h4 class="display-4 mb-2">Qui êtes vous ?</h4>
-                    <h6 class="lead text-muted">Choisissez le compte qui vous correspond</h6>
+                    <h6 class="lead text-muted">Un besoin = Un type de compte</h6>
                     <!-- <h6 class="text-uppercase ls-2 text-light-white font-weight-700">Choisissez le compte qui vous correspond</h6> -->
                 </div>
             </div>
@@ -112,7 +99,7 @@
                             <div class="card-body">
                                 <ul class="list-unstyled mb-4">
                                     <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Professeur</h5></li>
-                                    <li>Concentrer vous sur votre activité</li>
+                                    <li>Laissez nous gérer votre agenda</li>
                                     <li>Intervenez dans plusieurs établissements </li>
                                 </ul>
                                 <a href="<%= new_teacher_registration_path %>" class="btn btn-danger btn-circle mb-3 font-weight-bold">M'inscrire</a>
@@ -130,8 +117,8 @@
                             <div class="card-body">
                                 <ul class="list-unstyled mb-4">
                                     <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Particulier</h5></li>
-                                    <li>Découvrez de nouvelles activités</li>
                                     <li>Adhérez, réservez, annulez en toute liberté</li>
+                                    <li>Découvrez de nouvelles activités</li>
                                 </ul>
                                 <a href="<%= new_student_registration_path %>" class="btn btn-warning btn-circle mb-3 font-weight-bold">M'inscrire</a>
                             </div>
@@ -147,8 +134,8 @@
                             <div class="card-body">
                                 <ul class="list-unstyled mb-4">
                                     <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Établissement</h5></li>
-                                    <li>Créez vos ressources, gérez vos adhésions</li>
-                                    <li>Simplifiez vous la comptabilité</li>
+                                    <li>Suivez l'agenda de vos ressources</li>
+                                    <li>Simplifiez votre gestion</li>
                                 </ul>
                                 <a href="<%=new_establishment_registration_path%>" class="btn btn-success btn-circle mb-3 font-weight-bold">M'inscrire</a>
                             </div>
@@ -161,16 +148,18 @@
         </div>
 </section>
 
+<% end %>
+
 <!-- WHAT WE DO (icon cards) -->
-<section class="slice slice-lg mt-0 pt-0" id="we-do">
+<section class="slice slice-lg mt-5 pt-0" id="we-do">
     <div class="container">
 
             <!-- title - text -->
             <div class="mb-md text-center">
                 <span class="badge badge-lg badge-success badge-pill">Notre process</span>
-                <h3 class="display-4 mt-4">Réservations centralisés</h3>
+                <h3 class="display-4 mt-4">Vos réservations centralisées</h3>
                 <div class="fluid-paragraph text-center mt-4">
-                    <p class="lead lh-180"> <strong>  Notre but est de vous simplifier la vie. </strong> <br> Que vous soyez un particulier, une association, un intervenant, <strong>Stomy Booksy</strong> vous propose un service rassemblant les features nécessaires pour vous organiser et <em>garder l'esprit libre.</em> </p>
+                    <p class="lead lh-180"> <strong>  Notre but est de vous simplifier la vie. </strong> <br> Que vous soyez un particulier, un établissement, un professeur, <strong>Stomy Booksy</strong> vous propose un service pour organiser vos cours artistiques / sportifs <br> <em> et garder l'esprit libre.</em> </p>
                 </div>
             </div>
 
@@ -186,8 +175,8 @@
                             </div>
                         </div>
                         <div class="px-4 pb-5 text-center">
-                            <h5 class="font-weight-bold">Dashboard</h5>
-                            <p class="mt-2">Un accès simple et intuitif à vos <br> rendez-vous, votre agenda sur une semaine, vos activités en cours</p>
+                            <h5 class="font-weight-bold">Réservez en live</h5>
+                            <p class="mt-2">En quelques clics, les élèves réservent des cours en ligne, et les professeurs/établissements en sont informés </p>
                         </div>
                     </div>
                 </div>
@@ -197,12 +186,12 @@
                     <div class="card shadow shadow-lg--hover">
                         <div class="py-5 text-center">
                             <div class="icon icon-xl icon-shape rounded-circle icon-pink">
-                                <i class="fas fa-sitemap"></i>
+                                <i class="fas fa-tachometer-alt"></i>
                             </div>
                         </div>
                         <div class="px-4 pb-5 text-center">
-                            <h5 class="font-weight-bold">Tout en 1</h5>
-                            <p class="mt-2">Marre d'oublier vos mots de passe ? Retrouvez toutes vos activités <br> <strong>en un seul compte</strong> </p>
+                            <h5 class="font-weight-bold">Dashboard</h5>
+                            <p class="mt-2">Un accès simple et intuitif à vos <br> rendez-vous, votre agenda sur une semaine, vos activités en cours</p>
                         </div>
                     </div>
                 </div>
@@ -217,7 +206,7 @@
                         </div>
                         <div class="px-4 pb-5 text-center">
                             <h5 class="font-weight-bold">Portail unique</h5>
-                            <p class="mt-2">Une plateforme rassemblant les acteurs sociaux et culturels de votre région, dans le souci d'une lisibilité simplifiée</p>
+                            <p class="mt-2">Une plateforme rassemblant les acteurs culturels et sportifs de votre région, dans un souci de simplicité</p>
                         </div>
                     </div>
                 </div>
@@ -226,15 +215,6 @@
 
         </div>
 </section>
-
-<% end %>
-
-
-<!-- when USER is logged OUT -->
-<% if !current_user  %>
-
-<% end %>
-
 
 <!-- TESTIMONIALS CARROUSSEL + LOGOS (partnership) -->
 <section class="slice slice-lg bg-gradient-secondary">
@@ -348,12 +328,12 @@
 
             <!-- swiper pagination -->
             <a class="carousel-control-prev" href="#carousel-action" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true" style="color: black"><i class="fas fa-chevron-left"></i></span>
+                <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fas fa-chevron-left text-dark"></i></span>
                 <span class="sr-only">Précédent</span>
             </a>
 
             <a class="carousel-control-next" href="#carousel-action" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true" style="color: black"><i class="fas fa-chevron-right"></i></span>
+                <span class="carousel-control-next-icon" aria-hidden="true"><i class="fas fa-chevron-right text-dark"></i></span>
                 <span class="sr-only">Suivant</span>
             </a>
 

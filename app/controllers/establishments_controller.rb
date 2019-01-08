@@ -1,4 +1,7 @@
 class EstablishmentsController < ApplicationController
+before_action :filter_on_signed_in, only: [:dashboard]
+before_action :page_belongs_to_user?, only: [:dashboard]
+
 
 
   def show
@@ -16,28 +19,26 @@ class EstablishmentsController < ApplicationController
     end
   end
 
-  def edit
-    filter_user_allowed
-
-    @establishment = Establishment.find(params[:id])
-  end
-
   def index
     if params[:teacher_id]
       @teacher = Teacher.find(params[:teacher_id])
       @establishments = @teacher.establishments
     else
-      @establishments = Establishment.all
+      @establishments = Establishment.all.order(name: :asc)
     end
   end
 
   def dashboard
-    filter_user_allowed
+    unless current_user == Establishment.find(params[:establishment_id])
+      flash[:danger] = "Vous n'êtes pas autorisé à accéder à cette page"
+      redirect_to root_path
+      return
+    end
 
     @establishment = current_user
     @events = @establishment.events
 
-    @resources = @establishment.resources.order(created_at: :desc)
+    @resources = @establishment.resources.order(name: :asc)
     @resource = Resource.new
 
     @services = @establishment.services.order(created_at: :desc)

@@ -1,4 +1,3 @@
-
 <!-- MAP START-->
 <div id="map"></div> 
 <input id="search-box" class="controls form-control" type="text" placeholder="Cherchez une école près de chez vous">
@@ -24,7 +23,7 @@ function initMap() {
             });
 
             marker<%=i%>.addListener('click', function() {
-                infowindow.setContent('<h6><%=establishment.name%></h6><p><%=establishment.description%></p> <br> <a href="<%=establishment_path(establishment)%>">Voir le profil </a>');
+                infowindow.setContent('<h6><%=establishment.name%></h6><p><%=establishment.description%></p> <a href="<%=establishment_path(establishment)%>">Voir le profil </a><br><a href="<%=establishment_services_path(establishment)%>">Voir les services </a><br><a href="<%=establishment_teachers_path(establishment)%>">Voir les professeurs </a>');
                 infowindow.open(map, this);
             });
         <%end%>

@@ -5,14 +5,14 @@
     <div class="">
         <div class="card-header border-0">
             <div class="row">
-                <div class="card col-3 mh-100" data-toggle="sticky" data-sticky-offset="100" style="z-index: 10;">
+                <div class="card col-3 mh-100" data-toggle="sticky" data-sticky-offset="100" style="z-index: 5;">
                     <div class="card-header border-0 row">
                         <div class="col-12 text-center">
                             <h6 class="mb-2">Service choisi:</h6>
                             <p><%=@service.name%></p>
                         </div>
                         <div class="col-6 p-0 text-center">
-                            <h6 class="mb-2">Etablissement:</h6>
+                            <h6 class="mb-2">Établissement:</h6>
                             <p><%=link_to '<i class="fas fa-pen"></i> &nbsp;'.html_safe, teacher_establishments_path(@teacher)%><%=@establishment.name%>  </p>
                         </div>
                         <div class="col-6 p-0 text-center">
@@ -47,10 +47,13 @@
                                 </div>
                             <% end %>      
                         </div>
+                        <div>
+                            <p class="mt-4" style="font-size: 0.8em;">* Le calendrier ci-contre affiche les indisponibilités du professeur ET de la salle utilisés par le service</p>
+                        </div>
                     </div>  
                 </div>
                 <div class="col-9">
-                    <%= add_weekly_calendar(@events) %>
+                    <%= add_weekly_calendar(@events, @teacher, @resource) %>
                 </div>
             </div>
         </div>
@@ -70,18 +73,22 @@
           </div>
           <div class="col-lg-3 mr-3">
             <div class="card" style="width: 16rem;">
-                <%= image_tag 'etabl.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
+                <a href="<%=establishment_path(@establishment)%>" class="text-center" style="height: auto; width: 100%;">
+                    <%= image_tag @establishment.avatar.variant(resize: "300x300"), style: "width: 100%; height:auto; border-radius:5px;" %>
+                </a>
                 <div class="card-body">
-                    <h5 class="h5 card-title"><%=@establishment.name%></h5>
+                    <a href="<%=establishment_path(@establishment)%>" class="h5 card-title"><%=@establishment.name%></a>
                     <p class="card-text">Établissement</p>
                     <%=link_to "Voir tous les établissements", establishments_path %>
                 </div>
             </div>
         </div>
         <div class="card" style="width: 16rem;" >
-                <%= image_tag 'prof.jpg', alt: "Card image cap", class: "card-img-top img-fluid" %>
+            <a href="<%=teacher_path(@teacher)%>" class="text-center" style="height: auto; width: 100%;">
+                <%= image_tag @teacher.avatar.variant(resize: "300x300"), style: "width: 100%; height:auto; border-radius:5px;"%>
+            </a>
             <div class="card-body">
-                <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
+                <a href="<%=teacher_path(@teacher)%>" class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></a>
                 <p class="card-text">Professeur</p>
                 <%=link_to "Voir tous les professeurs", teachers_path %>
             </div>

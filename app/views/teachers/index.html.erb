@@ -20,11 +20,10 @@
                 <a href="<%= teacher_path(teacher) %>">
                   <%= image_tag ("prof2.jpg"), class: "image-size" %>
                 </a>
-              <% end %>
             </div>
           </div>
           <div class="card-body text-center">
-            <h5 class="card-title mb-0"><a href="<%= teacher_path(teacher) %>"><%=teacher.first_name%> <%= teacher.last_name %></a></h5>
+            <h5 class="card-title mb-0"><a href="<%= teacher_path(teacher) %>" class="text-dark"><%=teacher.first_name%> <%= teacher.last_name %></a></h5>
             <p class="text-muted mb-0">
               <%teacher.sub_categories.each_with_index do |sub_cat, ind|%>
                 <%unless ind == 0 %>

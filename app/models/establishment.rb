@@ -16,12 +16,13 @@ class Establishment < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode
+  
+  after_create :welcome_send, :avatar_attach
 
   def upcoming_events
     events.order(start_time: :asc).select { |e| e.start_time > (DateTime.now) }
   end
 
-  after_create :welcome_send, :avatar_attach
 
   def avatar_attach
     temp_user = self
@@ -30,7 +31,7 @@ class Establishment < ApplicationRecord
 
 
   def welcome_send
-    ContactMailer.welcome_send(self).deliver
+    ContactMailer.welcome_send(self).deliver_now
   end
   
 end

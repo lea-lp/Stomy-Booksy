@@ -1,4 +1,6 @@
 class TeachersController < ApplicationController
+before_action :filter_on_signed_in, only: [:dashboard]
+before_action :page_belongs_to_user?, only: [:dashboard]
 
   def show
     @teacher = Teacher.find(params[:id])
@@ -9,12 +11,7 @@ class TeachersController < ApplicationController
   def destroy
   end
 
-  def edit
-    filter_user_allowed
-  end
-
   def dashboard
-    filter_user_allowed
     @teacher = Teacher.find(params[:teacher_id])
     @events = @teacher.events
     
@@ -33,23 +30,4 @@ class TeachersController < ApplicationController
     p "*" * 50
 
   end
-
-  private
-
-  def filter_user_allowed
-    if params[:teacher_id]
-      user_id = params[:teacher_id]
-    elsif params[:id]
-      user_id = params[:id]
-    else
-      user_id = 0
-    end
-      
-    unless current_user == Teacher.find(user_id)
-      flash[:danger] = "Vous n'êtes pas autorisé à accéder à cette page"
-      redirect_to root_path
-    end
-  end
-    
-
 end

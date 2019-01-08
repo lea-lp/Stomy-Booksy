@@ -15,11 +15,12 @@ class Teacher < ApplicationRecord
   has_many :establishments, -> { distinct }, through: :services
   has_one_attached :avatar
   
+  after_create :welcome_send, :avatar_attach
+
   def upcoming_events
     events.order(start_time: :desc).select { |e| e.start_time > (DateTime.now- 1.week) }
   end
 
-  after_create :welcome_send, :avatar_attach
 
   def avatar_attach
     temp_user = self
@@ -28,7 +29,7 @@ class Teacher < ApplicationRecord
 
   
   def welcome_send
-    ContactMailer.welcome_send(self).deliver
+    ContactMailer.welcome_send(self).deliver_now
   end
 
 end
