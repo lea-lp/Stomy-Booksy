@@ -16686,11 +16686,12 @@ footer
 .footer-rotate
 {
     position: relative;
-
     overflow: hidden; 
 
     margin-top: -26rem;
     padding-top: 26rem;
+
+
 }
 .footer-rotate:before
 {
