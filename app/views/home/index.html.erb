@@ -1,69 +1,81 @@
+<!-- TOP LP -->
+<section class="slice slice-lg section-rotate d-flex align-items-center">
 
-<section id="top-index" class="d-flex flex-column justify-content-between">
+    <div class="section-inner bg-gradient-info">
+        <span class="section-inner-bg"></span>
+    </div>
 
-    <div>
-        <div class="section-inner bg-gradient-primary">
-            <span class="section-inner-bg"></span>
-        </div>
-    
-        <!--illustation -->
-        <div class="position-absolute middle right-0 col-lg-7 col-xl-7 d-none d-lg-block mt-2">
-            <%= image_tag 'img/prv/macbook-pro-clay.png', alt: "Image placeholder", class: "img-fluid d-none d-lg-block mb-xl" %>
-        </div>
-    
-        <!-- header text -->
-        <div class="container pt-xl">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mt-xl-5">
-                    <h1 class="text-white mb-3">Simplifiez-vous la vie avec Stomy Booksy !</h1>
-                    <p class="lead text-white"><em>One account to rule them all</em></p>
-                    <br>
-                    <h5 class="lead text-white pb-2">Stomy Booksy est un site facilitant la réservation de cours en proposant une interface commune entre établissements, professeurs et élèves.</h5>
-                    <h5 class="lead text-white pb-1">Gérez vos cours en live et en ligne! <a href="#we-do" class="text-white"><i class="fas fa-arrow-right"></i> <u>En savoir plus</u></a></h5>
+    <!--illustation -->
+    <div class="position-absolute middle right-0 col-lg-7 col-xl-7 d-none d-lg-block">
+        <%= image_tag 'img/prv/macbook-pro-clay.png', alt: "Image placeholder", class: "img-fluid d-none d-lg-block" %>
+    </div>
+
+    <!-- main text -->
+    <div class="container pt-5">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mt-xl-5">
+                <h1 class="text-white mb-3">La plateforme de réservation, partout, pour tous.</h1>
+                <p class="lead text-white lh-180">Awa Booking facilite la réservation de cours en
+                    proposant une interface commune entre établissements, professeurs et élèves.</p>
+                <div class="mt-5">
+                    <a href="#we-do" class="btn btn-info btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
+                        data-scroll-to-offset="40">
+                        <span class="btn-inner--text">En savoir plus</span>
+                        <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row d-flex justify-content-between pb-4">
 
-        <div class="col-4 d-flex justify-content-center">
-            <a href="#above-map" class="btn btn-outline-info btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
-                <span class="btn-inner--text">Carte des établissements</span>
-                <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-            </a>
-        </div>
-
-        <div class="col-4 d-flex justify-content-center">
-            <a href="<%=teachers_path%>" class="btn btn-outline-danger btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
-                <span class="btn-inner--text">Les professeurs</span>
-                <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-            </a>
-        </div>
-
-        <div class="col-4 d-flex justify-content-center">
-            <a href="<%=establishments_path%>" class="btn btn-outline-success btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me" data-scroll-to-offset="40">
-                <span class="btn-inner--text">Les établissements</span>
-                <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-            </a>
-        </div>
-
-    </div> 
 </section>
 
 
 <!-- TITLE MAP -->
-<section class="slice bg-cover" >
+<section class="slice bg-cover" id="above-map">
+
     <div class="container">
         <div class="text-center">
             <h2 class="heading display-4 ">Trouvez un établissement</h2>
             <div class="row justify-content-center">
+
                 <div class="col-xl-8 col-lg-10">
-                    <p class="lead lh-180">Une carte dynamique à votre diposition. <br> Cherchez une adresse et découvrez les écoles de votre région.</p>
+                    <p class="lead lh-180">Une carte dynamique à votre diposition. <br> Cherchez une adresse et
+                        découvrez les écoles de votre région.</p>
                 </div>
+
+                <div class="row d-flex justify-content-around py-4">
+
+                    <!-- <div class="col-4 d-flex justify-content-center">
+                            <a href="#above-map" class="btn btn-outline-info btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
+                                data-scroll-to-offset="40">
+                                <span class="btn-inner--text">Carte des établissements</span>
+                                <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                            </a>
+                        </div> -->
+
+                    <div class="col-4 d-flex justify-content-center">
+                        <a href="<%=teachers_path%>" class="btn btn-outline-danger btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
+                            data-scroll-to-offset="40">
+                            <span class="btn-inner--text">Les professeurs</span>
+                            <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                        </a>
+                    </div>
+
+                    <div class="col-4 d-flex justify-content-center">
+                        <a href="<%=establishments_path%>" class="btn btn-outline-success btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
+                            data-scroll-to-offset="40">
+                            <span class="btn-inner--text">Les établissements</span>
+                            <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                        </a>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
-    <div id="above-map"></div>
+
 </section>
 
 
@@ -74,147 +86,162 @@
 <!-- when USER is logged IN -->
 <% if !current_user  %>
 
+
 <!-- USER TYPE PRENSENTATION CARDS -->
-<section class="bg-cover pt-1" id="index-spotlight" >
+<section class="bg-cover pt-1" id="index-spotlight">
 
-        <div class="container pt-md mb-150">
+    <div class="container pt-md mb-150">
 
-            <!-- titles -->
-            <div class="row row-grid justify-content-center mb-lg">
-                <div class="col-lg-8 text-center">
-                    <h4 class="display-4 mb-2">Qui êtes vous ?</h4>
-                    <h6 class="lead text-muted">Un besoin = Un type de compte</h6>
-                    <!-- <h6 class="text-uppercase ls-2 text-light-white font-weight-700">Choisissez le compte qui vous correspond</h6> -->
+        <!-- titles -->
+        <div class="row row-grid justify-content-center mb-lg">
+            <div class="col-lg-8 text-center">
+                <h4 class="display-4 mb-2">Qui êtes vous ?</h4>
+                <h6 class="lead text-muted">Un besoin = un type de compte</h6>
+                <!-- <h6 class="text-uppercase ls-2 text-light-white font-weight-700">Choisissez le compte qui vous correspond</h6> -->
+            </div>
+        </div>
+
+        <!-- cards -->
+        <div class="card flex-column flex-md-row" id="card-group-index">
+
+            <!-- left -->
+            <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
+                <div class="animate-this">
+                    <div class="card card-pricing">
+                        <%= image_tag 'prof2.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-4">
+                                <li>
+                                    <h6 class="text-uppercase ls-2 text-black font-weight-600">Professeur</h5>
+                                </li>
+                                <li>Laissez nous gérer votre agenda</li>
+                                <li>Intervenez dans plusieurs établissements </li>
+                            </ul>
+                            <a href="<%= new_teacher_registration_path %>" class="btn btn-danger btn-circle mb-3 font-weight-bold">M'inscrire</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- cards -->
-            <div class="card flex-column flex-md-row" id="card-group-index">
-        
-                <!-- left -->
-                <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
-                    <div class="animate-this">
-                        <div class="card card-pricing">
-                            <%= image_tag 'prof2.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
-                            <div class="card-body">
-                                <ul class="list-unstyled mb-4">
-                                    <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Professeur</h5></li>
-                                    <li>Laissez nous gérer votre agenda</li>
-                                    <li>Intervenez dans plusieurs établissements </li>
-                                </ul>
-                                <a href="<%= new_teacher_registration_path %>" class="btn btn-danger btn-circle mb-3 font-weight-bold">M'inscrire</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-        
-                <!-- middle -->
-                <div class="card card-pricing zoom-in shadow-lg rounded text-center border-0" data-animate-hover="2" >
-                    <div class="animate-this">
-                        <div class="card card-pricing">
-                            <%= image_tag 'student1.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
-                            <div class="card-body">
-                                <ul class="list-unstyled mb-4">
-                                    <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Particulier</h5></li>
-                                    <li>Adhérez, réservez, annulez en toute liberté</li>
-                                    <li>Découvrez de nouvelles activités</li>
-                                </ul>
-                                <a href="<%= new_student_registration_path %>" class="btn btn-warning btn-circle mb-3 font-weight-bold">M'inscrire</a>
-                            </div>
+            <!-- middle -->
+            <div class="card card-pricing zoom-in shadow-lg rounded text-center border-0" data-animate-hover="2">
+                <div class="animate-this">
+                    <div class="card card-pricing">
+                        <%= image_tag 'student1.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-4">
+                                <li>
+                                    <h6 class="text-uppercase ls-2 text-black font-weight-600">Particulier</h5>
+                                </li>
+                                <li>Adhérez, réservez, annulez en toute liberté</li>
+                                <li>Découvrez de nouvelles activités</li>
+                            </ul>
+                            <a href="<%= new_student_registration_path %>" class="btn btn-warning btn-circle mb-3 font-weight-bold">M'inscrire</a>
                         </div>
                     </div>
                 </div>
-        
-                <!-- right  -->
-                <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
-                    <div class="animate-this">
-                        <div class="card card-pricing">
-                            <%= image_tag 'etabl.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
-                            <div class="card-body">
-                                <ul class="list-unstyled mb-4">
-                                    <li><h5 class="text-uppercase ls-2 text-black font-weight-500">Établissement</h5></li>
-                                    <li>Suivez l'agenda de vos ressources</li>
-                                    <li>Simplifiez votre gestion</li>
-                                </ul>
-                                <a href="<%=new_establishment_registration_path%>" class="btn btn-success btn-circle mb-3 font-weight-bold">M'inscrire</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
 
+            <!-- right  -->
+            <div class="card card-pricing box-shadow-1 text-center border-0" data-animate-hover="2">
+                <div class="animate-this">
+                    <div class="card card-pricing">
+                        <%= image_tag 'etabl.jpg', class: "rounded z-depth-3 img-fluid", style: "width: 100%;" %>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-4">
+                                <li>
+                                    <h6 class="text-uppercase ls-2 text-black font-weight-600">Établissement</h5>
+                                </li>
+                                <li>Suivez l'agenda de vos ressources</li>
+                                <li>Simplifiez votre gestion</li>
+                            </ul>
+                            <a href="<%=new_establishment_registration_path%>" class="btn btn-success btn-circle mb-3 font-weight-bold">M'inscrire</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
+
+    </div>
 </section>
 
 <% end %>
+
 
 <!-- WHAT WE DO (icon cards) -->
 <section class="slice slice-lg mt-5 pt-0" id="we-do">
     <div class="container">
 
-            <!-- title - text -->
-            <div class="mb-md text-center">
-                <span class="badge badge-lg badge-success badge-pill">Notre process</span>
-                <h3 class="display-4 mt-4">Vos réservations centralisées</h3>
-                <div class="fluid-paragraph text-center mt-4">
-                    <p class="lead lh-180"> <strong>  Notre but est de vous simplifier la vie. </strong> <br> Que vous soyez un particulier, un établissement, un professeur, <strong>Stomy Booksy</strong> vous propose un service pour organiser vos cours artistiques / sportifs <br> <em> et garder l'esprit libre.</em> </p>
+        <!-- title - text -->
+        <div class="mb-md text-center">
+            <span class="badge badge-lg badge-success badge-pill">Notre process</span>
+            <h3 class="display-4 mt-4">Vos réservations centralisées</h3>
+            <div class="fluid-paragraph text-center mt-4">
+                <p class="lead lh-180"> <strong> Notre but est de vous simplifier la vie. </strong> <br> Que vous soyez
+                    un particulier, un établissement, un professeur, <strong>Stomy Booksy</strong> vous propose un
+                    service pour organiser vos cours artistiques / sportifs <br> <em> et garder l'esprit libre.</em>
+                </p>
+            </div>
+        </div>
+
+        <!-- cards -->
+        <div class="row row-grid">
+
+            <!-- left -->
+            <div class="col-lg-4">
+                <div class="card shadow shadow-lg--hover">
+                    <div class="py-5 text-center">
+                        <div class="icon icon-xl icon-shape rounded-circle icon-teal">
+                            <i class="far fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-5 text-center">
+                        <h5 class="font-weight-bold">Réservez en live</h5>
+                        <p class="mt-2">En quelques clics, les élèves réservent des cours en ligne, et les
+                            professeurs/établissements en sont informés </p>
+                    </div>
                 </div>
             </div>
 
-            <!-- cards -->
-            <div class="row row-grid">
-
-                <!-- left -->
-                <div class="col-lg-4">
-                    <div class="card shadow shadow-lg--hover">
-                        <div class="py-5 text-center">
-                            <div class="icon icon-xl icon-shape rounded-circle icon-teal">
-                                <i class="far fa-calendar-alt"></i>
-                            </div>
-                        </div>
-                        <div class="px-4 pb-5 text-center">
-                            <h5 class="font-weight-bold">Réservez en live</h5>
-                            <p class="mt-2">En quelques clics, les élèves réservent des cours en ligne, et les professeurs/établissements en sont informés </p>
+            <!-- middle -->
+            <div class="col-lg-4">
+                <div class="card shadow shadow-lg--hover">
+                    <div class="py-5 text-center">
+                        <div class="icon icon-xl icon-shape rounded-circle icon-pink">
+                            <i class="fas fa-tachometer-alt"></i>
                         </div>
                     </div>
-                </div>
-
-                <!-- middle -->
-                <div class="col-lg-4">
-                    <div class="card shadow shadow-lg--hover">
-                        <div class="py-5 text-center">
-                            <div class="icon icon-xl icon-shape rounded-circle icon-pink">
-                                <i class="fas fa-tachometer-alt"></i>
-                            </div>
-                        </div>
-                        <div class="px-4 pb-5 text-center">
-                            <h5 class="font-weight-bold">Dashboard</h5>
-                            <p class="mt-2">Un accès simple et intuitif à vos <br> rendez-vous, votre agenda sur une semaine, vos activités en cours</p>
-                        </div>
+                    <div class="px-4 pb-5 text-center">
+                        <h5 class="font-weight-bold">Dashboard</h5>
+                        <p class="mt-2">Un accès simple et intuitif à vos <br> rendez-vous, votre agenda sur une
+                            semaine, vos activités en cours</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- right -->
-                <div class="col-lg-4">
-                    <div class="card shadow shadow-lg--hover">
-                        <div class="py-5 text-center">
-                            <div class="icon icon-xl icon-shape rounded-circle icon-yellow">
-                                <i class="fas fa-fingerprint"></i>
-                            </div>
-                        </div>
-                        <div class="px-4 pb-5 text-center">
-                            <h5 class="font-weight-bold">Portail unique</h5>
-                            <p class="mt-2">Une plateforme rassemblant les acteurs culturels et sportifs de votre région, dans un souci de simplicité</p>
+            <!-- right -->
+            <div class="col-lg-4">
+                <div class="card shadow shadow-lg--hover">
+                    <div class="py-5 text-center">
+                        <div class="icon icon-xl icon-shape rounded-circle icon-yellow">
+                            <i class="fas fa-fingerprint"></i>
                         </div>
                     </div>
+                    <div class="px-4 pb-5 text-center">
+                        <h5 class="font-weight-bold">Portail unique</h5>
+                        <p class="mt-2">Une plateforme rassemblant les acteurs culturels et sportifs de votre région,
+                            dans un souci de simplicité</p>
+                    </div>
                 </div>
-
             </div>
 
         </div>
+
+    </div>
 </section>
+
 
 <!-- TESTIMONIALS CARROUSSEL + LOGOS (partnership) -->
 <section class="slice slice-lg bg-gradient-secondary">
@@ -222,7 +249,8 @@
 
         <!-- reversed wave-->
         <div class="shape-container" data-shape-style="wavify" data-shape-position="top" data-shape-orientation="inverse">
-            <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
+            <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white"
+                data-toggle="wavify">
                 <defs></defs>
                 <path d="" class="shape-fill-white" />
             </svg>
@@ -254,14 +282,16 @@
                     <div class="card">
 
                         <div class="card-body">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-2 mr-5">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col-3 text-center mr-4">
                                     <%= image_tag 'img/prv/img-1-600x800.jpg', alt: 'avatar', class: 'avatar avatar-lg', style: 'width: 170px; height: auto' %>
                                 </div>
-                                <div class="col-4 text-center">
+                                <div class="col-5 text-center">
                                     <h5 class=" mt-4 mb-0">Mandy Paplusse</h5>
                                     <span class="d-block text-muted">Professeur à @Lorraine Ipsum</span>
-                                    <p class="mt-4 lh-180">Dans le cas particulier de l'inertie observée, il est nécessaire de considérer précisément les stratégies emblématiques, très attentativement.</p>
+                                    <p class="mt-4 lh-180">Dans le cas particulier de l'inertie observée, il est
+                                        nécessaire de considérer précisément les stratégies emblématiques, très
+                                        attentativement.</p>
                                     <span class="static-rating static-rating-sm">
                                         <i class="star fas fa-star voted"></i>
                                         <i class="star fas fa-star voted"></i>
@@ -279,14 +309,16 @@
                 <div class="carousel-item">
                     <div class="card">
                         <div class="card-body">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-2 mr-5">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col-3 text-center mr-4">
                                     <%= image_tag 'img/prv/img-2-600x800.jpg', alt: 'avatar', class: 'avatar avatar-lg', style: 'width: 170px; height: auto' %>
                                 </div>
-                                <div class="col-4 text-center">
+                                <div class="col-5 text-center">
                                     <h5 class=" mt-4 mb-0">Alain Térieur</h5>
                                     <span class="d-block text-muted">Élève à @Pipotron</span>
-                                    <p class="mt-4 lh-180">Vu l'ambiance générale, je n'exclus pas de prendre en considération l'ensemble des améliorations évidentes, si l'on veut s'en sortir un jour.</p>
+                                    <p class="mt-4 lh-180">Vu l'ambiance générale, je n'exclus pas de prendre en
+                                        considération l'ensemble des améliorations évidentes, si l'on veut s'en sortir
+                                        un jour.</p>
                                     <span class="static-rating static-rating-sm">
                                         <i class="star fas fa-star voted"></i>
                                         <i class="star fas fa-star voted"></i>
@@ -304,14 +336,16 @@
                 <div class="carousel-item">
                     <div class="card">
                         <div class="card-body">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-2 mr-5">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col-3 text-center mr-4">
                                     <%= image_tag 'img/prv/img-3-600x800.jpg', alt: 'avatar', class: 'avatar avatar-lg', style: 'width: 170px; height: auto' %>
                                 </div>
-                                <div class="col-4 text-center">
+                                <div class="col-5 text-center">
                                     <h5 class=" mt-4 mb-0">Céline Évitable</h5>
                                     <span class="d-block text-muted">Directeur de @L'anacrouse</span>
-                                    <p class="mt-4 lh-180">Nonobstant la crise actuelle, je recommande d'avoir à l'esprit la globalité des solutions draconiennes, parce que les mêmes causes produisent les mêmes effets.</p>
+                                    <p class="mt-4 lh-180">Nonobstant la crise actuelle, je recommande d'avoir à
+                                        l'esprit la globalité des solutions draconiennes, parce que les mêmes causes
+                                        produisent les mêmes effets.</p>
                                     <span class="static-rating static-rating-sm">
                                         <i class="star fas fa-star voted"></i>
                                         <i class="star fas fa-star voted"></i>
@@ -339,65 +373,72 @@
 
         </div>
 
+        <!-- wave -->
+        <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
+            <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white"
+                data-toggle="wavify">
+                <defs></defs>
+                <path d="" class="shape-fill-white" />
+            </svg>
+        </div>
+
     </div>
 </section>
 
 
-
-
-
 <!-- LOGOS (partnership) -->
-<section>
-    <div class="container d-flex align-items-center">
+<section class="slice bg-transparent">
+    <div class="container">
+        <div class="col-md-12 mb-5 mb-md-0">
+            <div class="card bg-gradient-lighter shadow shadow-lg--hover border-0 position-relative zindex-100">
+                <div class="my-5">
 
-        <!-- logos  -->
-        <div class="my-5">
+                    <div class="row blurable-item d-flex align-items-center justify-content-center">
 
-            <div class="row blurable-item d-flex align-items-center">
+                        <!-- THP -->
+                        <div class="col-lg-2 col-md-3 col-4 mb-4 ml-5 mb-md-0">
+                            <div class="px-2 py-2 btn-translate--hover">
+                                <a href="https://www.youtube.com/watch?v=MKrpadhcC8g">
+                                    <%= image_tag 'img/prv/partners/thp.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- metropole -->
+                        <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
+                            <div class="px-2 py-2 btn-translate--hover">
+                                <a href="http://www.montpellier3m.fr/">
+                                    <%= image_tag 'img/prv/partners/metropole.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- l'anacrouse -->
+                        <div class="col-lg-3 col-md-3 col-4 mb-4 mb-md-0">
+                            <div class="px-0 py-0 btn-translate--hover">
+                                <a href="https://www.lanacrouse.fr/">
+                                    <%= image_tag 'img/prv/partners/anacrouse.gif', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- google -->
+                        <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
+                            <div class="px-2 py-2 btn-translate--hover">
+                                <a href="https://www.youtube.com/watch?v=1tF2dF67Q2c">
+                                    <%= image_tag 'img/prv/partners/brand-7.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- heroku -->
+                        <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
+                            <div class="px-2 py-2 btn-translate--hover">
+                                <a href="https://www.heroku.com/">
+                                    <%= image_tag 'img/prv/partners/heroku.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
+                                </a>
+                            </div>
+                        </div>
 
-                <!-- THP -->
-                <div class="col-lg-2 col-md-3 col-4 mb-4 ml-5 mb-md-0">
-                    <div class="px-2 py-2 btn-translate--hover">
-                        <a href="https://www.youtube.com/watch?v=MKrpadhcC8g">
-                            <%= image_tag 'img/prv/partners/thp.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
-                        </a>
                     </div>
                 </div>
-                <!-- metropole -->
-                <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
-                    <div class="px-2 py-2 btn-translate--hover">
-                        <a href="http://www.montpellier3m.fr/">
-                        <%= image_tag 'img/prv/partners/metropole.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
-                        </a>
-                    </div>
-                </div>
-                <!-- l'anacrouse -->
-                <div class="col-lg-3 col-md-3 col-4 mb-4 mb-md-0">
-                    <div class="px-0 py-0 btn-translate--hover">
-                        <a href="https://www.lanacrouse.fr/">
-                        <%= image_tag 'img/prv/partners/anacrouse.gif', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
-                        </a>
-                    </div>
-                </div>
-                <!-- google -->
-                <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
-                    <div class="px-2 py-2 btn-translate--hover">
-                        <a href="https://www.youtube.com/watch?v=1tF2dF67Q2c">
-                        <%= image_tag 'img/prv/partners/brand-7.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
-                        </a>
-                    </div>
-                </div>
-                <!-- heroku -->
-                <div class="col-lg-2 col-md-3 col-4 mb-4 mb-md-0">
-                    <div class="px-2 py-2 btn-translate--hover">
-                        <a href="https://www.heroku.com/">
-                        <%= image_tag 'img/prv/partners/heroku.png', alt: 'partners-logo', class: 'img-fluid img grayscale' %>
-                        </a>
-                    </div>
-                </div>
-
             </div>
         </div>
-
     </div>
 </section>

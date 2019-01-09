@@ -1,0 +1,233 @@
+<header class="header-transparent" id="header-main">
+
+
+    <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-light bg-white pt-3 px-xl">
+
+        <ul class="navbar-nav align-items-center justify-content-between w-100">
+
+            <!-- logo -->
+            <div>
+                <a href="<%= root_path %>">
+                    <%= image_tag "logo-row.png", alt: "logo", class: "btn-translate--hover w-75", id: "logo-nav" %>
+                    <%= image_tag "logo-row.png", alt: "logo-row", class: "btn-translate--hover w-50", id: "logo-nav-row" %>
+                </a>
+            </div>
+
+
+            <!-- ............................USER IN.......................... -->
+            <% if user_signed_in? %>
+
+            <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+
+                <!-- icon -->
+                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-circle align-items-center btn-translate--hover text-white h2"></i>
+                </a>
+
+                <!-- dropdown menu -->
+                <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+                    <div class="list-group">
+
+                        <a href="<%= get_dashboard(current_user) %>" class="list-group-item list-group-item-action">
+                            <div class="media d-flex align-items-center">
+                                <div class="media-body ml-3">
+                                    <h6 class="mb-1">Dashboard</h6>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="<%= get_profil(current_user) %>" class="list-group-item list-group-item-action">
+                            <div class="media d-flex align-items-center">
+                                <div class="media-body ml-3">
+                                    <h6 class="mb-1">Profil</h6>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="<%= get_logout %>" class="list-group-item list-group-item-action" data-method="DELETE">
+                            <div class="media d-flex align-items-center">
+                                <div class="media-body ml-3">
+                                    <h6 class="mb-1"><strong>Déconnexion</strong></h6>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+            </li>
+
+            <!-- ............................USER OUT.......................... -->
+            <% else %>
+
+
+            <!-- BUTTON PROFILE REGULAR (transparent) -->
+
+                <!-- LOG IN -->
+                <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+
+                    <!-- icon -->
+                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Se connecter
+                    </a>
+
+                    <!-- dropdown menu -->
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+                        <div class="list-group">
+
+                            <a href="<%= new_student_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_teacher_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_establishment_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </li>
+
+                <!-- SIGN UP -->
+                <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+
+                    <!-- icon -->
+                    <%= link_to "S'inscrire", "#", class: "nav-link d-lg-none", id: "button-sign-up" %>
+                    <a href="#" class="btn btn-sm btn-white btn-circle btn-translate--hover btn-icon d-none d-lg-inline-flex scroll-me"
+                        style="box-shadow: 5px 5px 15px rgba(8, 16, 20, 0.89)">
+                        <span class="btn-inner--text">S'inscrire</span>
+                    </a>
+
+                    <!-- dropdown menu -->
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+                        <div class="list-group">
+
+                            <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_teacher_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_establishment_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </li>
+
+
+                <!-- BUTTON PROFILE SLIM (scroll) -->
+
+                <!-- LOG IN -->
+                <li class="nav-item dropdown dropdown-animate pr-5" data-toggle="hover" id="button-log-in-slim">
+
+                    <!-- icon -->
+                    <%= link_to "", "#", class: "nav-link d-lg-none" %>
+                    <i class="fas fa-sign-in-alt align-items-center text-grey"></i>
+
+                    <!-- dropdown menu -->
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+                        <div class="list-group">
+
+                            <a href="<%= new_student_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_teacher_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_establishment_session_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </li>
+
+                <!-- SIGN UP -->
+                <li class="nav-item dropdown dropdown-animate pr-5" data-toggle="hover" id="button-sign-up-slim">
+
+                    <!-- icon -->
+                    <%= link_to "", "#", class: "nav-link d-lg-none" %>
+                    <i class="fas fa-user-plus align-items-center text-grey"></i>
+
+                    <!-- dropdown menu -->
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+                        <div class="list-group">
+
+                            <a href="<%= new_student_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-warning"></i>&nbsp;Particulier</h6>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_teacher_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-danger"></i>&nbsp;Professeur</h6>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="<%= new_establishment_registration_path %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-1">
+                                        <h6 class="mb-1"><i class="fas fa-circle btn-translate--hover mr-2 text-success"></i>&nbsp;Établissement</h6>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </li>
+
+            </div>
+
+        </ul>
+
+        <% end %>
+
+    </nav>
+
+    <%= render 'layouts/flash' %>
+
+</header>

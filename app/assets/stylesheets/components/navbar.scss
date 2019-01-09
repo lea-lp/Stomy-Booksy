@@ -1,4 +1,13 @@
-  #button-connect {
-    color: white !important;
-    text-shadow: 5px 5px 15px rgba(8, 16, 20, 0.89);
-  }
+  // #button-connect {
+  //   color: white !important;
+  //   text-shadow: 5px 5px 15px rgba(8, 16, 20, 0.89);
+  // }
+
+
+.header-transparent .navbar:not(.sticky):not(.navbar-collapsed) .nav-link {
+  color: white !important;
+}
+
+.navbar-sticky.sticky {
+  box-shadow: 0px 0px 10px -1px #103b7b50;
+}
