@@ -10,6 +10,8 @@ class ServicesController < ApplicationController
     else
       @services = Service.all
     end
+    @establishments = Establishment.all
+    @teachers = Teacher.all
   end
 
   def show

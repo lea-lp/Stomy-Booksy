@@ -6097,7 +6097,7 @@ input[type='button'].btn-block
 .badge-dark
 {
     color: black;
-    background-color: #186eca;
+    background-color: #f4f5f7;
 }
 .badge-dark[href]:hover,
 .badge-dark[href]:focus
@@ -12765,7 +12765,7 @@ button.bg-lighter:focus
 
 .bg-gradient-info
 {
-    background: linear-gradient(80deg, #0D4184 0, #1B2861 100%) !important;
+    background: linear-gradient(80deg, rgb(48, 102, 160), rgb(2, 30, 61) 100%) !important;
 }
 
 .bg-gradient-warning

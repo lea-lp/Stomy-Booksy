@@ -6,15 +6,8 @@
 }
 
 #top-index {
-    background-image: image-url("intro-small-left.svg");
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-}
-
-#top-index-teacher {
-    background-image: image-url("intro-small-left.svg");
-    background-repeat: no-repeat;
     z-index: 10;
+    margin-top: -35em;
 }
 
 #card-index {
@@ -24,4 +17,13 @@
 .image-size {
     max-width: 300px;
     height: 200px;
+}
+
+#btn-index-more:hover {
+    background-color: white;
+    color: #0F3167;
+}
+
+#nav-dashboard {
+    height: 8%;
 }

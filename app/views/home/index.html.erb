@@ -19,7 +19,7 @@
                     proposant une interface commune entre établissements, professeurs et élèves.</p>
                 <div class="mt-5">
                     <a href="#we-do" class="btn btn-info btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
-                        data-scroll-to-offset="40">
+                        data-scroll-to-offset="40" id="btn-index-more">
                         <span class="btn-inner--text">En savoir plus</span>
                         <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
                     </a>
@@ -32,12 +32,19 @@
 
 
 <!-- TITLE MAP -->
-<section class="slice bg-cover" id="above-map">
+<section class="slice bg-cover pt-1" id="above-map">
 
     <div class="container">
         <div class="text-center">
+            <div class="pb-5">
+                <div class="icon icon-xl icon-shape rounded-circle icon-red">
+                    <i class="fas fa-city"></i>
+                </div>
+            </div>
             <h2 class="heading display-4 ">Trouvez un établissement</h2>
             <div class="row justify-content-center">
+
+
 
                 <div class="col-xl-8 col-lg-10">
                     <p class="lead lh-180">Une carte dynamique à votre diposition. <br> Cherchez une adresse et
@@ -46,16 +53,16 @@
 
                 <div class="row d-flex justify-content-around py-4">
 
-                    <!-- <div class="col-4 d-flex justify-content-center">
-                            <a href="#above-map" class="btn btn-outline-info btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
-                                data-scroll-to-offset="40">
-                                <span class="btn-inner--text">Carte des établissements</span>
-                                <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                            </a>
-                        </div> -->
+                    <div class="col-4 d-flex justify-content-center">
+                        <a href="<%=services_path%>" class="btn btn-outline-success btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
+                            data-scroll-to-offset="40">
+                            <span class="btn-inner--text">Les services</span>
+                            <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                        </a>
+                    </div>
 
                     <div class="col-4 d-flex justify-content-center">
-                        <a href="<%=teachers_path%>" class="btn btn-outline-danger btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
+                        <a href="<%=teachers_path%>" class="btn btn-outline-warning btn-circle btn-translate--hover btn-icon mr-5 scroll-me"
                             data-scroll-to-offset="40">
                             <span class="btn-inner--text">Les professeurs</span>
                             <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
@@ -63,7 +70,7 @@
                     </div>
 
                     <div class="col-4 d-flex justify-content-center">
-                        <a href="<%=establishments_path%>" class="btn btn-outline-success btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
+                        <a href="<%=establishments_path%>" class="btn btn-outline-danger btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
                             data-scroll-to-offset="40">
                             <span class="btn-inner--text">Les établissements</span>
                             <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
@@ -95,6 +102,11 @@
         <!-- titles -->
         <div class="row row-grid justify-content-center mb-lg">
             <div class="col-lg-8 text-center">
+                    <div class="pb-5">
+                            <div class="icon icon-xl icon-shape rounded-circle icon-green">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
                 <h4 class="display-4 mb-2">Qui êtes vous ?</h4>
                 <h6 class="lead text-muted">Un besoin = un type de compte</h6>
                 <!-- <h6 class="text-uppercase ls-2 text-light-white font-weight-700">Choisissez le compte qui vous correspond</h6> -->
@@ -117,7 +129,7 @@
                                 <li>Laissez nous gérer votre agenda</li>
                                 <li>Intervenez dans plusieurs établissements </li>
                             </ul>
-                            <a href="<%= new_teacher_registration_path %>" class="btn btn-danger btn-circle mb-3 font-weight-bold">M'inscrire</a>
+                            <a href="<%= new_teacher_registration_path %>" class="btn btn-warning btn-circle mb-3 font-weight-bold">M'inscrire</a>
                         </div>
                     </div>
                 </div>
@@ -137,7 +149,7 @@
                                 <li>Adhérez, réservez, annulez en toute liberté</li>
                                 <li>Découvrez de nouvelles activités</li>
                             </ul>
-                            <a href="<%= new_student_registration_path %>" class="btn btn-warning btn-circle mb-3 font-weight-bold">M'inscrire</a>
+                            <a href="<%= new_student_registration_path %>" class="btn btn-success btn-circle mb-3 font-weight-bold">M'inscrire</a>
                         </div>
                     </div>
                 </div>
@@ -156,7 +168,7 @@
                                 <li>Suivez l'agenda de vos ressources</li>
                                 <li>Simplifiez votre gestion</li>
                             </ul>
-                            <a href="<%=new_establishment_registration_path%>" class="btn btn-success btn-circle mb-3 font-weight-bold">M'inscrire</a>
+                            <a href="<%=new_establishment_registration_path%>" class="btn btn-danger btn-circle mb-3 font-weight-bold">M'inscrire</a>
                         </div>
                     </div>
                 </div>
@@ -171,17 +183,21 @@
 
 
 <!-- WHAT WE DO (icon cards) -->
-<section class="slice slice-lg mt-5 pt-0" id="we-do">
+<section class="slice slice-lg mt-5 pt-5" id="we-do">
     <div class="container">
 
         <!-- title - text -->
         <div class="mb-md text-center">
-            <span class="badge badge-lg badge-success badge-pill">Notre process</span>
+                <div class="pb-4">
+                        <div class="icon icon-xl icon-shape rounded-circle icon-blue">
+                                <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
             <h3 class="display-4 mt-4">Vos réservations centralisées</h3>
             <div class="fluid-paragraph text-center mt-4">
                 <p class="lead lh-180"> <strong> Notre but est de vous simplifier la vie. </strong> <br> Que vous soyez
                     un particulier, un établissement, un professeur, <strong>Stomy Booksy</strong> vous propose un
-                    service pour organiser vos cours artistiques / sportifs <br> <em> et garder l'esprit libre.</em>
+                    service pour organiser vos cours artistiques / sportifs <em> et garder l'esprit libre.</em>
                 </p>
             </div>
         </div>
@@ -258,6 +274,11 @@
 
         <!-- title -->
         <div class="text-center mb-5 mt-5">
+                <div class="pb-4">
+                        <div class="icon icon-xl icon-shape rounded-circle icon-yellow">
+                                <i class="far fa-check-circle"></i>
+                        </div>
+                    </div>
             <h2 class="heading display-4 mb-2">Ils nous font confiance</h2>
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-10">

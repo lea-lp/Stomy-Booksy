@@ -24,10 +24,5 @@ before_action :page_belongs_to_user?, only: [:dashboard]
     else
       @teachers = Teacher.all
     end
-
-    p "*" * 50
-    puts params 
-    p "*" * 50
-
   end
 end

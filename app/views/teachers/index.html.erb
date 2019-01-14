@@ -1,63 +1,84 @@
-<section class="slice-lg bg-transparent" id="top-index-teacher">
-
-
-    <div class="container mt-5">
-
-        <%if @establishment%>
-        <span class="h2 mb-0 d-block">Voici les
-            <%=@teachers.count%> professeurs affiliés à l'établissement <a href="<%=establishment_path(@establishment)%>">"
-                <%=@establishment.name%>"</a></span>
-        <%else%>
-        <h2 class="text-white">Les Intervenants</h4>
-            <p class="lead lh-180 text-white">Retrouvez ici tous les intervants inscrits sur AwaBooking !</p>
-            <%end%>
-
-            <div class="row">
-
-                <% @teachers.each do |teacher| %>
-
-                <div class="col-lg-3 pt-5">
-                    <div class="card overflow-hidden" data-animate-hover="2" id="card-index">
-                        <div class="overflow-hidden">
-                            <div class="animate-this text-center">
-
-                                <% if teacher.avatar.attached? %>
-                                <%= image_tag teacher.avatar, class: "image-size" %>
-                                <% else %>
-                                <a href="<%= teacher_path(teacher) %>">
-                                    <%= image_tag ("prof2.jpg"), class: "image-size" %>
-                                </a>
-                                <%end%>
-
-                            </div>
-                        </div>
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title mb-0"><a href="<%= teacher_path(teacher) %>" class="text-dark">
-                                    <%=teacher.first_name%>
-                                    <%= teacher.last_name %></a></h5>
-                            <p class="text-muted mb-0">
-
-                                <%teacher.sub_categories.each_with_index do |sub_cat, ind|%>
-                                <%unless ind == 0 %>
-                                -
-                                <%end%>
-                                <%=sub_cat.title%>
-                                <%end%>
-                            </p>
-                            <a href="<%=teacher_path(teacher.id)%>">
-                                <button class="btn btn-sm btn-info btn-circle btn-icon mt-2">
-                                    <span class="btn-inner--text">Voir mon profil</span>
-                                    <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <% end %>
-            </div>
-            <br>
+<!-- TOP SLICE -->
+<section class="slice slice-lg section-rotate">
+    <div class="section-inner bg-gradient-info">
+        <span class="section-inner-bg"></span>
     </div>
 
+    <!-- main text -->
+    <div class="container mt-xl">
+        <div class="row align-items-center">
+            <div class="col-lg-10 pl-0">
+                <h1 class="text-white mb-3">Les Intervenants</h1>
+                <p class="lead text-white lh-180">Retrouvez ici tous les intervants inscrits sur AwaBooking !</p>
+            </div>
+        </div>
+    </div>
+</section>
 
+
+<section class="slice-lg bg-transparent" id="top-index">
+    <div class="container mt-5">
+        <div class="row">
+
+            <% @teachers.each do |teacher| %>
+
+            <div class="col-lg-3 pt-5">
+                <div class="card overflow-hidden" data-animate-hover="2" id="card-index">
+
+                    <div class="overflow-hidden">
+                        <div class="animate-this text-center">
+
+                            <% if teacher.avatar.attached? %>
+                            <%= image_tag teacher.avatar, class: "image-size" %>
+                            <% else %>
+                            <a href="<%= teacher_path(teacher) %>">
+                                <%= image_tag ("prof2.jpg"), class: "image-size" %>
+                            </a>
+                            <%end%>
+
+                        </div>
+                    </div>
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title mb-0"><a href="<%= teacher_path(teacher) %>" class="text-dark">
+                                <%=teacher.first_name%>
+                                <%= teacher.last_name %></a></h5>
+
+                        <p class="text-muted mb-0">
+                            <%teacher.sub_categories.each_with_index do |sub_cat, ind|%>
+                            <%unless ind == 0 %>
+                            -
+                            <%end%>
+                            <%=sub_cat.title%>
+                            <%end%>
+                        </p>
+
+                        <div class="mt-3">
+                            <a href="<%=teacher_path(teacher.id)%>" class="text-danger">
+                                Voir le profil &nbsp; <i class="fas fa-user-circle"></i>
+                            </a>
+                            <hr class="m-2">
+                            <% if teacher.services.count == 0 %>
+                            <a class="text-light">Pas de service disponible</a>
+                            <% elsif teacher.services.count == 1 %>
+                            <a href="<%=teacher_services_path(teacher.id)%>" class="text-info">
+                                <%= teacher.services.count %> service disponible &nbsp; <i class="fas fa-angle-right"></i>
+                            </a>
+                            <% else %>
+                            <a href="<%=teacher_services_path(teacher.id)%>" class="text-info">
+                                <%= teacher.services.count %> services disponibles &nbsp; <i class="fas fa-angle-right"></i>
+                            </a>
+                            <% end %>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <% end %>
+
+        </div>
+    </div>
 </section>
