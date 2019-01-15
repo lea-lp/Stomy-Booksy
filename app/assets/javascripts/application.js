@@ -15,6 +15,12 @@
 //= require jquery3
 //= require jquery_ujs
 
+//= require jquery.scrollbar.min
+//= require jquery-scrollLock.min
+//= require highlight
+//= require clipboard.min
+//= require holder.min
+//= require docs.min
 //= require jquery.min
 //= require all.min
 //= require bootstrap.bundle.min
@@ -24,6 +30,7 @@
 //= require swiper.min
 //= require sticky-kit.min
 //= require jquery.fancybox.min
+
 
 //= require_tree .
 

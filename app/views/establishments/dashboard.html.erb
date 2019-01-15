@@ -2,131 +2,74 @@
     <aside class="sidebar" id="docs-nav">
 
         <div class="sidebar-brand">
-                <a href="<%= root_path %>">
-                        <%= image_tag "AwaBooking.png", alt: "logo", class: "btn-translate--hover w-75 ml-3"%>
-                    </a>
+            <a href="<%= root_path %>">
+                <%= image_tag "AwaBooking.png", alt: "logo", class: "btn-translate--hover w-75 ml-3"%>
+            </a>
         </div>
 
         <div class="scrollbar-inner">
             <ul class="navigation pr-3">
 
-                <li class="navigation-title">Getting started</li>
+                <li class="navigation-title">Accueil</li>
 
 
                 <li class="navigation-item">
-                    <a href="introduction.html" class="navigation-link">Introduction</a>
+                    <a href="introduction.html" class="navigation-link">Mes participants</a>
                 </li>
 
                 <li class="navigation-item">
-                    <a href="file-structure.html" class="navigation-link">File structure</a>
+                    <a href="file-structure.html" class="navigation-link">Mes intervenants</a>
                 </li>
 
                 <li class="navigation-item">
-                    <a href="plugins.html" class="navigation-link">Plugins</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="gulp.html" class="navigation-link">Gulp</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="customization.html" class="navigation-link">Customization</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="update.html" class="navigation-link">Update</a>
+                    <a href="plugins.html" class="navigation-link">Mes services</a>
                 </li>
 
 
-                <li class="navigation-title">Components</li>
+                <li class="navigation-title">Mes réservations</li>
 
 
                 <li class="navigation-item">
-                    <a href="alerts.html" class="navigation-link">Alerts</a>
+                    <a href="alerts.html" class="navigation-link">Passées / à venir</a>
                 </li>
 
                 <li class="navigation-item">
-                    <a href="avatars.html" class="navigation-link">Avatars</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="badges.html" class="navigation-link">Badges</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="buttons.html" class="navigation-link">Buttons</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="cards.html" class="navigation-link">Cards</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="countdown.html" class="navigation-link">Countdown</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="count-to.html" class="navigation-link">Count to</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="dropdowns.html" class="navigation-link">Dropdowns</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="fancybox.html" class="navigation-link">Fancybox</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="forms.html" class="navigation-link">Forms</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="modal.html" class="navigation-link">Modal</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="navbar.html" class="navigation-link">Navbar</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="navs.html" class="navigation-link">Navs</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="pagination.html" class="navigation-link">Pagination</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="progress.html" class="navigation-link">Progress</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="tables.html" class="navigation-link">Tables</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="tooltips.html" class="navigation-link">Tooltips</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="tongues.html" class="navigation-link">Tongues</a>
+                    <a href="avatars.html" class="navigation-link">Mon calendrier</a>
                 </li>
 
 
-                <li class="navigation-title">Design elements</li>
+                <li class="navigation-title">Mes participants</li>
 
 
                 <li class="navigation-item">
-                    <a href="colors.html" class="navigation-link">Colors</a>
+                    <a href="colors.html" class="navigation-link">Passés / actuels</a>
+                </li>
+
+                <li class="navigation-title">Mes paramètres</li>
+
+
+                <li class="navigation-item">
+                    <a href="colors.html" class="navigation-link">Ressources</a>
                 </li>
 
                 <li class="navigation-item">
-                    <a href="typography.html" class="navigation-link">Typography</a>
+                    <a href="colors.html" class="navigation-link">Services (taxes)</a>
                 </li>
 
                 <li class="navigation-item">
-                    <a href="icons.html" class="navigation-link">Icons</a>
+                    <a href="colors.html" class="navigation-link">Adhésions</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="colors.html" class="navigation-link">Crédits</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="colors.html" class="navigation-link">Chèques cadeaux</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="colors.html" class="navigation-link">Horaires d'ouverture</a>
                 </li>
 
 
@@ -135,7 +78,8 @@
     </aside>
 
     <section class="content">
-        <div class="header">
+
+        <div class="header pr-xl">
             <div class="navigation-trigger d-xl-none" data-action="aside-open" data-target="#docs-nav">
                 <div class="navigation-trigger-inner">
                     <i class="navigation-trigger-line"></i>
@@ -144,37 +88,44 @@
                 </div>
             </div>
 
-            <div class="header-brand d-xl-none">
-                <h1 class="font-weight-400"><a href="../docs/introduction.html"><span class="font-weight-700">Purpose</span>
-                        Website UI Kit</a></h1>
-            </div>
-
-            <div class="header-nav ml-auto">
+            <div class="ml-auto">
                 <ul class="nav align-items-center">
-                        <li class="nav-item dropdown dropdown-animate " data-toggle="hover">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false"><i class="fas fa-user-circle align-items-center btn-translate--hover text-dark h4"></i></a>
-                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
-                                    <div class="list-group">
-                                        <a href="<%= establishment_path(current_establishment) %>" class="list-group-item list-group-item-action">
-                                            <div class="media d-flex align-items-center">
-                                                <div class="media-body ml-3">
-                                                    <h6 class="mb-1">Profil</h6>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    </a>
-                                    <a href="<%= get_logout %>" class="list-group-item list-group-item-action" data-method="DELETE">
-                                        <div class="media d-flex align-items-center">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1"><strong>Déconnexion</strong></h6>
-                                            </div>
+                    <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+
+                        <!-- icon -->
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"><i class="fas fa-user-circle align-items-center btn-translate--hover text-dark h4"></i>
+                        </a>
+
+                        <!-- dropdown menu -->
+                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+
+                            <div class="list-group">
+
+                                <a href="<%= establishment_path(current_establishment) %>" class="list-group-item list-group-item-action">
+                                    <div class="media d-flex align-items-center">
+                                        <div class="media-body ml-3">
+                                            <h6 class="mb-1">Profil</h6>
                                         </div>
-                                    </a>
-                                </div>
-                            </li>
+                                    </div>
+                                </a>
+
+                                <a href="<%= get_logout %>" class="list-group-item list-group-item-action" data-method="DELETE">
+                                    <div class="media d-flex align-items-center">
+                                        <div class="media-body ml-3">
+                                            <h6 class="mb-1"><strong>Déconnexion</strong></h6>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </li>
                 </ul>
             </div>
+
         </div>
 
         <div class="content-inner content-docs">
