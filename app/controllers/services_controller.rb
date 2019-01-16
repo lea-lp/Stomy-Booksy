@@ -8,11 +8,21 @@ class ServicesController < ApplicationController
       @teacher = Teacher.find(params[:teacher_id])
       @services = @teacher.services
     else
-      @services = Service.all
+
+      @services = if params[:term]
+        Service.where('name LIKE ?', "%#{:term}%")
+      else
+        Service.all
+      end
+
     end
     @establishments = Establishment.all
     @teachers = Teacher.all
   end
+
+
+
+
 
   def show
   end
@@ -42,7 +52,7 @@ class ServicesController < ApplicationController
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def service_params
-    params.require(:service).permit(:name, :description, :duration, :establishment_id, :teacher_id, :resource_id, :sub_category_id)
+    params.require(:service).permit(:name, :description, :duration, :establishment_id, :teacher_id, :resource_id, :sub_category_id, :term)
   end
 
 end

@@ -15,6 +15,12 @@
     </div>
 </section>
 
+<%= form_tag(services_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+
 <section class="slice-lg bg-transparent" id="top-index">
     <div class="container mt-5">
         <div class="row">
