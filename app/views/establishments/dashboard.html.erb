@@ -5,6 +5,7 @@
     <div class="content-inner content-docs">
         <div class="container-fluid">
 
+            <!-- ACCUEIL -->
             <div class="pt-3 pb-4 mb-4 border-bottom">
                 <div class="row">
                     <div class="col-lg-12">
@@ -19,6 +20,7 @@
                 </div>
             </div>
 
+            <!-- RESERVATIONS -->
             <div class="pt-3 pb-4 mb-4 border-bottom">
                 <div class="row">
                     <div class="col-lg-12">
@@ -33,6 +35,7 @@
                 </div>
             </div>
 
+            <!-- PARTICIPANTS -->
             <div class="pt-3 pb-4 mb-4 border-bottom">
                 <div class="row">
                     <div class="col-lg-12">
@@ -47,6 +50,7 @@
                 </div>
             </div>
 
+            <!-- PARAMETRES -->
             <div class="pt-3 pb-4 mb-4 border-bottom">
                 <div class="row">
                     <div class="col-lg-12">
@@ -61,99 +65,7 @@
                 </div>
             </div>
 
-
-            <div class="row">
-                <div class="col-lg-12 ">
-
-                    <div class="card" id="card-resource-add">
-                        <div class="card-header border-0">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <div>
-                                    <h6> Services</h6>
-                                </div>
-                                <div id="add-resource">
-                                    <i class="fas fa-angle-down"></i>
-                                </div>
-                            </div>
-
-                            <div id="hide-resource-add">
-                                <table class="table table-flush align-items-center">
-                                    <thead class="thead-light">
-                                        <tr class="row">
-                                            <th class="col-2 p-3 h-25 text-muted"> Nom </th>
-                                            <th class="col-1 p-2 pt-3 h-25 text-muted"> Prof. </th>
-                                            <th class="col-2 p-3 h-25 text-muted"> Salle </th>
-                                            <th class="col-4 p-3 h-25 text-muted"> Description </th>
-                                            <th class="col-2 p-3 h-25 text-muted"> Durée </th>
-                                            <th class="col-1 p-3 h-25 text-muted"><i class="fas fa-trash-alt"></i></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="container">
-                                        <%@services.each do |service|%>
-                                        <tr class="row">
-                                            <td class="col-2 p-3 h-25"><span class="font-weight-bold text-sm wrap">
-                                                    <%=service.name%></span></td>
-                                            <td class="col-1 p-2 pt-3 h-25"><a href="<%=teacher_path(service.teacher)%>"
-                                                    class="font-weight-bold wrap">
-                                                    <%=service.teacher.first_name%></a></td>
-                                            <td class="col-2 p-3 h-25"><span class="text-sm wrap">
-                                                    <%=service.resource.name%></span></td>
-                                            <td class="col-4 text-overflow p-3 h-25"><span class="text-sm wrap">
-                                                    <%=service.description%></span></td>
-                                            <td class="col-2 p-3 h-25"><span class="text-sm wrap">
-                                                    <%=service.duration/60%> min</span></td>
-                                            <td class="col-1 p-3 h-25"><a href="<%=service_path(service)%>" class="text-light"
-                                                    data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE"
-                                                    data-confirm='Vous allez effacer "<%=service.name%>". Veuillez confirmer.'>
-                                                    <i class="fas fa-trash-alt"></i></a></td>
-                                        </tr>
-                                        <%end%>
-                                    </tbody>
-                                </table>
-                                <!-- service creation form -->
-                                <div>
-                                    <h6 class="my-4">Ajouter un service</h6>
-                                </div>
-                                <div class="container">
-                                    <%= form_tag @service do %>
-                                    <input type="hidden" id="hidden_tag" name="service[establishment_id]" value="<%=current_user.id%>">
-                                    <div class="row ">
-                                        <div class="col-5 form-group">
-                                            <%=label_tag "Nom du service"%>
-                                            <%=text_field_tag "service[name]", nil, placeholder: "Cours de xxxx", class:"form-control border-1" %>
-                                        </div>
-                                        <div class="col-5 form-group">
-                                            <%=label_tag "Professeur"%>
-                                            <%= select_tag "service[teacher_id]", options_from_collection_for_select(@teachers, :id, :email), {class: "form-control"} %>
-                                        </div>
-                                        <div class="col-5 form-group">
-                                            <%=label_tag "Categorie"%>
-                                            <%=select_tag "service[sub_category_id]", options_from_collection_for_select(@sub_categories, :id, :title), class: "form-control"%>
-                                        </div>
-                                        <div class="col-5 form-group">
-                                            <%=label_tag "Ressource"%>
-                                            <%=select_tag "service[resource_id]", options_from_collection_for_select(@resources, :id, :name), class: "form-control"%>
-                                        </div>
-                                        <div class="col-8 form-group">
-                                            <%=label_tag "Description"%>
-                                            <%=text_area_tag("service[description]", nil, size: "60x3", class: "form-control")%>
-                                        </div>
-                                        <div class="col-3 form-group">
-                                            <%=label_tag "Durée (minutes)"%><br>
-                                            <%=number_field_tag("service[duration_minutes]", nil, min: 15, class: "form-control col-6")%>
-                                        </div>
-                                        <div class="col-10 d-flex justify-content-center">
-                                            <%=submit_tag "Créer le service", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Confirmez-vous la création du service ?"}%>
-                                            </td>
-                                        </div>
-                                    </div>
-                                    <% end %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
+
 </main>

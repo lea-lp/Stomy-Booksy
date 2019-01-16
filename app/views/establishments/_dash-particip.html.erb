@@ -1,8 +1,8 @@
 <!-- CURRENT YEAR PARTICIPANTS -->
 
 <!-- section title -->
-<h2 class="heading h2 font-weight-bold">
-    <div class="icon icon-shape rounded-circle icon-green">
+<h2 class="heading h4 font-weight-bold">
+    <div class="icon icon-sm icon-shape rounded-circle icon-green">
         <i class="fas fa-users"></i>
     </div>
     &nbsp; Participants actuels
@@ -22,14 +22,14 @@
 
     <% if participant.created_at.year == DateTime.now.year %>
 
-    <div class="col-lg-3 pt-3">
-        <div class="card overflow-hidden" data-animate-hover="2" id="card-index">
+    <div class="col-lg-6 pt-3">
+        <div class="card overflow-hidden" data-animate-hover="2" id="dash-card">
 
             <div class="card-body text-center">
 
                 <!-- name -->
-                <h5 class="card-title mb-0">
-                    <%= participant.first_name %> <br>
+                <h5 class="card-title h6 mb-0">
+                    <%= participant.first_name %>
                     <%= participant.last_name.upcase %>
                 </h5>
 
@@ -80,8 +80,8 @@
 <% if participant.created_at.year != DateTime.now.year %>
 
 <!-- section title -->
-<h2 class="heading h2 font-weight-bold">
-    <div class="icon icon-shape rounded-circle icon-green">
+<h2 class="heading h4 font-weight-bold">
+    <div class="icon icon-sm icon-shape rounded-circle icon-green">
         <i class="fas fa-users"></i>
     </div>
     &nbsp; Participants des années précédentes

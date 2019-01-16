@@ -1,17 +1,14 @@
-<!-- PARAMETERS -->
+<!-- CONCRETE RESOURCES -->
 
 <!-- section title -->
-<h2 class="heading h2 font-weight-bold">
-    <div class="icon icon-shape rounded-circle icon-yellow">
+<h2 class="heading h4 font-weight-bold">
+    <div class="icon icon-sm icon-shape rounded-circle icon-green">
         <i class="fas fa-project-diagram"></i>
     </div>
-    &nbsp; Ressources
+    &nbsp; Ressources physiques <span class="h6 text-light">(salles, objets)</span>
 </h2>
 
-<!-- resources -->
-
 <!-- resource creation form -->
-
 <h5 class="heading font-weight-bold mt-5"><i class="fas fa-plus-circle"></i> &nbsp; Ajouter une ressource</h5>
 
 <div>
@@ -27,13 +24,13 @@
         <tbody class="container">
             <tr class="row">
                 <input type="hidden" id="hidden_tag" name="resource[establishment_id]" value="<%=current_user.id%>">
-                <td class="col-3">
+                <td class="col-3" id="dash-table-param">
                     <%=form.select :resource_type, [["salle","salle"],["objet","objet"]], {}, {class: "form-control", style: "width: 100%"}%>
                 </td>
-                <td class="col-6">
+                <td class="col-6" id="dash-table-param">
                     <%=form.text_field :name, class:"form-control border-1", placeholder: "Bleue" %>
                 </td>
-                <td class="col-3">
+                <td class="col-3" id="dash-table-param">
                     <%=form.select :is_active, [["active",true],["inactive",false]], {}, {class: "form-control", style: "width: 100%"}%>
                 </td>
             </tr>
@@ -57,9 +54,11 @@
         </tbody>
     </table>
     <%=form.submit "Créer la ressource", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Vous confirmez la création de cette ressource ?"}%>
-    </td>
     <% end %>
 </div>
+
+<!-- resource list -->
+<h5 class="heading font-weight-bold mt-5"><i class="fas fa-list-ul"></i> &nbsp; Liste des ressources</h5>
 
 <div class="card mt-4" id="card-resource-list">
     <div class="card-header border-0">
@@ -98,6 +97,223 @@
                 </tbody>
             </table>
 
+        </div>
+    </div>
+</div>
+
+<hr>
+
+
+<!-- HUMAN RESOURCES -->
+
+<!-- section title -->
+<h2 class="heading h4 font-weight-bold">
+    <div class="icon icon-sm icon-shape rounded-circle icon-yellow">
+        <i class="fas fa-fingerprint"></i>
+    </div>
+    &nbsp; Ressources humaines
+</h2>
+
+<h5 class="heading font-weight-bold mt-5"><i class="fas fa-chalkboard-teacher"></i> &nbsp; Intervenants affiliés</h5>
+
+<!-- cards -->
+<div class="row pb-5">
+
+    <% @my_teachers.each do |teacher| %>
+
+    <div class="col-lg-3 pt-3">
+        <div class="card overflow-hidden" data-animate-hover="2">
+
+            <!-- avatar -->
+            <div class="overflow-hidden">
+                <div class="animate-this text-center">
+
+                    <% if teacher.avatar.attached? %>
+                    <%= image_tag teacher.avatar, class: "image-size" %>
+                    <% else %>
+                    <a href="<%= teacher_path(teacher) %>">
+                        <%= image_tag ("prof2.jpg"), class: "image-size" %>
+                    </a>
+                    <%end%>
+
+                </div>
+            </div>
+
+            <div class="card-body text-center" id="dash-card">
+
+                <!-- name -->
+                <h5 class="card-title h6 mb-0"><a href="<%= teacher_path(teacher) %>" class="text-dark">
+                        <%=teacher.first_name%> <br>
+                        <%= teacher.last_name.upcase %></a></h5>
+
+                <!-- services -->
+                <p class="text-muted mb-0">
+                    <%teacher.sub_categories.each_with_index do |sub_cat, ind|%>
+                    <%unless ind == 0 %>
+                    -
+                    <%end%>
+                    <%=sub_cat.title%>
+                    <%end%>
+                </p>
+
+                <!-- see profile -->
+                <div class="mt-3">
+                    <a href="<%=teacher_path(teacher.id)%>" class="text-warning">
+                        Voir le profil &nbsp; <i class="fas fa-user-circle"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <% end %>
+
+</div>
+
+<hr>
+
+
+<!-- SERVICES -->
+
+<!-- section title -->
+<h2 class="heading h4 font-weight-bold">
+    <div class="icon icon-sm icon-shape rounded-circle icon-blue">
+        <i class="fas fa-stream"></i>
+    </div>
+    &nbsp; Services
+</h2>
+
+
+<!-- service creation form -->
+
+<h5 class="heading font-weight-bold mt-5"><i class="fas fa-plus-circle"></i> &nbsp; Créer un service</h5>
+
+
+<%= form_tag @service do %>
+
+<!-- row 1 - service title + prof -->
+<table class="table align-items-center">
+    <thead class="thead-light">
+        <tr class="row">
+            <th class="col-6"> Nom du service </th>
+            <th class="col-6"> Professeur </th>
+        </tr>
+    </thead>
+    <tbody class="container">
+        <tr class="row">
+            <input type="hidden" id="hidden_tag" name="resource[establishment_id]" value="<%=current_user.id%>">
+            <td class="col-6" id="dash-table-param">
+                <%=text_field_tag "service[name]", nil, placeholder: "Cours de xxxx", class:"form-control border-1" %>
+            </td>
+            <td class="col-6" id="dash-table-param">
+                <%= select_tag "service[teacher_id]", options_from_collection_for_select(@teachers, :id, :email), {class: "form-control"} %>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- row 2 - category + concrete resource -->
+<table class="table align-items-center">
+    <thead class="thead-light">
+        <tr class="row">
+            <th class="col-6"> Catégorie </th>
+            <th class="col-6"> Ressource physique </th>
+        </tr>
+    </thead>
+    <tbody class="container">
+        <tr class="row">
+            <input type="hidden" id="hidden_tag" name="resource[establishment_id]" value="<%=current_user.id%>">
+            <td class="col-6" id="dash-table-param">
+                <%=select_tag "service[sub_category_id]", options_from_collection_for_select(@sub_categories, :id, :title), class: "form-control"%>
+            </td>
+            <td class="col-6" id="dash-table-param">
+                <%=select_tag "service[resource_id]", options_from_collection_for_select(@resources, :id, :name), class: "form-control"%>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- row 3 - description + duration -->
+<table class="table align-items-center mb-5">
+    <thead class="thead-light">
+        <tr class="row">
+            <th class="col-10"> Description </th>
+            <th class="col-2"> Durée</th>
+        </tr>
+    </thead>
+    <tbody class="container">
+        <tr class="row">
+            <input type="hidden" id="hidden_tag" name="resource[establishment_id]" value="<%=current_user.id%>">
+            <td class="col-10" id="dash-table-param">
+                <%=text_area_tag("service[description]", nil, class: "form-control")%>
+            </td>
+            <td class="col-2" id="dash-table-param">
+                <%=number_field_tag("service[duration_minutes]", nil, min: 15, class: "form-control")%>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<%=submit_tag "Créer le service", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Confirmez-vous la création du service ?"}%>
+<% end %>
+
+<hr>
+
+<!-- services list -->
+<h5 class="heading font-weight-bold mt-5"><i class="fas fa-list-ul"></i> &nbsp; Liste des services</h5>
+
+<div class="row mt-4">
+
+    <div class="col-lg-12 ">
+
+        <div class="card" id="card-resource-add">
+            <div class="card-header border-0">
+
+
+                <div id="hide-resource-add">
+                    <table class="table table-flush align-items-center">
+                        <thead class="thead-light">
+                            <tr class="row">
+                                <th class="col-2 p-3 h-25 text-dark"> Nom </th>
+                                <th class="col-1 p-2 pt-3 h-25 text-dark"> Prof. </th>
+                                <th class="col-2 pl-5 py-3 pr-3 h-25 text-dark"> Salle </th>
+                                <th class="col-4 p-3 h-25 text-dark"> Description </th>
+                                <th class="col-2 p-3 h-25 text-dark"> Durée </th>
+                                <th class="col-1 p-3 h-25 text-dark"><i class="fas fa-trash-alt"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody class="container">
+                            <%@services.each do |service|%>
+                            <tr class="row">
+                                <!-- "nom" -->
+                                <td class="col-2 p-3 h-25"><span class="font-weight-bold text-sm wrap text-info">
+                                        <%=service.name%></span></td>
+                                <!-- "prof" -->
+                                <td class="col-1 p-2 pt-3 h-25"><a href="<%=teacher_path(service.teacher)%>" class="font-weight-bold wrap text-warning">
+                                        <%=service.teacher.first_name%></a></td>
+                                <!-- "salle" -->
+                                <td class="col-2 pl-5 py-3 pr-3 h-25"><span class="text-sm wrap">
+                                        <%=service.resource.name%></span></td>
+                                <!-- "description" -->
+                                <td class="col-4 text-overflow p-3 h-25"><span class="text-sm wrap">
+                                        <%=service.description%></span></td>
+                                <!-- "durée" -->
+                                <td class="col-2 p-3 h-25"><span class="text-sm wrap">
+                                        <%=service.duration/60%> min</span></td>
+                                <!-- delete icon -->
+                                <td class="col-1 p-3 h-25"><a href="<%=service_path(service)%>" class="text-light"
+                                        data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE"
+                                        data-confirm='Vous allez effacer "<%=service.name%>". Veuillez confirmer.'>
+                                        <i class="fas fa-trash-alt"></i></a></td>
+                            </tr>
+                            <%end%>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

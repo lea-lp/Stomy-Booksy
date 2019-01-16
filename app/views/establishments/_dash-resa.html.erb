@@ -1,283 +1,8 @@
-<!-- UPCOMING EVENTS -->
-
-<!-- section title -->
-<h2 class="heading h2 font-weight-bold">
-    <div class="icon icon-shape rounded-circle icon-green">
-        <i class="far fa-calendar-check"></i>
-    </div>
-    &nbsp; Rendez-vous à venir
-</h2>
-
-<!-- if NO current user events  -->
-
-<div class="mt-4">
-    <span class="mb-4"><i class="fas fa-info-circle"></i> &nbsp; Votre historique de réservations est
-        vide</span>
-</div>
-
-<div class="mt-4">
-    <a href="<%=teachers_path%>" class="btn-sm btn-danger btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
-        data-scroll-to-offset="40">
-        <span class="btn-inner--text">Contacter un professeur</span>
-        <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-    </a>
-</div>
-
-
-<!-- resources list (CARD) -->
-
-<div class="row pb-5">
-
-    <% if current_user.upcoming_events.any? %>
-
-    <% current_user.upcoming_events.each do |event|%>
-
-    <div class="col-lg-3 pt-3">
-        <div class="card overflow-hidden" data-animate-hover="2" id="card-index">
-
-            <div class="card-body text-center">
-
-                <!-- title -->
-                <h5 class="card-title mb-0">
-                    <%= Service.find(event.service_id).name %>
-                </h5>
-
-                <!-- date -->
-                <p class="text-muted m-3">
-                    <i class="fas fa-calendar-alt"></i> &nbsp;
-                    <%=(event.start_time).strftime("%d/%m/%Y")%>
-                </p>
-
-                <hr class="m-3">
-
-                <!-- time -->
-                <p class="text-muted m-3">
-                    <i class="far fa-clock"></i> &nbsp;
-                    <%=Time.at(event.start_time).strftime("%Hh%M")%>
-                    &bull;
-                    <strong>
-                        <%= Time.at(event.duration).utc.strftime("%M") %> min
-                    </strong>
-                </p>
-
-                <hr class="m-3">
-
-                <!-- description -->
-                <p class="text-muted">
-                    <strong>Détails</strong> <br>
-                    <%=event.name%>
-                </p>
-
-                <!-- edit / delete icons -->
-                <div class="mt-3">
-                    <a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item"
-                        data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer.">
-                        <i class="fas fa-trash-alt text-danger"></i>
-                    </a>
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="<%= edit_event_path(event) %>" class="text-light">
-                        <i class="fas fa-pen text-success"></i>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-    <% end %>
-
-</div>
-
-
-<!-- resources list (TABLE) -->
-
-
-<h5 class="heading font-weight-bold"><i class="fas fa-table"></i> &nbsp; Tableau</h5>
-
-
-<div class="card mt-4" id="card-rdv">
-    <div class="card-header border-0">
-
-        <div class="table-responsive container" id="hide-rdv">
-            <table class="table table-flush align-items-center">
-
-                <!-- thead elements -->
-                <thead class="thead-light">
-                    <tr class="row">
-                        <th class="col-2 text-muted"> Date </th>
-                        <th class="col-2 text-muted"> Heure </th>
-                        <th class="col-2 text-muted"> Durée </th>
-                        <th class="col-5 text-muted"> Description </th>
-                        <th class="col-1 text-muted"><i class="fas fa-trash-alt"></i></th>
-                    </tr>
-                </thead>
-
-                <!-- table body -->
-                <tbody class="container">
-                    <% current_user.upcoming_events.each do |event|%>
-                    <tr class="row">
-                        <!-- "Date" -->
-                        <td class="col-2 h-25"><span class="font-weight-bold text-sm wrap">
-                                <%=(event.start_time).strftime("%d/%m/%Y")%></span></td>
-                        <!-- "Heure" -->
-                        <td class="col-2 h-25"><span class="font-weight-bold wrap">
-                                <%=Time.at(event.start_time).strftime("%Hh%M")%></span></td>
-                        <!-- "Durée" -->
-                        <td class="col-2 h-25"><span class="text-sm wrap">
-                                <%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
-                        <!-- "Description" -->
-                        <td class="col-5 h-25"><span class="text-sm wrap">
-                                <%=event.name%></span></td>
-                        <!-- "Supprimer" -->
-
-                        <td class="col-1 h-25"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip"
-                                data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer."><i
-                                    class="fas fa-trash-alt"></i></a></td>
-                    </tr>
-                    <%end%>
-                </tbody>
-            </table>
-        </div>
-
-
-    </div>
-    <% end %>
-</div>
-
-<hr>
-
-<!-- PAST EVENTS -->
-
-<!-- shows only if current user as any past events -->
-<% if current_user.past_events.any? %>
-
-<!-- section title -->
-<h2 class="heading h2 font-weight-bold">
-    <div class="icon icon-shape rounded-circle icon-yellow">
-        <i class="far fa-calendar-check"></i>
-    </div>
-    &nbsp; Rendez-vous passés
-</h2>
-
-<!-- resources list (CARD) -->
-
-<div class="row pb-5">
-
-
-    <% current_user.past_events.each do |event|%>
-
-    <div class="col-lg-3 pt-3">
-        <div class="card overflow-hidden" data-animate-hover="2" id="card-index">
-
-            <div class="card-body text-center">
-
-                <!-- title -->
-                <h5 class="card-title mb-0">
-                    <%= Service.find(event.service_id).name %>
-                </h5>
-
-                <!-- date -->
-                <p class="text-muted m-3">
-                    <i class="fas fa-calendar-alt"></i> &nbsp;
-                    <%=(event.start_time).strftime("%d/%m/%Y")%>
-                </p>
-
-                <hr class="m-3">
-
-                <!-- heure -->
-                <p class="text-muted m-3">
-                    <i class="far fa-clock"></i> &nbsp;
-                    <%=Time.at(event.start_time).strftime("%Hh%M")%>
-                    &bull; <strong>
-                        <%= Time.at(event.duration).utc.strftime("%M") %> min</strong>
-                </p>
-
-                <hr class="m-3">
-
-                <!-- description -->
-                <p class="text-muted">
-                    <strong>Détails</strong> <br>
-                    <%=event.name%>
-                </p>
-
-                <!-- delete icon -->
-                <div class="mt-3">
-                    <a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item"
-                        data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer.">
-                        <i class="fas fa-trash-alt text-danger"></i>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-    <% end %>
-
-</div>
-
-
-<!-- resources list (table) -->
-
-<h5 class="heading font-weight-bold"><i class="fas fa-table"></i> &nbsp; Tableau</h5>
-
-<div class="card mt-4" id="card-rdv">
-    <div class="card-header border-0">
-
-        <div class="table-responsive container" id="hide-rdv">
-            <table class="table table-flush align-items-center">
-
-                <!-- thead elements -->
-                <thead class="thead-light">
-                    <tr class="row">
-                        <th class="col-2 text-muted"> Date </th>
-                        <th class="col-2 text-muted"> Heure </th>
-                        <th class="col-2 text-muted"> Durée </th>
-                        <th class="col-5 text-muted"> Description </th>
-                        <th class="col-1 text-muted"><i class="fas fa-trash-alt"></i></th>
-                    </tr>
-                </thead>
-
-                <!-- table body -->
-                <tbody class="container">
-                    <% current_user.past_events.each do |event|%>
-                    <tr class="row">
-                        <!-- "Date" -->
-                        <td class="col-2 h-25"><span class="font-weight-bold text-sm wrap">
-                                <%=(event.start_time).strftime("%d/%m/%Y")%></span></td>
-                        <!-- "Heure" -->
-                        <td class="col-2 h-25"><span class="font-weight-bold wrap">
-                                <%=Time.at(event.start_time).strftime("%Hh%M")%></span></td>
-                        <!-- "Durée" -->
-                        <td class="col-2 h-25"><span class="text-sm wrap">
-                                <%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
-                        <!-- "Description" -->
-                        <td class="col-5 h-25"><span class="text-sm wrap">
-                                <%=event.name%></span></td>
-                        <!-- "Supprimer" -->
-                        <td class="col-1 h-25"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip"
-                                data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer."><i
-                                    class="fas fa-trash-alt"></i></a></td>
-                    </tr>
-                    <%end%>
-                </tbody>
-            </table>
-        </div>
-
-    </div>
-</div>
-
-<hr>
-
-<% end %>
-
-
 <!-- CALENDAR -->
 
 <!-- section title -->
-<h2 class="heading h2 font-weight-bold">
-    <div class="icon icon-shape rounded-circle icon-red">
+<h2 class="heading h4 font-weight-bold">
+    <div class="icon icon-sm icon-shape rounded-circle icon-red">
         <i class="far fa-calendar-alt"></i>
     </div>
     &nbsp; Calendrier
@@ -314,3 +39,138 @@
         </div>
     </div>
 </div>
+
+<hr>
+
+<!-- RESERVATONS TAB -->
+
+<!-- header tab -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+            aria-selected="true">Réservations à venir</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            aria-selected="false">Réservations passées</a>
+    </li>
+
+</ul>
+
+<!-- body tab -->
+<div class="tab-content" id="myTabContent">
+
+    <!-- UPCOMING events -->
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+        <div class="card mt-4" id="card-rdv">
+            <div class="card-header border-0">
+
+                <div class="table-responsive container" id="hide-rdv">
+                    <table class="table table-flush align-items-center">
+
+                        <!-- thead elements -->
+                        <thead class="thead-light">
+                            <tr class="row">
+                                <th id="resa-table" class="col-auto text-muted"> Date </th>
+                                <th id="resa-table" class="col-auto text-muted"> Heure </th>
+                                <th id="resa-table" class="col-auto text-muted"> Durée </th>
+                                <th class="col-6 text-muted"> Description </th>
+                                <th class="col-1 text-muted"><i class="fas fa-trash-alt"></i></th>
+                            </tr>
+                        </thead>
+
+                        <!-- table body -->
+                        <tbody class="container">
+                            <% current_user.upcoming_events.each do |event|%>
+                            <tr class="row">
+                                <!-- "Date" -->
+                                <td id="resa-table" class="col-auto h-25"><span class="font-weight-bold text-sm wrap">
+                                        <%=(event.start_time).strftime("%d/%m/%Y")%></span></td>
+                                <!-- "Heure" -->
+                                <td id="resa-table" class="col-auto h-25"><span class="font-weight-bold wrap">
+                                        <%=Time.at(event.start_time).strftime("%Hh%M")%></span></td>
+                                <!-- "Durée" -->
+                                <td id="resa-table" class="col-auto h-25"><span class="text-sm wrap">
+                                        <%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
+                                <!-- "Description" -->
+                                <td class="col-6 h-25"><span class="text-sm wrap">
+                                        <%=event.name%></span></td>
+                                <!-- "Supprimer" -->
+
+                                <td class="col-1 h-25"><a href="<%= event_path(event) %>" class="text-light"
+                                        data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE"
+                                        data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer."><i
+                                            class="fas fa-trash-alt"></i></a></td>
+                            </tr>
+                            <%end%>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PAST events -->
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+        <!-- shows only if current user as any past events -->
+        <% if current_user.past_events.any? %>
+
+        <div class="card mt-4" id="card-rdv">
+            <div class="card-header border-0">
+
+                <div class="table-responsive container" id="hide-rdv">
+                    <table class="table table-flush align-items-center">
+
+                        <!-- thead elements -->
+                        <thead class="thead-light">
+                            <tr class="row">
+                                <th id="resa-table" class="col-auto text-muted"> Date </th>
+                                <th id="resa-table" class="col-auto text-muted"> Heure </th>
+                                <th id="resa-table" class="col-auto text-muted"> Durée </th>
+                                <th class="col-7 text-muted"> Description </th>
+                            </tr>
+                        </thead>
+
+                        <!-- table body -->
+                        <tbody class="container">
+                            <% current_user.past_events.each do |event|%>
+                            <tr class="row">
+                                <!-- "Date" -->
+                                <td id="resa-table" class="col-auto h-25"><span class="font-weight-bold text-sm wrap">
+                                        <%=(event.start_time).strftime("%d/%m/%Y")%></span></td>
+                                <!-- "Heure" -->
+                                <td id="resa-table" class="col-auto h-25"><span class="font-weight-bold wrap">
+                                        <%=Time.at(event.start_time).strftime("%Hh%M")%></span></td>
+                                <!-- "Durée" -->
+                                <td id="resa-table" class="col-auto h-25"><span class="text-sm wrap">
+                                        <%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
+                                <!-- "Description" -->
+                                <td class="col-7 h-25"><span class="text-sm wrap">
+                                        <%=event.name%></span></td>
+                            </tr>
+                            <%end%>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <% end %>
+
+    </div>
+
+</div>
+
+
+
+<hr>

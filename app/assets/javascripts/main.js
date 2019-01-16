@@ -1,5 +1,33 @@
 $(document).ready(function () {
 
+	// DASHBOARD
+
+	// upcoming events
+	$('#dash-event-hide').hide()
+	$('#dash-event-show').click(function () {
+		$('#dash-event-hide').toggle(500);
+	});
+
+	// participants
+	$('#dash-part-hide').hide()
+	$('#dash-part-show').click(function () {
+		$('#dash-part-hide').toggle(500);
+	});
+
+	// teachers
+	$('#dash-teacher-hide').hide()
+	$('#dash-teacher-show').click(function () {
+		$('#dash-teacher-hide').toggle(500);
+	});
+
+	// services
+	$('#dash-service-hide').hide()
+	$('#dash-service-show').click(function () {
+		$('#dash-service-hide').toggle(500);
+	});
+
+
+
 	$('#jquery').hide()
 	$('#hidden').click(function () {
 		$('#jquery').toggle(500);

@@ -1,34 +1,167 @@
-<!-- PARTICIPANT -->
+<!-- UPCOMING EVENTS -->
 
 <!-- section title -->
-<h2 class="heading h2 font-weight-bold">
-    <div class="icon icon-shape rounded-circle icon-green">
-        <i class="fas fa-users"></i>
+<h2 class="heading h4 font-weight-bold">
+
+    <div class="row d-flex justify-content-between">
+
+        <div class="col 10">
+            <div class="icon icon-sm icon-shape rounded-circle icon-red">
+                <i class="far fa-calendar-check"></i>
+            </div>
+            &nbsp; Rendez-vous à venir :
+            <%= current_user.upcoming_events.count %>
+        </div>
+
+        <div class="col-2">
+            <a id="dash-event-show" style="cursor: pointer">
+                <i class="fas fa-arrow-circle-down fa-xs"></i>
+            </a>
+        </div>
+
     </div>
-    &nbsp; Participants
+
 </h2>
 
-<!-- No participant yet  -->
-<% if @participant == [] %>
+
+<!-- if NO current user events  -->
+<% if current_user.upcoming_events == nil %>
+
 <div class="mt-4">
-    <span class="mb-0"><i class="fas fa-info-circle"></i> &nbsp; Aucun participant référencé pour le moment !</span>
+    <span class="mb-4"><i class="fas fa-info-circle"></i> &nbsp; Votre historique de réservations est
+        vide</span>
+</div>
+
+<div class="mt-4">
+    <a href="<%=teachers_path%>" class="btn-sm btn-danger btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
+        data-scroll-to-offset="40">
+        <span class="btn-inner--text">Contacter un professeur</span>
+        <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+    </a>
+</div>
+
+<% end %>
+
+<hr>
+
+<!-- resources list (CARD) -->
+
+<div class="row pb-5" id="dash-event-hide">
+
+    <% if current_user.upcoming_events.any? %>
+
+    <% current_user.upcoming_events.each do |event|%>
+
+    <div class="col-lg-3 pt-3">
+        <div class="card overflow-hidden" data-animate-hover="2" id="dash-card">
+
+            <div class="card-body text-center">
+
+                <!-- title -->
+                <h5 class="card-title h6 mb-4">
+                    <%= Service.find(event.service_id).name %>
+                </h5>
+
+                <!-- date -->
+                <p class="text-muted m-3">
+                    <i class="fas fa-calendar-alt"></i> &nbsp;
+                    <%=(event.start_time).strftime("%d/%m/%Y")%>
+                </p>
+
+                <hr class="m-3">
+
+                <!-- time -->
+                <p class="text-muted m-3">
+                    <i class="far fa-clock"></i> &nbsp;
+                    <%= Time.at(event.start_time).strftime("%Hh%M") %>
+                    &bull;
+                    <strong>
+
+                        <% if Time.at(event.duration).utc.strftime("%Hh%M") == "00h30" || Time.at(event.duration).utc.strftime("%Hh%M") == "00h15" || Time.at(event.duration).utc.strftime("%Hh%M") == "00h45" %>
+
+                        <%= Time.at(event.duration).utc.strftime("%M") %> min
+
+                        <% else %>
+
+                        <%= Time.at(event.duration).utc.strftime("%Hh") %>
+
+                        <% end %>
+
+                    </strong>
+                </p>
+
+                <hr class="m-3">
+
+                <!-- description -->
+                <!-- <p class="text-muted">
+                    <strong>Détails</strong> <br>
+                    <%=event.name%>
+                </p> -->
+
+                <!-- edit / delete icons -->
+                <div class="mt-3">
+                    <a href="<%= event_path(event) %>" class="text-light">
+                        <i class="fas fa-info-circle text-info fa-lg"></i>
+                    </a>
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item"
+                        data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer.">
+                        <i class="fas fa-trash-alt text-danger"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <% end %>
+
 </div>
 <% end %>
 
 
+<!-- PARTICIPANT -->
+
+<!-- section title -->
+<h2 class="heading h4 font-weight-bold">
+
+    <div class="row d-flex justify-content-between">
+
+        <div class="col 10">
+            <div class="icon icon-sm icon-shape rounded-circle icon-green">
+                <i class="fas fa-users"></i>
+            </div>
+            &nbsp; Participants inscrits :
+            <%= @participant.length %>
+        </div>
+
+        <div class="col-2">
+            <a id="dash-part-show" style="cursor: pointer">
+                <i class="fas fa-arrow-circle-down fa-xs"></i>
+            </a>
+        </div>
+
+    </div>
+
+</h2>
+
+
 <!-- cards -->
-<div class="row pb-5">
+<div class="row pb-5" id="dash-part-hide">
 
     <% @participant.each do |participant| %>
 
-    <div class="col-lg-3 pt-3">
-        <div class="card overflow-hidden" data-animate-hover="2" id="card-index">
+    <% if participant.created_at.year == DateTime.now.year %>
+
+    <div class="col-lg-6 pt-3">
+        <div class="card overflow-hidden" data-animate-hover="2" id="dash-card">
 
             <div class="card-body text-center">
 
                 <!-- name -->
-                <h5 class="card-title mb-0">
-                    <%= participant.first_name %> <br>
+                <h5 class="card-title h6 mb-0">
+                    <%= participant.first_name %>
                     <%= participant.last_name.upcase %>
                 </h5>
 
@@ -61,8 +194,11 @@
                 </div>
 
             </div>
+
         </div>
     </div>
+
+    <% end %>
 
     <% end %>
 
@@ -71,24 +207,39 @@
 <hr>
 
 
-
 <!-- TEACHERS -->
 
 <!-- section title -->
-<h2 class="heading h2 font-weight-bold">
-    <div class="icon icon-shape rounded-circle icon-yellow">
-        <i class="fas fa-chalkboard-teacher"></i>
+<h2 class="heading h4 font-weight-bold">
+
+    <div class="row d-flex justify-content-between">
+
+        <div class="col 10">
+            <div class="icon icon-sm icon-shape rounded-circle icon-yellow">
+                <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            &nbsp; Intervenants affiliés :
+            <%= @my_teachers.count %>
+        </div>
+
+        <div class="col-2">
+            <a id="dash-teacher-show" style="cursor: pointer">
+                <i class="fas fa-arrow-circle-down fa-xs"></i>
+            </a>
+        </div>
+
     </div>
-    &nbsp; Intervenants
+
 </h2>
 
+
 <!-- cards -->
-<div class="row pb-5">
+<div class="row pb-5" id="dash-teacher-hide">
 
     <% @my_teachers.each do |teacher| %>
 
     <div class="col-lg-3 pt-3">
-        <div class="card overflow-hidden" data-animate-hover="2" id="card-index">
+        <div class="card overflow-hidden" data-animate-hover="2">
 
             <!-- avatar -->
             <div class="overflow-hidden">
@@ -105,10 +256,10 @@
                 </div>
             </div>
 
-            <div class="card-body text-center">
+            <div class="card-body text-center" id="dash-card">
 
                 <!-- name -->
-                <h5 class="card-title mb-0"><a href="<%= teacher_path(teacher) %>" class="text-dark">
+                <h5 class="card-title h6 mb-0"><a href="<%= teacher_path(teacher) %>" class="text-dark">
                         <%=teacher.first_name%> <br>
                         <%= teacher.last_name.upcase %></a></h5>
 
@@ -138,32 +289,47 @@
 
 </div>
 
-
 <hr>
 
 
 <!-- SERVICES -->
 
 <!-- section title -->
-<h2 class="heading h2 font-weight-bold">
-    <div class="icon icon-shape rounded-circle icon-blue">
-        <i class="fas fa-stream"></i>
+<h2 class="heading h4 font-weight-bold">
+
+    <div class="row d-flex justify-content-between">
+
+        <div class="col 10">
+            <div class="icon icon-sm icon-shape rounded-circle icon-blue">
+                <i class="fas fa-stream"></i>
+            </div>
+            &nbsp; Services proposés :
+            <%= @services.count %>
+        </div>
+
+        <div class="col-2">
+            <a id="dash-service-show" style="cursor: pointer">
+                <i class="fas fa-arrow-circle-down fa-xs"></i>
+            </a>
+        </div>
+
     </div>
-    &nbsp; Services
+
 </h2>
 
+
 <!-- cards -->
-<div class="row pb-5">
+<div class="row pb-5" id="dash-service-hide">
 
     <% @services.each do |service| %>
 
     <div class="col-lg-3 pt-3">
-        <div class="card overflow-hidden" data-animate-hover="2" id="card-index">
+        <div class="card overflow-hidden" data-animate-hover="2">
 
-            <div class="card-body text-center">
+            <div class="card-body text-center" id="dash-card">
 
                 <!-- name -->
-                <h5 class="h4 mb-4">
+                <h5 class="h6 mb-4">
                     <a href="<%= service_path(service) %>" class="text-dark">
                         <%=service.name%>
                     </a>
