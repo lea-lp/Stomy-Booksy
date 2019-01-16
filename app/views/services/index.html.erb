@@ -15,6 +15,8 @@
               <%= f.search_field :name_cont %>
             <%= f.submit %>
             <% end %>
+            <%= link_to "Voir tout les services", services_path, class: "btn-sm btn-circle btn-danger" %>
+
         </div>
     </div>
 </section>
@@ -26,7 +28,7 @@
     <div class="container mt-5">
         <div class="row">
 
-            <% @people.each do |service| %>
+            <% @ransack.each do |service| %>
 
             <div class="col-lg-3 pt-5">
                 <div class="card overflow-hidden" data-animate-hover="2" id="card-index">

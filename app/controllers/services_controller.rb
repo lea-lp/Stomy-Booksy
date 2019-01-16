@@ -2,7 +2,7 @@ class ServicesController < ApplicationController
 
   def index
     @q = Service.ransack(params[:q])
-    @people = @q.result(distinct: true)
+    @ransack = @q.result(distinct: true)
     if params[:establishment_id]
       @establishment = Establishment.find(params[:establishment_id])
       @services = @establishment.services

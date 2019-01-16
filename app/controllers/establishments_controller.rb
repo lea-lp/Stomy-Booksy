@@ -20,6 +20,8 @@ before_action :page_belongs_to_user?, only: [:dashboard]
   end
 
   def index
+    @q = Establishment.ransack(params[:q])
+    @ransack = @q.result(distinct: true)
     if params[:teacher_id]
       @teacher = Teacher.find(params[:teacher_id])
       @establishments = @teacher.establishments
