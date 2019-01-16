@@ -1,0 +1,83 @@
+<aside class="sidebar" id="docs-nav">
+
+    <div class="sidebar-brand">
+        <a href="<%= root_path %>">
+            <%= image_tag "AwaBooking.png", alt: "logo", class: "btn-translate--hover w-75 ml-3"%>
+        </a>
+    </div>
+
+    <div class="scrollbar-inner">
+        <ul class="navigation">
+
+            <li>
+                <a href="#dash-accueil" class="btn-sm btn-circle navigation-title active" id="dash-btn"><i class="fas fa-home"></i>
+                    &nbsp; Accueil</a>
+            </li>
+
+            <li>
+                <a href="#dash-resa" class="btn-sm btn-circle navigation-title" id="dash-btn"><i class="far fa-calendar-minus"></i>
+                    &nbsp; Mes réservations</a>
+            </li>
+
+            <li>
+                <a href="#card-resource-add" class="btn-sm btn-circle navigation-title" id="dash-btn"><i class="fas fa-users"></i>
+                    &nbsp;
+                    Mes participants</a>
+            </li>
+
+            <li>
+                <a href="#add-resource" class="btn-sm btn-circle navigation-title" id="dash-btn"><i class="fas fa-cogs"></i>
+                    &nbsp;
+                    Mes paramètres</a>
+            </li>
+
+        </ul>
+    </div>
+</aside>
+
+<section class="content">
+
+    <!-- profile icon + drop menu -->
+    <div class="header pr-5">
+
+        <div class="ml-auto">
+            <ul class="nav align-items-center">
+                <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+
+                    <!-- icon -->
+                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" id="dash-nav-link"><i class="fas fa-user-circle align-items-center h4 p-0 m-0"></i>
+                        &nbsp; <strong>
+                            <%= current_user.name %></strong>
+                    </a>
+
+                    <!-- dropdown menu -->
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+
+                        <div class="list-group">
+
+                            <a href="<%= establishment_path(current_establishment) %>" class="list-group-item list-group-item-action">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-3">
+                                        <h6 class="mb-1">Profil</h6>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="<%= get_logout %>" class="list-group-item list-group-item-action" data-method="DELETE">
+                                <div class="media d-flex align-items-center">
+                                    <div class="media-body ml-3">
+                                        <h6 class="mb-1"><strong>Déconnexion</strong></h6>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+    </div>

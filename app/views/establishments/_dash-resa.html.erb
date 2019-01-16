@@ -1,0 +1,100 @@
+<!-- TABLE -->
+
+<h2 class="heading h2 font-weight-bold">
+    <div class="icon icon-shape rounded-circle icon-green">
+            <i class="far fa-calendar-check"></i>
+    </div>
+    &nbsp; Mes rendez-vous (à venir)
+</h2>
+
+<div class="card mt-4" id="card-rdv">
+    <div class="card-header border-0">
+
+        <% if current_user.upcoming_events.any? %>
+
+        <!-- resources list (table) -->
+        <div class="table-responsive container" id="hide-rdv">
+            <table class="table table-flush align-items-center">
+                <thead class="thead-light">
+                    <tr class="row">
+                        <th class="col-2 text-muted"> Date </th>
+                        <th class="col-2 text-muted"> Heure </th>
+                        <th class="col-2 text-muted"> Durée </th>
+                        <th class="col-5 text-muted"> Description </th>
+                        <th class="col-1 text-muted"><i class="fas fa-trash-alt"></i></th>
+                    </tr>
+                </thead>
+                <tbody class="container">
+                    <% current_user.upcoming_events.each do |event|%>
+                    <tr class="row">
+                        <td class="col-2 h-25"><span class="font-weight-bold text-sm wrap">
+                                <%=(event.start_time).strftime("%d/%m/%Y")%></span></td>
+                        <td class="col-2 h-25"><span class="font-weight-bold wrap">
+                                <%=Time.at(event.start_time).strftime("%Hh%M")%></span></td>
+                        <td class="col-2 h-25"><span class="text-sm wrap">
+                                <%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
+                        <td class="col-5 h-25"><span class="text-sm wrap">
+                                <%=event.name%></span></td>
+                        <td class="col-1 h-25"><a href="<%= event_path(event) %>" class="text-light" data-toggle="tooltip"
+                                data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer."><i
+                                    class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        </div>
+
+        <% else %>
+
+        <div id="hide-rdv">
+            <div class="row mt-4 d-flex justify-content-around">
+
+                <span class="mb-0">Aucun rendez-vous pour le moment !</span>
+
+                <a href="<%=teachers_path%>" class="btn-sm btn-danger btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
+                    data-scroll-to-offset="40">
+                    <span class="btn-inner--text">Contacter un professeur</span>
+                    <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
+                </a>
+
+            </div>
+        </div>
+        <% end %>
+
+    </div>
+</div>
+
+
+<hr>
+
+<h2 class="heading h2 font-weight-bold">
+    <div class="icon icon-shape rounded-circle icon-red">
+            <i class="far fa-calendar-alt"></i>
+    </div>
+    &nbsp; Mon calendrier
+</h2>
+
+
+<div class="row my-5 ml-1 d-flex align-items-left align-items-center">
+    <h5> <span class="badge badge-lg badge-pill badge-info text-uppercase">Salle - <strong><%=@resource_calendar.name.upcase%></strong></span></h5> &nbsp; &nbsp;
+    <%= form_tag(establishment_dashboard_path(@establishment), method: :get, class: "col-7 row") do %>
+    <div>
+        <%= select_tag 'search_resource', options_for_select(@resources.collect { |r| [r.name, r.id]}.insert(0, "Afficher le calendrier d'une autre salle")), {class: "form-control"} %>
+    </div>
+    <div class="mx-2">
+        <%= submit_tag("Voir", class: "btn btn-outline-info") %>
+    </div>
+    <% end %>
+</div>
+</>
+
+<!-- CALENDAR -->
+<div class="card" id="card-calendar">
+    <div class="card-header">
+
+
+        <div id="hide-calendar">
+            <%= add_weekly_calendar(@resource_calendar.events, nil, nil) %>
+        </div>
+    </div>
+</div>

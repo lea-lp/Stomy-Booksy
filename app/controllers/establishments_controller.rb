@@ -45,6 +45,7 @@ before_action :page_belongs_to_user?, only: [:dashboard]
     @service = Service.new
 
     @teachers = Teacher.all.order(email: :asc)
+    @my_teachers = @establishment.teachers
 
     @sub_categories = SubCategory.all.order(title: :asc)
 
@@ -53,6 +54,14 @@ before_action :page_belongs_to_user?, only: [:dashboard]
     else 
       @resource_calendar = @resources.first
     end 
+
+    @participants = []
+    @events.each do |event|
+      @participants << event.student
+    end 
+    @participant = @participants.uniq!
+
+    
 
   end
 

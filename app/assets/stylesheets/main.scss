@@ -27,3 +27,34 @@
 #nav-dashboard {
     height: 8%;
 }
+
+
+#dash-nav-link:hover {
+    color: rgb(100, 100, 100);
+}
+
+
+#dash-btn, #dash-btn:hover, #dash-btn:active {
+    display: block;
+    margin: 0em 0em 0em -30em;
+    padding: 1em 0em 1em 30em;
+}
+
+#dash-btn{
+    background-color: rgb(255, 255, 255);
+    color: rgb(49, 51, 54);
+}
+
+#dash-btn:hover {
+    background-color: #F5F5F5;
+    color: rgb(49, 51, 54);
+}
+
+#dash-btn:active {
+    background-color: #E8F0FE;
+    color: #1A73E8;
+}
+
+a:target {
+    background: red !important;
+}

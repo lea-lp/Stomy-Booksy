@@ -1,742 +1,223 @@
 <main class="main">
-    <aside class="sidebar" id="docs-nav">
 
-        <div class="sidebar-brand">
-            <a href="<%= root_path %>">
-                <%= image_tag "AwaBooking.png", alt: "logo", class: "btn-translate--hover w-75 ml-3"%>
-            </a>
-        </div>
+    <%= render 'dash-nav' %>
 
-        <div class="scrollbar-inner">
-            <ul class="navigation pr-3">
+    <div class="content-inner content-docs">
+        <div class="container-fluid">
 
-                <li class="navigation-title">Accueil</li>
-
-
-                <li class="navigation-item">
-                    <a href="introduction.html" class="navigation-link">Mes participants</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="file-structure.html" class="navigation-link">Mes intervenants</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="plugins.html" class="navigation-link">Mes services</a>
-                </li>
-
-
-                <li class="navigation-title">Mes réservations</li>
-
-
-                <li class="navigation-item">
-                    <a href="alerts.html" class="navigation-link">Passées / à venir</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="avatars.html" class="navigation-link">Mon calendrier</a>
-                </li>
-
-
-                <li class="navigation-title">Mes participants</li>
-
-
-                <li class="navigation-item">
-                    <a href="colors.html" class="navigation-link">Passés / actuels</a>
-                </li>
-
-                <li class="navigation-title">Mes paramètres</li>
-
-
-                <li class="navigation-item">
-                    <a href="colors.html" class="navigation-link">Ressources</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="colors.html" class="navigation-link">Services (taxes)</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="colors.html" class="navigation-link">Adhésions</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="colors.html" class="navigation-link">Crédits</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="colors.html" class="navigation-link">Chèques cadeaux</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="colors.html" class="navigation-link">Horaires d'ouverture</a>
-                </li>
-
-
-            </ul>
-        </div>
-    </aside>
-
-    <section class="content">
-
-        <div class="header pr-xl">
-            <div class="navigation-trigger d-xl-none" data-action="aside-open" data-target="#docs-nav">
-                <div class="navigation-trigger-inner">
-                    <i class="navigation-trigger-line"></i>
-                    <i class="navigation-trigger-line"></i>
-                    <i class="navigation-trigger-line"></i>
-                </div>
-            </div>
-
-            <div class="ml-auto">
-                <ul class="nav align-items-center">
-                    <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
-
-                        <!-- icon -->
-                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"><i class="fas fa-user-circle align-items-center btn-translate--hover text-dark h4"></i>
-                        </a>
-
-                        <!-- dropdown menu -->
-                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
-
-                            <div class="list-group">
-
-                                <a href="<%= establishment_path(current_establishment) %>" class="list-group-item list-group-item-action">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-3">
-                                            <h6 class="mb-1">Profil</h6>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a href="<%= get_logout %>" class="list-group-item list-group-item-action" data-method="DELETE">
-                                    <div class="media d-flex align-items-center">
-                                        <div class="media-body ml-3">
-                                            <h6 class="mb-1"><strong>Déconnexion</strong></h6>
-                                        </div>
-                                    </div>
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="content-inner content-docs">
-            <div class="container-fluid">
-                <div class="pt-3 pb-4 mb-4 border-bottom">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h2 class="heading h2 font-weight-bold">Alerts</h2>
-                            <p>Provide contextual feedback messages for typical user actions with the handful of
-                                available and
-                                flexible alert messages.</p>
-
-                            <a href="http://getbootstrap.com/docs/4.1/components/alerts" target="_blank">Open Bootstrap
-                                Docs</a>
-
-                        </div>
-                    </div>
-                </div>
-
+            <div class="pt-3 pb-4 mb-4 border-bottom">
                 <div class="row">
-                    <div class="col-lg-9 ">
+                    <div class="col-lg-12">
 
-                        <h3 id="alerts">Alerts</h3>
-
-                        <div class="code-example">
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <span class="alert-inner--icon"><i class="fas fa-check"></i></span>
-                                <span class="alert-inner--text"><strong>Success!</strong> This is a success alert—check
-                                    it out!</span>
-                                <button type="button" class="undo" aria-label="Undo">Undo</button>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                <span class="alert-inner--icon"><i class="fas fa-info"></i></span>
-                                <span class="alert-inner--text"><strong>Info!</strong> This is an info alert—check it
-                                    out!</span>
-                                <button type="button" class="undo" aria-label="Undo">Undo</button>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <span class="alert-inner--icon"><i class="fas fa-exclamation"></i></span>
-                                <span class="alert-inner--text"><strong>Warning!</strong> This is a warning alert—check
-                                    it out!</span>
-                                <button type="button" class="undo" aria-label="Undo">Undo</button>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <span class="alert-inner--icon"><i class="fas fa-times"></i></span>
-                                <span class="alert-inner--text"><strong>Danger</strong> This is an error alert—check it
-                                    out!</span>
-                                <button type="button" class="undo" aria-label="Undo">Undo</button>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
+                        <div id="dash-accueil">
+                            <h4 class="text-danger text-center pb-4">..................................#1 ACCUEUIL................................</h2>
+                            <%= render 'dash-accueil' %>
                         </div>
-                        <div class="highlight">
-                            <pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-success alert-dismissible fade show"</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--icon"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-check"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--text"</span><span class="nt">&gt;&lt;strong&gt;</span>Success!<span class="nt">&lt;/strong&gt;</span> This is a success alert—check it out!<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"undo"</span> <span class="na">aria-label=</span><span class="s">"Undo"</span><span class="nt">&gt;</span>Undo<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-info alert-dismissible fade show"</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--icon"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-info"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--text"</span><span class="nt">&gt;&lt;strong&gt;</span>Info!<span class="nt">&lt;/strong&gt;</span> This is an info alert—check it out!<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"undo"</span> <span class="na">aria-label=</span><span class="s">"Undo"</span><span class="nt">&gt;</span>Undo<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-warning alert-dismissible fade show"</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--icon"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-exclamation"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--text"</span><span class="nt">&gt;&lt;strong&gt;</span>Warning!<span class="nt">&lt;/strong&gt;</span> This is a warning alert—check it out!<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"undo"</span> <span class="na">aria-label=</span><span class="s">"Undo"</span><span class="nt">&gt;</span>Undo<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-danger alert-dismissible fade show"</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--icon"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-times"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--text"</span><span class="nt">&gt;&lt;strong&gt;</span>Danger<span class="nt">&lt;/strong&gt;</span> This is an error alert—check it out!<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"undo"</span> <span class="na">aria-label=</span><span class="s">"Undo"</span><span class="nt">&gt;</span>Undo<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/div&gt;</span></code></pre>
-                        </div>
-
-                        <h3 id="inverse-alerts">Inverse alerts</h3>
-
-                        <div class="code-example">
-                            <div class="alert alert-inverse alert-dismissible fade show" role="alert">
-                                <span class="alert-inner--icon text-success"><i class="fas fa-check"></i></span>
-                                <span class="alert-inner--text"><strong>Success!</strong> This is a success alert—check
-                                    it out!</span>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="alert alert-inverse alert-dismissible fade show" role="alert">
-                                <span class="alert-inner--icon text-info"><i class="fas fa-info"></i></span>
-                                <span class="alert-inner--text"><strong>Info!</strong> This is an info alert—check it
-                                    out!</span>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="alert alert-inverse alert-dismissible fade show" role="alert">
-                                <span class="alert-inner--icon text-warning"><i class="fas fa-exclamation"></i></span>
-                                <span class="alert-inner--text"><strong>Warning!</strong> This is a warning alert—check
-                                    it out!</span>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="alert alert-inverse alert-dismissible fade show" role="alert">
-                                <span class="alert-inner--icon text-danger"><i class="fas fa-times"></i></span>
-                                <span class="alert-inner--text"><strong>Danger</strong> This is an error alert—check it
-                                    out!</span>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="highlight">
-                            <pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-inverse alert-dismissible fade show"</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--icon text-success"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-check"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--text"</span><span class="nt">&gt;&lt;strong&gt;</span>Success!<span class="nt">&lt;/strong&gt;</span> This is a success alert—check it out!<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-inverse alert-dismissible fade show"</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--icon text-info"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-info"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--text"</span><span class="nt">&gt;&lt;strong&gt;</span>Info!<span class="nt">&lt;/strong&gt;</span> This is an info alert—check it out!<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-inverse alert-dismissible fade show"</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--icon text-warning"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-exclamation"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--text"</span><span class="nt">&gt;&lt;strong&gt;</span>Warning!<span class="nt">&lt;/strong&gt;</span> This is a warning alert—check it out!<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-inverse alert-dismissible fade show"</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--icon text-danger"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-times"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert-inner--text"</span><span class="nt">&gt;&lt;strong&gt;</span>Danger<span class="nt">&lt;/strong&gt;</span> This is an error alert—check it out!<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/div&gt;</span></code></pre>
-                        </div>
-
-                        <h3 id="additional-content">Additional content</h3>
-
-                        <div class="code-example">
-                            <div class="alert alert-success" role="alert">
-                                <h4 class="alert-heading">Well done!</h4>
-                                <p>Aww yeah, you successfully read this important alert message. This example text is
-                                    going to run a
-                                    bit longer so that you can see how spacing within an alert works with this kind of
-                                    content.</p>
-                                <hr />
-                                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things
-                                    nice and tidy.</p>
-                            </div>
-                        </div>
-                        <div class="highlight">
-                            <pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-success"</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"alert-heading"</span><span class="nt">&gt;</span>Well done!<span class="nt">&lt;/h4&gt;</span>
-      <span class="nt">&lt;p&gt;</span>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.<span class="nt">&lt;/p&gt;</span>
-      <span class="nt">&lt;hr&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>Whenever you need to, be sure to use margin utilities to keep things nice and tidy.<span class="nt">&lt;/p&gt;</span>
-  <span class="nt">&lt;/div&gt;</span></code></pre>
-                        </div>
-
-                        <h3 id="drop-shadow">Drop shadow</h3>
-
-                        <div class="code-example">
-                            <div class="alert alert-primary alert-shadow alert-dismissible fade show" role="alert">
-                                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                                <button type="button" class="undo" aria-label="Undo">Undo</button>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="highlight">
-                            <pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-primary alert-shadow alert-dismissible fade show"</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;strong&gt;</span>Holy guacamole!<span class="nt">&lt;/strong&gt;</span> You should check in on some of those fields below.
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"undo"</span> <span class="na">aria-label=</span><span class="s">"Undo"</span><span class="nt">&gt;</span>Undo<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/div&gt;</span></code></pre>
-                        </div>
-
 
                     </div>
+                </div>
+            </div>
 
-                    <div class="col-lg-3 d-none d-lg-inline-block border-left">
-                        <div class="sidebar-sticky" data-toggle="sticky">
-                            <ul class="section-nav">
-                                <li class="toc-entry toc-h3"><a href="#alerts">Alerts</a>
-                                </li>
-                                <li class="toc-entry toc-h3"><a href="#inverse-alerts">Inverse alerts</a>
-                                </li>
-                                <li class="toc-entry toc-h3"><a href="#additional-content">Additional content</a>
-                                    <ul>
-                                        <li class="toc-entry toc-h4"><a href="#well-done">Well done!</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="toc-entry toc-h3"><a href="#drop-shadow">Drop shadow</a>
-                                </li>
-                            </ul>
+            <div class="pt-3 pb-4 mb-4 border-bottom">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div id="dash-resa">
+                            <h4 class="text-danger text-center pb-4">..................................#2 RESERVATIONS................................</h2>
+                            <%= render 'dash-resa' %>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12 ">
+
+                    <div class="card" id="card-resource-add">
+                        <div class="card-header border-0">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <h6> Mes services</h6>
+                                </div>
+                                <div id="add-resource">
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </div>
+
+                            <div id="hide-resource-add">
+                                <table class="table table-flush align-items-center">
+                                    <thead class="thead-light">
+                                        <tr class="row">
+                                            <th class="col-2 p-3 h-25 text-muted"> Nom </th>
+                                            <th class="col-1 p-2 pt-3 h-25 text-muted"> Prof. </th>
+                                            <th class="col-2 p-3 h-25 text-muted"> Salle </th>
+                                            <th class="col-4 p-3 h-25 text-muted"> Description </th>
+                                            <th class="col-2 p-3 h-25 text-muted"> Durée </th>
+                                            <th class="col-1 p-3 h-25 text-muted"><i class="fas fa-trash-alt"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="container">
+                                        <%@services.each do |service|%>
+                                        <tr class="row">
+                                            <td class="col-2 p-3 h-25"><span class="font-weight-bold text-sm wrap">
+                                                    <%=service.name%></span></td>
+                                            <td class="col-1 p-2 pt-3 h-25"><a href="<%=teacher_path(service.teacher)%>"
+                                                    class="font-weight-bold wrap">
+                                                    <%=service.teacher.first_name%></a></td>
+                                            <td class="col-2 p-3 h-25"><span class="text-sm wrap">
+                                                    <%=service.resource.name%></span></td>
+                                            <td class="col-4 text-overflow p-3 h-25"><span class="text-sm wrap">
+                                                    <%=service.description%></span></td>
+                                            <td class="col-2 p-3 h-25"><span class="text-sm wrap">
+                                                    <%=service.duration/60%> min</span></td>
+                                            <td class="col-1 p-3 h-25"><a href="<%=service_path(service)%>" class="text-light"
+                                                    data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE"
+                                                    data-confirm='Vous allez effacer "<%=service.name%>". Veuillez confirmer.'>
+                                                    <i class="fas fa-trash-alt"></i></a></td>
+                                        </tr>
+                                        <%end%>
+                                    </tbody>
+                                </table>
+                                <!-- resource creation form -->
+                                <div>
+                                    <h6 class="my-4">Ajouter un service</h6>
+                                </div>
+                                <div class="container">
+                                    <%= form_tag @service do %>
+                                    <input type="hidden" id="hidden_tag" name="service[establishment_id]" value="<%=current_user.id%>">
+                                    <div class="row ">
+                                        <div class="col-5 form-group">
+                                            <%=label_tag "Nom du service"%>
+                                            <%=text_field_tag "service[name]", nil, placeholder: "Cours de xxxx", class:"form-control border-1" %>
+                                        </div>
+                                        <div class="col-5 form-group">
+                                            <%=label_tag "Professeur"%>
+                                            <%= select_tag "service[teacher_id]", options_from_collection_for_select(@teachers, :id, :email), {class: "form-control"} %>
+                                        </div>
+                                        <div class="col-5 form-group">
+                                            <%=label_tag "Categorie"%>
+                                            <%=select_tag "service[sub_category_id]", options_from_collection_for_select(@sub_categories, :id, :title), class: "form-control"%>
+                                        </div>
+                                        <div class="col-5 form-group">
+                                            <%=label_tag "Ressource"%>
+                                            <%=select_tag "service[resource_id]", options_from_collection_for_select(@resources, :id, :name), class: "form-control"%>
+                                        </div>
+                                        <div class="col-8 form-group">
+                                            <%=label_tag "Description"%>
+                                            <%=text_area_tag("service[description]", nil, size: "60x3", class: "form-control")%>
+                                        </div>
+                                        <div class="col-3 form-group">
+                                            <%=label_tag "Durée (minutes)"%><br>
+                                            <%=number_field_tag("service[duration_minutes]", nil, min: 15, class: "form-control col-6")%>
+                                        </div>
+                                        <div class="col-10 d-flex justify-content-center">
+                                            <%=submit_tag "Créer le service", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Confirmez-vous la création du service ?"}%>
+                                            </td>
+                                        </div>
+                                    </div>
+                                    <% end %>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
+
+
+
+
+
+                    <div class="card mt-4" id="card-resource-list">
+                        <div class="card-header border-0">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <h6>Mes ressources</h6>
+                                </div>
+                                <div id="list-resource">
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </div>
+                            <div class="table-responsive" id="hide-resource-list">
+                                <table class="table table-hover table-flush align-items-center table-striped">
+                                    <thead class="thead-light">
+                                        <tr class="row">
+                                            <th class="col-1 pr-2 pb-2 text-secondary"> Id </th>
+                                            <th class="col-1 px-2 pb-2 text-secondary"> Type </th>
+                                            <th class="col-2 px-2 pb-2 text-secondary"> Nom </th>
+                                            <th class="col-6 px-2 pb-2 text-secondary"> Description </th>
+                                            <th class="col-1 px-2 pb-2 text-secondary"> Dispo </th>
+                                            <th class="col-1 px-2 pb-2 text-secondary"><i class="fas fa-trash-alt"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="container">
+                                        <%@resources.each do |resource|%>
+                                        <tr class="row">
+                                            <td class="col-1 pr-2 pb-2 h-25"><span class="font-weight-bold text-sm wrap">
+                                                    <%=resource.id%></span></td>
+                                            <td class="col-1 px-2 pb-2 h-25"><span class="font-weight-bold wrap">
+                                                    <%=resource.resource_type%></span></td>
+                                            <td class="col-2 px-2 pb-2 h-25"><span class="text-sm wrap">
+                                                    <%=resource.name%></span></td>
+                                            <td class="col-6 px-2 pb-2 h-25"><span class="text-sm wrap">
+                                                    <%=resource.description%></span></td>
+                                            <td class="col-1 px-2 pb-2 h-25"><span class="text-sm wrap">
+                                                    <%=resource.is_active%></span></td>
+                                            <td class="col-1 px-2 pb-2 h-25"><a href="<%= resource_path(resource) %>"
+                                                    class="text-light" data-toggle="tooltip" data-original-title="Remove item"
+                                                    data-method="DELETE" data-confirm='Vous allez effacer "<%=resource.name%>". Veuillez confirmer.'>
+                                                    <i class="fas fa-trash-alt"></i></a></td>
+                                        </tr>
+                                        <%end%>
+                                    </tbody>
+                                </table>
+                                <!-- resource creation form -->
+                                <br>
+                                <div class="delimiter-top"></div>
+                                <br>
+                                <div>
+                                    <h6 class="mt-2">Ajouter une ressource</h6>
+                                </div>
+                                <div>
+                                    <%= form_for @resource do |form| %>
+                                    <table class="table align-items-center">
+                                        <thead class="thead-light">
+                                            <tr class="row">
+                                                <th class="col-2"> Type </th>
+                                                <th class="col-2"> Nom </th>
+                                                <th class="col-6"> Description </th>
+                                                <th class="col-2"> Disponible ? </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="container">
+                                            <tr class="row">
+                                                <input type="hidden" id="hidden_tag" name="resource[establishment_id]"
+                                                    value="<%=current_user.id%>">
+                                                <td class="col-2">
+                                                    <%=form.select :resource_type, [["salle","salle"],["objet","objet"]], {}, {class: "form-control", style: "width: 100px"}%>
+                                                </td>
+                                                <td class="col-2">
+                                                    <%=form.text_field :name, class:"form-control border-1", placeholder: "Bleue" %>
+                                                </td>
+                                                <td class="col-6">
+                                                    <%=form.text_field :description, class:"form-control border-1", placeholder: "Informations importantes concernant la salle"%>
+                                                </td>
+                                                <td class="col-2">
+                                                    <%=form.select :is_active, [["active",true],["inactive",false]], {}, {class: "form-control", style: "width: 100px"}%>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <%=form.submit "Créer la ressource", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Vous confirmez la création de cette ressource ?"}%>
+                                    </td>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <footer class="px-3 footer bg-white">
-            <div class="container-fluid">
-                <div class="row align-items-center py-3 border-top">
-                    <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
-                        &copy; 2018 <a href="https://webpixels.io/" target="_blank">Webpixels</a>. All rights reserved.
-                    </div>
-                    <div class="col-lg-6 text-center text-lg-right">
-                        <ul class="nav justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="https://instagram.com/webpixelsofficial" target="_blank"><i
-                                        class="fab fa-instagram"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://facebook.com/webpixels" target="_blank"><i class="fab fa-facebook"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://github.com/webpixels" target="_blank"><i class="fab fa-github"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://dribbble.com/webpixels" target="_blank"><i class="fab fa-dribbble"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+    </div>
     </section>
 </main>
-
-
-<section class="slice bg-secondary">
-    <div class="container-fluid">
-        <!-- establishment name card -->
-        <div class="row row-grid pr-3 ">
-            <div class="col-3">
-
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <h5 class="heading h5 mb-0">
-                                    <%= current_user.name %>
-                                </h5>
-                            </div>
-                            <div class="col-4">
-                                <div class="card-icon-actions text-right">
-                                    <a href="<%=edit_establishment_registration_path%>" class="favorite active"
-                                        data-toggle="tooltip" data-original-title="Save to favorites"><i class="fas fa-pen"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- floating menu -->
-            <div data-toggle="sticky" data-sticky-offset="100">
-                <div class="card">
-                    <div class="card-header border-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h6>Dashboard</h6>
-                            </div>
-                        </div>
-                        <div class="list-group list-group-sm list-group-flush">
-                            <a href="#card-calendar" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between p-4">
-                                <i class="far fa-calendar-alt"></i>
-                                <div class="flex-fill pl-3 text-limit">
-                                    <h6 class="text-sm d-block text-limit m-0">Mon calendrier</h6>
-                                </div>
-                            </a>
-                            <a href="#card-rdv" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between p-4">
-                                <i class="far fa-calendar-check"></i>
-                                <div class="flex-fill pl-3 text-limit">
-                                    <h6 class="text-sm d-block text-limit m-0">Mes rendez-vous</h6>
-                                </div>
-                            </a>
-                            <a href="#card-resource-list" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between p-4">
-                                <i class="fas fa-compress-arrows-alt"></i>
-                                <div class="flex-fill pl-3 text-limit">
-                                    <h6 class="text-sm d-block text-limit m-0">Mes ressources</h6>
-                                </div>
-                            </a>
-                            <a href="#card-resource-add" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between p-4">
-                                <i class="fas fa-cogs"></i>
-                                <div class="flex-fill pl-3 text-limit">
-                                    <h6 class="text-sm d-block text-limit m-0">Mes services</h6>
-                                </div>
-                            </a>
-                            <a href="<%=establishment_path(current_user)%>" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between p-4">
-                                <i class="fas fa-user-circle"></i>
-                                <div class="flex-fill pl-3 text-limit">
-                                    <h6 class="text-sm d-block text-limit m-0">Mon profil</h6>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-9">
-
-            <!-- CALENDAR -->
-            <div class="card" id="card-calendar">
-                <div class="card-header">
-                    <div>
-                        <div class="row mb-4 d-flex align-items-center">
-                            <div class="col-4">
-                                <h6>Mon calendrier (salle:
-                                    <%=@resource_calendar.name.upcase%>)</h6>
-                            </div>
-                            <%= form_tag(establishment_dashboard_path(@establishment), method: :get, class: "col-7 row") do %>
-                            <div>
-                                <%= select_tag 'search_resource', options_for_select(@resources.collect { |r| [r.name, r.id]}.insert(0, "Afficher le calendrier d'une autre salle")), {class: "form-control"} %>
-                            </div>
-                            <div class="mx-2">
-                                <%= submit_tag("Voir", class: "btn btn-outline-info") %>
-                            </div>
-                            <% end %>
-                            <div id="calendar" class="col-1 text-right p-0">
-                                <i class="fas fa-angle-down"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="hide-calendar">
-                        <%= add_weekly_calendar(@resource_calendar.events, nil, nil) %>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TABLE -->
-        <div class="card mt-4" id="card-rdv">
-            <div class="card-header border-0">
-
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <div>
-                        <h6>Mes rendez-vous (à venir)</h6>
-                    </div>
-                    <div id="rdv">
-                        <i class="fas fa-angle-down"></i>
-                    </div>
-                </div>
-
-                <% if current_user.upcoming_events.any? %>
-
-                <!-- resources list (table) -->
-                <div class="table-responsive container" id="hide-rdv">
-                    <table class="table table-flush align-items-center">
-                        <thead class="thead-light">
-                            <tr class="row">
-                                <th class="col-2 text-muted"> Date </th>
-                                <th class="col-2 text-muted"> Heure </th>
-                                <th class="col-2 text-muted"> Durée </th>
-                                <th class="col-5 text-muted"> Description </th>
-                                <th class="col-1 text-muted"><i class="fas fa-trash-alt"></i></th>
-                            </tr>
-                        </thead>
-                        <tbody class="container">
-                            <% current_user.upcoming_events.each do |event|%>
-                            <tr class="row">
-                                <td class="col-2 h-25"><span class="font-weight-bold text-sm wrap">
-                                        <%=(event.start_time).strftime("%d/%m/%Y")%></span></td>
-                                <td class="col-2 h-25"><span class="font-weight-bold wrap">
-                                        <%=Time.at(event.start_time).strftime("%Hh%M")%></span></td>
-                                <td class="col-2 h-25"><span class="text-sm wrap">
-                                        <%= Time.at(event.duration).utc.strftime("%Hh%M") %></span></td>
-                                <td class="col-5 h-25"><span class="text-sm wrap">
-                                        <%=event.name%></span></td>
-                                <td class="col-1 h-25"><a href="<%= event_path(event) %>" class="text-light"
-                                        data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE"
-                                        data-confirm="Vous allez supprimer l'évènement '<%=event.name%>'. Veuillez confirmer."><i
-                                            class="fas fa-trash-alt"></i></a></td>
-                            </tr>
-                            <%end%>
-                        </tbody>
-                    </table>
-                </div>
-
-                <% else %>
-
-                <div id="hide-rdv">
-                    <div class="row mt-4 d-flex justify-content-around">
-
-                        <span class="mb-0">Aucun rendez-vous pour le moment !</span>
-
-                        <a href="<%=teachers_path%>" class="btn-sm btn-danger btn-circle btn-translate--hover btn-icon mr-sm-4 scroll-me"
-                            data-scroll-to-offset="40">
-                            <span class="btn-inner--text">Contacter un professeur</span>
-                            <span class="btn-inner--icon"><i class="fas fa-angle-right"></i></span>
-                        </a>
-
-                    </div>
-                </div>
-                <% end %>
-
-            </div>
-        </div>
-
-
-
-        <div class="card mt-4" id="card-resource-list">
-            <div class="card-header border-0">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <div>
-                        <h6>Mes ressources</h6>
-                    </div>
-                    <div id="list-resource">
-                        <i class="fas fa-angle-down"></i>
-                    </div>
-                </div>
-                <div class="table-responsive" id="hide-resource-list">
-                    <table class="table table-hover table-flush align-items-center table-striped">
-                        <thead class="thead-light">
-                            <tr class="row">
-                                <th class="col-1 pr-2 pb-2 text-secondary"> Id </th>
-                                <th class="col-1 px-2 pb-2 text-secondary"> Type </th>
-                                <th class="col-2 px-2 pb-2 text-secondary"> Nom </th>
-                                <th class="col-6 px-2 pb-2 text-secondary"> Description </th>
-                                <th class="col-1 px-2 pb-2 text-secondary"> Dispo </th>
-                                <th class="col-1 px-2 pb-2 text-secondary"><i class="fas fa-trash-alt"></i></th>
-                            </tr>
-                        </thead>
-                        <tbody class="container">
-                            <%@resources.each do |resource|%>
-                            <tr class="row">
-                                <td class="col-1 pr-2 pb-2 h-25"><span class="font-weight-bold text-sm wrap">
-                                        <%=resource.id%></span></td>
-                                <td class="col-1 px-2 pb-2 h-25"><span class="font-weight-bold wrap">
-                                        <%=resource.resource_type%></span></td>
-                                <td class="col-2 px-2 pb-2 h-25"><span class="text-sm wrap">
-                                        <%=resource.name%></span></td>
-                                <td class="col-6 px-2 pb-2 h-25"><span class="text-sm wrap">
-                                        <%=resource.description%></span></td>
-                                <td class="col-1 px-2 pb-2 h-25"><span class="text-sm wrap">
-                                        <%=resource.is_active%></span></td>
-                                <td class="col-1 px-2 pb-2 h-25"><a href="<%= resource_path(resource) %>" class="text-light"
-                                        data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE"
-                                        data-confirm='Vous allez effacer "<%=resource.name%>". Veuillez confirmer.'>
-                                        <i class="fas fa-trash-alt"></i></a></td>
-                            </tr>
-                            <%end%>
-                        </tbody>
-                    </table>
-                    <!-- resource creation form -->
-                    <br>
-                    <div class="delimiter-top"></div>
-                    <br>
-                    <div>
-                        <h6 class="mt-2">Ajouter une ressource</h6>
-                    </div>
-                    <div>
-                        <%= form_for @resource do |form| %>
-                        <table class="table align-items-center">
-                            <thead class="thead-light">
-                                <tr class="row">
-                                    <th class="col-2"> Type </th>
-                                    <th class="col-2"> Nom </th>
-                                    <th class="col-6"> Description </th>
-                                    <th class="col-2"> Disponible ? </th>
-                                </tr>
-                            </thead>
-                            <tbody class="container">
-                                <tr class="row">
-                                    <input type="hidden" id="hidden_tag" name="resource[establishment_id]" value="<%=current_user.id%>">
-                                    <td class="col-2">
-                                        <%=form.select :resource_type, [["salle","salle"],["objet","objet"]], {}, {class: "form-control", style: "width: 100px"}%>
-                                    </td>
-                                    <td class="col-2">
-                                        <%=form.text_field :name, class:"form-control border-1", placeholder: "Bleue" %>
-                                    </td>
-                                    <td class="col-6">
-                                        <%=form.text_field :description, class:"form-control border-1", placeholder: "Informations importantes concernant la salle"%>
-                                    </td>
-                                    <td class="col-2">
-                                        <%=form.select :is_active, [["active",true],["inactive",false]], {}, {class: "form-control", style: "width: 100px"}%>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <%=form.submit "Créer la ressource", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Vous confirmez la création de cette ressource ?"}%>
-                        </td>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card mt-4" id="card-resource-add">
-            <div class="card-header border-0">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <div>
-                        <h6> Mes services</h6>
-                    </div>
-                    <div id="add-resource">
-                        <i class="fas fa-angle-down"></i>
-                    </div>
-                </div>
-
-                <div id="hide-resource-add">
-                    <table class="table table-flush align-items-center">
-                        <thead class="thead-light">
-                            <tr class="row">
-                                <th class="col-2 p-3 h-25 text-muted"> Nom </th>
-                                <th class="col-1 p-2 pt-3 h-25 text-muted"> Prof. </th>
-                                <th class="col-2 p-3 h-25 text-muted"> Salle </th>
-                                <th class="col-4 p-3 h-25 text-muted"> Description </th>
-                                <th class="col-2 p-3 h-25 text-muted"> Durée </th>
-                                <th class="col-1 p-3 h-25 text-muted"><i class="fas fa-trash-alt"></i></th>
-                            </tr>
-                        </thead>
-                        <tbody class="container">
-                            <%@services.each do |service|%>
-                            <tr class="row">
-                                <td class="col-2 p-3 h-25"><span class="font-weight-bold text-sm wrap">
-                                        <%=service.name%></span></td>
-                                <td class="col-1 p-2 pt-3 h-25"><a href="<%=teacher_path(service.teacher)%>" class="font-weight-bold wrap">
-                                        <%=service.teacher.first_name%></a></td>
-                                <td class="col-2 p-3 h-25"><span class="text-sm wrap">
-                                        <%=service.resource.name%></span></td>
-                                <td class="col-4 text-overflow p-3 h-25"><span class="text-sm wrap">
-                                        <%=service.description%></span></td>
-                                <td class="col-2 p-3 h-25"><span class="text-sm wrap">
-                                        <%=service.duration/60%> min</span></td>
-                                <td class="col-1 p-3 h-25"><a href="<%=service_path(service)%>" class="text-light"
-                                        data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE"
-                                        data-confirm='Vous allez effacer "<%=service.name%>". Veuillez confirmer.'>
-                                        <i class="fas fa-trash-alt"></i></a></td>
-                            </tr>
-                            <%end%>
-                        </tbody>
-                    </table>
-                    <!-- resource creation form -->
-                    <div>
-                        <h6 class="my-4">Ajouter un service</h6>
-                    </div>
-                    <div class="container">
-                        <%= form_tag @service do %>
-                        <input type="hidden" id="hidden_tag" name="service[establishment_id]" value="<%=current_user.id%>">
-                        <div class="row ">
-                            <div class="col-5 form-group">
-                                <%=label_tag "Nom du service"%>
-                                <%=text_field_tag "service[name]", nil, placeholder: "Cours de xxxx", class:"form-control border-1" %>
-                            </div>
-                            <div class="col-5 form-group">
-                                <%=label_tag "Professeur"%>
-                                <%= select_tag "service[teacher_id]", options_from_collection_for_select(@teachers, :id, :email), {class: "form-control"} %>
-                            </div>
-                            <div class="col-5 form-group">
-                                <%=label_tag "Categorie"%>
-                                <%=select_tag "service[sub_category_id]", options_from_collection_for_select(@sub_categories, :id, :title), class: "form-control"%>
-                            </div>
-                            <div class="col-5 form-group">
-                                <%=label_tag "Ressource"%>
-                                <%=select_tag "service[resource_id]", options_from_collection_for_select(@resources, :id, :name), class: "form-control"%>
-                            </div>
-                            <div class="col-8 form-group">
-                                <%=label_tag "Description"%>
-                                <%=text_area_tag("service[description]", nil, size: "60x3", class: "form-control")%>
-                            </div>
-                            <div class="col-3 form-group">
-                                <%=label_tag "Durée (minutes)"%><br>
-                                <%=number_field_tag("service[duration_minutes]", nil, min: 15, class: "form-control col-6")%>
-                            </div>
-                            <div class="col-10 d-flex justify-content-center">
-                                <%=submit_tag "Créer le service", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Confirmez-vous la création du service ?"}%>
-                                </td>
-                            </div>
-                        </div>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
