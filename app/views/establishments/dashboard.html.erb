@@ -10,8 +10,9 @@
                     <div class="col-lg-12">
 
                         <div id="dash-accueil">
-                            <h4 class="text-danger text-center pb-4">..................................#1 ACCUEUIL................................</h2>
-                            <%= render 'dash-accueil' %>
+                            <h4 class="text-danger text-center pb-4">..................................#1
+                                ACCUEUIL................................</h2>
+                                <%= render 'dash-accueil' %>
                         </div>
 
                     </div>
@@ -23,8 +24,37 @@
                     <div class="col-lg-12">
 
                         <div id="dash-resa">
-                            <h4 class="text-danger text-center pb-4">..................................#2 RESERVATIONS................................</h2>
-                            <%= render 'dash-resa' %>
+                            <h4 class="text-danger text-center pb-4">..................................#2
+                                RESERVATIONS................................</h2>
+                                <%= render 'dash-resa' %>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-3 pb-4 mb-4 border-bottom">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div id="dash-particip">
+                            <h4 class="text-danger text-center pb-4">..................................#3
+                                PARTICIPANTS................................</h2>
+                                <%= render 'dash-particip' %>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-3 pb-4 mb-4 border-bottom">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div id="dash-param">
+                            <h4 class="text-danger text-center pb-4">..................................#4
+                                PARAMETRES................................</h2>
+                                <%= render 'dash-param' %>
                         </div>
 
                     </div>
@@ -39,7 +69,7 @@
                         <div class="card-header border-0">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <div>
-                                    <h6> Mes services</h6>
+                                    <h6> Services</h6>
                                 </div>
                                 <div id="add-resource">
                                     <i class="fas fa-angle-down"></i>
@@ -80,7 +110,7 @@
                                         <%end%>
                                     </tbody>
                                 </table>
-                                <!-- resource creation form -->
+                                <!-- service creation form -->
                                 <div>
                                     <h6 class="my-4">Ajouter un service</h6>
                                 </div>
@@ -122,102 +152,8 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-                    <div class="card mt-4" id="card-resource-list">
-                        <div class="card-header border-0">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <div>
-                                    <h6>Mes ressources</h6>
-                                </div>
-                                <div id="list-resource">
-                                    <i class="fas fa-angle-down"></i>
-                                </div>
-                            </div>
-                            <div class="table-responsive" id="hide-resource-list">
-                                <table class="table table-hover table-flush align-items-center table-striped">
-                                    <thead class="thead-light">
-                                        <tr class="row">
-                                            <th class="col-1 pr-2 pb-2 text-secondary"> Id </th>
-                                            <th class="col-1 px-2 pb-2 text-secondary"> Type </th>
-                                            <th class="col-2 px-2 pb-2 text-secondary"> Nom </th>
-                                            <th class="col-6 px-2 pb-2 text-secondary"> Description </th>
-                                            <th class="col-1 px-2 pb-2 text-secondary"> Dispo </th>
-                                            <th class="col-1 px-2 pb-2 text-secondary"><i class="fas fa-trash-alt"></i></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="container">
-                                        <%@resources.each do |resource|%>
-                                        <tr class="row">
-                                            <td class="col-1 pr-2 pb-2 h-25"><span class="font-weight-bold text-sm wrap">
-                                                    <%=resource.id%></span></td>
-                                            <td class="col-1 px-2 pb-2 h-25"><span class="font-weight-bold wrap">
-                                                    <%=resource.resource_type%></span></td>
-                                            <td class="col-2 px-2 pb-2 h-25"><span class="text-sm wrap">
-                                                    <%=resource.name%></span></td>
-                                            <td class="col-6 px-2 pb-2 h-25"><span class="text-sm wrap">
-                                                    <%=resource.description%></span></td>
-                                            <td class="col-1 px-2 pb-2 h-25"><span class="text-sm wrap">
-                                                    <%=resource.is_active%></span></td>
-                                            <td class="col-1 px-2 pb-2 h-25"><a href="<%= resource_path(resource) %>"
-                                                    class="text-light" data-toggle="tooltip" data-original-title="Remove item"
-                                                    data-method="DELETE" data-confirm='Vous allez effacer "<%=resource.name%>". Veuillez confirmer.'>
-                                                    <i class="fas fa-trash-alt"></i></a></td>
-                                        </tr>
-                                        <%end%>
-                                    </tbody>
-                                </table>
-                                <!-- resource creation form -->
-                                <br>
-                                <div class="delimiter-top"></div>
-                                <br>
-                                <div>
-                                    <h6 class="mt-2">Ajouter une ressource</h6>
-                                </div>
-                                <div>
-                                    <%= form_for @resource do |form| %>
-                                    <table class="table align-items-center">
-                                        <thead class="thead-light">
-                                            <tr class="row">
-                                                <th class="col-2"> Type </th>
-                                                <th class="col-2"> Nom </th>
-                                                <th class="col-6"> Description </th>
-                                                <th class="col-2"> Disponible ? </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="container">
-                                            <tr class="row">
-                                                <input type="hidden" id="hidden_tag" name="resource[establishment_id]"
-                                                    value="<%=current_user.id%>">
-                                                <td class="col-2">
-                                                    <%=form.select :resource_type, [["salle","salle"],["objet","objet"]], {}, {class: "form-control", style: "width: 100px"}%>
-                                                </td>
-                                                <td class="col-2">
-                                                    <%=form.text_field :name, class:"form-control border-1", placeholder: "Bleue" %>
-                                                </td>
-                                                <td class="col-6">
-                                                    <%=form.text_field :description, class:"form-control border-1", placeholder: "Informations importantes concernant la salle"%>
-                                                </td>
-                                                <td class="col-2">
-                                                    <%=form.select :is_active, [["active",true],["inactive",false]], {}, {class: "form-control", style: "width: 100px"}%>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <%=form.submit "Créer la ressource", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Vous confirmez la création de cette ressource ?"}%>
-                                    </td>
-                                    <% end %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </section>
 </main>

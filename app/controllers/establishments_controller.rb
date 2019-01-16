@@ -61,7 +61,15 @@ before_action :page_belongs_to_user?, only: [:dashboard]
     end 
     @participant = @participants.uniq!
 
-    
+    if @participant == nil
+    @participant = []
+    end 
+
+    p "*" * 50
+    p @participant.inspect
+    p "*" * 50
+    p @participant.class
+
 
   end
 

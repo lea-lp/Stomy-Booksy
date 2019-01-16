@@ -1,11 +1,11 @@
 <div class="simple-calendar weekly">
-  <div class="header">
+  <div class="header justify-content-center">
     <!-- <h2><%= start_date.strftime("%d %B %Y") %></h2> -->
     <h3>
-      <%= link_to '<i class="fas fa-arrow-circle-left"></i> &nbsp; Précédent'.html_safe, calendar.url_for_previous_view, class: "btn" %>
+      <%= link_to '<i class="fas fa-arrow-circle-left"></i> &nbsp; Précédent'.html_safe, calendar.url_for_previous_view, class: "btn text-info" %>
       <%monday =  Date.commercial(start_date.year, start_date.cweek, 1)%>
       Semaine du <%= monday.strftime("%d") %> au <%= (monday + 6.days).strftime("%d")+" "+I18n.t("date.month_names")[(monday + 6.days).strftime("%-m").to_i - 1]  %> 
-      <%= link_to 'Suivant &nbsp; <i class="fas fa-arrow-circle-right"></i>'.html_safe, calendar.url_for_next_view, class: "btn" %>
+      <%= link_to 'Suivant &nbsp; <i class="fas fa-arrow-circle-right"></i>'.html_safe, calendar.url_for_next_view, class: "btn text-info" %>
     </h3>
   </div>
   

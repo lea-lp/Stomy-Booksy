@@ -23,6 +23,9 @@ class Establishment < ApplicationRecord
     events.order(start_time: :asc).select { |e| e.start_time > (DateTime.now) }
   end
 
+  def past_events
+    events.order(start_time: :asc).select { |e| e.start_time <= (DateTime.now) }
+  end
 
   def avatar_attach
     temp_user = self

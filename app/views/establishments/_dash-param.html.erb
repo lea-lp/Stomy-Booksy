@@ -1,0 +1,103 @@
+<!-- PARAMETERS -->
+
+<!-- section title -->
+<h2 class="heading h2 font-weight-bold">
+    <div class="icon icon-shape rounded-circle icon-yellow">
+        <i class="fas fa-project-diagram"></i>
+    </div>
+    &nbsp; Ressources
+</h2>
+
+<!-- resources -->
+
+<!-- resource creation form -->
+
+<h5 class="heading font-weight-bold mt-5"><i class="fas fa-plus-circle"></i> &nbsp; Ajouter une ressource</h5>
+
+<div>
+    <%= form_for @resource do |form| %>
+    <table class="table align-items-center">
+        <thead class="thead-light">
+            <tr class="row">
+                <th class="col-3"> Type </th>
+                <th class="col-6"> Nom </th>
+                <th class="col-3"> Disponible ? </th>
+            </tr>
+        </thead>
+        <tbody class="container">
+            <tr class="row">
+                <input type="hidden" id="hidden_tag" name="resource[establishment_id]" value="<%=current_user.id%>">
+                <td class="col-3">
+                    <%=form.select :resource_type, [["salle","salle"],["objet","objet"]], {}, {class: "form-control", style: "width: 100%"}%>
+                </td>
+                <td class="col-6">
+                    <%=form.text_field :name, class:"form-control border-1", placeholder: "Bleue" %>
+                </td>
+                <td class="col-3">
+                    <%=form.select :is_active, [["active",true],["inactive",false]], {}, {class: "form-control", style: "width: 100%"}%>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table class="table align-items-center">
+        <thead class="thead-light">
+            <tr class="row">
+                <th class="col-12"> Description </th>
+            </tr>
+        </thead>
+        <tbody class="container">
+            <tr class="row">
+                <input type="hidden" id="hidden_tag" name="resource[establishment_id]" value="<%=current_user.id%>">
+                <td class="col-12">
+                    <%=form.text_area :description, class:"form-control border-1", placeholder: "Informations importantes concernant la salle"%>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <%=form.submit "Créer la ressource", class: "btn btn-sm btn-outline-info btn-translate--hover container", data: {confirm: "Vous confirmez la création de cette ressource ?"}%>
+    </td>
+    <% end %>
+</div>
+
+<div class="card mt-4" id="card-resource-list">
+    <div class="card-header border-0">
+
+        <div class="table-responsive" id="hide-resource-list">
+            <table class="table table-hover table-flush align-items-center table-striped">
+                <thead class="thead-light">
+                    <tr class="row">
+                        <th class="col-1 pr-2 pb-2 text-dark"> Id </th>
+                        <th class="col-1 px-2 pb-2 text-dark"> Type </th>
+                        <th class="col-2 px-2 pb-2 text-dark"> Nom </th>
+                        <th class="col-6 px-2 pb-2 text-dark"> Description </th>
+                        <th class="col-1 px-2 pb-2 text-dark"> Dispo </th>
+                        <th class="col-1 px-2 pb-2 text-dark"><i class="fas fa-trash-alt"></i></th>
+                    </tr>
+                </thead>
+                <tbody class="container">
+                    <%@resources.each do |resource|%>
+                    <tr class="row">
+                        <td class="col-1 pr-2 pb-2 h-25"><span class="font-weight-bold text-sm wrap">
+                                <%=resource.id%></span></td>
+                        <td class="col-1 px-2 pb-2 h-25"><span class="font-weight-bold wrap">
+                                <%=resource.resource_type%></span></td>
+                        <td class="col-2 px-2 pb-2 h-25"><span class="text-sm wrap">
+                                <%=resource.name%></span></td>
+                        <td class="col-6 px-2 pb-2 h-25"><span class="text-sm wrap">
+                                <%=resource.description%></span></td>
+                        <td class="col-1 px-2 pb-2 h-25"><span class="text-sm wrap">
+                                <%=resource.is_active%></span></td>
+                        <td class="col-1 px-2 pb-2 h-25"><a href="<%= resource_path(resource) %>" class="text-light"
+                                data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE"
+                                data-confirm='Vous allez effacer "<%=resource.name%>". Veuillez confirmer.'>
+                                <i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
