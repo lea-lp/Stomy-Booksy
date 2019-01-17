@@ -99,13 +99,13 @@
                             <!-- one service  -->
                             <% elsif teacher.services.count == 1 %>
                             <a href="<%=teacher_services_path(teacher.id)%>" class="text-info">
-                                <%= teacher.services.count %> service disponible &nbsp; <i class="fas fa-angle-right"></i>
+                                <strong> <%= teacher.services.count %> service disponible </strong> &nbsp; <i class="fas fa-angle-right"></i>
                             </a>
 
                             <!-- several services  -->
                             <% else %>
                             <a href="<%=teacher_services_path(teacher.id)%>" class="text-info">
-                                <%= teacher.services.count %> services disponibles &nbsp; <i class="fas fa-angle-right"></i>
+                                <strong> <%= teacher.services.count %> services disponibles </strong> &nbsp; <i class="fas fa-angle-right"></i>
                             </a>
                             <% end %>
 

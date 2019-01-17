@@ -92,12 +92,13 @@
                             <!-- one service  -->
                             <% elsif establishment.services.count == 1 %>
                             <a href="<%=establishment_services_path(establishment.id)%>" class="text-info">
-                                <%= establishment.services.count %> service disponible &nbsp; <i class="fas fa-angle-right"></i>
+                                <strong><%= establishment.services.count %> service disponible</strong>  &nbsp; <i class="fas fa-angle-right"></i>
                             </a>
-
+                            
                             <!-- several services  -->
+                            <% else %>
                             <a href="<%=establishment_services_path(establishment.id)%>" class="text-info">
-                                <%= establishment.services.count %> services disponibles &nbsp; <i class="fas fa-angle-right"></i>
+                                <strong><%= establishment.services.count %> services disponibles</strong>  &nbsp; <i class="fas fa-angle-right"></i>
                             </a>
                             <% end %>
 
@@ -113,3 +114,5 @@
         </div>
     </div>
 </section>
+
+

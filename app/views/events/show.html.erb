@@ -1,50 +1,83 @@
 <!-- Modal -->
 <section class="slice bg-white bg cover">
 
-        <div class="row justify-content-center">
-                <div class="col-lg-8 text-center py-4">
-                    <h4 class="heading h3">Votre réservation pour <br> "<%=@service.name%>" </h4>
-                    <p class="lead text-muted">
-                        <%=@service.description%>
-                    </p>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center py-4">
+            <h4 class="heading h3">Votre réservation pour <br> "
+                <%=@service.name%>" </h4>
+            <p class="lead text-muted">
+                <%=@service.description%>
+            </p>
 
-                    <div class="row d-flex justify-content-around pb-5">
+            <div class="row d-flex justify-content-around pb-5">
 
-                        <div class="card" style="width: 14rem;" >
-                            <%= image_tag @teacher.avatar.variant(resize: "300x300"), class: "card-img-top img-fluid"%>
-                            <div class="card-body">
-                                <h5 class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></h5>
-                                <p class="card-text">Professeur</p>
-                                <%= link_to 'voir le profil', teacher_path(@teacher), class: "btn btn-outline-danger btn-sm btn-circle btn-translate--hover" %>
-                            </div>
-                        </div>
+                <div class="card" style="width: 14rem;">
+                    <!-- avatar -->
+                    <% if @teacher.avatar.attached? %>
+                    <%= image_tag @teacher.avatar, class: "image-size" %>
+                    <% else %>
+                    <a href="<%= teacher_path(teacher) %>">
+                        <%= image_tag ("prof2.jpg"), class: "image-size" %>
+                    </a>
+                    <%end%>
+                    <div class="card-body">
+                        <h5 class="h5 card-title">
+                            <%=@teacher.first_name%>
+                            <%=@teacher.last_name%>
+                        </h5>
+                        <p class="card-text">Professeur</p>
+                        <%= link_to 'voir le profil', teacher_path(@teacher), class: "btn btn-outline-danger btn-sm btn-circle btn-translate--hover" %>
+                    </div>
+                </div>
 
-                        <div class="card" style="width: 20rem;" >
-                            <div class="card-body">
-                                <h5 class="h5 card-title">Salle réservée : <%=@resource.name%><br> à: <%=@resource.establishment.name%></h5>
-                                <h5 class="h5 card-title">Le <%=@event.start_time.strftime("%d/%m/%Y")%><br>à <%=@event.start_time.strftime("%Hh%M")%></h5>
-                                <p class="card-text">(Durée: <%=@duration%>)</p>
-                                <p class="card-text"> <strong>Lieu de rendez-vous :</strong> <br> <%=@establishment.address%></p>
-                                <a href="<%=student_path(@student)%>" class="card-text" style="color:grey;" ><strong>Elève: <%=@student.first_name%> <%=@student.last_name%></strong></a>
-
-                            </div>
-                        </div>
-
-                        <div class="card" style="width: 14rem;" >
-                            <%= image_tag @establishment.avatar.variant(resize: "300x300"), class: "card-img-top img-fluid"%>
-                            <div class="card-body">
-                                <h5 class="h5 card-title"><%=@establishment.name%></h5>
-                                <p class="card-text">Établissement</p>
-                                <%= link_to 'voir le profil', establishment_path(@establishment) , class: "btn btn-outline-success btn-sm btn-circle btn-translate--hover" %>
-                            </div>
-                        </div>
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body">
+                        <h5 class="h5 card-title">Salle réservée :
+                            <%=@resource.name%><br> à:
+                            <%=@resource.establishment.name%>
+                        </h5>
+                        <h5 class="h5 card-title">Le
+                            <%=@event.start_time.strftime("%d/%m/%Y")%><br>à
+                            <%=@event.start_time.strftime("%Hh%M")%>
+                        </h5>
+                        <p class="card-text">(Durée:
+                            <%=@duration%>)</p>
+                        <p class="card-text"> <strong>Lieu de rendez-vous :</strong> <br>
+                            <%=@establishment.address%>
+                        </p>
+                        <a href="<%=student_path(@student)%>" class="card-text" style="color:grey;"><strong>Elève:
+                                <%=@student.first_name%>
+                                <%=@student.last_name%></strong></a>
 
                     </div>
-                    <%= link_to "Retour à mon dashboard", get_dashboard(current_user), class: "btn btn-circle btn-primary btn-translate--hover" %>
-                    <a href="<%= event_path(@event) %>" class="mx-5 btn btn-circle btn-danger btn-translate--hover" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=@event.name%>'. Veuillez confirmer." ><i class="fas fa-trash-alt"></i></a>
-
                 </div>
+
+                <div class="card" style="width: 14rem;">
+                    <!-- avatar estab -->
+                    <% if @establishment.avatar.attached? %>
+                    <%= image_tag @establishment.avatar, class: "image-size" %>
+                    <% else %>
+                    <a href="<%= establishment_path(establishment) %>">
+                        <%= image_tag ("prof2.jpg"), class: "image-size" %>
+                    </a>
+                    <% end %>
+                    <div class="card-body">
+                        <h5 class="h5 card-title">
+                            <%=@establishment.name%>
+                        </h5>
+                        <p class="card-text">Établissement</p>
+                        <%= link_to 'voir le profil', establishment_path(@establishment) , class: "btn btn-outline-success btn-sm btn-circle btn-translate--hover" %>
+                    </div>
+                </div>
+
             </div>
+            <%= link_to "Retour à mon dashboard", get_dashboard(current_user), class: "btn btn-circle btn-info btn-translate--hover" %>
+            <a href="<%= event_path(@event) %>" class="mx-5 btn btn-circle btn-danger btn-translate--hover" data-toggle="tooltip"
+                data-original-title="Remove item" data-method="DELETE" data-confirm="Vous allez supprimer l'évènement '<%=@event.name%>'. Veuillez confirmer."><i
+                    class="fas fa-trash-alt"></i></a>
+
         </div>
+    </div>
+    </div>
 
 </section>

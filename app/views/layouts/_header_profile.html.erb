@@ -43,15 +43,15 @@
             </div>
             <% elsif page_type == 'teacher' %>
             <div class="row align-items-center mb-4">
-                <div class="col-md-12" style="text-align: right;">
+                <div class="col-md-12" style="text-align: center;">
                     <span class="h3 mb-0 text-white d-block">
-                        <%= @teacher.first_name %> <strong>
-                            <%= @teacher.last_name %></strong></span>
+                        <%= @teacher.first_name %> <%= @teacher.last_name.upcase %></span>
                     <span class="text-light">
                         <%= @teacher.address %></span>
-                </div>
-                <div class="col-auto flex-fill">
-                    <ul class="list-inline row justify-content-lg-end mb-0">
+                        <br>
+                        <br>
+
+                    <ul class="list-inline row justify-content-lg-center mb-0">
                         <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                             <span class="badge badge-dot text-white">
                                 <i class="bg-orange"></i>Téléphone
@@ -63,9 +63,9 @@
                         </li>
                         <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                             <span class="badge badge-dot text-white">
-                                <i class="bg-green"></i>Contacter ce professeur
+                                <i class="bg-green"></i>Contacter cet établissement
                             </span>
-                            <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="mailto:<%= @teacher.email %>?subject=Message en provenance de Stomy-Booksy&body=Je souhaiterais avoir plus d'informations sur vos cours.">
+                            <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="mailto:<%= @teacher.email %>?subject=Message en provenance de Stomy-Booksy&body=Je souhaiterais avoir plus d'informations sur votre établissement.">
                                 Envoyer un mail
                                 <small class="far fa-angle-up text-success"></small>
                             </a>
@@ -75,15 +75,15 @@
             </div>
             <% elsif page_type == 'student' %>
             <div class="row align-items-center mb-4">
-                <div class="col-md-12" style="text-align: right;">
+                <div class="col-md-12" style="text-align: center;">
                     <span class="h3 mb-0 text-white d-block">
-                        <%= @student.first_name %> <strong>
-                            <%= @student.last_name %></strong></span>
+                        <%= @student.first_name %> <%= @student.last_name.upcase %></span>
                     <span class="text-light">
                         <%= @student.address %></span>
-                </div>
-                <div class="col-auto flex-fill">
-                    <ul class="list-inline row justify-content-lg-end mb-0">
+                        <br>
+                        <br>
+
+                    <ul class="list-inline row justify-content-lg-center mb-0">
                         <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                             <span class="badge badge-dot text-white">
                                 <i class="bg-orange"></i>Téléphone
@@ -94,9 +94,10 @@
                             </span>
                         </li>
                         <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
-                            <span class="badge badge-dot text-white"><i class="bg-green"></i>Contacter cet élève
+                            <span class="badge badge-dot text-white">
+                                <i class="bg-green"></i>Contacter cet établissement
                             </span>
-                            <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="mailto:<%= @student.email %>">
+                            <a class="d-sm-block h6 text-white font-weight-bold pl-2" href="mailto:<%= @student.email %>?subject=Message en provenance de Stomy-Booksy&body=Je souhaiterais avoir plus d'informations sur votre établissement.">
                                 Envoyer un mail
                                 <small class="far fa-angle-up text-success"></small>
                             </a>

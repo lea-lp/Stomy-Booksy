@@ -1,4 +1,4 @@
-<section class="slice bg-gradient-primary" style="padding-top: 2.5em;" id="calendar-card">
+<section class="slice bg-gradient-info" style="padding-top: 2.5em;" id="calendar-card">
 </section>
 
 <section class="slice pb-0 pt-0" style="padding-top: 2.5em;" id="calendar-card">
@@ -60,47 +60,3 @@
     </div>
 </section>
 
-<section class="slice slice-lg pb-250 bg-gradient-primary pt-0" style="padding-bottom: 9em !important;box-shadow: 0px -6px 24px 0px rgba(209,209,209,0.75) !important;
-">
-
-  <div class="container pt-lg">
-      <div class="row" >
-          <div class="col-lg-6" >
-              <h1 class="display-4 text-white lh-110">Réservez votre créneau</h1>
-              <p class="lead mb-4 text-white mt-4"><%=@student.first_name.capitalize%>, un monde de possibilités s'offre à vous.</p>
-              <p class="lead mb-4 text-white mt-4">Voici les paramètres choisis pour votre rendez-vous &nbsp; <i class="fas fa-arrow-circle-right"></i></p>
-
-          </div>
-          <div class="col-lg-3 mr-3">
-            <div class="card" style="width: 16rem;">
-                <a href="<%=establishment_path(@establishment)%>" class="text-center" style="height: auto; width: 100%;">
-                    <%= image_tag @establishment.avatar.variant(resize: "300x300"), style: "width: 100%; height:auto; border-radius:5px;" %>
-                </a>
-                <div class="card-body">
-                    <a href="<%=establishment_path(@establishment)%>" class="h5 card-title"><%=@establishment.name%></a>
-                    <p class="card-text">Établissement</p>
-                    <%=link_to "Voir tous les établissements", establishments_path %>
-                </div>
-            </div>
-        </div>
-        <div class="card" style="width: 16rem;" >
-            <a href="<%=teacher_path(@teacher)%>" class="text-center" style="height: auto; width: 100%;">
-                <%= image_tag @teacher.avatar.variant(resize: "300x300"), style: "width: 100%; height:auto; border-radius:5px;"%>
-            </a>
-            <div class="card-body">
-                <a href="<%=teacher_path(@teacher)%>" class="h5 card-title"><%=@teacher.first_name%> <%=@teacher.last_name%></a>
-                <p class="card-text">Professeur</p>
-                <%=link_to "Voir tous les professeurs", teachers_path %>
-            </div>
-        </div>
-    </div>
-
-    <div class="shape-container" data-shape-style="curve" data-shape-position="bottom">
-        <svg class="shape-fill-white" fill="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMax meet" >
-            <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path>
-        </svg>
-    </div>
-    
-</div>
-</div>
-</section>

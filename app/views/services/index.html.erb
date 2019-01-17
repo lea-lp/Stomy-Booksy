@@ -87,15 +87,15 @@
                             </a>
 
                             <!-- book appointment -->
-                            <div class="pt-2">
+                            <div class="pt-3">
 
                                 <% if current_student %>
                                 <a href="<%=service_events_path(service)%>" class="text-info">
-                                    <u>Réserver un créneau </u> &nbsp; <i class="fas fa-angle-right"></i>
+                                   <strong> Réserver un créneau </strong> &nbsp; <i class="fas fa-angle-right"></i>
                                 </a>
                                 <% else %>
                                 <a href="<%= student_session_path %>" class="text-info">
-                                    <u>Réserver un créneau</u> &nbsp; <i class="fas fa-angle-right"></i>
+                                    <strong> Réserver un créneau </strong> &nbsp; <i class="fas fa-angle-right"></i>
                                 </a>
                                 <% end %>
 

@@ -1,12 +1,12 @@
 <main>
 
-<%= render partial: 'layouts/header_profile', locals: {page_type: 'teacher'} %> 
+    <%= render partial: 'layouts/header_profile', locals: {page_type: 'teacher'} %>
 
-    <section class="pt-5 pt-lg-0 bg-secondary">
+    <section class="pt-5 pt-lg-0 bg-transparent">
         <div class="container">
             <div class="row">
 
-                <%= render partial: 'layouts/card_profile', locals: {page_type: 'teacher'} %> 
+                <%= render partial: 'layouts/card_profile', locals: {page_type: 'teacher'} %>
 
                 <div class="col-md-8 mt-lg-5 mb-5">
 
@@ -18,114 +18,132 @@
                             <!-- Badges -->
                             <div class="d-lg-flex">
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
-                                    <%= image_tag 'img/icons/dusk/svg/natural-user-interface-1.svg', alt: 'icon', style: 'width: 36px' %>
-                                    <div class="media-body pl-2">
-                                        <span class="h6"><%=@teacher.sub_categories.count %> compétence(s)</span>
+                                    <div class="icon icon-sm icon-shape rounded-circle icon-yellow">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div> &nbsp; <div class="media-body pl-2">
+                                        <span class="h6">
+                                            <%=@teacher.sub_categories.count %> compétence(s)</span>
                                     </div>
                                 </a>
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
-                                    <%= image_tag 'img/icons/dusk/svg/in-progress.svg', alt: 'icon', style: 'width: 36px' %>
-                                    <div class="media-body pl-2">
-                                        <span class="h6"><%=@teacher.services.count %> service(s)</span>
+                                    <div class="icon icon-sm icon-shape rounded-circle icon-blue">
+                                        <i class="fas fa-stream"></i>
+                                    </div> &nbsp; <div class="media-body pl-2">
+                                        <span class="h6">
+                                            <%=@teacher.services.count %> service(s)</span>
                                     </div>
                                 </a>
                                 <a class="media d-flex align-items-center mb-3 mb-lg-0">
-                                    <%= image_tag 'img/icons/dusk/svg/collect.svg', alt: 'icon', style: 'width: 36px' %>
-                                    <div class="media-body pl-2">
-                                        <span class="h6"> <%= @teacher.establishments.count %> établissement(s)</span>
+                                    <div class="icon icon-sm icon-shape rounded-circle icon-red">
+                                        <i class="fas fa-warehouse"></i>
+                                    </div> &nbsp; <div class="media-body pl-2">
+                                        <span class="h6">
+                                            <%= @teacher.establishments.count %> établissement(s)</span>
                                     </div>
                                 </a>
                             </div>
                             <div class="pt-5 mt-5 delimiter-top">
                                 <!-- Interests -->
                                 <h6>
-                                    <%= image_tag 'img/icons/dusk/svg/natural-user-interface-1.svg', alt: 'icon', style: 'width: 36px' %> Compétences
+                                    <div class="icon icon-sm icon-shape rounded-circle icon-yellow">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div> &nbsp; Compétences
                                 </h6>
                                 <div>
                                     <% @teacher.sub_categories.each do |sub| %>
-                                        <span class="badge badge-lg badge-info mr-2 mb-2"><%= sub.title %>
+                                    <span class="badge badge-lg badge-info mr-2 mb-2">
+                                        <%= sub.title %>
                                         <% if current_teacher == @teacher %>
-                                            <a href="<%= teacher_teacher_cat_path(current_teacher, sub)%>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm='Vous allez vous supprimer la catégorie "<%=sub.title%>". ÊtesVeuillez confirmer.'>
+                                        <a href="<%= teacher_teacher_cat_path(current_teacher, sub)%>" class="text-light"
+                                            data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE"
+                                            data-confirm='Vous allez vous supprimer la catégorie "<%=sub.title%>". ÊtesVeuillez confirmer.'>
                                             <i class="fas fa-trash-alt"></i>
-                                            </a>
+                                        </a>
                                         <% end %>
-                                        </span>
+                                    </span>
                                     <%end%>
                                 </div>
                                 <br>
                                 <% if current_teacher == @teacher %>
-                            
+
                                 <div class="d-flex justify-content-between text-center">
-                                <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Nouvelle compétence</span>
-                                <div id="jquery">
+                                    <span class="badge badge-lg badge-info mr-2 mb-2" id="hidden">Nouvelle compétence</span>
+                                    <div id="jquery">
                                         <%= form_tag(teacher_teacher_cats_path(@teacher)) do %>
-                                        <div class="d-flex flex-row" >
-                                        <%= select_tag 'sub_category_id', options_from_collection_for_select(@sub_categories, "id", "title"), class: "form-control-sm mx-1" %>
-                                        <%= submit_tag("Ajouter", class: "btn-sm btn-warning") %>
+                                        <div class="d-flex flex-row">
+                                            <%= select_tag 'sub_category_id', options_from_collection_for_select(@sub_categories, "id", "title"), class: "form-control-sm mx-1" %>
+                                            <%= submit_tag("Ajouter", class: "btn-sm btn-warning") %>
                                         </div>
                                         <% end %>
+                                    </div>
+                                    <% end %>
                                 </div>
-                                <% end %>
-                            </div>
-                            <div class="pt-5 mt-5 delimiter-top">
-                                <!-- Interests -->
-                                <h6>
-                                    <%= image_tag 'img/icons/dusk/svg/in-progress.svg', alt: 'icon', style: 'width: 36px' %> Services proposé(s)
-                                </h6>
-                                <div class="row">
-                                    <% @teacher.services.each do |service| %>
-                                     <div class="col-lg-6 mt-4">
+                                <div class="pt-5 mt-5 delimiter-top">
+                                    <!-- Interests -->
+                                    <h6>
+                                        <div class="icon icon-sm icon-shape rounded-circle icon-blue">
+                                            <i class="fas fa-stream"></i>
+                                        </div> &nbsp; Services proposés
+                                    </h6>
+                                    <div class="row">
+                                        <% @teacher.services.each do |service| %>
+                                        <div class="col-lg-6 mt-4">
                                             <div class="card bg-secondary shadow-sm border-0">
-                                                <div class="media align-items-center p-3" >
+                                                <div class="media align-items-center p-3">
                                                     <a href="<%=establishment_path(service.establishment)%>" class="avatar rounded-circle mr-2">
                                                         <%= image_tag service.establishment.avatar.variant(resize: "100x100"), style: "max-width:50px; max-height:50px" %>
-                                                        
+
                                                     </a>
                                                     <div class="media-body">
-                                                        <h6 class="text-sm mb-0"><span class="text-primary"> <strong><%= service.name %></strong></span></h6>
-                                                        <p class="text-sm mb-0"><%= service.sub_category.title.upcase %></p>
-                                                        <p class="text-sm mb-0">Lieu: <%= service.establishment.name%></p>
-                                                        <a href="<%=service_events_path(service)%>"><strong>Réserver un créneau </strong><i class="fas fa-arrow-right"></i></a>
+                                                        <h6 class="text-sm mb-0"><span class="text-primary"> <strong>
+                                                                    <%= service.name %></strong></span></h6>
+                                                        <p class="text-sm mb-0">
+                                                            <%= service.sub_category.title.upcase %>
+                                                        </p>
+                                                        <p class="text-sm mb-0">Lieu:
+                                                            <%= service.establishment.name%>
+                                                        </p>
+                                                        <a href="<%=service_events_path(service)%>"><strong>Réserver un
+                                                                créneau </strong><i class="fas fa-arrow-right"></i></a>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    <% end %>
+                                        <% end %>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="pt-5 mt-5 delimiter-top">
-                                <!-- Endorsements -->
-                                <h6>
-                                    <%= image_tag 'img/icons/dusk/svg/collect.svg', alt: 'icon', style: 'width: 36px' %> Établissement(s)
-                                </h6>
-                                <div class="row">
-                                    <% @teacher.establishments.each do |establishment| %>
-                                    <div class="col-lg-6 mt-4">
-                                        <div class="card bg-secondary shadow-sm border-0">
-                                            <div class="media align-items-center p-3">
-                                                <a href="#" class="avatar rounded-circle mr-2">
-                                                    <%= image_tag establishment.avatar.variant(resize: "100x100"), style: "max-width:50px; max-height:50px"%>
-                                                </a>
-                                                <div class="media-body">
-                                                    <h6 class="text-sm mb-0"> <a href="<%=establishment_path(establishment)%>"><%= establishment.name %></a></h6>
+                                <div class="pt-5 mt-5 delimiter-top">
+                                    <!-- Endorsements -->
+                                    <h6>
+                                        <div class="icon icon-sm icon-shape rounded-circle icon-red">
+                                            <i class="fas fa-warehouse"></i>
+                                        </div> &nbsp; Établissement(s)
+                                    </h6>
+                                    <div class="row">
+                                        <% @teacher.establishments.each do |establishment| %>
+                                        <div class="col-lg-6 mt-4">
+                                            <div class="card bg-secondary shadow-sm border-0">
+                                                <div class="media align-items-center p-3">
+                                                    <a href="#" class="avatar rounded-circle mr-2">
+                                                        <%= image_tag establishment.avatar.variant(resize: "100x100"), style: "max-width:50px; max-height:50px"%>
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h6 class="text-sm mb-0"> <a href="<%=establishment_path(establishment)%>">
+                                                                <%= establishment.name %></a></h6>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <% end %>
+                                        <% end %>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>      
-    <% if current_user %>
-        <%= render 'layouts/logged' %>
-    <% else %>
-        <%= render 'layouts/guest' %>
-    <% end %>
+    </section>
+
 </main>

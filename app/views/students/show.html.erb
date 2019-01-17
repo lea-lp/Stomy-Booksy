@@ -2,7 +2,7 @@
 
 <%= render partial: 'layouts/header_profile', locals: {page_type: 'student'} %> 
 
-    <section class="pt-5 pt-lg-0 bg-secondary">
+    <section class="pt-5 pt-lg-0 bg-transparent">
         <div class="container">
             <div class="row">
 
@@ -33,11 +33,5 @@
             </div>
         </div>
     </section>
-
-    <% if current_user %>
-        <%= render 'layouts/logged' %>
-    <% else %>
-        <%= render 'layouts/guest' %>
-    <% end %>
 
 </main>
