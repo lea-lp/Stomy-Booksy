@@ -84,3 +84,4 @@ gem 'mail'
 # gem 'aws-sdk', '~> 3'
 gem "aws-sdk-s3", require: false
 
+gem 'ransack'

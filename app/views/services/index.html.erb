@@ -11,15 +11,24 @@
                 <h1 class="text-white mb-3">Les Services</h1>
                 <p class="lead text-white lh-180">Retrouvez ici tous les services disponibles sur AwaBooking !</p>
             </div>
+            <%= search_form_for @q do |f| %>
+              <%= f.search_field :name_cont %>
+            <%= f.submit %>
+            <% end %>
+            <%= link_to "Voir tout les services", services_path, class: "btn-sm btn-circle btn-danger" %>
+
         </div>
     </div>
 </section>
+
+
+
 
 <section class="slice-lg bg-transparent" id="top-index">
     <div class="container mt-5">
         <div class="row">
 
-            <% @services.each do |service| %>
+            <% @ransack.each do |service| %>
 
             <div class="col-lg-3 pt-5">
                 <div class="card overflow-hidden" data-animate-hover="2" id="card-index">

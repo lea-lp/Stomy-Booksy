@@ -11,6 +11,11 @@
                 <h1 class="text-white mb-3">Les Établissements</h1>
                 <p class="lead text-white lh-180">Retrouvez ici tous les établissements inscrits sur AwaBooking !</p>
             </div>
+            <%= search_form_for @q do |f| %>
+              <%= f.search_field :name_cont %>
+            <%= f.submit %>
+            <% end %>
+            <%= link_to "Voir tout les établissements", establishments_path, class: "btn-sm btn-circle btn-danger" %>
         </div>
     </div>
 </section>
@@ -20,7 +25,7 @@
     <div class="container mt-5">
         <div class="row">
 
-            <% @establishments.each do |establishment| %>
+            <% @ransack.each do |establishment| %>
 
             <div class="col-lg-3 pt-5">
                 <div class="card overflow-hidden" data-animate-hover="2" id="card-index">
