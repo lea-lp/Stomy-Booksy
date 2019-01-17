@@ -271,9 +271,10 @@
         <div class="card" id="card-resource-add">
             <div class="card-header border-0">
 
-
                 <div id="hide-resource-add">
                     <table class="table table-flush align-items-center">
+                        
+                        <!-- table header -->
                         <thead class="thead-light">
                             <tr class="row">
                                 <th class="col-2 p-3 h-25 text-dark"> Nom </th>
@@ -284,6 +285,8 @@
                                 <th class="col-1 p-3 h-25 text-dark"><i class="fas fa-trash-alt"></i></th>
                             </tr>
                         </thead>
+
+                        <!-- table body -->
                         <tbody class="container">
                             <%@services.each do |service|%>
                             <tr class="row">
