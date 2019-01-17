@@ -29,6 +29,12 @@
     height: 200px;
 }
 
+// PROFILE
+
+#card-profile-sticky {
+    margin-top: -9.2em;
+}
+
 
 // DASHBOARD 
 
@@ -73,3 +79,34 @@
 #dash-table-param {
     height: 70px !important;
 }
+
+
+
+
+
+.tabs input {
+    display: none;
+  }
+  
+  .tabs label {
+    display: inline-block;
+    padding: 6px 0 6px 0;
+    margin: 0 -2px;
+    width: 24%;
+    text-align: center;
+    border: solid 1px white;
+  }
+  
+  .tabs label:hover{
+    cursor: pointer;
+    border: solid 1px black;
+    border-radius: 5px;
+  }
+  
+  .tabs input:checked + label {
+    background-color: #475841;
+    border-color: #475841;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }

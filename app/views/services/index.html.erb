@@ -10,12 +10,29 @@
             <div class="col-lg-10 pl-0">
                 <h1 class="text-white mb-3">Les Services</h1>
                 <p class="lead text-white lh-180">Retrouvez ici tous les services disponibles sur AwaBooking !</p>
+
+                <!-- search form -->
+                <div class="row align-items-center pt-3">
+
+                    <div class="col-6">
+                        <%= search_form_for @q do |f| %>
+                        <%= f.search_field :name_cont, class: "form-control", placeholder: "Trouver un service par type" %>
+                    </div>
+
+                    <div class="col-3">
+                        <%= f.submit "Rechercher", class: "btn-sm btn-circle btn-info" %>
+                    </div>
+                    <% end %>
+
+                    <% if @q.name_cont %>
+                    <div class="col-3">
+                        <%= link_to "Tous les services", services_path, class: "btn-sm btn-circle btn-danger" %>
+                    </div>
+                    <% end %>
+
+                </div>
+
             </div>
-            <%= search_form_for @q do |f| %>
-              <%= f.search_field :name_cont %>
-            <%= f.submit %>
-            <% end %>
-            <%= link_to "Voir tout les services", services_path, class: "btn-sm btn-circle btn-danger" %>
 
         </div>
     </div>
@@ -30,12 +47,14 @@
 
             <% @ransack.each do |service| %>
 
+            <!-- cards -->
             <div class="col-lg-3 pt-5">
                 <div class="card overflow-hidden" data-animate-hover="2" id="card-index">
 
                     <div class="card-body text-center">
 
-                        <h5 class="card-title mb-4">
+                        <!-- name -->
+                        <h5 class="card-title h6 mb-4">
                             <a href="<%= service_path(service) %>" class="text-dark">
                                 <%=service.name%>
                             </a>
@@ -43,13 +62,14 @@
 
                         <div class="mt-3">
 
+                            <!-- duration -->
                             <p class="text-muted mb-2">
                                 <i class="far fa-clock"></i>
                                 <%=service.duration/60%> min </p>
 
                             <hr class="m-3">
 
-
+                            <!-- teacher -->
                             <a href="<%=teacher_path(service.teacher)%>" class="text-muted mb-0">
                                 <strong>Professeur</strong> <br>
                                 <i class="fas fa-user-circle text-danger"></i> &nbsp;
@@ -59,18 +79,28 @@
 
                             <hr class="m-3">
 
+                            <!-- establishment -->
                             <a href="<%=establishment_path(service.establishment)%>" class="text-muted mb-0">
                                 <strong>Établissement</strong> <br>
                                 <i class="fas fa-user-circle text-success"></i> &nbsp;
                                 <%=service.establishment.name%> <br>
-                                <p class="text-light">Salle : <strong>
-                                        <%=service.resource.name%></strong></p>
                             </a>
 
-                            <!-- href à changer (mettre lien pour résa) -->
-                            <a href="<%=service_events_path(service.id)%>" class="text-info">
-                                <u>Réserver un créneau </u> &nbsp; <i class="fas fa-angle-right"></i>
-                            </a>
+                            <!-- book appointment -->
+                            <div class="pt-2">
+
+                                <% if current_student %>
+                                <a href="<%=service_events_path(service)%>" class="text-info">
+                                    <u>Réserver un créneau </u> &nbsp; <i class="fas fa-angle-right"></i>
+                                </a>
+                                <% else %>
+                                <a href="<%= student_session_path %>" class="text-info">
+                                    <u>Réserver un créneau</u> &nbsp; <i class="fas fa-angle-right"></i>
+                                </a>
+                                <% end %>
+
+
+                            </div>
 
                         </div>
 

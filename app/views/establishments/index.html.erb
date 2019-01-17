@@ -10,12 +10,32 @@
             <div class="col-lg-10 pl-0">
                 <h1 class="text-white mb-3">Les Établissements</h1>
                 <p class="lead text-white lh-180">Retrouvez ici tous les établissements inscrits sur AwaBooking !</p>
+
+
+                <!-- search form -->
+                <div class="row align-items-center pt-3">
+
+                    <!-- input field -->
+                    <div class="col-6">
+                        <%= search_form_for @q do |f| %>
+                        <%= f.search_field :name_cont, class: "form-control", placeholder: "Trouver un établissement par nom" %>
+                    </div>
+
+                    <!-- research button -->
+                    <div class="col-3">
+                        <%= f.submit "Rechercher", class: "btn-sm btn-circle btn-info" %>
+                    </div>
+                    <% end %>
+
+                    <!-- all establishments - shows only when research exists -->
+                    <% if @q.name_cont %>
+                    <div class="col-3">
+                        <%= link_to "Tous les établissements", establishments_path, class: "btn-sm btn-circle btn-danger" %>
+                    </div>
+                    <% end %>
+
+                </div>
             </div>
-            <%= search_form_for @q do |f| %>
-              <%= f.search_field :name_cont %>
-            <%= f.submit %>
-            <% end %>
-            <%= link_to "Voir tout les établissements", establishments_path, class: "btn-sm btn-circle btn-danger" %>
         </div>
     </div>
 </section>
@@ -27,12 +47,14 @@
 
             <% @ransack.each do |establishment| %>
 
+            <!-- cards -->
             <div class="col-lg-3 pt-5">
                 <div class="card overflow-hidden" data-animate-hover="2" id="card-index">
 
                     <div class="overflow-hidden">
                         <div class="animate-this text-center">
 
+                            <!-- avatar -->
                             <% if establishment.avatar.attached? %>
                             <%= image_tag establishment.avatar, class: "image-size" %>
                             <% else %>
@@ -46,6 +68,7 @@
 
                     <div class="card-body text-center">
 
+                        <!-- name -->
                         <h5 class="card-title mb-0">
                             <a href="<%= establishment_path(establishment) %>" class="text-dark">
                                 <%=establishment.name%>
@@ -54,19 +77,25 @@
 
                         <div class="mt-3">
 
+                        <!-- see profile -->
                             <a href="<%=establishment_path(establishment.id)%>" class="text-danger">
                                 Voir le profil &nbsp; <i class="fas fa-user-circle"></i>
                             </a>
 
+                            <!-- number of services availables -->
                             <hr class="m-2">
 
+                            <!-- no service -->
                             <% if establishment.services.count == 0 %>
                             <a class="text-light">Pas de service disponible</a>
+
+                            <!-- one service  -->
                             <% elsif establishment.services.count == 1 %>
                             <a href="<%=establishment_services_path(establishment.id)%>" class="text-info">
                                 <%= establishment.services.count %> service disponible &nbsp; <i class="fas fa-angle-right"></i>
                             </a>
-                            <% else %>
+
+                            <!-- several services  -->
                             <a href="<%=establishment_services_path(establishment.id)%>" class="text-info">
                                 <%= establishment.services.count %> services disponibles &nbsp; <i class="fas fa-angle-right"></i>
                             </a>
@@ -78,7 +107,7 @@
 
                 </div>
             </div>
-            
+
             <% end %>
 
         </div>
