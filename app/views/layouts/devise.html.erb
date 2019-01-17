@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>StomyBooksy</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Awa Booking</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= render 'layouts/flash' %> 
-    <%= yield %>
-  </body>
+  <%= favicon_link_tag %>
+
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <%= render 'layouts/flash' %>
+  <%= yield %>
+</body>
+
 </html>

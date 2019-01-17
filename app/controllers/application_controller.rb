@@ -82,11 +82,11 @@ class ApplicationController < ActionController::Base
 
   def get_css_color(class_name)
    if class_name == "Student"
-     return "warning"
+     return "success"
     elsif class_name == "Teacher"
-      return "danger"
+      return "warning"
     elsif class_name == "Establishment"
-      return "success"
+      return "danger"
     end
   end
 
