@@ -2,15 +2,14 @@ class ServicesController < ApplicationController
 
   def index
     @q = Service.ransack(params[:q])
-    @ransack = @q.result(distinct: true)
     if params[:establishment_id]
       @establishment = Establishment.find(params[:establishment_id])
-      @services = @establishment.services
+      @ransack = @establishment.services
     elsif params[:teacher_id]
       @teacher = Teacher.find(params[:teacher_id])
-      @services = @teacher.services
+      @ransack = @teacher.services
     else
-      @services = Service.all
+      @ransack = @q.result(distinct: true)
     end
     @establishments = Establishment.all
     @teachers = Teacher.all
