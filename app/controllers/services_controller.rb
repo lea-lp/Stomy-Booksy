@@ -24,7 +24,7 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
 
     if @service.save
-      flash[:success]="Le service a bien été créé!"
+      flash[:success]="Le service a bien été créé !"
       redirect_back(fallback_location: root_path)
       return
     else
@@ -37,7 +37,7 @@ class ServicesController < ApplicationController
   def destroy
     @service = Service.find(params[:id])
     @service.destroy
-    flash[:success]="Le service a bien été détruit!"
+    flash[:success]="Le service a bien été détruit !"
     redirect_back(fallback_location: root_path)
   end
 

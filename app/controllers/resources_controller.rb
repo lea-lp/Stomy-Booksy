@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
 
   def destroy
     @resource.destroy
-    flash[:success]="resource was successfully destroyed"
+    flash[:success]="Votre ressource a été supprimée"
     redirect_back(fallback_location: root_path)
   end
 
@@ -11,7 +11,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.new(resource_params)
 
     if @resource.save
-      flash[:success]="resource was successfully created"
+      flash[:success]="Votre ressource a été crée avec succès"
       redirect_back(fallback_location: root_path)
       return
     else
